@@ -1,54 +1,54 @@
 
-### Vıjimky a chyby v jazyce C#  
+### VÃ½jimky a chyby v jazyce C#  
 
-Vıjimky (exceptions) jsou mechanismus pro **zachycení a zpracování chyb** bìhem bìhu programu. Umoòují oddìlit normální logiku od chybovıch stavù a zajistit kontrolovanı pád aplikace. Zde je pøehled klíèovıch konceptù:
+VÃ½jimky (exceptions) jsou mechanismus pro **zachycenÃ­ a zpracovÃ¡nÃ­ chyb** bÄ›hem bÄ›hu programu. UmoÅ¾ÅˆujÃ­ oddÄ›lit normÃ¡lnÃ­ logiku od chybovÃ½ch stavÅ¯ a zajistit kontrolovanÃ½ pÃ¡d aplikace. Zde je pÅ™ehled klÃ­ÄovÃ½ch konceptÅ¯:
 
 ---
 
-#### **1. Základní struktura: `try`-`catch`-`finally`**  
+#### **1. ZÃ¡kladnÃ­ struktura: `try`-`catch`-`finally`**  
 
-- **`try`**: Blok kódu, kde mùe dojít k vıjimce.  
-- **`catch`**: Zpracuje konkrétní typ vıjimky.  
-- **`finally`**: Vdy se provede (èištìní zdrojù, napø. uzavøení souborù).  
+- **`try`**: Blok kÃ³du, kde mÅ¯Å¾e dojÃ­t k vÃ½jimce.  
+- **`catch`**: Zpracuje konkrÃ©tnÃ­ typ vÃ½jimky.  
+- **`finally`**: VÅ¾dy se provede (ÄiÅ¡tÄ›nÃ­ zdrojÅ¯, napÅ™. uzavÅ™enÃ­ souborÅ¯).  
 
-**Pøíklad**:  
+**PÅ™Ã­klad**:  
 ```csharp
 try
 {
-    int cislo = int.Parse("abc"); // Vyvolá FormatException
+    int cislo = int.Parse("abc"); // VyvolÃ¡ FormatException
 }
 catch (FormatException ex)
 {
-    Console.WriteLine($"Chybnı formát: {ex.Message}");
+    Console.WriteLine($"ChybnÃ½ formÃ¡t: {ex.Message}");
 }
-catch (Exception ex) // Obecná vıjimka (shora dolù – musí bıt poslední)
+catch (Exception ex) // ObecnÃ¡ vÃ½jimka (shora dolÅ¯ â€“ musÃ­ bÃ½t poslednÃ­)
 {
-    Console.WriteLine($"Neznámá chyba: {ex.Message}");
+    Console.WriteLine($"NeznÃ¡mÃ¡ chyba: {ex.Message}");
 }
 finally
 {
-    Console.WriteLine("Uklízím zdroje...");
+    Console.WriteLine("UklÃ­zÃ­m zdroje...");
 }
 ```
 
 ---
 
-#### **2. Typy vıjimek**  
+#### **2. Typy vÃ½jimek**  
 
-- Všechny vıjimky dìdí ze tøídy **`System.Exception`**.  
-- **Bìné vestavìné vıjimky**:  
-  - `FormatException`: Neplatnı formát (napø. parsování øetìzce).  
-  - `NullReferenceException`: Pokus o pøístup k `null` objektu.  
+- VÅ¡echny vÃ½jimky dÄ›dÃ­ ze tÅ™Ã­dy **`System.Exception`**.  
+- **BÄ›Å¾nÃ© vestavÄ›nÃ© vÃ½jimky**:  
+  - `FormatException`: NeplatnÃ½ formÃ¡t (napÅ™. parsovÃ¡nÃ­ Å™etÄ›zce).  
+  - `NullReferenceException`: Pokus o pÅ™Ã­stup k `null` objektu.  
   - `ArgumentNullException`: Argument metody je `null`.  
-  - `IndexOutOfRangeException`: Pøekroèení rozsahu pole.  
-  - `InvalidOperationException`: Neplatná operace (napø. zmìna kolekce bìhem iterace).  
+  - `IndexOutOfRangeException`: PÅ™ekroÄenÃ­ rozsahu pole.  
+  - `InvalidOperationException`: NeplatnÃ¡ operace (napÅ™. zmÄ›na kolekce bÄ›hem iterace).  
 
 ---
 
-#### **3. Vyvolání vıjimky: `throw`**  
+#### **3. VyvolÃ¡nÃ­ vÃ½jimky: `throw`**  
 
-- Lze vyvolat libovolnou vıjimku pomocí `throw`.  
-- **Doporuèení**: Zachovejte pùvodní stack trace pomocí `throw;` (ne `throw ex;`).  
+- Lze vyvolat libovolnou vÃ½jimku pomocÃ­ `throw`.  
+- **DoporuÄenÃ­**: Zachovejte pÅ¯vodnÃ­ stack trace pomocÃ­ `throw;` (ne `throw ex;`).  
 ```csharp
 try
 {
@@ -56,17 +56,17 @@ try
 }
 catch (Exception ex)
 {
-    Console.WriteLine("Logování chyby...");
-    throw; // Pùvodní vıjimka se propaguje dál
+    Console.WriteLine("LogovÃ¡nÃ­ chyby...");
+    throw; // PÅ¯vodnÃ­ vÃ½jimka se propaguje dÃ¡l
 }
 ```
 
 ---
 
-#### **4. Vlastní vıjimky**  
+#### **4. VlastnÃ­ vÃ½jimky**  
 
-- Vytvoøte tøídu odvozenou od `Exception`.  
-- **Pøíklad**:  
+- VytvoÅ™te tÅ™Ã­du odvozenou od `Exception`.  
+- **PÅ™Ã­klad**:  
 ```csharp
 public class MojException : Exception
 {
@@ -74,32 +74,32 @@ public class MojException : Exception
     public MojException(string message, Exception inner) : base(message, inner) { }
 }
 
-// Pouití
-throw new MojException("Vlastní chyba");
+// PouÅ¾itÃ­
+throw new MojException("VlastnÃ­ chyba");
 ```
 
 ---
 
-#### **5. Filtrování vıjimek pomocí `when`**  
+#### **5. FiltrovÃ¡nÃ­ vÃ½jimek pomocÃ­ `when`**  
 
-- Podmínìné zpracování vıjimek:  
+- PodmÃ­nÄ›nÃ© zpracovÃ¡nÃ­ vÃ½jimek:  
 ```csharp
 try
 {
     int x = 0;
-    int y = 10 / x; // Vyvolá DivideByZeroException
+    int y = 10 / x; // VyvolÃ¡ DivideByZeroException
 }
 catch (DivideByZeroException ex) when (x == 0)
 {
-    Console.WriteLine("Dìlení nulou!");
+    Console.WriteLine("DÄ›lenÃ­ nulou!");
 }
 ```
 
 ---
 
-#### **6. Zpracování vıjimek v asynchronním kódu**  
+#### **6. ZpracovÃ¡nÃ­ vÃ½jimek v asynchronnÃ­m kÃ³du**  
 
-- Vıjimky v `async` metodách se propagují jako `AggregateException` nebo pøes `await`:  
+- VÃ½jimky v `async` metodÃ¡ch se propagujÃ­ jako `AggregateException` nebo pÅ™es `await`:  
 ```csharp
 try
 {
@@ -107,60 +107,60 @@ try
 }
 catch (InvalidOperationException)
 {
-    Console.WriteLine("Chyba v asynchronní operaci");
+    Console.WriteLine("Chyba v asynchronnÃ­ operaci");
 }
 ```
 
 ---
 
-#### **7. Doporuèené postupy**  
+#### **7. DoporuÄenÃ© postupy**  
 
-- **Specifické vıjimky**: Chytejte nejdøíve konkrétní vıjimky, poté obecné.  
-- **Logování**: Vdy zaznamenávejte detaily vıjimky (`Message`, `StackTrace`, `InnerException`).  
-- **Obnova stavu**: V `finally` nebo pomocí `using` pro èištìní zdrojù (napø. `IDisposable`).  
-- **Nepouívejte prázdné `catch` bloky**:  
+- **SpecifickÃ© vÃ½jimky**: Chytejte nejdÅ™Ã­ve konkrÃ©tnÃ­ vÃ½jimky, potÃ© obecnÃ©.  
+- **LogovÃ¡nÃ­**: VÅ¾dy zaznamenÃ¡vejte detaily vÃ½jimky (`Message`, `StackTrace`, `InnerException`).  
+- **Obnova stavu**: V `finally` nebo pomocÃ­ `using` pro ÄiÅ¡tÄ›nÃ­ zdrojÅ¯ (napÅ™. `IDisposable`).  
+- **NepouÅ¾Ã­vejte prÃ¡zdnÃ© `catch` bloky**:  
   ```csharp
-  catch (Exception) { } // Špatnì – skrytá chyba!
+  catch (Exception) { } // Å patnÄ› â€“ skrytÃ¡ chyba!
   ```
 
 ---
 
-#### **8. Èasté chyby**  
+#### **8. ÄŒastÃ© chyby**  
 
-- **Ignorování vıjimek**: Prázdné `catch` bloky.  
-- **Pøíliš široké zachycení**: `catch (Exception ex)` bez další analızy.  
-- **Memory leaks**: Neuzavøení zdrojù (soubory, databáze) pøi chybì.  
+- **IgnorovÃ¡nÃ­ vÃ½jimek**: PrÃ¡zdnÃ© `catch` bloky.  
+- **PÅ™Ã­liÅ¡ Å¡irokÃ© zachycenÃ­**: `catch (Exception ex)` bez dalÅ¡Ã­ analÃ½zy.  
+- **Memory leaks**: NeuzavÅ™enÃ­ zdrojÅ¯ (soubory, databÃ¡ze) pÅ™i chybÄ›.  
 
 ---
 
-#### **9. Nástroje a techniky pro ladìní**  
+#### **9. NÃ¡stroje a techniky pro ladÄ›nÃ­**  
 
-- **Debugger**: Breakpointy v `catch` blocích.  
-- **Logování**: Nástroje jako Serilog, NLog nebo `System.Diagnostics.Trace`.  
-- **Globalní zachycení**:  
+- **Debugger**: Breakpointy v `catch` blocÃ­ch.  
+- **LogovÃ¡nÃ­**: NÃ¡stroje jako Serilog, NLog nebo `System.Diagnostics.Trace`.  
+- **GlobalnÃ­ zachycenÃ­**:  
   ```csharp
   AppDomain.CurrentDomain.UnhandledException += (sender, args) => 
   {
-      Console.WriteLine("Nezachycená vıjimka: " + args.ExceptionObject.ToString());
+      Console.WriteLine("NezachycenÃ¡ vÃ½jimka: " + args.ExceptionObject.ToString());
   };
   ```
 
 ---
 
-#### **10. Ukázka pouití `using` pro èištìní zdrojù**  
+#### **10. UkÃ¡zka pouÅ¾itÃ­ `using` pro ÄiÅ¡tÄ›nÃ­ zdrojÅ¯**  
 
 ```csharp
 using (var stream = new FileStream("soubor.txt", FileMode.Open))
 {
-    // Práce se souborem
-} // Automaticky volá stream.Dispose() i pøi vıjimce
+    // PrÃ¡ce se souborem
+} // Automaticky volÃ¡ stream.Dispose() i pÅ™i vÃ½jimce
 ```
 
 ---
 
-#### **11. Vıjimky vs. Návratové kódy**  
+#### **11. VÃ½jimky vs. NÃ¡vratovÃ© kÃ³dy**  
 
-- **Vıhody vıjimek**:  
-  - Oddìlení chybové logiky od bìného kódu.  
-  - Automatická propagace napøíè zásobníkem volání.  
-- **Nevıhody**: Nároènost na vıkon (pouívejte jen pro vıjimeèné situace).  
+- **VÃ½hody vÃ½jimek**:  
+  - OddÄ›lenÃ­ chybovÃ© logiky od bÄ›Å¾nÃ©ho kÃ³du.  
+  - AutomatickÃ¡ propagace napÅ™Ã­Ä zÃ¡sobnÃ­kem volÃ¡nÃ­.  
+- **NevÃ½hody**: NÃ¡roÄnost na vÃ½kon (pouÅ¾Ã­vejte jen pro vÃ½jimeÄnÃ© situace).  

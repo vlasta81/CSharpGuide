@@ -1,4 +1,4 @@
-﻿
+
 ### **`DefaultIfEmpty`**  
 
 Metoda `DefaultIfEmpty` slouží k **zajištění neprázdného výsledku** pro LINQ dotazy. Pokud je zdrojová kolekce prázdná, vrátí sekvenci obsahující **výchozí hodnotu**, což zabraňuje chybám při práci s neexistujícími daty. Je užitečná zejména při **left outer joins** a zpracování potenciálně prázdných kolekcí.

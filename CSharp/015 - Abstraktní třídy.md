@@ -1,24 +1,24 @@
 
-### **1. Definice abstraktní tøídy**  
+### **1. Definice abstraktnÃ­ tÅ™Ã­dy**  
 
-- **Nelze instancovat**: Slouí pouze jako **základ pro odvozené tøídy**.  
-- **Úèel**: Definuje spoleènou strukturu a èásteènou implementaci pro podtøídy.  
-- **Klíèové vlastnosti**:  
-  - Mùe obsahovat **abstraktní metody** (bez implementace) i **konkrétní metody** (s implementací).  
-  - Mùe mít **pole, vlastnosti, konstruktory**.  
-  - Pouívá klíèové slovo `abstract`.
+- **Nelze instancovat**: SlouÅ¾Ã­ pouze jako **zÃ¡klad pro odvozenÃ© tÅ™Ã­dy**.  
+- **ÃšÄel**: Definuje spoleÄnou strukturu a ÄÃ¡steÄnou implementaci pro podtÅ™Ã­dy.  
+- **KlÃ­ÄovÃ© vlastnosti**:  
+  - MÅ¯Å¾e obsahovat **abstraktnÃ­ metody** (bez implementace) i **konkrÃ©tnÃ­ metody** (s implementacÃ­).  
+  - MÅ¯Å¾e mÃ­t **pole, vlastnosti, konstruktory**.  
+  - PouÅ¾Ã­vÃ¡ klÃ­ÄovÃ© slovo `abstract`.
 
 ---
 
-### **2. Syntaxe a pøíklad**  
+### **2. Syntaxe a pÅ™Ã­klad**  
 
 ```csharp
 public abstract class Zvire 
 {
-    // Abstraktní metoda (nemá tìlo)
+    // AbstraktnÃ­ metoda (nemÃ¡ tÄ›lo)
     public abstract void VydavejZvuk();
 
-    // Konkrétní metoda (má implementaci)
+    // KonkrÃ©tnÃ­ metoda (mÃ¡ implementaci)
     public void Spi() 
     {
         Console.WriteLine("Zzz...");
@@ -27,7 +27,7 @@ public abstract class Zvire
 
 public class Pes : Zvire 
 {
-    // Implementace abstraktní metody
+    // Implementace abstraktnÃ­ metody
     public override void VydavejZvuk() 
     {
         Console.WriteLine("Haf!");
@@ -37,22 +37,22 @@ public class Pes : Zvire
 
 ---
 
-### **3. Klíèové vlastnosti**  
+### **3. KlÃ­ÄovÃ© vlastnosti**  
 
-#### **a) Abstraktní metody**  
+#### **a) AbstraktnÃ­ metody**  
 
-- **Nemají implementaci**: Jen signaturu.  
-- **Odvozené tøídy je musí pøepsat** (pomocí `override`).  
-- Nelze oznaèit jako `private` nebo `static`.
+- **NemajÃ­ implementaci**: Jen signaturu.  
+- **OdvozenÃ© tÅ™Ã­dy je musÃ­ pÅ™epsat** (pomocÃ­ `override`).  
+- Nelze oznaÄit jako `private` nebo `static`.
 
-#### **b) Konkrétní metody**  
+#### **b) KonkrÃ©tnÃ­ metody**  
 
-- Mohou obsahovat vıchozí implementaci.  
-- Lze je **pøepsat** v odvozenıch tøídách (s `virtual` nebo `override`).
+- Mohou obsahovat vÃ½chozÃ­ implementaci.  
+- Lze je **pÅ™epsat** v odvozenÃ½ch tÅ™Ã­dÃ¡ch (s `virtual` nebo `override`).
 
 #### **c) Konstruktory**  
 
-- Abstraktní tøídy **mají konstruktory**, které volají odvozené tøídy.  
+- AbstraktnÃ­ tÅ™Ã­dy **majÃ­ konstruktory**, kterÃ© volajÃ­ odvozenÃ© tÅ™Ã­dy.  
 ```csharp
 public abstract class Tvar 
 {
@@ -72,42 +72,42 @@ public class Kruh : Tvar
 
 ---
 
-### **4. Porovnání s rozhraním (`interface`)** 
+### **4. PorovnÃ¡nÃ­ s rozhranÃ­m (`interface`)** 
 
-| **Vlastnost**       | **Abstraktní tøída**      | **Rozhraní**             |  
+| **Vlastnost**       | **AbstraktnÃ­ tÅ™Ã­da**      | **RozhranÃ­**             |  
 |----------------------|---------------------------|--------------------------|  
-| **Implementace**     | Mùe obsahovat kód        | Pouze signatury metod    |  
-| **Dìdiènost**        | Jedna tøída               | Více rozhraní            |  
-| **Pole/Vlastnosti**  | Ano (i nekonstantní)      | Jen automatické vlastnosti |  
+| **Implementace**     | MÅ¯Å¾e obsahovat kÃ³d        | Pouze signatury metod    |  
+| **DÄ›diÄnost**        | Jedna tÅ™Ã­da               | VÃ­ce rozhranÃ­            |  
+| **Pole/Vlastnosti**  | Ano (i nekonstantnÃ­)      | Jen automatickÃ© vlastnosti |  
 | **Konstruktory**     | Ano                       | Ne                       |  
 
 ---
 
-### **5. Kdy pouít abstraktní tøídu?**  
+### **5. Kdy pouÅ¾Ã­t abstraktnÃ­ tÅ™Ã­du?**  
 
-1. **Sdílení kódu mezi podtøídami**: Napø. základní funkcionalita pro `Zvire`.  
-2. **Vynucení spoleèného chování**: Nutnost implementace abstraktních metod.  
-3. **Èásteèná implementace**: Kombinace hotovıch a nedokonèenıch metod.
+1. **SdÃ­lenÃ­ kÃ³du mezi podtÅ™Ã­dami**: NapÅ™. zÃ¡kladnÃ­ funkcionalita pro `Zvire`.  
+2. **VynucenÃ­ spoleÄnÃ©ho chovÃ¡nÃ­**: Nutnost implementace abstraktnÃ­ch metod.  
+3. **ÄŒÃ¡steÄnÃ¡ implementace**: Kombinace hotovÃ½ch a nedokonÄenÃ½ch metod.
 
 ---
 
-### **6. Bìné chyby**  
+### **6. BÄ›Å¾nÃ© chyby**  
 
-- **Pokus o instanci abstraktní tøídy**:  
+- **Pokus o instanci abstraktnÃ­ tÅ™Ã­dy**:  
   ```csharp
   Zvire zvire = new Zvire(); // Chyba kompilace!
   ```  
-- **Zapomenuté pøepsání abstraktní metody**:  
+- **ZapomenutÃ© pÅ™epsÃ¡nÃ­ abstraktnÃ­ metody**:  
   ```csharp
   public class Kocka : Zvire { } // Chyba: Neimplementuje VydavejZvuk()
   ```  
-- **Pouití `virtual` u abstraktních metod**: Abstraktní metody nelze oznaèit jako `virtual` (implicitnì virtuální).
+- **PouÅ¾itÃ­ `virtual` u abstraktnÃ­ch metod**: AbstraktnÃ­ metody nelze oznaÄit jako `virtual` (implicitnÄ› virtuÃ¡lnÃ­).
 
 ---
 
-### **7. Ukázky kódu**  
+### **7. UkÃ¡zky kÃ³du**  
 
-#### **Abstraktní tøída s vlastnostmi**  
+#### **AbstraktnÃ­ tÅ™Ã­da s vlastnostmi**  
 
 ```csharp
 public abstract class Ucet 
@@ -143,15 +143,15 @@ public class SporiciUcet : Ucet
 }
 ```
 
-#### **Abstraktní tøída s konkrétními metodami** 
+#### **AbstraktnÃ­ tÅ™Ã­da s konkrÃ©tnÃ­mi metodami** 
 
 ```csharp
 public abstract class Logovac 
 {
-    // Abstraktní metoda
+    // AbstraktnÃ­ metoda
     public abstract void Loguj(string zprava);
 
-    // Konkrétní metoda
+    // KonkrÃ©tnÃ­ metoda
     public void LogujChybu(string zprava) 
     {
         Loguj($"CHYBA: {zprava}");
@@ -169,6 +169,6 @@ public class SouborovyLogovac : Logovac
 
 ---
 
-### **8. Doporuèené zdroje**  
+### **8. DoporuÄenÃ© zdroje**  
 
-- **Oficiální dokumentace**: [Abstract Classes in C#](https://learn.microsoft.com/cs-cz/dotnet/csharp/language-reference/keywords/abstract)  
+- **OficiÃ¡lnÃ­ dokumentace**: [Abstract Classes in C#](https://learn.microsoft.com/cs-cz/dotnet/csharp/language-reference/keywords/abstract)  

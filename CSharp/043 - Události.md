@@ -1,45 +1,45 @@
 
-### Události v jazyce C#  
+### UdÃ¡losti v jazyce C#  
 
-Události (events) slouí k implementaci **mechanismu oznámení** mezi objekty. Umoòují tøídì (vydavateli) informovat ostatní tøídy (odbìratele) o zmìnách nebo akcích (napø. kliknutí na tlaèítko, zmìna dat). Jsou zaloeny na **delegátech** a jsou klíèové pro **event-driven programování**. Zde je jejich pøehled:
-
----
-
-#### **1. Základní koncepty**  
-
-- **Vydavatel (Publisher)**: Tøída, která deklaruje a vyvolává událost.  
-- **Odbìratel (Subscriber)**: Tøída, která reaguje na událost.  
-- **Mechanismus**: Odbìratel se registruje k události pomocí **delegátù** a pøi jejím vyvolání se spustí jeho metoda.
+UdÃ¡losti (events) slouÅ¾Ã­ k implementaci **mechanismu oznÃ¡menÃ­** mezi objekty. UmoÅ¾ÅˆujÃ­ tÅ™Ã­dÄ› (vydavateli) informovat ostatnÃ­ tÅ™Ã­dy (odbÄ›ratele) o zmÄ›nÃ¡ch nebo akcÃ­ch (napÅ™. kliknutÃ­ na tlaÄÃ­tko, zmÄ›na dat). Jsou zaloÅ¾eny na **delegÃ¡tech** a jsou klÃ­ÄovÃ© pro **event-driven programovÃ¡nÃ­**. Zde je jejich pÅ™ehled:
 
 ---
 
-#### **2. Deklarace a pouití události**  
+#### **1. ZÃ¡kladnÃ­ koncepty**  
 
-- Událost se deklaruje pomocí klíèového slova **`event`** a delegáta.  
-- **Standardní schéma**:  
+- **Vydavatel (Publisher)**: TÅ™Ã­da, kterÃ¡ deklaruje a vyvolÃ¡vÃ¡ udÃ¡lost.  
+- **OdbÄ›ratel (Subscriber)**: TÅ™Ã­da, kterÃ¡ reaguje na udÃ¡lost.  
+- **Mechanismus**: OdbÄ›ratel se registruje k udÃ¡losti pomocÃ­ **delegÃ¡tÅ¯** a pÅ™i jejÃ­m vyvolÃ¡nÃ­ se spustÃ­ jeho metoda.
+
+---
+
+#### **2. Deklarace a pouÅ¾itÃ­ udÃ¡losti**  
+
+- UdÃ¡lost se deklaruje pomocÃ­ klÃ­ÄovÃ©ho slova **`event`** a delegÃ¡ta.  
+- **StandardnÃ­ schÃ©ma**:  
   ```csharp
   public class Vydavatel
   {
-      // Deklarace události
+      // Deklarace udÃ¡losti
       public event EventHandler? Zmena;
 
-      // Metoda pro vyvolání události
+      // Metoda pro vyvolÃ¡nÃ­ udÃ¡losti
       protected virtual void OnZmena()
       {
-          Zmena?.Invoke(this, EventArgs.Empty); // Bezpeèné volání
+          Zmena?.Invoke(this, EventArgs.Empty); // BezpeÄnÃ© volÃ¡nÃ­
       }
   }
   ```
 
 ---
 
-#### **3. Pøeddefinované delegáty pro události**  
+#### **3. PÅ™eddefinovanÃ© delegÃ¡ty pro udÃ¡losti**  
 
-- **`EventHandler`**: Základní delegát pro události bez dat.  
+- **`EventHandler`**: ZÃ¡kladnÃ­ delegÃ¡t pro udÃ¡losti bez dat.  
   ```csharp
   public event EventHandler? Kliknuti;
   ```  
-- **`EventHandler<TEventArgs>`**: Událost s vlastními daty.  
+- **`EventHandler<TEventArgs>`**: UdÃ¡lost s vlastnÃ­mi daty.  
   ```csharp
   public class MojeEventArgs : EventArgs
   {
@@ -51,24 +51,24 @@ Události (events) slouí k implementaci **mechanismu oznámení** mezi objekty. Um
 
 ---
 
-#### **4. Pøihlašování a odhlašování odbìratelù**  
+#### **4. PÅ™ihlaÅ¡ovÃ¡nÃ­ a odhlaÅ¡ovÃ¡nÃ­ odbÄ›ratelÅ¯**  
 
-- Odbìratelé pouívají operátory **`+=`** (pøidání) a **`-=`** (odebrání).  
-- **Pøíklad**:  
+- OdbÄ›ratelÃ© pouÅ¾Ã­vajÃ­ operÃ¡tory **`+=`** (pÅ™idÃ¡nÃ­) a **`-=`** (odebrÃ¡nÃ­).  
+- **PÅ™Ã­klad**:  
   ```csharp
   Vydavatel vydavatel = new Vydavatel();
-  vydavatel.Zmena += (sender, e) => Console.WriteLine("Událost vyvolána!");
+  vydavatel.Zmena += (sender, e) => Console.WriteLine("UdÃ¡lost vyvolÃ¡na!");
 
-  // Vyvolání události
-  vydavatel.OnZmena(); // Vıstup: "Událost vyvolána!"
+  // VyvolÃ¡nÃ­ udÃ¡losti
+  vydavatel.OnZmena(); // VÃ½stup: "UdÃ¡lost vyvolÃ¡na!"
   ```
 
 ---
 
-#### **5. Vlastní data události**  
+#### **5. VlastnÃ­ data udÃ¡losti**  
 
-- Data se pøedávají pomocí tøídy odvozené od **`EventArgs`**.  
-- **Pøíklad**:  
+- Data se pÅ™edÃ¡vajÃ­ pomocÃ­ tÅ™Ã­dy odvozenÃ© od **`EventArgs`**.  
+- **PÅ™Ã­klad**:  
   ```csharp
   public class TeplotaEventArgs : EventArgs
   {
@@ -88,46 +88,46 @@ Události (events) slouí k implementaci **mechanismu oznámení** mezi objekty. Um
 
 ---
 
-#### **6. Anonymní metody a lambdy**  
+#### **6. AnonymnÃ­ metody a lambdy**  
 
-- Události lze obsluhovat anonymními metodami nebo lambda vırazy:  
+- UdÃ¡losti lze obsluhovat anonymnÃ­mi metodami nebo lambda vÃ½razy:  
   ```csharp
   Teplomer teplomer = new Teplomer();
   teplomer.TeplotaZmenena += (sender, e) => 
   {
-      Console.WriteLine($"Nová teplota: {e.NovaTeplota}°C");
+      Console.WriteLine($"NovÃ¡ teplota: {e.NovaTeplota}Â°C");
   };
   ```
 
 ---
 
-#### **7. Bezpeènost vláken**  
+#### **7. BezpeÄnost vlÃ¡ken**  
 
-- Pøi vyvolávání událostí v multithreadovém prostøedí vdy zkontrolujte, zda není událost `null`:  
+- PÅ™i vyvolÃ¡vÃ¡nÃ­ udÃ¡lostÃ­ v multithreadovÃ©m prostÅ™edÃ­ vÅ¾dy zkontrolujte, zda nenÃ­ udÃ¡lost `null`:  
   ```csharp
   var handler = TeplotaZmenena;
-  handler?.Invoke(this, e); // Kopie pro thread-safe volání
+  handler?.Invoke(this, e); // Kopie pro thread-safe volÃ¡nÃ­
   ```
 
 ---
 
-#### **8. Èasté chyby**  
+#### **8. ÄŒastÃ© chyby**  
 
-- **Memory leaks**: Zapomenutí odhlásit odbìratele (udruje objekt v pamìti).  
-- **Nesprávné pouití `Invoke`**: Vyvolání události bez kontroly `null`.  
-- **Pouití veøejnıch delegátù místo `event`**: Narušení zapouzdøení.  
-
----
-
-#### **9. Doporuèené postupy**  
-
-- Pouívejte **`EventHandler<T>`** pro vlastní data namísto vlastních delegátù.  
-- Pro vyvolání události vytvoøte **chránìnou metodu** (napø. `OnZmena`), aby ji mohly pøepsat odvozené tøídy.  
-- Odhlašujte odbìratele, pokud ji nejsou potøeba (napø. v `Dispose`).  
+- **Memory leaks**: ZapomenutÃ­ odhlÃ¡sit odbÄ›ratele (udrÅ¾uje objekt v pamÄ›ti).  
+- **NesprÃ¡vnÃ© pouÅ¾itÃ­ `Invoke`**: VyvolÃ¡nÃ­ udÃ¡losti bez kontroly `null`.  
+- **PouÅ¾itÃ­ veÅ™ejnÃ½ch delegÃ¡tÅ¯ mÃ­sto `event`**: NaruÅ¡enÃ­ zapouzdÅ™enÃ­.  
 
 ---
 
-#### **10. Ukázka reálného pouití**  
+#### **9. DoporuÄenÃ© postupy**  
+
+- PouÅ¾Ã­vejte **`EventHandler<T>`** pro vlastnÃ­ data namÃ­sto vlastnÃ­ch delegÃ¡tÅ¯.  
+- Pro vyvolÃ¡nÃ­ udÃ¡losti vytvoÅ™te **chrÃ¡nÄ›nou metodu** (napÅ™. `OnZmena`), aby ji mohly pÅ™epsat odvozenÃ© tÅ™Ã­dy.  
+- OdhlaÅ¡ujte odbÄ›ratele, pokud jiÅ¾ nejsou potÅ™eba (napÅ™. v `Dispose`).  
+
+---
+
+#### **10. UkÃ¡zka reÃ¡lnÃ©ho pouÅ¾itÃ­**  
 
 ```csharp
 public class Tlacitko
@@ -140,17 +140,17 @@ public class Tlacitko
     }
 }
 
-// Pouití
+// PouÅ¾itÃ­
 Tlacitko btn = new Tlacitko();
-btn.Kliknuti += (sender, e) => Console.WriteLine("Tlaèítko bylo kliknuto!");
-btn.SimulujKlik(); // Vıstup: "Tlaèítko bylo kliknuto!"
+btn.Kliknuti += (sender, e) => Console.WriteLine("TlaÄÃ­tko bylo kliknuto!");
+btn.SimulujKlik(); // VÃ½stup: "TlaÄÃ­tko bylo kliknuto!"
 ```
 
 ---
 
-#### **11. Pokroèilé techniky**  
+#### **11. PokroÄilÃ© techniky**  
 
-- **Vlastní pøístupové metody (add/remove)**:  
+- **VlastnÃ­ pÅ™Ã­stupovÃ© metody (add/remove)**:  
   ```csharp
   private EventHandler? _zmena;
   public event EventHandler? Zmena
@@ -159,4 +159,4 @@ btn.SimulujKlik(); // Vıstup: "Tlaèítko bylo kliknuto!"
       remove => _zmena -= value;
   }
   ```  
-- **Slabé reference (Weak Event Pattern)**: Pro prevenci memory leaks v komplexních scénáøích.  
+- **SlabÃ© reference (Weak Event Pattern)**: Pro prevenci memory leaks v komplexnÃ­ch scÃ©nÃ¡Å™Ã­ch.  

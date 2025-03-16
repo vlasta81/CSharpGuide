@@ -1,4 +1,4 @@
-﻿
+
 ### **`ElementAt` a `ElementAtOrDefault`**  
 Tyto metody slouží k **přístupu k prvkům kolekce na základě jejich pozice**. Jsou užitečné pro přímý přístup k prvkům, kdy známe konkrétní index, ale liší se v chování při neplatném indexu.
 

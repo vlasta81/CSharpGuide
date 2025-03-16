@@ -1,4 +1,4 @@
-﻿
+
 ### **1. Základní struktura programu**
 
 #### **Hierarchie komponent**:

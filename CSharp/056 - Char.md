@@ -1,4 +1,4 @@
-﻿
+
 ### **Typ `char` v jazyce C#**
 
 Typ `char` (alias pro `System.Char`) reprezentuje **jediný Unicode znak**. Využívá se pro práci s jednotlivými znaky, například při analýze textu, validaci vstupů nebo manipulaci s řetězci.

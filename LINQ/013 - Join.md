@@ -1,4 +1,4 @@
-﻿
+
 ### **`Join`**  
 
 Metoda `Join` slouží k **kombinaci dvou kolekcí** na základě společného klíče, podobně jako `INNER JOIN` v SQL. Umožňuje propojit data z různých zdrojů (např. objednávky a zákazníci) a vytvořit výsledky obsahující informace z obou kolekcí.

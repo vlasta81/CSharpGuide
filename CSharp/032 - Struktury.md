@@ -1,15 +1,15 @@
 
 ### **1. Definice struktury**  
 
-Struktura je **hodnotovı typ** (ukládá data pøímo v pamìti, typicky na zásobníku), kterı slouí k vytváøení lehkıch objektù pro ukládání dat.  
-- **Klíèové vlastnosti**:  
-  - Nemùe dìdit z jiné tøídy/struktury (kromì implementace rozhraní).  
-  - Má vıchozí konstruktor bez parametrù (nelze jej odstranit).  
-  - Vhodná pro malé, nemìnné datové struktury (napø. souøadnice, barvy).  
+Struktura je **hodnotovÃ½ typ** (uklÃ¡dÃ¡ data pÅ™Ã­mo v pamÄ›ti, typicky na zÃ¡sobnÃ­ku), kterÃ½ slouÅ¾Ã­ k vytvÃ¡Å™enÃ­ lehkÃ½ch objektÅ¯ pro uklÃ¡dÃ¡nÃ­ dat.  
+- **KlÃ­ÄovÃ© vlastnosti**:  
+  - NemÅ¯Å¾e dÄ›dit z jinÃ© tÅ™Ã­dy/struktury (kromÄ› implementace rozhranÃ­).  
+  - MÃ¡ vÃ½chozÃ­ konstruktor bez parametrÅ¯ (nelze jej odstranit).  
+  - VhodnÃ¡ pro malÃ©, nemÄ›nnÃ© datovÃ© struktury (napÅ™. souÅ™adnice, barvy).  
 
 ---
 
-### **2. Syntaxe a pøíklad**  
+### **2. Syntaxe a pÅ™Ã­klad**  
 
 ```csharp
 public struct Bod 
@@ -17,14 +17,14 @@ public struct Bod
     public int X; 
     public int Y;
 
-    // Konstruktor s parametry (musí inicializovat všechna pole)
+    // Konstruktor s parametry (musÃ­ inicializovat vÅ¡echna pole)
     public Bod(int x, int y) 
     {
         X = x;
         Y = y;
     }
 
-    // Metoda ve struktuøe
+    // Metoda ve struktuÅ™e
     public void Posun(int dx, int dy) 
     {
         X += dx;
@@ -32,27 +32,27 @@ public struct Bod
     }
 }
 
-// Pouití:
+// PouÅ¾itÃ­:
 Bod bod = new Bod(10, 20);
 bod.Posun(5, 5); // X=15, Y=25
 ```
 
 ---
 
-### **3. Klíèové vlastnosti** 
+### **3. KlÃ­ÄovÃ© vlastnosti** 
 
-#### **a) Hodnotová sémantika**  
+#### **a) HodnotovÃ¡ sÃ©mantika**  
 
-- Pøiøazení vytváøí **kopii dat** (ne odkaz).  
+- PÅ™iÅ™azenÃ­ vytvÃ¡Å™Ã­ **kopii dat** (ne odkaz).  
 ```csharp
 Bod b1 = new Bod(5, 5);
 Bod b2 = b1; // Kopie hodnoty
-b2.X = 10;   // b1.X zùstává 5
+b2.X = 10;   // b1.X zÅ¯stÃ¡vÃ¡ 5
 ```
 
-#### **b) ádná dìdiènost**  
+#### **b) Å½Ã¡dnÃ¡ dÄ›diÄnost**  
 
-- Struktura mùe implementovat rozhraní, ale nemùe dìdit z jiné struktury/tøídy.  
+- Struktura mÅ¯Å¾e implementovat rozhranÃ­, ale nemÅ¯Å¾e dÄ›dit z jinÃ© struktury/tÅ™Ã­dy.  
 ```csharp
 public interface IZobrazitelny 
 {
@@ -67,14 +67,14 @@ public struct Bod : IZobrazitelny
 
 #### **c) Imutabilita**  
 
-- Doporuèuje se pro struktury, aby se pøedešlo neoèekávanému chování (kopírování hodnot).  
+- DoporuÄuje se pro struktury, aby se pÅ™edeÅ¡lo neoÄekÃ¡vanÃ©mu chovÃ¡nÃ­ (kopÃ­rovÃ¡nÃ­ hodnot).  
 ```csharp
-public readonly struct NemìnnyBod 
+public readonly struct NemÄ›nnyBod 
 {
     public readonly int X;
     public readonly int Y;
     
-    public NemìnnyBod(int x, int y) 
+    public NemÄ›nnyBod(int x, int y) 
     {
         X = x;
         Y = y;
@@ -84,45 +84,45 @@ public readonly struct NemìnnyBod
 
 ---
 
-### **4. Struktura vs. tøída**  
+### **4. Struktura vs. tÅ™Ã­da**  
 
-| **Kritérium**       | **Struktura (struct)**          | **Tøída (class)**             |  
+| **KritÃ©rium**       | **Struktura (struct)**          | **TÅ™Ã­da (class)**             |  
 |----------------------|---------------------------------|-------------------------------|  
-| **Typ**              | Hodnotovı (stack)               | Referenèní (heap)             |  
-| **Dìdiènost**        | Nelze dìdit                     | Podporuje dìdiènost           |  
-| **Vıchozí konstruktor** | Automatickı (nelze odstranit) | Bez parametru (lze definovat) |  
-| **Nullabilita**      | Nelze (kromì `Nullable<T>`)     | Ano                           |  
-| **Velikost**         | Doporuèeno do 16–24 bytù        | ádné omezení                 |  
+| **Typ**              | HodnotovÃ½ (stack)               | ReferenÄnÃ­ (heap)             |  
+| **DÄ›diÄnost**        | Nelze dÄ›dit                     | Podporuje dÄ›diÄnost           |  
+| **VÃ½chozÃ­ konstruktor** | AutomatickÃ½ (nelze odstranit) | Bez parametru (lze definovat) |  
+| **Nullabilita**      | Nelze (kromÄ› `Nullable<T>`)     | Ano                           |  
+| **Velikost**         | DoporuÄeno do 16â€“24 bytÅ¯        | Å½Ã¡dnÃ© omezenÃ­                 |  
 
 ---
 
-### **5. Kdy pouít strukturu?** 
+### **5. Kdy pouÅ¾Ã­t strukturu?** 
 
-- **Malé datové struktury**: Napø. `DateTime`, `Point`, `Complex`.  
-- **Èasté kopírování**: Kdy je kopírování levnìjší ne správa referencí.  
-- **Krátká ivotnost**: Data nepotøebují dlouhodobé uchování.  
+- **MalÃ© datovÃ© struktury**: NapÅ™. `DateTime`, `Point`, `Complex`.  
+- **ÄŒastÃ© kopÃ­rovÃ¡nÃ­**: KdyÅ¾ je kopÃ­rovÃ¡nÃ­ levnÄ›jÅ¡Ã­ neÅ¾ sprÃ¡va referencÃ­.  
+- **KrÃ¡tkÃ¡ Å¾ivotnost**: Data nepotÅ™ebujÃ­ dlouhodobÃ© uchovÃ¡nÃ­.  
 
 ---
 
-### **6. Omezení struktur**  
+### **6. OmezenÃ­ struktur**  
 
 - Nelze definovat **destruktor**.  
-- Nelze pouít `abstract`, `sealed`, nebo `protected` èleny.  
-- Nelze mít **implicitní bezparametrickı konstruktor** (v C# 10+ lze, ale pouze pokud jsou všechna pole inicializována).  
+- Nelze pouÅ¾Ã­t `abstract`, `sealed`, nebo `protected` Äleny.  
+- Nelze mÃ­t **implicitnÃ­ bezparametrickÃ½ konstruktor** (v C# 10+ lze, ale pouze pokud jsou vÅ¡echna pole inicializovÃ¡na).  
 
 ---
 
-### **7. Bìné chyby**  
+### **7. BÄ›Å¾nÃ© chyby**  
 
-- **Mutovatelné struktury**: Zmìna kopie neovlivní originál, co mùe vést k chybám.  
-- **Velké struktury**: Èasté kopírování mùe sníit vıkon.  
-- **Boxing/Unboxing**: Pøevod na `object` zpùsobí ztrátu vıhod hodnotového typu.  
+- **MutovatelnÃ© struktury**: ZmÄ›na kopie neovlivnÃ­ originÃ¡l, coÅ¾ mÅ¯Å¾e vÃ©st k chybÃ¡m.  
+- **VelkÃ© struktury**: ÄŒastÃ© kopÃ­rovÃ¡nÃ­ mÅ¯Å¾e snÃ­Å¾it vÃ½kon.  
+- **Boxing/Unboxing**: PÅ™evod na `object` zpÅ¯sobÃ­ ztrÃ¡tu vÃ½hod hodnotovÃ©ho typu.  
 
 ---
 
-### **8. Ukázky kódu**  
+### **8. UkÃ¡zky kÃ³du**  
 
-#### **Struktura s rozhraním**  
+#### **Struktura s rozhranÃ­m**  
 
 ```csharp
 public struct RGBColor : IEquatable<RGBColor> 
@@ -154,17 +154,17 @@ public readonly struct Velikost
 
 ---
 
-### **9. Doporuèené postupy**  
+### **9. DoporuÄenÃ© postupy**  
 
-1. **Zachovejte struktury malé**: Ideálnì pod 16 bytù.  
-2. **Preferujte imutabilitu**: Pouívejte `readonly struct` a `readonly` pole.  
-3. **Pouívejte pro jednoduchá data**: Napø. geometrické tvary, konfiguraèní hodnoty.  
-4. **Vyhnìte se boxing**: Nepøiøazujte struktury do `object` zbyteènì.  
+1. **Zachovejte struktury malÃ©**: IdeÃ¡lnÄ› pod 16 bytÅ¯.  
+2. **Preferujte imutabilitu**: PouÅ¾Ã­vejte `readonly struct` a `readonly` pole.  
+3. **PouÅ¾Ã­vejte pro jednoduchÃ¡ data**: NapÅ™. geometrickÃ© tvary, konfiguraÄnÃ­ hodnoty.  
+4. **VyhnÄ›te se boxing**: NepÅ™iÅ™azujte struktury do `object` zbyteÄnÄ›.  
 
 ---
 
-### **10. Shrnutí** 
+### **10. ShrnutÃ­** 
 
-- **Struktury** jsou hodnotové typy pro efektivní práci s malımi daty.  
-- **Kopírují se celé**, ne odkazem – vhodné pro èasté krátkodobé operace.  
-- **Imutabilita** je klíèová pro pøedvídatelné chování.  
+- **Struktury** jsou hodnotovÃ© typy pro efektivnÃ­ prÃ¡ci s malÃ½mi daty.  
+- **KopÃ­rujÃ­ se celÃ©**, ne odkazem â€“ vhodnÃ© pro ÄastÃ© krÃ¡tkodobÃ© operace.  
+- **Imutabilita** je klÃ­ÄovÃ¡ pro pÅ™edvÃ­datelnÃ© chovÃ¡nÃ­.  

@@ -1,81 +1,81 @@
 
-### **1. Escape sekvence v øetìzcích**
+### **1. Escape sekvence v Å™etÄ›zcÃ­ch**
 
-Speciální znaky pro formátování textu a reprezentaci neviditelnıch symbolù.  
+SpeciÃ¡lnÃ­ znaky pro formÃ¡tovÃ¡nÃ­ textu a reprezentaci neviditelnÃ½ch symbolÅ¯.  
 
-- `\"` – Uvozovka uvnitø øetìzce.  
+- `\"` â€“ Uvozovka uvnitÅ™ Å™etÄ›zce.  
   ```csharp
-  string text = "Øekl: \"Ahoj!\"";
+  string text = "Å˜ekl: \"Ahoj!\"";
   ```
-- `\'` – Apostrof uvnitø char literálu.  
+- `\'` â€“ Apostrof uvnitÅ™ char literÃ¡lu.  
   ```csharp
   char apostrof = '\'';
   ```
-- `\\` – Zpìtné lomítko (napø. pro cesty v Windows).  
+- `\\` â€“ ZpÄ›tnÃ© lomÃ­tko (napÅ™. pro cesty v Windows).  
   ```csharp
-  string cesta = "C:\\Users\\Uivatel";
+  string cesta = "C:\\Users\\UÅ¾ivatel";
   ```
-- `\n` – Novı øádek.  
-- `\t` – Tabulátor.  
-- `\r` – Návrat vozíku (èasto s `\n` jako `\r\n`).  
-- `\uXXXX` – Unicode znak (napø. `\u00A9` pro ©).  
-- `\xXXXX` – Hexadecimální reprezentace znaku.  
+- `\n` â€“ NovÃ½ Å™Ã¡dek.  
+- `\t` â€“ TabulÃ¡tor.  
+- `\r` â€“ NÃ¡vrat vozÃ­ku (Äasto s `\n` jako `\r\n`).  
+- `\uXXXX` â€“ Unicode znak (napÅ™. `\u00A9` pro Â©).  
+- `\xXXXX` â€“ HexadecimÃ¡lnÃ­ reprezentace znaku.  
 
 ---
 
-### **2. Verbatim identifikátor `@`**
+### **2. Verbatim identifikÃ¡tor `@`**
 
-- **Ignoruje escape sekvence** v øetìzcích a umoòuje víceøádkové texty.  
+- **Ignoruje escape sekvence** v Å™etÄ›zcÃ­ch a umoÅ¾Åˆuje vÃ­ceÅ™Ã¡dkovÃ© texty.  
   ```csharp
-  string cesta = @"C:\Users\Uivatel\Dokumenty";
+  string cesta = @"C:\Users\UÅ¾ivatel\Dokumenty";
   string html = @"<html>
                   <body></body>
                 </html>";
   ```
-- **Pouití klíèovıch slov jako identifikátorù**:  
+- **PouÅ¾itÃ­ klÃ­ÄovÃ½ch slov jako identifikÃ¡torÅ¯**:  
   ```csharp
-  int @class = 10; // Promìnná se jménem "class"
+  int @class = 10; // PromÄ›nnÃ¡ se jmÃ©nem "class"
   ```
 
 ---
 
-### **3. Interpolace øetìzcù `$`**
+### **3. Interpolace Å™etÄ›zcÅ¯ `$`**
 
-- Vkládání vırazù pøímo do øetìzcù.  
+- VklÃ¡dÃ¡nÃ­ vÃ½razÅ¯ pÅ™Ã­mo do Å™etÄ›zcÅ¯.  
   ```csharp
-  int vìk = 25;
-  string zpráva = $"Vìk: {vìk}"; // "Vìk: 25"
+  int vÄ›k = 25;
+  string zprÃ¡va = $"VÄ›k: {vÄ›k}"; // "VÄ›k: 25"
   ```
-- **Formátování**:  
+- **FormÃ¡tovÃ¡nÃ­**:  
   ```csharp
   double cena = 99.95;
-  string vıpis = $"{cena:C2}"; // "99,95 Kè"
+  string vÃ½pis = $"{cena:C2}"; // "99,95 KÄ"
   ```
 
 ---
 
-### **4. Operátor `nameof`**
+### **4. OperÃ¡tor `nameof`**
 
-- Vrátí název promìnné, metody nebo typu jako øetìzec.  
+- VrÃ¡tÃ­ nÃ¡zev promÄ›nnÃ©, metody nebo typu jako Å™etÄ›zec.  
   ```csharp
-  string název = nameof(Console.WriteLine); // "WriteLine"
+  string nÃ¡zev = nameof(Console.WriteLine); // "WriteLine"
   ```
 
 ---
 
-### **5. Null operátory**
+### **5. Null operÃ¡tory**
 
-- `?.` (**null-conditional**) – Bezpeènı pøístup k èlenùm objektu.  
+- `?.` (**null-conditional**) â€“ BezpeÄnÃ½ pÅ™Ã­stup k ÄlenÅ¯m objektu.  
   ```csharp
   string? text = null;
-  int? délka = text?.Length; // null (nevyvolá vıjimku)
+  int? dÃ©lka = text?.Length; // null (nevyvolÃ¡ vÃ½jimku)
   ```
-- `??` (**null-coalescing**) – Vıchozí hodnota pro `null`.  
+- `??` (**null-coalescing**) â€“ VÃ½chozÃ­ hodnota pro `null`.  
   ```csharp
-  string jméno = null;
-  string vısledek = jméno ?? "Neznámı"; // "Neznámı"
+  string jmÃ©no = null;
+  string vÃ½sledek = jmÃ©no ?? "NeznÃ¡mÃ½"; // "NeznÃ¡mÃ½"
   ```
-- `??=` (**null-coalescing assignment**) – Pøiøazení, pokud je promìnná `null`.  
+- `??=` (**null-coalescing assignment**) â€“ PÅ™iÅ™azenÃ­, pokud je promÄ›nnÃ¡ `null`.  
   ```csharp
   string? hodnota = null;
   hodnota ??= "Default"; // hodnota = "Default"
@@ -83,18 +83,18 @@ Speciální znaky pro formátování textu a reprezentaci neviditelnıch symbolù.
 
 ---
 
-### **6. Lambda operátor `=>`**
+### **6. Lambda operÃ¡tor `=>`**
 
-- Definice lambda vırazù a tìla metod.  
+- Definice lambda vÃ½razÅ¯ a tÄ›la metod.  
   ```csharp
-  Func<int, int> druháMocnina = x => x * x;
+  Func<int, int> druhÃ¡Mocnina = x => x * x;
   ```
 
 ---
 
-### **7. Bitové a logické operátory**
+### **7. BitovÃ© a logickÃ© operÃ¡tory**
 
-- `&` (AND), `|` (OR), `^` (XOR), `~` (doplnìk).  
+- `&` (AND), `|` (OR), `^` (XOR), `~` (doplnÄ›k).  
   ```csharp
   int a = 5 & 3; // 1 (0101 & 0011 = 0001)
   ```
@@ -105,21 +105,21 @@ Speciální znaky pro formátování textu a reprezentaci neviditelnıch symbolù.
 
 ---
 
-### **8. Operátor `#` (preprocesorové direktivy)**
+### **8. OperÃ¡tor `#` (preprocesorovÃ© direktivy)**
 
-- Instrukce pro kompilátor pøed zpracováním kódu.  
+- Instrukce pro kompilÃ¡tor pÅ™ed zpracovÃ¡nÃ­m kÃ³du.  
   ```csharp
   #define DEBUG
   #if DEBUG
-      Console.WriteLine("Debug reim");
+      Console.WriteLine("Debug reÅ¾im");
   #endif
   ```
 
 ---
 
-### **9. Pointerové operátory (unsafe kontext)**
+### **9. PointerovÃ© operÃ¡tory (unsafe kontext)**
 
-- `*` (dereference ukazatele), `&` (adresa promìnné).  
+- `*` (dereference ukazatele), `&` (adresa promÄ›nnÃ©).  
   ```csharp
   unsafe {
       int x = 10;
@@ -132,48 +132,48 @@ Speciální znaky pro formátování textu a reprezentaci neviditelnıch symbolù.
 
 ### **10. Raw string literals (C# 11+)**
 
-- **Víceøádkové øetìzce bez escape sekvencí** pomocí `"""`.  
+- **VÃ­ceÅ™Ã¡dkovÃ© Å™etÄ›zce bez escape sekvencÃ­** pomocÃ­ `"""`.  
   ```csharp
   string json = """
   {
-    "Jméno": "Karel",
-    "Vìk": 30
+    "JmÃ©no": "Karel",
+    "VÄ›k": 30
   }
   """;
   ```
 
 ---
 
-### **11. Speciální symboly v komentáøích**
+### **11. SpeciÃ¡lnÃ­ symboly v komentÃ¡Å™Ã­ch**
 
-- `///` – Dokumentaèní komentáøe (pro XML dokumentaci).  
-- `/* */` – Víceøádkové komentáøe.  
-- `//` – Jednoøádkovı komentáø.  
+- `///` â€“ DokumentaÄnÃ­ komentÃ¡Å™e (pro XML dokumentaci).  
+- `/* */` â€“ VÃ­ceÅ™Ã¡dkovÃ© komentÃ¡Å™e.  
+- `//` â€“ JednoÅ™Ã¡dkovÃ½ komentÃ¡Å™.  
 
 ---
 
-### **12. Bìné chyby a tipy**
+### **12. BÄ›Å¾nÃ© chyby a tipy**
 
-- **Zámìna `""` a `''`**:  
+- **ZÃ¡mÄ›na `""` a `''`**:  
   ```csharp
-  char znak = 'A'; // Správnì
-  string text = "A"; // Správnì
+  char znak = 'A'; // SprÃ¡vnÄ›
+  string text = "A"; // SprÃ¡vnÄ›
   ```
 - **Kombinace `@` a `$`**:  
   ```csharp
-  string cesta = $@"C:\Uivatel\{jméno}\Dokumenty";
+  string cesta = $@"C:\UÅ¾ivatel\{jmÃ©no}\Dokumenty";
   ```
-- **Escape uvnitø interpolovanıch øetìzcù**:  
+- **Escape uvnitÅ™ interpolovanÃ½ch Å™etÄ›zcÅ¯**:  
   ```csharp
-  string cesta = $"C:\\Users\\{jméno}"; // Nutné escapovat!
+  string cesta = $"C:\\Users\\{jmÃ©no}"; // NutnÃ© escapovat!
   ```
 
 ---
 
-### **13. Ukázka kódu**
+### **13. UkÃ¡zka kÃ³du**
 
 ```csharp
-// Kombinace operátorù
+// Kombinace operÃ¡torÅ¯
 string? input = null;
 string output = input?.ToUpper() ?? "NIC"; // "NIC"
 
@@ -184,7 +184,7 @@ string html = """
     </div>
     """;
 
-// Lambda vıraz
-var èísla = new List<int> { 1, 2, 3 };
-var sudá = èísla.Where(x => x % 2 == 0).ToList();
+// Lambda vÃ½raz
+var ÄÃ­sla = new List<int> { 1, 2, 3 };
+var sudÃ¡ = ÄÃ­sla.Where(x => x % 2 == 0).ToList();
 ```

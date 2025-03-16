@@ -1,4 +1,4 @@
-﻿
+
 ### **Zahození (`_`) v jazyce C#**
 
 Klíčové slovo `_` (tzv. **discard**) slouží k **ignorování nepotřebných hodnot** v kódu. Používá se v situacích, kdy je nutné syntakticky přiřadit hodnotu, ale tato hodnota není dále využita. Zahození zlepšuje čitelnost kódu a potlačuje varování kompilátoru o nepoužitých proměnných.

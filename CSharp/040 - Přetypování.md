@@ -1,4 +1,4 @@
-﻿
+
 ### Přetypování v jazyce C#  
 
 Přetypování (type casting) je proces převodu hodnoty jednoho datového typu na jiný datový typ. V C# existují dva základní typy přetypování: **implicitní** (automatické) a **explicitní** (ruční). Zde je přehled klíčových konceptů:

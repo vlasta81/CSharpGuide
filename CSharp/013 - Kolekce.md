@@ -1,4 +1,4 @@
-﻿
+
 ### **1. Úvod do kolekcí**
 
 - **Kolekce** slouží k ukládání a správě skupin objektů.

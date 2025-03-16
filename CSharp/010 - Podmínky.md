@@ -1,4 +1,4 @@
-﻿
+
 ### **1. Úvod do podmínek**
 
 - **Účel**: Řízení toku programu na základě splnění/nesplnění podmínek.

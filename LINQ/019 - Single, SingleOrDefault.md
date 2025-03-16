@@ -1,4 +1,4 @@
-﻿
+
 ### **`Single` a `SingleOrDefault`**  
 
 Tyto metody slouží k **výběru jediného prvku** z kolekce, který splňuje podmínku. Jsou užitečné pro situace, kdy očekáváme **právě jeden výsledek**, a chtěli bychom detekovat neočekávané duplicity nebo chybějící data.

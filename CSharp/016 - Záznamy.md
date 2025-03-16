@@ -1,25 +1,25 @@
 
-### **1. Co jsou záznamy (records)?**
+### **1. Co jsou zÃ¡znamy (records)?**
 
-- **Imutabilní datové struktury** urèené pro reprezentaci dat s **automaticky generovanou logikou pro rovnost, kopírování a formátování**.
-- **Úèel**: Zjednodušení práce s nemìnnımi daty (napø. DTO, hodnotové objekty).
-- **Klíèové vlastnosti**:
-  - Imutabilita (vıchozí chování, ale lze pouít mutable vlastnosti).
-  - Value-based equality (rovnost zaloená na hodnotách vlastností).
-  - Podpora `with` pro ne-destruktivní mutace.
-  - Lze dìdit (jen od jinıch záznamù).
+- **ImutabilnÃ­ datovÃ© struktury** urÄenÃ© pro reprezentaci dat s **automaticky generovanou logikou pro rovnost, kopÃ­rovÃ¡nÃ­ a formÃ¡tovÃ¡nÃ­**.
+- **ÃšÄel**: ZjednoduÅ¡enÃ­ prÃ¡ce s nemÄ›nnÃ½mi daty (napÅ™. DTO, hodnotovÃ© objekty).
+- **KlÃ­ÄovÃ© vlastnosti**:
+  - Imutabilita (vÃ½chozÃ­ chovÃ¡nÃ­, ale lze pouÅ¾Ã­t mutable vlastnosti).
+  - Value-based equality (rovnost zaloÅ¾enÃ¡ na hodnotÃ¡ch vlastnostÃ­).
+  - Podpora `with` pro ne-destruktivnÃ­ mutace.
+  - Lze dÄ›dit (jen od jinÃ½ch zÃ¡znamÅ¯).
 
 ---
 
 ### **2. Deklarace a syntaxe**
 
-#### **a) Základní deklarace (C# 9+)**  
+#### **a) ZÃ¡kladnÃ­ deklarace (C# 9+)**  
 
 ```csharp
-// Pozicionální syntax (vlastnosti se inicializují pøes konstruktor)
+// PozicionÃ¡lnÃ­ syntax (vlastnosti se inicializujÃ­ pÅ™es konstruktor)
 public record Person(string Name, int Age);
 
-// Nominal syntax (explicitní definice vlastností)
+// Nominal syntax (explicitnÃ­ definice vlastnostÃ­)
 public record Car 
 {
     public string Model { get; init; } // init-only pro imutabilitu
@@ -27,7 +27,7 @@ public record Car
 }
 ```
 
-#### **b) Mutable záznamy**  
+#### **b) Mutable zÃ¡znamy**  
 
 ```csharp
 public record MutablePoint 
@@ -39,28 +39,28 @@ public record MutablePoint
 
 ---
 
-### **3. Klíèové vlastnosti**
+### **3. KlÃ­ÄovÃ© vlastnosti**
 
 #### **a) Value-based Equality**  
 
-- Dva záznamy jsou si rovny, pokud mají **stejné hodnoty všech vlastností** (na rozdíl od tøíd, které pouívají referenèní rovnost).  
+- Dva zÃ¡znamy jsou si rovny, pokud majÃ­ **stejnÃ© hodnoty vÅ¡ech vlastnostÃ­** (na rozdÃ­l od tÅ™Ã­d, kterÃ© pouÅ¾Ã­vajÃ­ referenÄnÃ­ rovnost).  
 ```csharp
 var person1 = new Person("Karel", 30);
 var person2 = new Person("Karel", 30);
 Console.WriteLine(person1 == person2); // True
 ```
 
-#### **b) Ne-destruktivní mutace (`with`)**  
+#### **b) Ne-destruktivnÃ­ mutace (`with`)**  
 
-- Vytvoøí **kopii** záznamu s upravenımi vlastnostmi.  
+- VytvoÅ™Ã­ **kopii** zÃ¡znamu s upravenÃ½mi vlastnostmi.  
 ```csharp
 var original = new Person("Anna", 25);
 var modified = original with { Age = 26 };
 ```
 
-#### **c) Automatickı `ToString()`**  
+#### **c) AutomatickÃ½ `ToString()`**  
 
-- Generuje formátovanı øetìzec s hodnotami vlastností.  
+- Generuje formÃ¡tovanÃ½ Å™etÄ›zec s hodnotami vlastnostÃ­.  
 ```csharp
 var person = new Person("Eva", 28);
 Console.WriteLine(person); // Person { Name = Eva, Age = 28 }
@@ -68,66 +68,66 @@ Console.WriteLine(person); // Person { Name = Eva, Age = 28 }
 
 #### **d) Dekonstrukce**  
 
-- Umoòuje rozloit záznam na jednotlivé hodnoty.  
+- UmoÅ¾Åˆuje rozloÅ¾it zÃ¡znam na jednotlivÃ© hodnoty.  
 ```csharp
 var (name, age) = person; // Dekonstrukce
 ```
 
 ---
 
-### **4. Dìdiènost**
+### **4. DÄ›diÄnost**
 
-- Záznamy mohou dìdit od jinıch záznamù.  
+- ZÃ¡znamy mohou dÄ›dit od jinÃ½ch zÃ¡znamÅ¯.  
 ```csharp
 public record Student(string Name, int Age, string University) : Person(Name, Age);
 ```
 
 ---
 
-### **5. Porovnání s tøídami a strukturami**
+### **5. PorovnÃ¡nÃ­ s tÅ™Ã­dami a strukturami**
 
-| **Vlastnost**          | **Záznam (record)**       | **Tøída (class)**        | **Struktura (struct)**     |  
+| **Vlastnost**          | **ZÃ¡znam (record)**       | **TÅ™Ã­da (class)**        | **Struktura (struct)**     |  
 |-------------------------|---------------------------|--------------------------|----------------------------|  
-| **Imutabilita**         | Vıchozí                   | Nepovinná                | Nepovinná                  |  
+| **Imutabilita**         | VÃ½chozÃ­                   | NepovinnÃ¡                | NepovinnÃ¡                  |  
 | **Rovnost**             | Value-based               | Reference-based          | Value-based                |  
-| **Dìdiènost**           | Jen mezi záznamy          | Podporuje                | Nepodporuje                |  
-| **Pouití**             | DTO, hodnotové objekty    | Obecné úèely             | Malé hodnotové typy        |  
+| **DÄ›diÄnost**           | Jen mezi zÃ¡znamy          | Podporuje                | Nepodporuje                |  
+| **PouÅ¾itÃ­**             | DTO, hodnotovÃ© objekty    | ObecnÃ© ÃºÄely             | MalÃ© hodnotovÃ© typy        |  
 
 ---
 
-### **6. Kdy pouít záznamy?**
+### **6. Kdy pouÅ¾Ã­t zÃ¡znamy?**
 
-- **Data Transfer Objects (DTO)**: Pøenos dat mezi vrstvami.  
-- **Hodnotové objekty**: Napø. penìní èástky, souøadnice.  
-- **Imutabilní konfigurace**: Bezpeènost ve vícevláknovém prostøedí.  
+- **Data Transfer Objects (DTO)**: PÅ™enos dat mezi vrstvami.  
+- **HodnotovÃ© objekty**: NapÅ™. penÄ›Å¾nÃ­ ÄÃ¡stky, souÅ™adnice.  
+- **ImutabilnÃ­ konfigurace**: BezpeÄnost ve vÃ­cevlÃ¡knovÃ©m prostÅ™edÃ­.  
 
 ---
 
-### **7. Bìné chyby a tipy**
+### **7. BÄ›Å¾nÃ© chyby a tipy**
 
-- **Pokus o zmìnu imutabilní vlastnosti**:
+- **Pokus o zmÄ›nu imutabilnÃ­ vlastnosti**:
   ```csharp
   var person = new Person("Karel", 30);
   person.Name = "Jan"; // Chyba: Init-only vlastnost!
   ```
-- **Zámìna `record` a `class`**: Pro mìnitelné stavy pouijte tøídu.  
-- **Pouití `record struct` (C# 10+)**: Imutabilní struktury.  
+- **ZÃ¡mÄ›na `record` a `class`**: Pro mÄ›nitelnÃ© stavy pouÅ¾ijte tÅ™Ã­du.  
+- **PouÅ¾itÃ­ `record struct` (C# 10+)**: ImutabilnÃ­ struktury.  
   ```csharp
   public record struct Point(int X, int Y);
   ```
 
 ---
 
-### **8. Ukázky kódu**
+### **8. UkÃ¡zky kÃ³du**
 
-#### **DTO pro API odpovìï**
+#### **DTO pro API odpovÄ›Ä**
 
 ```csharp
 public record ApiResponse(bool Success, string Data, DateTime Timestamp);
 var response = new ApiResponse(true, "OK", DateTime.UtcNow);
 ```
 
-#### **Dìdiènost a rozšíøení**
+#### **DÄ›diÄnost a rozÅ¡Ã­Å™enÃ­**
 
 ```csharp
 public record Vehicle(string Manufacturer);
@@ -137,7 +137,7 @@ Car car = new Car("Toyota", 4);
 Console.WriteLine(car); // Car { Manufacturer = Toyota, Doors = 4 }
 ```
 
-#### **Ne-destruktivní mutace**
+#### **Ne-destruktivnÃ­ mutace**
 
 ```csharp
 var original = new Car("Skoda", 5);
@@ -147,6 +147,6 @@ Console.WriteLine(updated); // Car { Manufacturer = BMW, Doors = 5 }
 
 ---
 
-### **9. Doporuèené zdroje**
+### **9. DoporuÄenÃ© zdroje**
 
-- **Oficiální dokumentace**: [Records in C#](https://learn.microsoft.com/cs-cz/dotnet/csharp/language-reference/builtin-types/record)
+- **OficiÃ¡lnÃ­ dokumentace**: [Records in C#](https://learn.microsoft.com/cs-cz/dotnet/csharp/language-reference/builtin-types/record)

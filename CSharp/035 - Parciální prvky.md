@@ -1,9 +1,9 @@
 
-### **1. Parciální tøídy (Partial Classes)**  
+### **1. ParciÃ¡lnÃ­ tÅ™Ã­dy (Partial Classes)**  
 
 #### **Definice**  
 
-Umoòují rozdìlit definici tøídy do **více souborù**. Všechny èásti musí bıt oznaèeny klíèovım slovem `partial` a spojeny pøi kompilaci.  
+UmoÅ¾ÅˆujÃ­ rozdÄ›lit definici tÅ™Ã­dy do **vÃ­ce souborÅ¯**. VÅ¡echny ÄÃ¡sti musÃ­ bÃ½t oznaÄeny klÃ­ÄovÃ½m slovem `partial` a spojeny pÅ™i kompilaci.  
 
 #### **Syntaxe**  
 
@@ -21,32 +21,32 @@ public partial class Uzivatel {
 
 #### **Vlastnosti**  
 
-- Všechny èásti musí bıt ve **stejném namespace** a **sestavení (assembly)**.  
-- Lze kombinovat s dìdièností, rozhraními a atributy.  
-- Pokud jedna èást oznaèí tøídu jako `abstract` nebo `sealed`, platí pro celou tøídu.  
+- VÅ¡echny ÄÃ¡sti musÃ­ bÃ½t ve **stejnÃ©m namespace** a **sestavenÃ­ (assembly)**.  
+- Lze kombinovat s dÄ›diÄnostÃ­, rozhranÃ­mi a atributy.  
+- Pokud jedna ÄÃ¡st oznaÄÃ­ tÅ™Ã­du jako `abstract` nebo `sealed`, platÃ­ pro celou tÅ™Ã­du.  
 
-#### **Pouití**  
+#### **PouÅ¾itÃ­**  
 
-- Organizace velkıch tøíd (napø. oddìlení UI logiky od datovıch polí).  
-- Práce s automaticky generovanım kódem (napø. WinForms, WPF, Entity Framework).  
+- Organizace velkÃ½ch tÅ™Ã­d (napÅ™. oddÄ›lenÃ­ UI logiky od datovÃ½ch polÃ­).  
+- PrÃ¡ce s automaticky generovanÃ½m kÃ³dem (napÅ™. WinForms, WPF, Entity Framework).  
 
 ---
 
-### **2. Parciální metody (Partial Methods)**  
+### **2. ParciÃ¡lnÃ­ metody (Partial Methods)**  
 
 #### **Definice**  
 
-Metody, které jsou **deklarovány v jedné èásti tøídy** a **implementovány v jiné**. Pokud nejsou implementovány, kompilátor je odstraní.  
+Metody, kterÃ© jsou **deklarovÃ¡ny v jednÃ© ÄÃ¡sti tÅ™Ã­dy** a **implementovÃ¡ny v jinÃ©**. Pokud nejsou implementovÃ¡ny, kompilÃ¡tor je odstranÃ­.  
 
 #### **Syntaxe**  
 
 ```csharp
-// Deklarace (napø. v generované èásti)
+// Deklarace (napÅ™. v generovanÃ© ÄÃ¡sti)
 public partial class Uzivatel {
-    partial void PredUlozenim(); // Bez tìla
+    partial void PredUlozenim(); // Bez tÄ›la
 }
 
-// Implementace (napø. v ruènì psané èásti)
+// Implementace (napÅ™. v ruÄnÄ› psanÃ© ÄÃ¡sti)
 public partial class Uzivatel {
     partial void PredUlozenim() {
         Console.WriteLine("Kontrola dat...");
@@ -56,72 +56,72 @@ public partial class Uzivatel {
 
 #### **Vlastnosti**  
 
-- Musí mít návratovı typ `void`.  
-- Nelze pouít `public`, `private` atd. – implicitnì jsou `private`.  
-- Pokud není implementována, kompilátor ji odstraní (ádná chyba).  
+- MusÃ­ mÃ­t nÃ¡vratovÃ½ typ `void`.  
+- Nelze pouÅ¾Ã­t `public`, `private` atd. â€“ implicitnÄ› jsou `private`.  
+- Pokud nenÃ­ implementovÃ¡na, kompilÃ¡tor ji odstranÃ­ (Å¾Ã¡dnÃ¡ chyba).  
 
-#### **Pouití**  
+#### **PouÅ¾itÃ­**  
 
-- Volitelné rozšíøení funkcionality v generovaném kódu.  
-- "Hooky" pro vlastní logiku (napø. validace pøed uloením).  
+- VolitelnÃ© rozÅ¡Ã­Å™enÃ­ funkcionality v generovanÃ©m kÃ³du.  
+- "Hooky" pro vlastnÃ­ logiku (napÅ™. validace pÅ™ed uloÅ¾enÃ­m).  
 
 ---
 
-### **3. Parciální struktury (Partial Structs)**  
+### **3. ParciÃ¡lnÃ­ struktury (Partial Structs)**  
 
-- Podobné parciálním tøídám, ale pro struktury.  
-- Lze rozdìlit definici struktury do více souborù.  
+- PodobnÃ© parciÃ¡lnÃ­m tÅ™Ã­dÃ¡m, ale pro struktury.  
+- Lze rozdÄ›lit definici struktury do vÃ­ce souborÅ¯.  
 ```csharp
 public partial struct Bod { ... }
 ```
 
 ---
 
-### **4. Vıhody parciálních prvkù**  
+### **4. VÃ½hody parciÃ¡lnÃ­ch prvkÅ¯**  
 
-- **Organizace kódu**: Rozdìlení tøíd do logickıch celkù.  
-- **Oddìlení generovaného a ruèního kódu**: Napø. v EF, WPF.  
-- **Tımová spolupráce**: Více vıvojáøù mùe pracovat na jedné tøídì.  
+- **Organizace kÃ³du**: RozdÄ›lenÃ­ tÅ™Ã­d do logickÃ½ch celkÅ¯.  
+- **OddÄ›lenÃ­ generovanÃ©ho a ruÄnÃ­ho kÃ³du**: NapÅ™. v EF, WPF.  
+- **TÃ½movÃ¡ spoluprÃ¡ce**: VÃ­ce vÃ½vojÃ¡Å™Å¯ mÅ¯Å¾e pracovat na jednÃ© tÅ™Ã­dÄ›.  
 
 ---
 
-### **5. Bìné chyby a omezení**  
+### **5. BÄ›Å¾nÃ© chyby a omezenÃ­**  
 
-- **Nekonzistentní modifikátory**:  
+- **NekonzistentnÃ­ modifikÃ¡tory**:  
   ```csharp
   public partial class Trida { } 
-  internal partial class Trida { } // Chyba: Rùzné úrovnì pøístupu!
+  internal partial class Trida { } // Chyba: RÅ¯znÃ© ÃºrovnÄ› pÅ™Ã­stupu!
   ```  
-- **Rozdìlení mezi assembly**: Nelze rozdìlit tøídu mezi rùzné projekty.  
-- **Parciální metody nelze pouít v rozhraních nebo jako veøejné**.  
+- **RozdÄ›lenÃ­ mezi assembly**: Nelze rozdÄ›lit tÅ™Ã­du mezi rÅ¯znÃ© projekty.  
+- **ParciÃ¡lnÃ­ metody nelze pouÅ¾Ã­t v rozhranÃ­ch nebo jako veÅ™ejnÃ©**.  
 
 ---
 
-### **6. Ukázky reálného pouití**  
+### **6. UkÃ¡zky reÃ¡lnÃ©ho pouÅ¾itÃ­**  
 
-#### **WPF / WinForms – oddìlení UI a logiky**  
+#### **WPF / WinForms â€“ oddÄ›lenÃ­ UI a logiky**  
 
 ```csharp
-// Automaticky generovanı kód (napø. MainWindow.designer.cs)
+// Automaticky generovanÃ½ kÃ³d (napÅ™. MainWindow.designer.cs)
 public partial class MainWindow : Window {
     // Inicializace komponent
 }
 
-// Ruènì psanı kód (MainWindow.xaml.cs)
+// RuÄnÄ› psanÃ½ kÃ³d (MainWindow.xaml.cs)
 public partial class MainWindow : Window {
     private void Button_Click(object sender, EventArgs e) { ... }
 }
 ```
 
-#### **Entity Framework – rozšíøení generované tøídy**  
+#### **Entity Framework â€“ rozÅ¡Ã­Å™enÃ­ generovanÃ© tÅ™Ã­dy**  
 
 ```csharp
-// Generovaná tøída (User.cs)
+// GenerovanÃ¡ tÅ™Ã­da (User.cs)
 public partial class User {
     public int Id { get; set; }
 }
 
-// Ruèní rozšíøení (UserExtensions.cs)
+// RuÄnÃ­ rozÅ¡Ã­Å™enÃ­ (UserExtensions.cs)
 public partial class User {
     public string FullName => $"{FirstName} {LastName}";
 }
@@ -129,16 +129,16 @@ public partial class User {
 
 ---
 
-### **7. Shrnutí**  
+### **7. ShrnutÃ­**  
 
-| **Prvek**          | **Popis**                                  | **Pouití**                          |  
+| **Prvek**          | **Popis**                                  | **PouÅ¾itÃ­**                          |  
 |---------------------|--------------------------------------------|---------------------------------------|  
-| **Parciální tøída** | Rozdìlení tøídy do více souborù            | Velké tøídy, generovanı kód           |  
-| **Parciální metoda**| Volitelná metoda s monou implementací      | Hooky v generovaném kódu              |  
-| **Parciální struktura** | Rozdìlení struktury                  | Organizace velkıch struktur           |  
+| **ParciÃ¡lnÃ­ tÅ™Ã­da** | RozdÄ›lenÃ­ tÅ™Ã­dy do vÃ­ce souborÅ¯            | VelkÃ© tÅ™Ã­dy, generovanÃ½ kÃ³d           |  
+| **ParciÃ¡lnÃ­ metoda**| VolitelnÃ¡ metoda s moÅ¾nou implementacÃ­      | Hooky v generovanÃ©m kÃ³du              |  
+| **ParciÃ¡lnÃ­ struktura** | RozdÄ›lenÃ­ struktury                  | Organizace velkÃ½ch struktur           |  
 
 ---
 
-### **8. Doporuèené zdroje**  
+### **8. DoporuÄenÃ© zdroje**  
 
-- **Oficiální dokumentace**: [Partial Classes and Methods](https://learn.microsoft.com/cs-cz/dotnet/csharp/programming-guide/classes-and-structs/partial-classes-and-methods)  
+- **OficiÃ¡lnÃ­ dokumentace**: [Partial Classes and Methods](https://learn.microsoft.com/cs-cz/dotnet/csharp/programming-guide/classes-and-structs/partial-classes-and-methods)  

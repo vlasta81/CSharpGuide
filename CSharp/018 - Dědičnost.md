@@ -1,43 +1,43 @@
 
-### **1. Definice dìdiènosti**  
+### **1. Definice dÄ›diÄnosti**  
 
-Dìdiènost umoòuje **vytvoøit novou tøídu (odvozenou) na základì existující tøídy (základní)**. Odvozená tøída zdìdí èleny (metody, vlastnosti, pole) základní tøídy a mùe je rozšíøit nebo upravit.  
-- **Cíl**: Znovupouití kódu, vytváøení hierarchií a polymorfismus.  
-- **Typy dìdiènosti**:  
-  - **Jednoduchá dìdiènost** (C# podporuje pouze jednu základní tøídu).  
-  - **Implementace více rozhraní** (tøída mùe dìdit více rozhraní).  
+DÄ›diÄnost umoÅ¾Åˆuje **vytvoÅ™it novou tÅ™Ã­du (odvozenou) na zÃ¡kladÄ› existujÃ­cÃ­ tÅ™Ã­dy (zÃ¡kladnÃ­)**. OdvozenÃ¡ tÅ™Ã­da zdÄ›dÃ­ Äleny (metody, vlastnosti, pole) zÃ¡kladnÃ­ tÅ™Ã­dy a mÅ¯Å¾e je rozÅ¡Ã­Å™it nebo upravit.  
+- **CÃ­l**: ZnovupouÅ¾itÃ­ kÃ³du, vytvÃ¡Å™enÃ­ hierarchiÃ­ a polymorfismus.  
+- **Typy dÄ›diÄnosti**:  
+  - **JednoduchÃ¡ dÄ›diÄnost** (C# podporuje pouze jednu zÃ¡kladnÃ­ tÅ™Ã­du).  
+  - **Implementace vÃ­ce rozhranÃ­** (tÅ™Ã­da mÅ¯Å¾e dÄ›dit vÃ­ce rozhranÃ­).  
 
 ---
 
-### **2. Základní syntaxe**  
+### **2. ZÃ¡kladnÃ­ syntaxe**  
 
 ```csharp
 public class ZakladniTrida 
 {
-    public void Metoda() => Console.WriteLine("Základní tøída");
+    public void Metoda() => Console.WriteLine("ZÃ¡kladnÃ­ tÅ™Ã­da");
 }
 
 public class OdvozenaTrida : ZakladniTrida 
 {
-    // Dìdí Metoda() a mùe pøidat nové èleny
-    public void NovaMetoda() => Console.WriteLine("Odvozená tøída");
+    // DÄ›dÃ­ Metoda() a mÅ¯Å¾e pÅ™idat novÃ© Äleny
+    public void NovaMetoda() => Console.WriteLine("OdvozenÃ¡ tÅ™Ã­da");
 }
 ```
 
 ---
 
-### **3. Klíèové koncepty**  
+### **3. KlÃ­ÄovÃ© koncepty**  
 
-#### **a) Pøístupové modifikátory**  
+#### **a) PÅ™Ã­stupovÃ© modifikÃ¡tory**  
 
-- **`public`**: Dìdí se.  
-- **`protected`**: Dostupné **pouze v odvozenıch tøídách**.  
-- **`private`**: Nedìdí se.  
+- **`public`**: DÄ›dÃ­ se.  
+- **`protected`**: DostupnÃ© **pouze v odvozenÃ½ch tÅ™Ã­dÃ¡ch**.  
+- **`private`**: NedÄ›dÃ­ se.  
 
-#### **b) Volání konstruktorù základní tøídy (`base`)**  
+#### **b) VolÃ¡nÃ­ konstruktorÅ¯ zÃ¡kladnÃ­ tÅ™Ã­dy (`base`)**  
 
-- Konstruktor základní tøídy se volá **automaticky** (implicitní bezparametrickı konstruktor).  
-- Pokud základní tøída **nemá bezparametrickı konstruktor**, musí odvozená tøída explicitnì urèit, kterı konstruktor zavolat:  
+- Konstruktor zÃ¡kladnÃ­ tÅ™Ã­dy se volÃ¡ **automaticky** (implicitnÃ­ bezparametrickÃ½ konstruktor).  
+- Pokud zÃ¡kladnÃ­ tÅ™Ã­da **nemÃ¡ bezparametrickÃ½ konstruktor**, musÃ­ odvozenÃ¡ tÅ™Ã­da explicitnÄ› urÄit, kterÃ½ konstruktor zavolat:  
   ```csharp
   public class Zakladni 
   {
@@ -50,14 +50,14 @@ public class OdvozenaTrida : ZakladniTrida
   }
   ```
 
-#### **c) Pøepsání metod (`virtual` a `override`)**  
+#### **c) PÅ™epsÃ¡nÃ­ metod (`virtual` a `override`)**  
 
-- **Základní tøída**: Oznaèuje metodu jako `virtual`.  
-- **Odvozená tøída**: Pøepíše metodu pomocí `override`.  
+- **ZÃ¡kladnÃ­ tÅ™Ã­da**: OznaÄuje metodu jako `virtual`.  
+- **OdvozenÃ¡ tÅ™Ã­da**: PÅ™epÃ­Å¡e metodu pomocÃ­ `override`.  
   ```csharp
   public class Zvire 
   {
-      public virtual void Zvuk() => Console.WriteLine("Zvuk zvíøete");
+      public virtual void Zvuk() => Console.WriteLine("Zvuk zvÃ­Å™ete");
   }
 
   public class Pes : Zvire 
@@ -66,25 +66,25 @@ public class OdvozenaTrida : ZakladniTrida
   }
   ```
 
-#### **d) Skrytí metod (`new`)**  
+#### **d) SkrytÃ­ metod (`new`)**  
 
-- Pokud odvozená tøída **nesmí pøepsat metodu**, ale chce skrıt verzi základní tøídy:  
+- Pokud odvozenÃ¡ tÅ™Ã­da **nesmÃ­ pÅ™epsat metodu**, ale chce skrÃ½t verzi zÃ¡kladnÃ­ tÅ™Ã­dy:  
   ```csharp
   public class Zakladni 
   {
-      public void Metoda() => Console.WriteLine("Základní");
+      public void Metoda() => Console.WriteLine("ZÃ¡kladnÃ­");
   }
 
   public class Odvozena : Zakladni 
   {
-      public new void Metoda() => Console.WriteLine("Odvozená");
+      public new void Metoda() => Console.WriteLine("OdvozenÃ¡");
   }
   ```
 
-#### **e) Abstraktní tøídy a metody**  
+#### **e) AbstraktnÃ­ tÅ™Ã­dy a metody**  
 
-- **Abstraktní tøída**: Nelze instancovat, obsahuje abstraktní metody (bez implementace).  
-- **Abstraktní metoda**: Musí bıt pøepsána v odvozené tøídì.  
+- **AbstraktnÃ­ tÅ™Ã­da**: Nelze instancovat, obsahuje abstraktnÃ­ metody (bez implementace).  
+- **AbstraktnÃ­ metoda**: MusÃ­ bÃ½t pÅ™epsÃ¡na v odvozenÃ© tÅ™Ã­dÄ›.  
   ```csharp
   public abstract class Tvar 
   {
@@ -98,10 +98,10 @@ public class OdvozenaTrida : ZakladniTrida
   }
   ```
 
-#### **f) Uzavøené tøídy a metody (`sealed`)**  
+#### **f) UzavÅ™enÃ© tÅ™Ã­dy a metody (`sealed`)**  
 
-- **`sealed class`**: Zabrání dalšímu dìdìní.  
-- **`sealed override`**: Zabrání pøepsání metody v dalších odvozenıch tøídách.  
+- **`sealed class`**: ZabrÃ¡nÃ­ dalÅ¡Ã­mu dÄ›dÄ›nÃ­.  
+- **`sealed override`**: ZabrÃ¡nÃ­ pÅ™epsÃ¡nÃ­ metody v dalÅ¡Ã­ch odvozenÃ½ch tÅ™Ã­dÃ¡ch.  
   ```csharp
   public sealed class NemuzuDedit { }
 
@@ -120,35 +120,35 @@ public class OdvozenaTrida : ZakladniTrida
 
 ### **4. Polymorfismus**  
 
-- **Schopnost objektu mít rùzné formy** (napø. základní tøída mùe odkazovat na odvozenı objekt).  
+- **Schopnost objektu mÃ­t rÅ¯znÃ© formy** (napÅ™. zÃ¡kladnÃ­ tÅ™Ã­da mÅ¯Å¾e odkazovat na odvozenÃ½ objekt).  
   ```csharp
   Zvire zvire = new Pes();
-  zvire.Zvuk(); // Haf! (volá se metoda z Pes)
+  zvire.Zvuk(); // Haf! (volÃ¡ se metoda z Pes)
   ```
 
 ---
 
-### **5. Dìdiènost vs. rozhraní**  
+### **5. DÄ›diÄnost vs. rozhranÃ­**  
 
-| **Kritérium**       | **Dìdiènost**               | **Rozhraní**               |  
+| **KritÃ©rium**       | **DÄ›diÄnost**               | **RozhranÃ­**               |  
 |----------------------|-----------------------------|-----------------------------|  
-| **Poèet**            | Jedna základní tøída        | Více rozhraní              |  
-| **Implementace**     | Kód se dìdí                 | Pouze kontrakt              |  
-| **Vyuití**          | "Je-a" vztah (pes je zvíøe) | "Umí" schopnost (ILetajici) |  
+| **PoÄet**            | Jedna zÃ¡kladnÃ­ tÅ™Ã­da        | VÃ­ce rozhranÃ­              |  
+| **Implementace**     | KÃ³d se dÄ›dÃ­                 | Pouze kontrakt              |  
+| **VyuÅ¾itÃ­**          | "Je-a" vztah (pes je zvÃ­Å™e) | "UmÃ­" schopnost (ILetajici) |  
 
 ---
 
-### **6. Bìné chyby a tipy**  
+### **6. BÄ›Å¾nÃ© chyby a tipy**  
 
-- **Diamantovı problém**: C# nepodporuje vícenásobnou dìdiènost tøíd (øešte rozhraními).  
-- **Pøíliš hluboká hierarchie**: Sloitost udrujte pomocí kompozice (místo dìdiènosti).  
-- **Liskov Substituèní Princip (LSP)**: Odvozené tøídy by mìly bıt zamìnitelné za základní.  
+- **DiamantovÃ½ problÃ©m**: C# nepodporuje vÃ­cenÃ¡sobnou dÄ›diÄnost tÅ™Ã­d (Å™eÅ¡te rozhranÃ­mi).  
+- **PÅ™Ã­liÅ¡ hlubokÃ¡ hierarchie**: SloÅ¾itost udrÅ¾ujte pomocÃ­ kompozice (mÃ­sto dÄ›diÄnosti).  
+- **Liskov SubstituÄnÃ­ Princip (LSP)**: OdvozenÃ© tÅ™Ã­dy by mÄ›ly bÃ½t zamÄ›nitelnÃ© za zÃ¡kladnÃ­.  
 
 ---
 
-### **7. Ukázky kódu**  
+### **7. UkÃ¡zky kÃ³du**  
 
-#### **Hierarchie zamìstnancù**  
+#### **Hierarchie zamÄ›stnancÅ¯**  
 
 ```csharp
 public abstract class Zamestnanec 
@@ -170,7 +170,7 @@ public class Programator : Zamestnanec
 }
 ```
 
-#### **Pouití polymorfismu**  
+#### **PouÅ¾itÃ­ polymorfismu**  
 
 ```csharp
 List<Zamestnanec> zamestnanci = new List<Zamestnanec> 
@@ -187,6 +187,6 @@ foreach (var z in zamestnanci)
 
 ---
 
-### **8. Doporuèené zdroje**  
+### **8. DoporuÄenÃ© zdroje**  
 
-- **Oficiální dokumentace**: [Inheritance in C#](https://learn.microsoft.com/cs-cz/dotnet/csharp/fundamentals/object-oriented/inheritance)  
+- **OficiÃ¡lnÃ­ dokumentace**: [Inheritance in C#](https://learn.microsoft.com/cs-cz/dotnet/csharp/fundamentals/object-oriented/inheritance)  

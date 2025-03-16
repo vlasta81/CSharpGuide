@@ -1,4 +1,4 @@
-﻿
+
 ### **`Skip` a `SkipWhile`**  
 
 Tyto metody slouží k **přeskočení prvků** v kolekci na základě **počtu** nebo **podmínky**. Jsou užitečné pro práci s podmnožinami dat, jako je stránkování nebo filtrace.

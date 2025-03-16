@@ -1,15 +1,15 @@
 
-### **1. Definice rozhraní**  
+### **1. Definice rozhranÃ­**  
 
-- **Rozhraní** definuje **kontrakt**, kterı tøídy nebo struktury musí implementovat.  
-- **Obsahuje pouze deklarace** metod, vlastností, událostí nebo indexerù (bez implementace).  
-- **Klíèovı úèel**: Abstrakce, polymorfismus a podpora více "dìdièností" (C# nepodporuje vícenásobnou dìdiènost tøíd).
+- **RozhranÃ­** definuje **kontrakt**, kterÃ½ tÅ™Ã­dy nebo struktury musÃ­ implementovat.  
+- **Obsahuje pouze deklarace** metod, vlastnostÃ­, udÃ¡lostÃ­ nebo indexerÅ¯ (bez implementace).  
+- **KlÃ­ÄovÃ½ ÃºÄel**: Abstrakce, polymorfismus a podpora vÃ­ce "dÄ›diÄnostÃ­" (C# nepodporuje vÃ­cenÃ¡sobnou dÄ›diÄnost tÅ™Ã­d).
 
 ---
 
-### **2. Syntaxe a základní pouití**  
+### **2. Syntaxe a zÃ¡kladnÃ­ pouÅ¾itÃ­**  
 
-#### **a) Deklarace rozhraní**  
+#### **a) Deklarace rozhranÃ­**  
 
 ```csharp
 public interface ILetajici 
@@ -19,7 +19,7 @@ public interface ILetajici
 }
 ```
 
-#### **b) Implementace rozhraní**  
+#### **b) Implementace rozhranÃ­**  
 
 ```csharp
 public class Ptak : ILetajici 
@@ -28,28 +28,28 @@ public class Ptak : ILetajici
     
     public void Let() 
     {
-        Console.WriteLine("Pták letí");
+        Console.WriteLine("PtÃ¡k letÃ­");
     }
 }
 ```
 
 ---
 
-### **3. Klíèové vlastnosti**  
+### **3. KlÃ­ÄovÃ© vlastnosti**  
 
-#### **a) Vícenásobná implementace**  
+#### **a) VÃ­cenÃ¡sobnÃ¡ implementace**  
 
-- Tøída mùe implementovat **více rozhraní** najednou.  
+- TÅ™Ã­da mÅ¯Å¾e implementovat **vÃ­ce rozhranÃ­** najednou.  
 ```csharp
 public class Superman : ILetajici, ISilny 
 {
-    // Implementace obou rozhraní
+    // Implementace obou rozhranÃ­
 }
 ```
 
-#### **b) Explicitní implementace**  
+#### **b) ExplicitnÃ­ implementace**  
 
-- Øeší kolize názvù mezi rozhraními.  
+- Å˜eÅ¡Ã­ kolize nÃ¡zvÅ¯ mezi rozhranÃ­mi.  
 ```csharp
 public class Hybrid : ILetajici, IPlyvajici 
 {
@@ -57,26 +57,26 @@ public class Hybrid : ILetajici, IPlyvajici
     void IPlyvajici.Let() { /* Plavba */ }
 }
 
-// Pouití:
+// PouÅ¾itÃ­:
 Hybrid hybrid = new Hybrid();
-((ILetajici)hybrid).Let(); // Volá metodu z ILetajici
+((ILetajici)hybrid).Let(); // VolÃ¡ metodu z ILetajici
 ```
 
-#### **c) Vıchozí implementace (C# 8+)**  
+#### **c) VÃ½chozÃ­ implementace (C# 8+)**  
 
-- Rozhraní mùe obsahovat **defaultní implementace** metod.  
+- RozhranÃ­ mÅ¯Å¾e obsahovat **defaultnÃ­ implementace** metod.  
 ```csharp
 public interface ILogger 
 {
-    void Log(string message) => Console.WriteLine(message); // Vıchozí kód
+    void Log(string message) => Console.WriteLine(message); // VÃ½chozÃ­ kÃ³d
 }
 ```
 
 ---
 
-### **4. Dìdiènost rozhraní**  
+### **4. DÄ›diÄnost rozhranÃ­**  
 
-- Rozhraní mùe dìdit od jinıch rozhraní.  
+- RozhranÃ­ mÅ¯Å¾e dÄ›dit od jinÃ½ch rozhranÃ­.  
 ```csharp
 public interface IUlozitelny : ISerializable, IExportovatelny 
 {
@@ -86,53 +86,53 @@ public interface IUlozitelny : ISerializable, IExportovatelny
 
 ---
 
-### **5. Kdy pouít rozhraní?**  
+### **5. Kdy pouÅ¾Ã­t rozhranÃ­?**  
 
-1. **Definice kontraktu**: Vynucení spoleèného chování pro rùzné tøídy.  
-2. **Dependency Injection**: Vytváøení volnì provázanıch komponent.  
-3. **Testování**: Mockování rozhraní pro unit testy.  
-4. **Plug-in architektury**: Rozšiøitelnost pomocí externích implementací.
+1. **Definice kontraktu**: VynucenÃ­ spoleÄnÃ©ho chovÃ¡nÃ­ pro rÅ¯znÃ© tÅ™Ã­dy.  
+2. **Dependency Injection**: VytvÃ¡Å™enÃ­ volnÄ› provÃ¡zanÃ½ch komponent.  
+3. **TestovÃ¡nÃ­**: MockovÃ¡nÃ­ rozhranÃ­ pro unit testy.  
+4. **Plug-in architektury**: RozÅ¡iÅ™itelnost pomocÃ­ externÃ­ch implementacÃ­.
 
 ---
 
-### **6. Porovnání s abstraktními tøídami**  
+### **6. PorovnÃ¡nÃ­ s abstraktnÃ­mi tÅ™Ã­dami**  
 
-| **Vlastnost**          | **Rozhraní**               | **Abstraktní tøída**       |  
+| **Vlastnost**          | **RozhranÃ­**               | **AbstraktnÃ­ tÅ™Ã­da**       |  
 |-------------------------|----------------------------|----------------------------|  
-| **Implementace kódu**   | Pouze vıchozí metody (C#8+) | Ano (èásteèná implementace) |  
-| **Dìdiènost**           | Více rozhraní              | Jedna tøída                |  
+| **Implementace kÃ³du**   | Pouze vÃ½chozÃ­ metody (C#8+) | Ano (ÄÃ¡steÄnÃ¡ implementace) |  
+| **DÄ›diÄnost**           | VÃ­ce rozhranÃ­              | Jedna tÅ™Ã­da                |  
 | **Pole/konstruktory**   | Ne                         | Ano                        |  
-| **Pouití**             | Kontrakt, polymorfismus    | Sdílení kódu a logiky      |  
+| **PouÅ¾itÃ­**             | Kontrakt, polymorfismus    | SdÃ­lenÃ­ kÃ³du a logiky      |  
 
 ---
 
-### **7. Bìné chyby a tipy**  
+### **7. BÄ›Å¾nÃ© chyby a tipy**  
 
-- **Zapomenutá implementace èlena**: Tøída musí implementovat všechny èleny rozhraní.  
-- **Nadbyteèná rozhraní**: Dodrujte **Interface Segregation Principle** (ISP) – malá, specializovaná rozhraní.  
-- **Vıbìr názvù**: Zaèínají velkım písmenem **I** (napø. `IComparable`).  
+- **ZapomenutÃ¡ implementace Älena**: TÅ™Ã­da musÃ­ implementovat vÅ¡echny Äleny rozhranÃ­.  
+- **NadbyteÄnÃ¡ rozhranÃ­**: DodrÅ¾ujte **Interface Segregation Principle** (ISP) â€“ malÃ¡, specializovanÃ¡ rozhranÃ­.  
+- **VÃ½bÄ›r nÃ¡zvÅ¯**: ZaÄÃ­najÃ­ velkÃ½m pÃ­smenem **I** (napÅ™. `IComparable`).  
 
 ---
 
-### **8. Ukázky kódu**  
+### **8. UkÃ¡zky kÃ³du**  
 
-#### **Rozhraní s vıchozí implementací**  
+#### **RozhranÃ­ s vÃ½chozÃ­ implementacÃ­**  
 
 ```csharp
 public interface IKreslici 
 {
     void Kresli();
-    void Reset() => Console.WriteLine("Resetování nástroje"); // Vıchozí kód
+    void Reset() => Console.WriteLine("ResetovÃ¡nÃ­ nÃ¡stroje"); // VÃ½chozÃ­ kÃ³d
 }
 
 public class Stetec : IKreslici 
 {
-    public void Kresli() => Console.WriteLine("Kresba štìtcem");
-    // Reset() není nutné implementovat – pouije se vıchozí
+    public void Kresli() => Console.WriteLine("Kresba Å¡tÄ›tcem");
+    // Reset() nenÃ­ nutnÃ© implementovat â€“ pouÅ¾ije se vÃ½chozÃ­
 }
 ```
 
-#### **Dependency Injection s rozhraním**  
+#### **Dependency Injection s rozhranÃ­m**  
 
 ```csharp
 public interface IEmailService 
@@ -158,6 +158,6 @@ public class UserService
 
 ---
 
-### **9. Doporuèené zdroje** 
+### **9. DoporuÄenÃ© zdroje** 
 
-- **Oficiální dokumentace**: [Interfaces in C#](https://learn.microsoft.com/cs-cz/dotnet/csharp/language-reference/keywords/interface)  
+- **OficiÃ¡lnÃ­ dokumentace**: [Interfaces in C#](https://learn.microsoft.com/cs-cz/dotnet/csharp/language-reference/keywords/interface)  

@@ -3,19 +3,19 @@
 
 ---
 
-#### **1. Úvod**
+#### **1. Ãšvod**
 
-**Tuple** a **ValueTuple** slouí k **seskupení více hodnot do jednoho objektu**. Umoòují návrat více hodnot z metody bez nutnosti vytváøet vlastní tøídu nebo strukturu. Rozdíl mezi nimi spoèívá v implementaci a vlastnostech.
+**Tuple** a **ValueTuple** slouÅ¾Ã­ k **seskupenÃ­ vÃ­ce hodnot do jednoho objektu**. UmoÅ¾ÅˆujÃ­ nÃ¡vrat vÃ­ce hodnot z metody bez nutnosti vytvÃ¡Å™et vlastnÃ­ tÅ™Ã­du nebo strukturu. RozdÃ­l mezi nimi spoÄÃ­vÃ¡ v implementaci a vlastnostech.
 
 ---
 
 ### **2. Tuple (System.Tuple)**
 
-- **Typ**: Reference typ (alokován na haldì).
-- **Základní vlastnosti**:
-  - Prvky jsou **read-only** (nelze je mìnit po vytvoøení).
-  - Prvky jsou pojmenovány `Item1`, `Item2`, atd.
-  - Vhodnı pro jednorázové pouití nebo v starších verzích C# (pøed C# 7).
+- **Typ**: Reference typ (alokovÃ¡n na haldÄ›).
+- **ZÃ¡kladnÃ­ vlastnosti**:
+  - Prvky jsou **read-only** (nelze je mÄ›nit po vytvoÅ™enÃ­).
+  - Prvky jsou pojmenovÃ¡ny `Item1`, `Item2`, atd.
+  - VhodnÃ½ pro jednorÃ¡zovÃ© pouÅ¾itÃ­ nebo v starÅ¡Ã­ch verzÃ­ch C# (pÅ™ed C# 7).
 - **Syntaxe**:
   ```csharp
   var person = Tuple.Create(1, "Alice", 30);
@@ -26,40 +26,40 @@
 
 ### **3. ValueTuple (System.ValueTuple)**
 
-- **Typ**: Value typ (alokován na zásobníku, vyšší vıkon).
-- **Základní vlastnosti**:
-  - Prvky jsou **mutable** (lze je mìnit).
-  - Podpora **pojmenovanıch prvkù** pro lepší èitelnost.
-  - Monost **dekonstrukce** do samostatnıch promìnnıch.
-  - Dostupné od C# 7.
+- **Typ**: Value typ (alokovÃ¡n na zÃ¡sobnÃ­ku, vyÅ¡Å¡Ã­ vÃ½kon).
+- **ZÃ¡kladnÃ­ vlastnosti**:
+  - Prvky jsou **mutable** (lze je mÄ›nit).
+  - Podpora **pojmenovanÃ½ch prvkÅ¯** pro lepÅ¡Ã­ Äitelnost.
+  - MoÅ¾nost **dekonstrukce** do samostatnÃ½ch promÄ›nnÃ½ch.
+  - DostupnÃ© od C# 7.
 - **Syntaxe**:
   ```csharp
-  // Vytvoøení s pojmenovanımi prvky
+  // VytvoÅ™enÃ­ s pojmenovanÃ½mi prvky
   var person = (Id: 1, Name: "Alice", Age: 30);
   Console.WriteLine(person.Name); // "Alice"
 
   // Dekonstrukce
-  (int id, string name, _) = person; // Ignorování vìku pomocí _
+  (int id, string name, _) = person; // IgnorovÃ¡nÃ­ vÄ›ku pomocÃ­ _
   ```
 
 ---
 
-### **4. Klíèové rozdíly**
+### **4. KlÃ­ÄovÃ© rozdÃ­ly**
 
-| **Kritérium**         | **Tuple**                     | **ValueTuple**                 |
+| **KritÃ©rium**         | **Tuple**                     | **ValueTuple**                 |
 |-----------------------|-------------------------------|---------------------------------|
 | **Typ**               | Reference typ (class)         | Value typ (struct)             |
 | **Mutabilita**        | Read-only                     | Mutable                        |
-| **Pojmenování prvkù** | Pouze `Item1`, `Item2`, ...   | Vlastní názvy (syntaktickı cukr) |
-| **Vıkon**             | Pomalejší (halda)             | Rychlejší (zásobník)           |
+| **PojmenovÃ¡nÃ­ prvkÅ¯** | Pouze `Item1`, `Item2`, ...   | VlastnÃ­ nÃ¡zvy (syntaktickÃ½ cukr) |
+| **VÃ½kon**             | PomalejÅ¡Ã­ (halda)             | RychlejÅ¡Ã­ (zÃ¡sobnÃ­k)           |
 | **Dekonstrukce**      | Ne                            | Ano                            |
 | **Podpora od verze**  | C# 4.0                        | C# 7.0                         |
 
 ---
 
-### **5. Dekonstrukce a práce s metodami**
+### **5. Dekonstrukce a prÃ¡ce s metodami**
 
-- **Návrat ValueTuple z metody**:
+- **NÃ¡vrat ValueTuple z metody**:
   ```csharp
   public (int Id, string Name) GetPerson() 
   {
@@ -78,9 +78,9 @@
 
 ---
 
-### **6. Pojmenované prvky**
+### **6. PojmenovanÃ© prvky**
 
-- Zlepšují èitelnost kódu, ale jsou pouze **syntaktickım cukrem** (v runtime se pouívají `Item1`, `Item2`).
+- ZlepÅ¡ujÃ­ Äitelnost kÃ³du, ale jsou pouze **syntaktickÃ½m cukrem** (v runtime se pouÅ¾Ã­vajÃ­ `Item1`, `Item2`).
   ```csharp
   var point = (X: 10, Y: 20);
   Console.WriteLine(point.X); // 10
@@ -88,16 +88,16 @@
 
 ---
 
-### **7. Porovnání hodnot**
+### **7. PorovnÃ¡nÃ­ hodnot**
 
-- **ValueTuple** porovnává **hodnoty prvkù**:
+- **ValueTuple** porovnÃ¡vÃ¡ **hodnoty prvkÅ¯**:
   ```csharp
   var a = (1, "A");
   var b = (1, "A");
   Console.WriteLine(a == b); // True (C# 7.3+)
   ```
 
-- **Tuple** porovnává **reference** (pouijte `Equals` pro porovnání hodnot):
+- **Tuple** porovnÃ¡vÃ¡ **reference** (pouÅ¾ijte `Equals` pro porovnÃ¡nÃ­ hodnot):
   ```csharp
   var a = Tuple.Create(1, "A");
   var b = Tuple.Create(1, "A");
@@ -106,28 +106,28 @@
 
 ---
 
-### **8. Kdy pouít?**
+### **8. Kdy pouÅ¾Ã­t?**
 
 - **Tuple**:
-  - Kdy potøebujete **read-only** kolekci hodnot.
-  - V starším kódu (pøed C# 7).
+  - KdyÅ¾ potÅ™ebujete **read-only** kolekci hodnot.
+  - V starÅ¡Ã­m kÃ³du (pÅ™ed C# 7).
 - **ValueTuple**:
-  - Pro **efektivní práci s doèasnımi daty**.
-  - Kdy potøebujete **pojmenované prvky** nebo **dekonstrukci**.
-  - V novıch projektech (C# 7+).
+  - Pro **efektivnÃ­ prÃ¡ci s doÄasnÃ½mi daty**.
+  - KdyÅ¾ potÅ™ebujete **pojmenovanÃ© prvky** nebo **dekonstrukci**.
+  - V novÃ½ch projektech (C# 7+).
 
 ---
 
-### **9. Omezení a tipy**
+### **9. OmezenÃ­ a tipy**
 
-- **ValueTuple není vdy optimální**: Pro sloité nebo velké struktury preferujte tøídy/struktury.
-- **Pozor na mutabilitu**: Mìnìní prvkù ValueTuple mùe vést k neèekanému chování.
-- **Instalace**: V nìkterıch projektech je tøeba pøidat NuGet balíèek `System.ValueTuple`.
+- **ValueTuple nenÃ­ vÅ¾dy optimÃ¡lnÃ­**: Pro sloÅ¾itÃ© nebo velkÃ© struktury preferujte tÅ™Ã­dy/struktury.
+- **Pozor na mutabilitu**: MÄ›nÄ›nÃ­ prvkÅ¯ ValueTuple mÅ¯Å¾e vÃ©st k neÄekanÃ©mu chovÃ¡nÃ­.
+- **Instalace**: V nÄ›kterÃ½ch projektech je tÅ™eba pÅ™idat NuGet balÃ­Äek `System.ValueTuple`.
 
 ---
 
-### **10. Shrnutí**
+### **10. ShrnutÃ­**
 
-- **Tuple** je reference typ s read-only prvky, vhodnı pro starší kód.
-- **ValueTuple** je value typ s lepším vıkonem, mutabilními prvky a moderní syntaxí.
-- Pouívejte ValueTuple pro vìtšinu scénáøù v C# 7 a novìjších.
+- **Tuple** je reference typ s read-only prvky, vhodnÃ½ pro starÅ¡Ã­ kÃ³d.
+- **ValueTuple** je value typ s lepÅ¡Ã­m vÃ½konem, mutabilnÃ­mi prvky a modernÃ­ syntaxÃ­.
+- PouÅ¾Ã­vejte ValueTuple pro vÄ›tÅ¡inu scÃ©nÃ¡Å™Å¯ v C# 7 a novÄ›jÅ¡Ã­ch.

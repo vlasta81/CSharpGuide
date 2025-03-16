@@ -1,4 +1,4 @@
-﻿
+
 ### **Dynamický typ (`dynamic`) v jazyce C#**
 
 Dynamický typ `dynamic` umožňuje **vyhnout se statické typové kontrole při kompilaci** a odkládá rozpoznání typu až na runtime. Používá se pro práci s objekty, jejichž struktura není známa předem (např. data z externích zdrojů, COM objekty, dynamické jazyky). 

@@ -1,4 +1,4 @@
-﻿
+
 ### **Hodnota `null` v jazyce C#**
 
 Hodnota `null` reprezentuje **neexistující nebo nedefinovanou referenci** na objekt. V C# se používá k označení, že proměnná neodkazuje na žádná data v paměti. Porozumění `null` je klíčové pro prevenci chyb (např. `NullReferenceException`) a efektivní práci s referencemi a nullable typy.

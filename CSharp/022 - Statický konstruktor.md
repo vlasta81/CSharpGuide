@@ -1,29 +1,29 @@
 
-### **1. Statickı konstruktor**  
+### **1. StatickÃ½ konstruktor**  
 
 #### **Definice**  
 
-- **Úèel**: Inicializace **statickıch èlenù** tøídy (pole, vlastnosti).  
-- **Spuštìní**: Automaticky **jednou pøi prvním pouití tøídy** (napø. vytvoøení instance, pøístup ke statickému èlenu).  
+- **ÃšÄel**: Inicializace **statickÃ½ch ÄlenÅ¯** tÅ™Ã­dy (pole, vlastnosti).  
+- **SpuÅ¡tÄ›nÃ­**: Automaticky **jednou pÅ™i prvnÃ­m pouÅ¾itÃ­ tÅ™Ã­dy** (napÅ™. vytvoÅ™enÃ­ instance, pÅ™Ã­stup ke statickÃ©mu Älenu).  
 - **Syntaxe**:  
   ```csharp
   public class Trida 
   {
       static Trida() 
       {
-          // Inicializace statickıch èlenù
+          // Inicializace statickÃ½ch ÄlenÅ¯
       }
   }
   ```
 
-#### **Klíèové vlastnosti**  
+#### **KlÃ­ÄovÃ© vlastnosti**  
 
-- **ádné parametry/modifikátory pøístupu**: Nelze volat manuálnì.  
-- **Poøadí inicializace**:  
-  - Pokud existuje jak statickı, tak instanèní konstruktor, **statickı se spustí døíve**.  
-- **Thread-safe**: CLR zajišuje, e se spustí pouze jednou, i ve vícevláknovém prostøedí.  
+- **Å½Ã¡dnÃ© parametry/modifikÃ¡tory pÅ™Ã­stupu**: Nelze volat manuÃ¡lnÄ›.  
+- **PoÅ™adÃ­ inicializace**:  
+  - Pokud existuje jak statickÃ½, tak instanÄnÃ­ konstruktor, **statickÃ½ se spustÃ­ dÅ™Ã­ve**.  
+- **Thread-safe**: CLR zajiÅ¡Å¥uje, Å¾e se spustÃ­ pouze jednou, i ve vÃ­cevlÃ¡knovÃ©m prostÅ™edÃ­.  
 
-#### **Pøíklad**  
+#### **PÅ™Ã­klad**  
 
 ```csharp
 public class Konfigurace 
@@ -32,45 +32,45 @@ public class Konfigurace
     
     static Konfigurace() 
     {
-        ConnectionString = "Server=..."; // Inicializace statického pole
+        ConnectionString = "Server=..."; // Inicializace statickÃ©ho pole
     }
 }
 
-// Pouití:
-Console.WriteLine(Konfigurace.ConnectionString); // Spustí statickı konstruktor
+// PouÅ¾itÃ­:
+Console.WriteLine(Konfigurace.ConnectionString); // SpustÃ­ statickÃ½ konstruktor
 ```
 
-#### **Varování**  
+#### **VarovÃ¡nÃ­**  
 
-- **Vıjimky**: Pokud statickı konstruktor vyvolá vıjimku, tøída je **nepouitelná** po celou dobu ivota aplikace (v daném `AppDomain`).  
-- **Optimalizace**: Nevkládejte èasovì nároènı kód (zpomalí první pøístup k tøídì).  
+- **VÃ½jimky**: Pokud statickÃ½ konstruktor vyvolÃ¡ vÃ½jimku, tÅ™Ã­da je **nepouÅ¾itelnÃ¡** po celou dobu Å¾ivota aplikace (v danÃ©m `AppDomain`).  
+- **Optimalizace**: NevklÃ¡dejte ÄasovÄ› nÃ¡roÄnÃ½ kÃ³d (zpomalÃ­ prvnÃ­ pÅ™Ã­stup k tÅ™Ã­dÄ›).  
 
 ---
 
-### **2. Destruktory (Finalizéry)**  
+### **2. Destruktory (FinalizÃ©ry)**  
 
 #### **Definice**  
 
-- **Úèel**: Uvolnìní **nemanaged resources** (napø. soubory, síová pøipojení) pøed uvolnìním objektu z pamìti.  
-- **Spuštìní**: Volá **Garbage Collector (GC)** pøed odstranìním objektu (není deterministické).  
+- **ÃšÄel**: UvolnÄ›nÃ­ **nemanaged resources** (napÅ™. soubory, sÃ­Å¥ovÃ¡ pÅ™ipojenÃ­) pÅ™ed uvolnÄ›nÃ­m objektu z pamÄ›ti.  
+- **SpuÅ¡tÄ›nÃ­**: VolÃ¡ **Garbage Collector (GC)** pÅ™ed odstranÄ›nÃ­m objektu (nenÃ­ deterministickÃ©).  
 - **Syntaxe**:  
   ```csharp
   public class Trida 
   {
       ~Trida() 
       {
-          // Uvolnìní prostøedkù
+          // UvolnÄ›nÃ­ prostÅ™edkÅ¯
       }
   }
   ```
 
-#### **Klíèové vlastnosti**  
+#### **KlÃ­ÄovÃ© vlastnosti**  
 
-- **Pouze pro instance**: Destruktory nelze definovat jako statické.  
-- **Implementace**: Destruktor je pøeveden na metodu `Finalize()`, kterou volá GC.  
-- **Dìdiènost**: Pokud tøída dìdí, GC volá destruktor v opaèném poøadí ne konstruktory (od nejodvozenìjší k základní).  
+- **Pouze pro instance**: Destruktory nelze definovat jako statickÃ©.  
+- **Implementace**: Destruktor je pÅ™eveden na metodu `Finalize()`, kterou volÃ¡ GC.  
+- **DÄ›diÄnost**: Pokud tÅ™Ã­da dÄ›dÃ­, GC volÃ¡ destruktor v opaÄnÃ©m poÅ™adÃ­ neÅ¾ konstruktory (od nejodvozenÄ›jÅ¡Ã­ k zÃ¡kladnÃ­).  
 
-#### **Pøíklad**  
+#### **PÅ™Ã­klad**  
 
 ```csharp
 public class SouborovyHandler 
@@ -84,15 +84,15 @@ public class SouborovyHandler
     
     ~SouborovyHandler() 
     {
-        _reader?.Dispose(); // Uvolnìní prostøedkù
+        _reader?.Dispose(); // UvolnÄ›nÃ­ prostÅ™edkÅ¯
     }
 }
 ```
 
-#### **Omezení a doporuèení**  
+#### **OmezenÃ­ a doporuÄenÃ­**  
 
-- **Nepouívejte pro managed resources**: GC automaticky spravuje pamì (napø. objekty v haldì).  
-- **Preferujte `IDisposable`**: Pro deterministické uvolnìní prostøedkù pouijte `Dispose()` a `using`:  
+- **NepouÅ¾Ã­vejte pro managed resources**: GC automaticky spravuje pamÄ›Å¥ (napÅ™. objekty v haldÄ›).  
+- **Preferujte `IDisposable`**: Pro deterministickÃ© uvolnÄ›nÃ­ prostÅ™edkÅ¯ pouÅ¾ijte `Dispose()` a `using`:  
   ```csharp
   public class SouborovyHandler : IDisposable 
   {
@@ -101,41 +101,41 @@ public class SouborovyHandler
       public void Dispose() 
       {
           _reader?.Dispose();
-          GC.SuppressFinalize(this); // Zabrání volání finalizéru
+          GC.SuppressFinalize(this); // ZabrÃ¡nÃ­ volÃ¡nÃ­ finalizÃ©ru
       }
   }
 
-  // Pouití:
+  // PouÅ¾itÃ­:
   using (var handler = new SouborovyHandler("cesta")) 
   {
-      // Práce se souborem
-  } // Dispose() se zavøe automaticky
+      // PrÃ¡ce se souborem
+  } // Dispose() se zavÅ™e automaticky
   ```
 
 ---
 
-### **3. Statickı destruktor?**  
+### **3. StatickÃ½ destruktor?**  
 
-- **Neexistuje**: C# nepodporuje statické destruktory.  
-- **Alternativa**: Pro uvolnìní statickıch prostøedkù pouijte:  
-  - **Metodu `AppDomain.ProcessExit`**: Reakce na ukonèení aplikace.  
-  - **Manuální správu**: Napø. `static void Cleanup()`.  
+- **Neexistuje**: C# nepodporuje statickÃ© destruktory.  
+- **Alternativa**: Pro uvolnÄ›nÃ­ statickÃ½ch prostÅ™edkÅ¯ pouÅ¾ijte:  
+  - **Metodu `AppDomain.ProcessExit`**: Reakce na ukonÄenÃ­ aplikace.  
+  - **ManuÃ¡lnÃ­ sprÃ¡vu**: NapÅ™. `static void Cleanup()`.  
 
 ---
 
-### **4. Shrnutí**  
+### **4. ShrnutÃ­**  
 
-| **Prvek**             | **Statickı konstruktor**      | **Destruktor**               |  
+| **Prvek**             | **StatickÃ½ konstruktor**      | **Destruktor**               |  
 |-----------------------|-------------------------------|------------------------------|  
-| **Úèel**              | Inicializace statickıch èlenù | Uvolnìní nemanaged prostøedkù |  
-| **Spuštìní**          | Pøi prvním pouití tøídy      | Pøed uvolnìním objektu (GC)  |  
-| **Statickı**          | Ano                           | Ne                           |  
-| **Determinismus**     | Ano (jednou)                  | Ne (závisí na GC)            |  
+| **ÃšÄel**              | Inicializace statickÃ½ch ÄlenÅ¯ | UvolnÄ›nÃ­ nemanaged prostÅ™edkÅ¯ |  
+| **SpuÅ¡tÄ›nÃ­**          | PÅ™i prvnÃ­m pouÅ¾itÃ­ tÅ™Ã­dy      | PÅ™ed uvolnÄ›nÃ­m objektu (GC)  |  
+| **StatickÃ½**          | Ano                           | Ne                           |  
+| **Determinismus**     | Ano (jednou)                  | Ne (zÃ¡visÃ­ na GC)            |  
 
 ---
 
-### **5. Doporuèené zdroje**  
+### **5. DoporuÄenÃ© zdroje**  
 
-- **Oficiální dokumentace**:  
+- **OficiÃ¡lnÃ­ dokumentace**:  
   - [Static Constructors](https://learn.microsoft.com/cs-cz/dotnet/csharp/programming-guide/classes-and-structs/static-constructors)  
   - [Finalizers](https://learn.microsoft.com/cs-cz/dotnet/csharp/programming-guide/classes-and-structs/destructors)  

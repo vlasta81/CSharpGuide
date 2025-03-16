@@ -1,4 +1,4 @@
-﻿
+
 ### **1. Definice**
 
 - **Boxing**: Proces převodu **hodnotového typu** (např. `int`, `struct`) na **referenční typ** (`object` nebo `System.ValueType`).  

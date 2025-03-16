@@ -1,31 +1,31 @@
 
 ### **1. Definice polymorfismu**  
 
-Polymorfismus umoòuje **objektùm rùznıch tøíd reagovat odlišnì na stejnou metodu** (volání stejné metody mùe mít rùzné chování v závislosti na typu objektu).  
-- **Klíèovı princip OOP**: "Jedno rozhraní, mnoho implementací."  
+Polymorfismus umoÅ¾Åˆuje **objektÅ¯m rÅ¯znÃ½ch tÅ™Ã­d reagovat odliÅ¡nÄ› na stejnou metodu** (volÃ¡nÃ­ stejnÃ© metody mÅ¯Å¾e mÃ­t rÅ¯znÃ© chovÃ¡nÃ­ v zÃ¡vislosti na typu objektu).  
+- **KlÃ­ÄovÃ½ princip OOP**: "Jedno rozhranÃ­, mnoho implementacÃ­."  
 - **Typy**:  
-  - **Statickı polymorfismus** (compile-time): Pøetíení metod (overloading).  
-  - **Dynamickı polymorfismus** (runtime): Pøepsání metod (overriding) a práce s rozhraními.  
+  - **StatickÃ½ polymorfismus** (compile-time): PÅ™etÃ­Å¾enÃ­ metod (overloading).  
+  - **DynamickÃ½ polymorfismus** (runtime): PÅ™epsÃ¡nÃ­ metod (overriding) a prÃ¡ce s rozhranÃ­mi.  
 
 ---
 
-### **2. Statickı polymorfismus (pøetíení metod)**  
+### **2. StatickÃ½ polymorfismus (pÅ™etÃ­Å¾enÃ­ metod)**  
 
-- **Metody stejného názvu**, ale **rùzné parametry** (poèet, typ, poøadí).  
-- **Vyhodnocuje se pøi kompilaci**.  
+- **Metody stejnÃ©ho nÃ¡zvu**, ale **rÅ¯znÃ© parametry** (poÄet, typ, poÅ™adÃ­).  
+- **Vyhodnocuje se pÅ™i kompilaci**.  
 
-#### **Pøíklad**:  
+#### **PÅ™Ã­klad**:  
 
 ```csharp
 public class Kalkulacka 
 {
-    // Pøetíení metody Add
+    // PÅ™etÃ­Å¾enÃ­ metody Add
     public int Add(int a, int b) => a + b;
     public double Add(double a, double b) => a + b;
     public string Add(string a, string b) => a + b;
 }
 
-// Pouití:
+// PouÅ¾itÃ­:
 Kalkulacka k = new Kalkulacka();
 Console.WriteLine(k.Add(5, 3));      // 8
 Console.WriteLine(k.Add("Ahoj", "!")); // "Ahoj!"
@@ -33,18 +33,18 @@ Console.WriteLine(k.Add("Ahoj", "!")); // "Ahoj!"
 
 ---
 
-### **3. Dynamickı polymorfismus (pøepsání metod)**  
+### **3. DynamickÃ½ polymorfismus (pÅ™epsÃ¡nÃ­ metod)**  
 
-- **Základní tøída** oznaèí metodu jako `virtual`.  
-- **Odvozená tøída** ji pøepíše pomocí `override`.  
-- **Vyhodnocuje se za bìhu** (runtime).  
+- **ZÃ¡kladnÃ­ tÅ™Ã­da** oznaÄÃ­ metodu jako `virtual`.  
+- **OdvozenÃ¡ tÅ™Ã­da** ji pÅ™epÃ­Å¡e pomocÃ­ `override`.  
+- **Vyhodnocuje se za bÄ›hu** (runtime).  
 
-#### **Pøíklad**:  
+#### **PÅ™Ã­klad**:  
 
 ```csharp
 public class Zvire 
 {
-    public virtual void Zvuk() => Console.WriteLine("Zvuk zvíøete");
+    public virtual void Zvuk() => Console.WriteLine("Zvuk zvÃ­Å™ete");
 }
 
 public class Pes : Zvire 
@@ -54,32 +54,32 @@ public class Pes : Zvire
 
 public class Kocka : Zvire 
 {
-    public override void Zvuk() => Console.WriteLine("Mòau!");
+    public override void Zvuk() => Console.WriteLine("MÅˆau!");
 }
 
-// Pouití:
+// PouÅ¾itÃ­:
 Zvire z1 = new Pes();
 Zvire z2 = new Kocka();
 z1.Zvuk(); // "Haf!"
-z2.Zvuk(); // "Mòau!"
+z2.Zvuk(); // "MÅˆau!"
 ```
 
 ---
 
-### **4. Klíèová slova**  
+### **4. KlÃ­ÄovÃ¡ slova**  
 
-- **`virtual`**: Oznaèuje metodu, kterou lze pøepsat v odvozené tøídì.  
-- **`override`**: Pøepisuje metodu základní tøídy.  
-- **`new`**: Skryje metodu základní tøídy (bez pøepsání).  
-- **`abstract`**: Vynutí pøepsání metody v odvozenıch tøídách (v abstraktních tøídách).  
+- **`virtual`**: OznaÄuje metodu, kterou lze pÅ™epsat v odvozenÃ© tÅ™Ã­dÄ›.  
+- **`override`**: PÅ™episuje metodu zÃ¡kladnÃ­ tÅ™Ã­dy.  
+- **`new`**: Skryje metodu zÃ¡kladnÃ­ tÅ™Ã­dy (bez pÅ™epsÃ¡nÃ­).  
+- **`abstract`**: VynutÃ­ pÅ™epsÃ¡nÃ­ metody v odvozenÃ½ch tÅ™Ã­dÃ¡ch (v abstraktnÃ­ch tÅ™Ã­dÃ¡ch).  
 
 ---
 
-### **5. Rozhraní a polymorfismus**  
+### **5. RozhranÃ­ a polymorfismus**  
 
-- Objekty rùznıch tøíd implementující stejné rozhraní mohou bıt pouité **zamìnitelnì**.  
+- Objekty rÅ¯znÃ½ch tÅ™Ã­d implementujÃ­cÃ­ stejnÃ© rozhranÃ­ mohou bÃ½t pouÅ¾itÃ© **zamÄ›nitelnÄ›**.  
 
-#### **Pøíklad**:  
+#### **PÅ™Ã­klad**:  
 
 ```csharp
 public interface IShape 
@@ -89,37 +89,37 @@ public interface IShape
 
 public class Circle : IShape 
 {
-    public void Draw() => Console.WriteLine("Kreslím kruh");
+    public void Draw() => Console.WriteLine("KreslÃ­m kruh");
 }
 
 public class Square : IShape 
 {
-    public void Draw() => Console.WriteLine("Kreslím ètverec");
+    public void Draw() => Console.WriteLine("KreslÃ­m Ätverec");
 }
 
-// Pouití:
+// PouÅ¾itÃ­:
 List<IShape> shapes = new List<IShape> { new Circle(), new Square() };
 foreach (var shape in shapes) 
 {
-    shape.Draw(); // Volá správnou implementaci
+    shape.Draw(); // VolÃ¡ sprÃ¡vnou implementaci
 }
 ```
 
 ---
 
-### **6. Porovnání pøepsání (`override`) a skrytí (`new`)**  
+### **6. PorovnÃ¡nÃ­ pÅ™epsÃ¡nÃ­ (`override`) a skrytÃ­ (`new`)**  
 
 | **Vlastnost**       | `override`                  | `new`                      |  
 |----------------------|-----------------------------|----------------------------|  
-| **Vztah k základní tøídì** | Pøepíše metodu         | Skryje metodu              |  
-| **Typ vazby**        | Dynamická (runtime)         | Statická (compile-time)    |  
-| **Pouití**          | Zmìna chování metody        | Nová implementace metody   |  
+| **Vztah k zÃ¡kladnÃ­ tÅ™Ã­dÄ›** | PÅ™epÃ­Å¡e metodu         | Skryje metodu              |  
+| **Typ vazby**        | DynamickÃ¡ (runtime)         | StatickÃ¡ (compile-time)    |  
+| **PouÅ¾itÃ­**          | ZmÄ›na chovÃ¡nÃ­ metody        | NovÃ¡ implementace metody   |  
 
 ---
 
-### **7. Uzavøení metody (`sealed`)**  
+### **7. UzavÅ™enÃ­ metody (`sealed`)**  
 
-- Zabrání dalšímu pøepsání metody v odvozenıch tøídách.  
+- ZabrÃ¡nÃ­ dalÅ¡Ã­mu pÅ™epsÃ¡nÃ­ metody v odvozenÃ½ch tÅ™Ã­dÃ¡ch.  
 ```csharp
 public class Rodic 
 {
@@ -128,25 +128,25 @@ public class Rodic
 
 public class Potomek : Rodic 
 {
-    public sealed override void Metoda() { } // Nelze dále pøepsat
+    public sealed override void Metoda() { } // Nelze dÃ¡le pÅ™epsat
 }
 ```
 
 ---
 
-### **8. Vıhody polymorfismu**  
+### **8. VÃ½hody polymorfismu**  
 
-- **Flexibilita**: Jedno rozhraní pro rùzné typy.  
-- **Rozšiøitelnost**: Snadné pøidávání novıch tøíd bez zmìny existujícího kódu.  
-- **Èitelnost**: Kód pracuje s abstraktními typy, ne konkrétními implementacemi.  
+- **Flexibilita**: Jedno rozhranÃ­ pro rÅ¯znÃ© typy.  
+- **RozÅ¡iÅ™itelnost**: SnadnÃ© pÅ™idÃ¡vÃ¡nÃ­ novÃ½ch tÅ™Ã­d bez zmÄ›ny existujÃ­cÃ­ho kÃ³du.  
+- **ÄŒitelnost**: KÃ³d pracuje s abstraktnÃ­mi typy, ne konkrÃ©tnÃ­mi implementacemi.  
 
 ---
 
-### **9. Bìné chyby a tipy**  
+### **9. BÄ›Å¾nÃ© chyby a tipy**  
 
-- **Zapomenuté `override`**: Metoda nebude pøepsána.  
-- **Zámìna `new` a `override`**: `new` skryje metodu, neposkytuje runtime polymorfismus.  
-- **Pouití `as` a `is` pro kontrolu typu**:  
+- **ZapomenutÃ© `override`**: Metoda nebude pÅ™epsÃ¡na.  
+- **ZÃ¡mÄ›na `new` a `override`**: `new` skryje metodu, neposkytuje runtime polymorfismus.  
+- **PouÅ¾itÃ­ `as` a `is` pro kontrolu typu**:  
   ```csharp
   if (zviratko is Pes pes) 
   {
@@ -156,7 +156,7 @@ public class Potomek : Rodic
 
 ---
 
-### **10. Ukázka komplexního pouití**  
+### **10. UkÃ¡zka komplexnÃ­ho pouÅ¾itÃ­**  
 
 ```csharp
 public abstract class Ucet 
@@ -167,7 +167,7 @@ public abstract class Ucet
 
 public class SporiciUcet : Ucet 
 {
-    public override void Vloz(decimal castka) => Zustatek += castka * 1.05m; // 5% úrok
+    public override void Vloz(decimal castka) => Zustatek += castka * 1.05m; // 5% Ãºrok
 }
 
 public class BeznyUcet : Ucet 
@@ -175,7 +175,7 @@ public class BeznyUcet : Ucet
     public override void Vloz(decimal castka) => Zustatek += castka;
 }
 
-// Pouití:
+// PouÅ¾itÃ­:
 List<Ucet> ucty = new List<Ucet> { new SporiciUcet(), new BeznyUcet() };
 foreach (var ucet in ucty) 
 {

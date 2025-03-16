@@ -1,4 +1,4 @@
-﻿
+
 ### **1. Úvod do cyklů**  
 
 Cykly slouží k **opakovanému provádění bloku kódu**, dokud je splněna podmínka.  

@@ -1,4 +1,4 @@
-﻿
+
 ### **Dispose a IDisposable v jazyce C#**
 
 Rozhraní `IDisposable` a metoda `Dispose()` slouží k **správnému uvolňování nespravovaných prostředků** (např. soubory, síťová spojení, databázové connectiony). Bez jejich použití hrozí **úniky prostředků** (memory leaks) nebo nedostupnost souborů.

@@ -1,20 +1,20 @@
 
-### **1. Definice vıètového typu**  
+### **1. Definice vÃ½ÄtovÃ©ho typu**  
 
-Vıètovı typ (`enum`) je **hodnotovı typ**, kterı definuje mnoinu pojmenovanıch konstant. Slouí k reprezentaci pevného seznamu hodnot (napø. dny v tıdnu, stavy, kódy).  
+VÃ½ÄtovÃ½ typ (`enum`) je **hodnotovÃ½ typ**, kterÃ½ definuje mnoÅ¾inu pojmenovanÃ½ch konstant. SlouÅ¾Ã­ k reprezentaci pevnÃ©ho seznamu hodnot (napÅ™. dny v tÃ½dnu, stavy, kÃ³dy).  
 
-**Klíèové vlastnosti**:  
-- Kadá konstanta má **èíselnou hodnotu** (vıchozí typ `int`, lze zmìnit).  
-- Zlepšuje èitelnost a bezpeènost kódu (místo "magickıch èísel").  
+**KlÃ­ÄovÃ© vlastnosti**:  
+- KaÅ¾dÃ¡ konstanta mÃ¡ **ÄÃ­selnou hodnotu** (vÃ½chozÃ­ typ `int`, lze zmÄ›nit).  
+- ZlepÅ¡uje Äitelnost a bezpeÄnost kÃ³du (mÃ­sto "magickÃ½ch ÄÃ­sel").  
 
 ---
 
-### **2. Základní syntaxe**  
+### **2. ZÃ¡kladnÃ­ syntaxe**  
 
 ```csharp
 public enum DenVTydnu 
 {
-    Pondeli,    // Hodnota 0 (vıchozí)
+    Pondeli,    // Hodnota 0 (vÃ½chozÃ­)
     Utery,      // Hodnota 1
     Streda,     // Hodnota 2
     Ctvrtek,    // Hodnota 3
@@ -26,9 +26,9 @@ public enum DenVTydnu
 
 ---
 
-### **3. Explicitní pøiøazení hodnot**  
+### **3. ExplicitnÃ­ pÅ™iÅ™azenÃ­ hodnot**  
 
-- Lze nastavit vlastní èíselné hodnoty.  
+- Lze nastavit vlastnÃ­ ÄÃ­selnÃ© hodnoty.  
 ```csharp
 public enum Stav 
 {
@@ -40,9 +40,9 @@ public enum Stav
 
 ---
 
-### **4. Zmìna základního typu**  
+### **4. ZmÄ›na zÃ¡kladnÃ­ho typu**  
 
-- Lze pouít `byte`, `short`, `int`, `long`, `sbyte`, `ushort`, `uint`, `ulong`.  
+- Lze pouÅ¾Ã­t `byte`, `short`, `int`, `long`, `sbyte`, `ushort`, `uint`, `ulong`.  
 ```csharp
 public enum Priorita : byte 
 {
@@ -54,9 +54,9 @@ public enum Priorita : byte
 
 ---
 
-### **5. Konverze mezi `enum` a èíslem**  
+### **5. Konverze mezi `enum` a ÄÃ­slem**  
 
-#### **a) Explicitní pøetypování**  
+#### **a) ExplicitnÃ­ pÅ™etypovÃ¡nÃ­**  
 
 ```csharp
 DenVTydnu den = DenVTydnu.Pondeli;
@@ -64,10 +64,10 @@ int hodnota = (int)den; // 0
 DenVTydnu zpet = (DenVTydnu)hodnota; // Pondeli
 ```
 
-#### **b) Metody tøídy `Enum`**  
+#### **b) Metody tÅ™Ã­dy `Enum`**  
 
-- `Enum.GetValues()`: Vrátí pole všech hodnot.  
-- `Enum.Parse()`: Pøevod øetìzce na `enum`.  
+- `Enum.GetValues()`: VrÃ¡tÃ­ pole vÅ¡ech hodnot.  
+- `Enum.Parse()`: PÅ™evod Å™etÄ›zce na `enum`.  
 ```csharp
 string text = "Pondeli";
 DenVTydnu den = (DenVTydnu)Enum.Parse(typeof(DenVTydnu), text);
@@ -75,83 +75,83 @@ DenVTydnu den = (DenVTydnu)Enum.Parse(typeof(DenVTydnu), text);
 
 ---
 
-### **6. Bitové vlajky (`Flags`)**  
+### **6. BitovÃ© vlajky (`Flags`)**  
 
-- Umoòují kombinovat hodnoty pomocí bitovıch operací.  
+- UmoÅ¾ÅˆujÃ­ kombinovat hodnoty pomocÃ­ bitovÃ½ch operacÃ­.  
 ```csharp
 [Flags]
 public enum Opravneni 
 {
-    ádné = 0,
-    Ètení = 1,
-    Zápis = 2,
-    Spuštìní = 4,
-    Vše = Ètení | Zápis | Spuštìní // 7
+    Å½Ã¡dnÃ© = 0,
+    ÄŒtenÃ­ = 1,
+    ZÃ¡pis = 2,
+    SpuÅ¡tÄ›nÃ­ = 4,
+    VÅ¡e = ÄŒtenÃ­ | ZÃ¡pis | SpuÅ¡tÄ›nÃ­ // 7
 }
 
-// Pouití:
-Opravneni userOpravneni = Opravneni.Ètení | Opravneni.Zápis;
-Console.WriteLine(userOpravneni); // "Ètení, Zápis"
+// PouÅ¾itÃ­:
+Opravneni userOpravneni = Opravneni.ÄŒtenÃ­ | Opravneni.ZÃ¡pis;
+Console.WriteLine(userOpravneni); // "ÄŒtenÃ­, ZÃ¡pis"
 ```
 
 ---
 
-### **7. Bìné operace**  
+### **7. BÄ›Å¾nÃ© operace**  
 
 - **Kontrola existence hodnoty**:  
 ```csharp
 bool existuje = Enum.IsDefined(typeof(DenVTydnu), 3); // True (Ctvrtek)
 ```  
-- **Získání názvu hodnoty**:  
+- **ZÃ­skÃ¡nÃ­ nÃ¡zvu hodnoty**:  
 ```csharp
 string nazev = Enum.GetName(typeof(DenVTydnu), 2); // "Streda"
 ```
 
 ---
 
-### **8. Doporuèené postupy**  
+### **8. DoporuÄenÃ© postupy**  
 
-1. **Pouívejte popisné názvy**: `Stav.Aktivni` místo `Stav.A`.  
-2. **Nastavte vıchozí hodnotu**: Pokud `enum` reprezentuje stav, pøidejte `Neznámı` nebo `Neplatnı`.  
-3. **Pro kombinované hodnoty pouijte `[Flags]`**: Zajišuje správnou práci s bitovımi operacemi.  
-4. **Nepouívejte vıchozí èíselné hodnoty**: Pokud mají hodnoty specifickı vıznam, explicitnì je pøiøaïte.  
+1. **PouÅ¾Ã­vejte popisnÃ© nÃ¡zvy**: `Stav.Aktivni` mÃ­sto `Stav.A`.  
+2. **Nastavte vÃ½chozÃ­ hodnotu**: Pokud `enum` reprezentuje stav, pÅ™idejte `NeznÃ¡mÃ½` nebo `NeplatnÃ½`.  
+3. **Pro kombinovanÃ© hodnoty pouÅ¾ijte `[Flags]`**: ZajiÅ¡Å¥uje sprÃ¡vnou prÃ¡ci s bitovÃ½mi operacemi.  
+4. **NepouÅ¾Ã­vejte vÃ½chozÃ­ ÄÃ­selnÃ© hodnoty**: Pokud majÃ­ hodnoty specifickÃ½ vÃ½znam, explicitnÄ› je pÅ™iÅ™aÄte.  
 
 ---
 
-### **9. Èasté chyby**  
+### **9. ÄŒastÃ© chyby**  
 
-- **Neošetøené konverze**:  
+- **NeoÅ¡etÅ™enÃ© konverze**:  
 ```csharp
 int neznamyHodnota = 10;
-DenVTydnu den = (DenVTydnu)neznamyHodnota; // Vyvolá vıjimku, pokud hodnota není definována.
+DenVTydnu den = (DenVTydnu)neznamyHodnota; // VyvolÃ¡ vÃ½jimku, pokud hodnota nenÃ­ definovÃ¡na.
 ```  
-- **Zámìna s øetìzci**:  
+- **ZÃ¡mÄ›na s Å™etÄ›zci**:  
 ```csharp
-if (den == "Pondeli") { ... } // Chyba! Porovnává se s enum hodnotou, ne øetìzcem.
+if (den == "Pondeli") { ... } // Chyba! PorovnÃ¡vÃ¡ se s enum hodnotou, ne Å™etÄ›zcem.
 ```
 
 ---
 
-### **10. Ukázky kódu**  
+### **10. UkÃ¡zky kÃ³du**  
 
-#### **Práce s `Flags`**  
+#### **PrÃ¡ce s `Flags`**  
 
 ```csharp
 [Flags]
 public enum Barvy 
 {
-    ádná = 0,
-    Èervená = 1,
-    Zelená = 2,
-    Modrá = 4,
-    lutá = Èervená | Zelená // 3
+    Å½Ã¡dnÃ¡ = 0,
+    ÄŒervenÃ¡ = 1,
+    ZelenÃ¡ = 2,
+    ModrÃ¡ = 4,
+    Å½lutÃ¡ = ÄŒervenÃ¡ | ZelenÃ¡ // 3
 }
 
-Barvy mix = Barvy.Èervená | Barvy.Modrá;
-Console.WriteLine(mix.HasFlag(Barvy.Èervená)); // True
+Barvy mix = Barvy.ÄŒervenÃ¡ | Barvy.ModrÃ¡;
+Console.WriteLine(mix.HasFlag(Barvy.ÄŒervenÃ¡)); // True
 ```
 
-#### **Iterace pøes všechny hodnoty `enum`**  
+#### **Iterace pÅ™es vÅ¡echny hodnoty `enum`**  
 
 ```csharp
 foreach (DenVTydnu den in Enum.GetValues(typeof(DenVTydnu))) 
@@ -162,8 +162,8 @@ foreach (DenVTydnu den in Enum.GetValues(typeof(DenVTydnu)))
 
 ---
 
-### **11. Shrnutí**  
+### **11. ShrnutÃ­**  
 
-- **`enum`** zjednodušuje práci s pevnımi sadami hodnot.  
-- **Bitové vlajky** umoòují kombinovat hodnoty pomocí operátorù `|`, `&`, `~`.  
-- **Konverze** mezi `enum` a èíslem/øetìzcem vyaduje opatrnost.  
+- **`enum`** zjednoduÅ¡uje prÃ¡ci s pevnÃ½mi sadami hodnot.  
+- **BitovÃ© vlajky** umoÅ¾ÅˆujÃ­ kombinovat hodnoty pomocÃ­ operÃ¡torÅ¯ `|`, `&`, `~`.  
+- **Konverze** mezi `enum` a ÄÃ­slem/Å™etÄ›zcem vyÅ¾aduje opatrnost.  

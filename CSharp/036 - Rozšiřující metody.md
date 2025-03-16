@@ -1,11 +1,11 @@
 
-### **1. Definice rozšiøujících metod**  
+### **1. Definice rozÅ¡iÅ™ujÃ­cÃ­ch metod**  
 
-Rozšiøující metody umoòují **pøidávat nové metody k existujícím typùm** (tøídám, strukturám, rozhraním) **bez modifikace pùvodního kódu**.  
-- **Klíèové vlastnosti**:  
-  - Jsou definovány jako **statické metody** ve **statickıch tøídách**.  
-  - První parametr metody je oznaèen klíèovım slovem `this`.  
-  - Volají se jako instance metody pùvodního typu.  
+RozÅ¡iÅ™ujÃ­cÃ­ metody umoÅ¾ÅˆujÃ­ **pÅ™idÃ¡vat novÃ© metody k existujÃ­cÃ­m typÅ¯m** (tÅ™Ã­dÃ¡m, strukturÃ¡m, rozhranÃ­m) **bez modifikace pÅ¯vodnÃ­ho kÃ³du**.  
+- **KlÃ­ÄovÃ© vlastnosti**:  
+  - Jsou definovÃ¡ny jako **statickÃ© metody** ve **statickÃ½ch tÅ™Ã­dÃ¡ch**.  
+  - PrvnÃ­ parametr metody je oznaÄen klÃ­ÄovÃ½m slovem `this`.  
+  - VolajÃ­ se jako instance metody pÅ¯vodnÃ­ho typu.  
 
 ---
 
@@ -14,14 +14,14 @@ Rozšiøující metody umoòují **pøidávat nové metody k existujícím typùm** (tøídám
 ```csharp
 public static class StringExtensions 
 {
-    // Rozšíøení typu string o metodu ProVelkaPismena()
+    // RozÅ¡Ã­Å™enÃ­ typu string o metodu ProVelkaPismena()
     public static string ProVelkaPismena(this string text) 
     {
         return text.ToUpper();
     }
 }
 
-// Pouití:
+// PouÅ¾itÃ­:
 string jmeno = "Anna";
 Console.WriteLine(jmeno.ProVelkaPismena()); // "ANNA"
 ```
@@ -30,24 +30,24 @@ Console.WriteLine(jmeno.ProVelkaPismena()); // "ANNA"
 
 ### **3. Vlastnosti a pravidla**  
 
-1. **Statická tøída a metoda**: Rozšiøující metody musí bıt v statické tøídì a samy statické.  
-2. **První parametr s `this`**: Urèuje typ, kterı se rozšiøuje.  
-3. **Viditelnost jmenného prostoru**: Aby metoda byla dostupná, musí bıt importován jmennı prostor tøídy s rozšíøením (`using`).  
-4. **Nelze pøepsat existující metody**: Pokud metoda se stejnım názvem ji existuje, volá se pùvodní implementace.  
+1. **StatickÃ¡ tÅ™Ã­da a metoda**: RozÅ¡iÅ™ujÃ­cÃ­ metody musÃ­ bÃ½t v statickÃ© tÅ™Ã­dÄ› a samy statickÃ©.  
+2. **PrvnÃ­ parametr s `this`**: UrÄuje typ, kterÃ½ se rozÅ¡iÅ™uje.  
+3. **Viditelnost jmennÃ©ho prostoru**: Aby metoda byla dostupnÃ¡, musÃ­ bÃ½t importovÃ¡n jmennÃ½ prostor tÅ™Ã­dy s rozÅ¡Ã­Å™enÃ­m (`using`).  
+4. **Nelze pÅ™epsat existujÃ­cÃ­ metody**: Pokud metoda se stejnÃ½m nÃ¡zvem jiÅ¾ existuje, volÃ¡ se pÅ¯vodnÃ­ implementace.  
 
 ---
 
-### **4. Kde se pouívají?**  
+### **4. Kde se pouÅ¾Ã­vajÃ­?**  
 
-- **LINQ (Language Integrated Query)**: Všechny LINQ metody (napø. `Where`, `Select`) jsou rozšiøující metody pro `IEnumerable<T>`.  
-- **Rozšíøení tøetích stran**: Pøidání funkcionality ke tøídám, které nelze upravit (napø. `string`, `int`, tøídy z knihoven).  
-- **Fluent rozhraní**: Zøetìzení volání metod pro èitelnìjší kód.  
+- **LINQ (Language Integrated Query)**: VÅ¡echny LINQ metody (napÅ™. `Where`, `Select`) jsou rozÅ¡iÅ™ujÃ­cÃ­ metody pro `IEnumerable<T>`.  
+- **RozÅ¡Ã­Å™enÃ­ tÅ™etÃ­ch stran**: PÅ™idÃ¡nÃ­ funkcionality ke tÅ™Ã­dÃ¡m, kterÃ© nelze upravit (napÅ™. `string`, `int`, tÅ™Ã­dy z knihoven).  
+- **Fluent rozhranÃ­**: ZÅ™etÄ›zenÃ­ volÃ¡nÃ­ metod pro ÄitelnÄ›jÅ¡Ã­ kÃ³d.  
 
 ---
 
-### **5. Pøíklady**  
+### **5. PÅ™Ã­klady**  
 
-#### **Rozšíøení pro èísla**  
+#### **RozÅ¡Ã­Å™enÃ­ pro ÄÃ­sla**  
 
 ```csharp
 public static class IntExtensions 
@@ -58,12 +58,12 @@ public static class IntExtensions
     }
 }
 
-// Pouití:
+// PouÅ¾itÃ­:
 int x = 10;
 Console.WriteLine(x.JeSude()); // True
 ```
 
-#### **Rozšíøení pro kolekce**  
+#### **RozÅ¡Ã­Å™enÃ­ pro kolekce**  
 
 ```csharp
 public static class CollectionExtensions 
@@ -75,43 +75,43 @@ public static class CollectionExtensions
     }
 }
 
-// Pouití:
+// PouÅ¾itÃ­:
 List<int> cisla = new List<int> { 1, 2, 3 };
-cisla.Vypis(); // Vypíše 1, 2, 3
+cisla.Vypis(); // VypÃ­Å¡e 1, 2, 3
 ```
 
 ---
 
-### **6. Vıhody a nevıhody**  
+### **6. VÃ½hody a nevÃ½hody**  
 
-| **Vıhody**                        | **Nevıhody**                          |  
+| **VÃ½hody**                        | **NevÃ½hody**                          |  
 |------------------------------------|----------------------------------------|  
-| Rozšíøení existujících typù bez dìdiènosti | Nelze pøistupovat k privátním èlenùm |  
-| Èistší a intuitivnìjší kód         | Riziko konfliktù názvù metod          |  
-| Podpora pro LINQ a fluent API      | Omezení na veøejné èleny              |  
+| RozÅ¡Ã­Å™enÃ­ existujÃ­cÃ­ch typÅ¯ bez dÄ›diÄnosti | Nelze pÅ™istupovat k privÃ¡tnÃ­m ÄlenÅ¯m |  
+| ÄŒistÅ¡Ã­ a intuitivnÄ›jÅ¡Ã­ kÃ³d         | Riziko konfliktÅ¯ nÃ¡zvÅ¯ metod          |  
+| Podpora pro LINQ a fluent API      | OmezenÃ­ na veÅ™ejnÃ© Äleny              |  
 
 ---
 
-### **7. Bìné chyby**  
+### **7. BÄ›Å¾nÃ© chyby**  
 
-- **Zapomenuté `this` u prvního parametru**: Metoda se nestane rozšiøující.  
-- **Ignorování jmenného prostoru**: Bez `using` není rozšíøení viditelné.  
-- **Zámìna s instanèními metodami**: Pokud tøída ji má metodu se stejnım názvem, rozšíøení se **nevolá**.  
-
----
-
-### **8. Doporuèené postupy**  
-
-1. **Pojmenovávejte metody intuitivnì**: Napø. `ToJson()`, `IsValid()`.  
-2. **Seskupujte rozšíøení logicky**: Napø. `DateTimeExtensions`, `StringExtensions`.  
-3. **Dokumentujte rozšíøení**: Popište úèel a chování metod.  
-4. **Vyhnìte se naduívání**: Rozšiøujte jen tam, kde to pøidává hodnotu.  
+- **ZapomenutÃ© `this` u prvnÃ­ho parametru**: Metoda se nestane rozÅ¡iÅ™ujÃ­cÃ­.  
+- **IgnorovÃ¡nÃ­ jmennÃ©ho prostoru**: Bez `using` nenÃ­ rozÅ¡Ã­Å™enÃ­ viditelnÃ©.  
+- **ZÃ¡mÄ›na s instanÄnÃ­mi metodami**: Pokud tÅ™Ã­da jiÅ¾ mÃ¡ metodu se stejnÃ½m nÃ¡zvem, rozÅ¡Ã­Å™enÃ­ se **nevolÃ¡**.  
 
 ---
 
-### **9. Shrnutí**  
+### **8. DoporuÄenÃ© postupy**  
 
-- **Rozšiøující metody** pøidávají nové chování k existujícím typùm.  
-- Jsou definovány jako **statické metody** s parametrem `this`.  
-- Pouívají se pro **LINQ**, **fluent API** a rozšíøení neupravitelnıch tøíd.  
-- Udrujte je jednoduché a intuitivní.  
+1. **PojmenovÃ¡vejte metody intuitivnÄ›**: NapÅ™. `ToJson()`, `IsValid()`.  
+2. **Seskupujte rozÅ¡Ã­Å™enÃ­ logicky**: NapÅ™. `DateTimeExtensions`, `StringExtensions`.  
+3. **Dokumentujte rozÅ¡Ã­Å™enÃ­**: PopiÅ¡te ÃºÄel a chovÃ¡nÃ­ metod.  
+4. **VyhnÄ›te se naduÅ¾Ã­vÃ¡nÃ­**: RozÅ¡iÅ™ujte jen tam, kde to pÅ™idÃ¡vÃ¡ hodnotu.  
+
+---
+
+### **9. ShrnutÃ­**  
+
+- **RozÅ¡iÅ™ujÃ­cÃ­ metody** pÅ™idÃ¡vajÃ­ novÃ© chovÃ¡nÃ­ k existujÃ­cÃ­m typÅ¯m.  
+- Jsou definovÃ¡ny jako **statickÃ© metody** s parametrem `this`.  
+- PouÅ¾Ã­vajÃ­ se pro **LINQ**, **fluent API** a rozÅ¡Ã­Å™enÃ­ neupravitelnÃ½ch tÅ™Ã­d.  
+- UdrÅ¾ujte je jednoduchÃ© a intuitivnÃ­.  

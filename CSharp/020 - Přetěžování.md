@@ -1,27 +1,27 @@
 
-### **1. Definice pøetìování**
+### **1. Definice pÅ™etÄ›Å¾ovÃ¡nÃ­**
 
-- **Pøetìování** umoòuje definovat **více metod se stejnım názvem**, ale s **odlišnımi parametry** (poèet, typ, poøadí).
-- **Úèel**: Zjednodušení API a zlepšení èitelnosti kódu (volitelné parametry, rùzné varianty metody).
-- **Typ polymorfismu**: Statickı (rozhoduje se pøi **kompilaci**).
-
----
-
-### **2. Základní pravidla**
-
-1. **Stejnı název metody**.
-2. **Odlišné parametry**:
-   - Poèet parametrù,
-   - Typ parametrù,
-   - Poøadí parametrù.
-3. **Návratovı typ nestaèí**! Metody se stejnım názvem a parametry, ale rùznım návratovım typem, nelze pøetíit.
-4. **Modifikátory parametrù** (napø. `ref`, `out`, `in`) mohou rozlišit pøetíení.
+- **PÅ™etÄ›Å¾ovÃ¡nÃ­** umoÅ¾Åˆuje definovat **vÃ­ce metod se stejnÃ½m nÃ¡zvem**, ale s **odliÅ¡nÃ½mi parametry** (poÄet, typ, poÅ™adÃ­).
+- **ÃšÄel**: ZjednoduÅ¡enÃ­ API a zlepÅ¡enÃ­ Äitelnosti kÃ³du (volitelnÃ© parametry, rÅ¯znÃ© varianty metody).
+- **Typ polymorfismu**: StatickÃ½ (rozhoduje se pÅ™i **kompilaci**).
 
 ---
 
-### **3. Pøíklady pøetìování**
+### **2. ZÃ¡kladnÃ­ pravidla**
 
-#### **a) Pøetíení podle poètu parametrù**
+1. **StejnÃ½ nÃ¡zev metody**.
+2. **OdliÅ¡nÃ© parametry**:
+   - PoÄet parametrÅ¯,
+   - Typ parametrÅ¯,
+   - PoÅ™adÃ­ parametrÅ¯.
+3. **NÃ¡vratovÃ½ typ nestaÄÃ­**! Metody se stejnÃ½m nÃ¡zvem a parametry, ale rÅ¯znÃ½m nÃ¡vratovÃ½m typem, nelze pÅ™etÃ­Å¾it.
+4. **ModifikÃ¡tory parametrÅ¯** (napÅ™. `ref`, `out`, `in`) mohou rozliÅ¡it pÅ™etÃ­Å¾enÃ­.
+
+---
+
+### **3. PÅ™Ã­klady pÅ™etÄ›Å¾ovÃ¡nÃ­**
+
+#### **a) PÅ™etÃ­Å¾enÃ­ podle poÄtu parametrÅ¯**
 
 ```csharp
 public class Kalkulacka 
@@ -30,28 +30,28 @@ public class Kalkulacka
     public int Secti(int a, int b, int c) => a + b + c;
 }
 
-// Pouití:
+// PouÅ¾itÃ­:
 Kalkulacka k = new Kalkulacka();
 Console.WriteLine(k.Secti(2, 3));      // 5
 Console.WriteLine(k.Secti(2, 3, 4));  // 9
 ```
 
-#### **b) Pøetíení podle typu parametrù**
+#### **b) PÅ™etÃ­Å¾enÃ­ podle typu parametrÅ¯**
 
 ```csharp
 public class Tiskarna 
 {
-    public void Tisk(int cislo) => Console.WriteLine($"Èíslo: {cislo}");
+    public void Tisk(int cislo) => Console.WriteLine($"ÄŒÃ­slo: {cislo}");
     public void Tisk(string text) => Console.WriteLine($"Text: {text}");
 }
 
-// Pouití:
+// PouÅ¾itÃ­:
 Tiskarna t = new Tiskarna();
-t.Tisk(10);       // "Èíslo: 10"
+t.Tisk(10);       // "ÄŒÃ­slo: 10"
 t.Tisk("Ahoj");   // "Text: Ahoj"
 ```
 
-#### **c) Pøetíení konstruktorù**
+#### **c) PÅ™etÃ­Å¾enÃ­ konstruktorÅ¯**
 
 ```csharp
 public class Uzivatel 
@@ -72,72 +72,72 @@ public class Uzivatel
     }
 }
 
-// Pouití:
+// PouÅ¾itÃ­:
 Uzivatel u1 = new Uzivatel("Anna");
 Uzivatel u2 = new Uzivatel("Karel", 30);
 ```
 
 ---
 
-### **4. Speciální pøípady**
+### **4. SpeciÃ¡lnÃ­ pÅ™Ã­pady**
 
-#### **a) Volitelné parametry vs. pøetíení**
+#### **a) VolitelnÃ© parametry vs. pÅ™etÃ­Å¾enÃ­**
 
-- Volitelné parametry mohou zpùsobit nejednoznaènost s pøetíenımi metodami:
+- VolitelnÃ© parametry mohou zpÅ¯sobit nejednoznaÄnost s pÅ™etÃ­Å¾enÃ½mi metodami:
   ```csharp
   public void Log(string zprava, bool isError = false) { ... }
-  public void Log(string zprava) { ... } // Chyba: Nelze rozlišit pøi volání Log("test")
+  public void Log(string zprava) { ... } // Chyba: Nelze rozliÅ¡it pÅ™i volÃ¡nÃ­ Log("test")
   ```
 
-#### **b) Pøetíení s `params`**
+#### **b) PÅ™etÃ­Å¾enÃ­ s `params`**
 
-- Metoda s `params` mùe kolidovat s jinımi pøetíeními:
+- Metoda s `params` mÅ¯Å¾e kolidovat s jinÃ½mi pÅ™etÃ­Å¾enÃ­mi:
   ```csharp
   public void Zpracuj(params int[] cisla) { ... }
-  public void Zpracuj(int a, int b) { ... } // OK – kompilátor upøednostní tuto metodu pro Zpracuj(5, 10)
+  public void Zpracuj(int a, int b) { ... } // OK â€“ kompilÃ¡tor upÅ™ednostnÃ­ tuto metodu pro Zpracuj(5, 10)
   ```
 
 ---
 
-### **5. Bìné chyby a varování**
+### **5. BÄ›Å¾nÃ© chyby a varovÃ¡nÃ­**
 
-- **Nejednoznaèné pøetíení**:
+- **NejednoznaÄnÃ© pÅ™etÃ­Å¾enÃ­**:
   ```csharp
   public void Metoda(int a, double b) { ... }
   public void Metoda(double a, int b) { ... }
   
-  Metoda(5, 5); // Chyba: Nelze rozhodnout mezi pøetíeními
+  Metoda(5, 5); // Chyba: Nelze rozhodnout mezi pÅ™etÃ­Å¾enÃ­mi
   ```
-- **Ignorování návratového typu**:
+- **IgnorovÃ¡nÃ­ nÃ¡vratovÃ©ho typu**:
   ```csharp
   public int GetValue() => 42;
-  public string GetValue() => "42"; // Chyba: Stejné parametry, jinı návratovı typ
+  public string GetValue() => "42"; // Chyba: StejnÃ© parametry, jinÃ½ nÃ¡vratovÃ½ typ
   ```
 
 ---
 
-### **6. Vıhody pøetìování**
+### **6. VÃ½hody pÅ™etÄ›Å¾ovÃ¡nÃ­**
 
-- **Jednotné rozhraní**: Volání podobnıch operací stejnım názvem.
-- **Flexibilita**: Rùzné zpùsoby volání metody (napø. s vıchozími hodnotami).
-- **Èitelnost**: Kód je intuitivnìjší (napø. `Math.Max` pro rùzné typy).
-
----
-
-### **7. Doporuèené postupy**
-
-1. **Dodrujte konzistenci**: Pøetíené metody by mìly dìlat podobné vìci.
-2. **Pouívejte volitelné parametry opatrnì**: Mohou zpùsobit konflikty s pøetíením.
-3. **Preferujte pøetíení pøed metodami s rùznımi názvy**: Napø. `Add(int)`, `Add(double)` místo `AddInt`, `AddDouble`.
+- **JednotnÃ© rozhranÃ­**: VolÃ¡nÃ­ podobnÃ½ch operacÃ­ stejnÃ½m nÃ¡zvem.
+- **Flexibilita**: RÅ¯znÃ© zpÅ¯soby volÃ¡nÃ­ metody (napÅ™. s vÃ½chozÃ­mi hodnotami).
+- **ÄŒitelnost**: KÃ³d je intuitivnÄ›jÅ¡Ã­ (napÅ™. `Math.Max` pro rÅ¯znÃ© typy).
 
 ---
 
-### **8. Ukázka reálného pouití**
+### **7. DoporuÄenÃ© postupy**
+
+1. **DodrÅ¾ujte konzistenci**: PÅ™etÃ­Å¾enÃ© metody by mÄ›ly dÄ›lat podobnÃ© vÄ›ci.
+2. **PouÅ¾Ã­vejte volitelnÃ© parametry opatrnÄ›**: Mohou zpÅ¯sobit konflikty s pÅ™etÃ­Å¾enÃ­m.
+3. **Preferujte pÅ™etÃ­Å¾enÃ­ pÅ™ed metodami s rÅ¯znÃ½mi nÃ¡zvy**: NapÅ™. `Add(int)`, `Add(double)` mÃ­sto `AddInt`, `AddDouble`.
+
+---
+
+### **8. UkÃ¡zka reÃ¡lnÃ©ho pouÅ¾itÃ­**
 
 ```csharp
 public class Logger 
 {
-    // Pøetíení pro rùzné typy zpráv
+    // PÅ™etÃ­Å¾enÃ­ pro rÅ¯znÃ© typy zprÃ¡v
     public void Log(string message) 
     {
         Console.WriteLine($"[INFO] {message}");
@@ -154,18 +154,18 @@ public class Logger
     }
 }
 
-// Pouití:
+// PouÅ¾itÃ­:
 Logger logger = new Logger();
-logger.Log("Aplikace spuštìna");
-logger.Log("Chyba pøipojení", LogLevel.Warning);
-logger.Log(new InvalidOperationException("Neplatná operace"));
+logger.Log("Aplikace spuÅ¡tÄ›na");
+logger.Log("Chyba pÅ™ipojenÃ­", LogLevel.Warning);
+logger.Log(new InvalidOperationException("NeplatnÃ¡ operace"));
 ```
 
 ---
 
-### **9. Shrnutí klíèovıch bodù**
+### **9. ShrnutÃ­ klÃ­ÄovÃ½ch bodÅ¯**
 
-- Pøetìování umoòuje **více metod se stejnım názvem**, ale **odlišnımi parametry**.
-- Návratovı typ **nerozlišuje** pøetíené metody.
-- Pouívá se pro **zjednodušení API** a **flexibilitu**.
-- Pozor na **nejednoznaènost** a **konflikty s volitelnımi parametry**.
+- PÅ™etÄ›Å¾ovÃ¡nÃ­ umoÅ¾Åˆuje **vÃ­ce metod se stejnÃ½m nÃ¡zvem**, ale **odliÅ¡nÃ½mi parametry**.
+- NÃ¡vratovÃ½ typ **nerozliÅ¡uje** pÅ™etÃ­Å¾enÃ© metody.
+- PouÅ¾Ã­vÃ¡ se pro **zjednoduÅ¡enÃ­ API** a **flexibilitu**.
+- Pozor na **nejednoznaÄnost** a **konflikty s volitelnÃ½mi parametry**.

@@ -1,31 +1,31 @@
 
 ### **LINQ (Language Integrated Query)**  
 
-LINQ je technologie integrovaná do jazyka C#, která umoòuje **dotazování nad daty** pøímo v syntaxi jazyka. Kombinuje sílu SQL-like dotazù s vıhodami silného typového systému C#.
+LINQ je technologie integrovanÃ¡ do jazyka C#, kterÃ¡ umoÅ¾Åˆuje **dotazovÃ¡nÃ­ nad daty** pÅ™Ã­mo v syntaxi jazyka. Kombinuje sÃ­lu SQL-like dotazÅ¯ s vÃ½hodami silnÃ©ho typovÃ©ho systÃ©mu C#.
 
 ---
 
-#### **Základní charakteristika**  
+#### **ZÃ¡kladnÃ­ charakteristika**  
 
-- **Integrace do jazyka**: LINQ dotazy jsou souèástí kódu v C#, nikoli øetìzcù (napø. jako v SQL).  
-- **Univerzální pouití**: Lze dotazovat rùzné zdroje dat (kolekce, XML, SQL databáze, Entity Framework, JSON atd.).  
-- **Dva pøístupy**:  
-  1. **Query Syntax** (deklarativní styl podobnı SQL).  
-  2. **Method Syntax** (metody rozšíøení a lambda vırazy).  
+- **Integrace do jazyka**: LINQ dotazy jsou souÄÃ¡stÃ­ kÃ³du v C#, nikoli Å™etÄ›zcÅ¯ (napÅ™. jako v SQL).  
+- **UniverzÃ¡lnÃ­ pouÅ¾itÃ­**: Lze dotazovat rÅ¯znÃ© zdroje dat (kolekce, XML, SQL databÃ¡ze, Entity Framework, JSON atd.).  
+- **Dva pÅ™Ã­stupy**:  
+  1. **Query Syntax** (deklarativnÃ­ styl podobnÃ½ SQL).  
+  2. **Method Syntax** (metody rozÅ¡Ã­Å™enÃ­ a lambda vÃ½razy).  
 
 ---
 
-#### **Klíèové komponenty**  
+#### **KlÃ­ÄovÃ© komponenty**  
 
 1. **Extension Methods** (`System.Linq`):  
    - Metody jako `Where()`, `Select()`, `OrderBy()` atd.  
-   - Pracují s rozhraním `IEnumerable<T>` nebo `IQueryable<T>`.  
+   - PracujÃ­ s rozhranÃ­m `IEnumerable<T>` nebo `IQueryable<T>`.  
 2. **Lambda Expressions**:  
-   - Zkrácenı zápis pro anonymní funkce (napø. `x => x.Age > 18`).  
+   - ZkrÃ¡cenÃ½ zÃ¡pis pro anonymnÃ­ funkce (napÅ™. `x => x.Age > 18`).  
 3. **Anonymous Types**:  
-   - Vytváøení anonymních objektù pro projekce (`new { x.Name, x.Age }`).  
-4. **Delegáti**:  
-   - Napø. `Func<T, bool>` pro definici podmínek.  
+   - VytvÃ¡Å™enÃ­ anonymnÃ­ch objektÅ¯ pro projekce (`new { x.Name, x.Age }`).  
+4. **DelegÃ¡ti**:  
+   - NapÅ™. `Func<T, bool>` pro definici podmÃ­nek.  
 
 ---
 
@@ -47,59 +47,59 @@ var result = people
     .Select(person => new { person.Name, person.City });
 ```
 
-Oba pøístupy jsou ekvivalentní – kompilátor pøekládá Query Syntax na Method Syntax.
+Oba pÅ™Ã­stupy jsou ekvivalentnÃ­ â€“ kompilÃ¡tor pÅ™eklÃ¡dÃ¡ Query Syntax na Method Syntax.
 
 ---
 
-#### **Hlavní operátory LINQ**  
+#### **HlavnÃ­ operÃ¡tory LINQ**  
 
-| Kategorie         | Pøíklady                                      | Popis                              |
+| Kategorie         | PÅ™Ã­klady                                      | Popis                              |
 |--------------------|----------------------------------------------|------------------------------------|
-| **Filtrování**     | `Where()`, `OfType<T>()`                     | Vıbìr prvkù podle podmínky.        |
-| **Øazení**         | `OrderBy()`, `ThenBy()`, `Reverse()`         | Seøazení vısledkù.                 |
-| **Seskupení**      | `GroupBy()`, `ToLookup()`                    | Seskupení podle klíèe.             |
-| **Projekce**       | `Select()`, `SelectMany()`                   | Transformace vısledkù.             |
-| **Spojení**        | `Join()`, `GroupJoin()`                      | Spojení dvou kolekcí.              |
-| **Agregace**       | `Sum()`, `Average()`, `Count()`, `Max()`     | Vıpoèty nad daty.                  |
-| **Stránkování**    | `Skip()`, `Take()`                           | Vıbìr podmnoiny prvkù.            |
-| **Elementy**       | `First()`, `Single()`, `ElementAt()`         | Vıbìr konkrétního prvku.           |
-| **Konverze**       | `ToList()`, `ToArray()`, `ToDictionary()`    | Pøevod na konkrétní kolekci.       |
+| **FiltrovÃ¡nÃ­**     | `Where()`, `OfType<T>()`                     | VÃ½bÄ›r prvkÅ¯ podle podmÃ­nky.        |
+| **Å˜azenÃ­**         | `OrderBy()`, `ThenBy()`, `Reverse()`         | SeÅ™azenÃ­ vÃ½sledkÅ¯.                 |
+| **SeskupenÃ­**      | `GroupBy()`, `ToLookup()`                    | SeskupenÃ­ podle klÃ­Äe.             |
+| **Projekce**       | `Select()`, `SelectMany()`                   | Transformace vÃ½sledkÅ¯.             |
+| **SpojenÃ­**        | `Join()`, `GroupJoin()`                      | SpojenÃ­ dvou kolekcÃ­.              |
+| **Agregace**       | `Sum()`, `Average()`, `Count()`, `Max()`     | VÃ½poÄty nad daty.                  |
+| **StrÃ¡nkovÃ¡nÃ­**    | `Skip()`, `Take()`                           | VÃ½bÄ›r podmnoÅ¾iny prvkÅ¯.            |
+| **Elementy**       | `First()`, `Single()`, `ElementAt()`         | VÃ½bÄ›r konkrÃ©tnÃ­ho prvku.           |
+| **Konverze**       | `ToList()`, `ToArray()`, `ToDictionary()`    | PÅ™evod na konkrÃ©tnÃ­ kolekci.       |
 
 ---
 
 #### **LINQ Providers**  
 
-- **LINQ to Objects**: Pro práci s kolekcemi v pamìti (pole, seznamy).  
-- **LINQ to SQL/Entity Framework**: Pro dotazování relaèních databází.  
-- **LINQ to XML**: Pro práci s XML dokumenty (`XDocument`, `XElement`).  
-- **LINQ to JSON** (pomocí knihoven jako Newtonsoft.Json).  
+- **LINQ to Objects**: Pro prÃ¡ci s kolekcemi v pamÄ›ti (pole, seznamy).  
+- **LINQ to SQL/Entity Framework**: Pro dotazovÃ¡nÃ­ relaÄnÃ­ch databÃ¡zÃ­.  
+- **LINQ to XML**: Pro prÃ¡ci s XML dokumenty (`XDocument`, `XElement`).  
+- **LINQ to JSON** (pomocÃ­ knihoven jako Newtonsoft.Json).  
 
 ---
 
-#### **Deferred Execution (Odloené vykonání)**  
+#### **Deferred Execution (OdloÅ¾enÃ© vykonÃ¡nÃ­)**  
 
-- Dotaz se **nevykoná okamitì** pøi deklaraci, ale a pøi iteraci vısledku (napø. ve `foreach` nebo pøi volání `ToList()`).  
-- Umoòuje optimalizaci a kombinování dotazù.  
-- **Pøíklad**:  
+- Dotaz se **nevykonÃ¡ okamÅ¾itÄ›** pÅ™i deklaraci, ale aÅ¾ pÅ™i iteraci vÃ½sledku (napÅ™. ve `foreach` nebo pÅ™i volÃ¡nÃ­ `ToList()`).  
+- UmoÅ¾Åˆuje optimalizaci a kombinovÃ¡nÃ­ dotazÅ¯.  
+- **PÅ™Ã­klad**:  
   ```csharp
-  var query = people.Where(p => p.Age > 18); // Dotaz se ještì nevykonal
-  var results = query.ToList(); // Vyvolání dotazu
+  var query = people.Where(p => p.Age > 18); // Dotaz se jeÅ¡tÄ› nevykonal
+  var results = query.ToList(); // VyvolÃ¡nÃ­ dotazu
   ```
 
 ---
 
-#### **Rozdíl mezi `IEnumerable` a `IQueryable`**  
+#### **RozdÃ­l mezi `IEnumerable` a `IQueryable`**  
 
 - **`IEnumerable`**:  
-  - Pro práci s lokálními daty (v pamìti).  
-  - Vykonává se na stranì klienta.  
+  - Pro prÃ¡ci s lokÃ¡lnÃ­mi daty (v pamÄ›ti).  
+  - VykonÃ¡vÃ¡ se na stranÄ› klienta.  
 - **`IQueryable`**:  
-  - Pro dotazy nad externími zdroji (napø. SQL).  
-  - Generuje optimalizovanı SQL dotaz (napø. pro Entity Framework).  
+  - Pro dotazy nad externÃ­mi zdroji (napÅ™. SQL).  
+  - Generuje optimalizovanÃ½ SQL dotaz (napÅ™. pro Entity Framework).  
 
 ---
 
-#### **Pøíklad: LINQ s Entity Framework**  
+#### **PÅ™Ã­klad: LINQ s Entity Framework**  
 
 ```csharp
 using (var context = new AppDbContext())
@@ -113,82 +113,82 @@ using (var context = new AppDbContext())
 
 ---
 
-#### **Vıhody LINQ**  
+#### **VÃ½hody LINQ**  
 
-- Jednotnı zpùsob dotazování rùznıch zdrojù.  
-- Èitelnost a udrovatelnost kódu.  
-- Kompilátor kontroluje chyby (na rozdíl od SQL v øetìzcích).  
+- JednotnÃ½ zpÅ¯sob dotazovÃ¡nÃ­ rÅ¯znÃ½ch zdrojÅ¯.  
+- ÄŒitelnost a udrÅ¾ovatelnost kÃ³du.  
+- KompilÃ¡tor kontroluje chyby (na rozdÃ­l od SQL v Å™etÄ›zcÃ­ch).  
 
-#### **Nevıhody**  
+#### **NevÃ½hody**  
 
-- Nìkdy ménì efektivní ne nativní SQL (nutnost optimalizace).  
-- Sloitìjší debugování.  
+- NÄ›kdy mÃ©nÄ› efektivnÃ­ neÅ¾ nativnÃ­ SQL (nutnost optimalizace).  
+- SloÅ¾itÄ›jÅ¡Ã­ debugovÃ¡nÃ­.  
 
 ---
 
 ## **Metody**
 
-### **Základní operace**
-- **Select** – `Projekce prvkù`  
-- **Where** – `Filtrace podle podmínky`  
-- **OfType** – `Filtrace podle typu`  
+### **ZÃ¡kladnÃ­ operace**
+- **Select** â€“ `Projekce prvkÅ¯`  
+- **Where** â€“ `Filtrace podle podmÃ­nky`  
+- **OfType** â€“ `Filtrace podle typu`  
 
-### **Øazení a seskupování**
-- **OrderBy** – `Øazené vzestupne`  
-- **OrderByDescending** – `Øazení sestupnì`  
-- **ThenBy** – `Sekundární øazení vzestupnì`  
-- **ThenByDescending** – `Sekundární øazení sestupnì`  
-- **GroupBy** – `Seskupení prvkù`  
-- **ToLookup** – `Vytvoøení lookup tabulky`  
+### **Å˜azenÃ­ a seskupovÃ¡nÃ­**
+- **OrderBy** â€“ `Å˜azenÃ© vzestupne`  
+- **OrderByDescending** â€“ `Å˜azenÃ­ sestupnÄ›`  
+- **ThenBy** â€“ `SekundÃ¡rnÃ­ Å™azenÃ­ vzestupnÄ›`  
+- **ThenByDescending** â€“ `SekundÃ¡rnÃ­ Å™azenÃ­ sestupnÄ›`  
+- **GroupBy** â€“ `SeskupenÃ­ prvkÅ¯`  
+- **ToLookup** â€“ `VytvoÅ™enÃ­ lookup tabulky`  
 
-### **Spojování kolekcí**
-- **Join** – `Relaèní spojení`  
-- **GroupJoin** – `Seskupené spojení`  
-- **Concat** – `Spojení kolekcí`  
+### **SpojovÃ¡nÃ­ kolekcÃ­**
+- **Join** â€“ `RelaÄnÃ­ spojenÃ­`  
+- **GroupJoin** â€“ `SeskupenÃ© spojenÃ­`  
+- **Concat** â€“ `SpojenÃ­ kolekcÃ­`  
 
-### **Agregaèní funkce**
-- **Sum** – `Souèet hodnot`  
-- **Average** – `Prùmìrná hodnota`  
-- **Count** – `Poèet prvkù`  
-- **Max** – `Maximální hodnota`  
-- **Aggregate** – `Agregace hodnot`  
+### **AgregaÄnÃ­ funkce**
+- **Sum** â€“ `SouÄet hodnot`  
+- **Average** â€“ `PrÅ¯mÄ›rnÃ¡ hodnota`  
+- **Count** â€“ `PoÄet prvkÅ¯`  
+- **Max** â€“ `MaximÃ¡lnÃ­ hodnota`  
+- **Aggregate** â€“ `Agregace hodnot`  
 
-### **Práce s prvky**
-- **First** – `První prvek`  
-- **FirstOrDefault** – `První prvek s vıchozí hodnotou`  
-- **Last** – `Poslední prvek`  
-- **LastOrDefault** – `Poslední prvek s vıchozí hodnotou`  
-- **Single** – `Jedinı prvek`  
-- **SingleOrDefault** – `Jedinı prvek s vıchozí hodnotou`  
-- **ElementAt** – `Prvek na pozici`  
-- **ElementAtOrDefault** – `Prvek na pozici s vıchozí hodnotou`  
+### **PrÃ¡ce s prvky**
+- **First** â€“ `PrvnÃ­ prvek`  
+- **FirstOrDefault** â€“ `PrvnÃ­ prvek s vÃ½chozÃ­ hodnotou`  
+- **Last** â€“ `PoslednÃ­ prvek`  
+- **LastOrDefault** â€“ `PoslednÃ­ prvek s vÃ½chozÃ­ hodnotou`  
+- **Single** â€“ `JedinÃ½ prvek`  
+- **SingleOrDefault** â€“ `JedinÃ½ prvek s vÃ½chozÃ­ hodnotou`  
+- **ElementAt** â€“ `Prvek na pozici`  
+- **ElementAtOrDefault** â€“ `Prvek na pozici s vÃ½chozÃ­ hodnotou`  
 
-### **Podmínìné operace**
-- **Any** – `Alespoò jeden splòuje podmínku`  
-- **All** – `Všechny prvky splòují podmínku`  
-- **Contains** – `Obsahuje prvek`  
+### **PodmÃ­nÄ›nÃ© operace**
+- **Any** â€“ `AlespoÅˆ jeden splÅˆuje podmÃ­nku`  
+- **All** â€“ `VÅ¡echny prvky splÅˆujÃ­ podmÃ­nku`  
+- **Contains** â€“ `Obsahuje prvek`  
 
-### **Porovnání a manipulace**
-- **SequenceEqual** – `Porovnání sekvencí`  
-- **Distinct** – `Unikátní prvky`  
-- **Except** – `Rozdíl kolekcí`  
-- **Intersect** – `Prùnik kolekcí`  
-- **Union** – `Sjednocení kolekcí`  
+### **PorovnÃ¡nÃ­ a manipulace**
+- **SequenceEqual** â€“ `PorovnÃ¡nÃ­ sekvencÃ­`  
+- **Distinct** â€“ `UnikÃ¡tnÃ­ prvky`  
+- **Except** â€“ `RozdÃ­l kolekcÃ­`  
+- **Intersect** â€“ `PrÅ¯nik kolekcÃ­`  
+- **Union** â€“ `SjednocenÃ­ kolekcÃ­`  
 
-### **Práce s sekvencemi**
-- **Skip** – `Pøeskoèení prvkù`  
-- **SkipWhile** – `Pøeskoèení dokud podmínka platí`  
-- **Take** – `Vıbìr prvkù`  
-- **TakeWhile** – `Vıbìr dokud podmínka platí`  
+### **PrÃ¡ce s sekvencemi**
+- **Skip** â€“ `PÅ™eskoÄenÃ­ prvkÅ¯`  
+- **SkipWhile** â€“ `PÅ™eskoÄenÃ­ dokud podmÃ­nka platÃ­`  
+- **Take** â€“ `VÃ½bÄ›r prvkÅ¯`  
+- **TakeWhile** â€“ `VÃ½bÄ›r dokud podmÃ­nka platÃ­`  
 
-### **Speciální kolekce**
-- **Empty** – `Prázdná kolekce`  
-- **Range** – `Sekvence èísel`  
-- **Repeat** – `Opakující se prvek`  
-- **DefaultIfEmpty** – `Vıchozí hodnota pro prázdnou kolekci`  
+### **SpeciÃ¡lnÃ­ kolekce**
+- **Empty** â€“ `PrÃ¡zdnÃ¡ kolekce`  
+- **Range** â€“ `Sekvence ÄÃ­sel`  
+- **Repeat** â€“ `OpakujÃ­cÃ­ se prvek`  
+- **DefaultIfEmpty** â€“ `VÃ½chozÃ­ hodnota pro prÃ¡zdnou kolekci`  
 
 ---
 
-### **Doporuèené zdroje**  
+### **DoporuÄenÃ© zdroje**  
 
-- Oficiální dokumentace: [Microsoft LINQ Guide](https://learn.microsoft.com/cs-cz/dotnet/csharp/programming-guide/concepts/linq/)  
+- OficiÃ¡lnÃ­ dokumentace: [Microsoft LINQ Guide](https://learn.microsoft.com/cs-cz/dotnet/csharp/programming-guide/concepts/linq/)  

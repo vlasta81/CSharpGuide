@@ -1,17 +1,17 @@
 
 ### **1. Definice konstant**  
 
-Konstanty jsou **nemìnné hodnoty**, které se inicializují pøi deklaraci a nelze je pozdìji upravit. Slouí k definování hodnot, které jsou v programu pevnì dané (napø. matematické konstanty, konfigurace).
+Konstanty jsou **nemÄ›nnÃ© hodnoty**, kterÃ© se inicializujÃ­ pÅ™i deklaraci a nelze je pozdÄ›ji upravit. SlouÅ¾Ã­ k definovÃ¡nÃ­ hodnot, kterÃ© jsou v programu pevnÄ› danÃ© (napÅ™. matematickÃ© konstanty, konfigurace).
 
 ---
 
 ### **2. Typy konstant**  
 
-#### **a) `const` (kompilaèní konstanta)**  
+#### **a) `const` (kompilaÄnÃ­ konstanta)**  
 
-- **Inicializace**: Hodnota musí bıt známá pøi **kompilaci** (literály, vırazy s literály).  
-- **Pouití**: Pro primitivní typy (`int`, `string`, `double`), vıèty (`enum`), nebo `null`.  
-- **Pøístup**: Implicitnì `static` (patøí tøídì, ne instanci).  
+- **Inicializace**: Hodnota musÃ­ bÃ½t znÃ¡mÃ¡ pÅ™i **kompilaci** (literÃ¡ly, vÃ½razy s literÃ¡ly).  
+- **PouÅ¾itÃ­**: Pro primitivnÃ­ typy (`int`, `string`, `double`), vÃ½Äty (`enum`), nebo `null`.  
+- **PÅ™Ã­stup**: ImplicitnÄ› `static` (patÅ™Ã­ tÅ™Ã­dÄ›, ne instanci).  
 
 ```csharp
 public class Matematika 
@@ -20,16 +20,16 @@ public class Matematika
     public const string Verze = "1.0";
 }
 
-// Pouití:
+// PouÅ¾itÃ­:
 double polomer = 5;
 double obsah = Matematika.PI * polomer * polomer;
 ```
 
 #### **b) `readonly` (runtime konstanta)**  
 
-- **Inicializace**: Hodnota mùe bıt nastavena **pøi deklaraci nebo v konstruktoru**.  
-- **Pouití**: Pro komplexní typy nebo hodnoty závislé na runtime logice.  
-- **Pøístup**: Mùe bıt instanèní nebo statickı.  
+- **Inicializace**: Hodnota mÅ¯Å¾e bÃ½t nastavena **pÅ™i deklaraci nebo v konstruktoru**.  
+- **PouÅ¾itÃ­**: Pro komplexnÃ­ typy nebo hodnoty zÃ¡vislÃ© na runtime logice.  
+- **PÅ™Ã­stup**: MÅ¯Å¾e bÃ½t instanÄnÃ­ nebo statickÃ½.  
 
 ```csharp
 public class Konfigurace 
@@ -46,23 +46,23 @@ public class Konfigurace
 
 ---
 
-### **3. Porovnání `const` vs `readonly`**  
+### **3. PorovnÃ¡nÃ­ `const` vs `readonly`**  
 
-| **Kritérium**       | `const`                     | `readonly`                  |  
+| **KritÃ©rium**       | `const`                     | `readonly`                  |  
 |----------------------|-----------------------------|-----------------------------|  
-| **Inicializace**     | Pøi deklaraci               | Pøi deklaraci nebo v konstruktoru |  
-| **Typ hodnoty**      | Pouze primitivní/`null`     | Libovolnı typ               |  
-| **Kompilaèní èas**   | Hodnota známá pøi kompilaci | Hodnota mùe bıt urèena za bìhu |  
-| **Pamì**            | Statická (patøí tøídì)      | Mùe bıt instanèní/statická |  
-| **Verzování**        | Zmìna vyaduje rekompilaci  | Zmìna bez rekompilace       |  
+| **Inicializace**     | PÅ™i deklaraci               | PÅ™i deklaraci nebo v konstruktoru |  
+| **Typ hodnoty**      | Pouze primitivnÃ­/`null`     | LibovolnÃ½ typ               |  
+| **KompilaÄnÃ­ Äas**   | Hodnota znÃ¡mÃ¡ pÅ™i kompilaci | Hodnota mÅ¯Å¾e bÃ½t urÄena za bÄ›hu |  
+| **PamÄ›Å¥**            | StatickÃ¡ (patÅ™Ã­ tÅ™Ã­dÄ›)      | MÅ¯Å¾e bÃ½t instanÄnÃ­/statickÃ¡ |  
+| **VerzovÃ¡nÃ­**        | ZmÄ›na vyÅ¾aduje rekompilaci  | ZmÄ›na bez rekompilace       |  
 
 ---
 
 ### **4. `static readonly`**  
 
-- Kombinuje vıhody `static` a `readonly`:  
-  - Hodnota je nastavena jednou a sdílena mezi všemi instancemi.  
-  - Lze inicializovat v statickém konstruktoru.  
+- Kombinuje vÃ½hody `static` a `readonly`:  
+  - Hodnota je nastavena jednou a sdÃ­lena mezi vÅ¡emi instancemi.  
+  - Lze inicializovat v statickÃ©m konstruktoru.  
 
 ```csharp
 public class Nastaveni 
@@ -73,9 +73,9 @@ public class Nastaveni
 
 ---
 
-### **5. Vıèty (`enum`)**  
+### **5. VÃ½Äty (`enum`)**  
 
-- Speciální typ konstant pro **pojmenované celoèíselné hodnoty**.  
+- SpeciÃ¡lnÃ­ typ konstant pro **pojmenovanÃ© celoÄÃ­selnÃ© hodnoty**.  
 ```csharp
 public enum DenVTydnu 
 {
@@ -85,38 +85,38 @@ public enum DenVTydnu
     // ...
 }
 
-// Pouití:
+// PouÅ¾itÃ­:
 DenVTydnu dnes = DenVTydnu.Pondeli;
 ```
 
 ---
 
-### **6. Bìné chyby a tipy**  
+### **6. BÄ›Å¾nÃ© chyby a tipy**  
 
-- **Pokus o zmìnu konstanty**:  
+- **Pokus o zmÄ›nu konstanty**:  
   ```csharp
   Matematika.PI = 3.14; // Chyba kompilace!
   ```  
-- **Neinicializované `readonly` pole**:  
+- **NeinicializovanÃ© `readonly` pole**:  
   ```csharp
-  public readonly int[] Cisla; // Lze mìnit obsah pole (jen reference je konstantní)!
+  public readonly int[] Cisla; // Lze mÄ›nit obsah pole (jen reference je konstantnÃ­)!
   ```  
-- **Verzování**:  
-  - `const` hodnoty jsou **vloeny pøímo do kódu** – zmìna vyaduje rekompilaci všech závislıch projektù.  
-  - `readonly` hodnoty jsou naèteny za bìhu – zmìna neovlivní ji zkompilované projekty.  
+- **VerzovÃ¡nÃ­**:  
+  - `const` hodnoty jsou **vloÅ¾eny pÅ™Ã­mo do kÃ³du** â€“ zmÄ›na vyÅ¾aduje rekompilaci vÅ¡ech zÃ¡vislÃ½ch projektÅ¯.  
+  - `readonly` hodnoty jsou naÄteny za bÄ›hu â€“ zmÄ›na neovlivnÃ­ jiÅ¾ zkompilovanÃ© projekty.  
 
 ---
 
-### **7. Doporuèené postupy**  
+### **7. DoporuÄenÃ© postupy**  
 
-1. **`const` pro jednoduché hodnoty** (matematické konstanty, verze).  
-2. **`readonly` pro hodnoty závislé na prostøedí** (cesty, konfigurace).  
-3. **Pouívejte `enum` pro omezené mnoiny hodnot** (dny v tıdnu, stavy).  
-4. **Vyhnìte se `public const` u komplexních typù**: Mùe zpùsobit problém s verzováním.  
+1. **`const` pro jednoduchÃ© hodnoty** (matematickÃ© konstanty, verze).  
+2. **`readonly` pro hodnoty zÃ¡vislÃ© na prostÅ™edÃ­** (cesty, konfigurace).  
+3. **PouÅ¾Ã­vejte `enum` pro omezenÃ© mnoÅ¾iny hodnot** (dny v tÃ½dnu, stavy).  
+4. **VyhnÄ›te se `public const` u komplexnÃ­ch typÅ¯**: MÅ¯Å¾e zpÅ¯sobit problÃ©m s verzovÃ¡nÃ­m.  
 
 ---
 
-### **8. Ukázky kódu**  
+### **8. UkÃ¡zky kÃ³du**  
 
 #### **Kombinace `const` a `readonly`**  
 
@@ -133,7 +133,7 @@ public class ApiClient
 }
 ```
 
-#### **Statickı konstruktor pro `static readonly`**  
+#### **StatickÃ½ konstruktor pro `static readonly`**  
 
 ```csharp
 public class AppConfig 
@@ -142,15 +142,15 @@ public class AppConfig
 
     static AppConfig() 
     {
-        ConnectionString = LoadFromConfigFile(); // Inicializace za bìhu
+        ConnectionString = LoadFromConfigFile(); // Inicializace za bÄ›hu
     }
 }
 ```
 
 ---
 
-### **9. Shrnutí**  
+### **9. ShrnutÃ­**  
 
-- **`const`**: Nemìnná hodnota známá pøi kompilaci.  
-- **`readonly`**: Nemìnná hodnota urèená za bìhu.  
-- **`enum`**: Pojmenované celoèíselné konstanty.  
+- **`const`**: NemÄ›nnÃ¡ hodnota znÃ¡mÃ¡ pÅ™i kompilaci.  
+- **`readonly`**: NemÄ›nnÃ¡ hodnota urÄenÃ¡ za bÄ›hu.  
+- **`enum`**: PojmenovanÃ© celoÄÃ­selnÃ© konstanty.  

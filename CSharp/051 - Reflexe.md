@@ -1,35 +1,35 @@
 
 ### Reflexe v jazyce C#  
 
-Reflexe (Reflection) je mechanismus, kterı umoòuje **zkoumat a manipulovat s metadaty typù, metod, vlastností a dalších èlenù za bìhu programu**. Pouívá se pro dynamické vytváøení instancí, volání metod, analızu atributù nebo práci s assembly. Zde je pøehled klíèovıch konceptù:
+Reflexe (Reflection) je mechanismus, kterÃ½ umoÅ¾Åˆuje **zkoumat a manipulovat s metadaty typÅ¯, metod, vlastnostÃ­ a dalÅ¡Ã­ch ÄlenÅ¯ za bÄ›hu programu**. PouÅ¾Ã­vÃ¡ se pro dynamickÃ© vytvÃ¡Å™enÃ­ instancÃ­, volÃ¡nÃ­ metod, analÃ½zu atributÅ¯ nebo prÃ¡ci s assembly. Zde je pÅ™ehled klÃ­ÄovÃ½ch konceptÅ¯:
 
 ---
 
-#### **1. Základní pojmy**  
+#### **1. ZÃ¡kladnÃ­ pojmy**  
 
-- **Metadata**: Informace o typech a jejich èlenech (tøídy, metody, vlastnosti atd.).  
-- **`System.Reflection`**: Namespace obsahující tøídy pro reflexi.  
-- **Typické pouití**: Serializace, dynamické pluginy, ORM frameworky, testování.
+- **Metadata**: Informace o typech a jejich Älenech (tÅ™Ã­dy, metody, vlastnosti atd.).  
+- **`System.Reflection`**: Namespace obsahujÃ­cÃ­ tÅ™Ã­dy pro reflexi.  
+- **TypickÃ© pouÅ¾itÃ­**: Serializace, dynamickÃ© pluginy, ORM frameworky, testovÃ¡nÃ­.
 
 ---
 
-#### **2. Získání informací o typu**  
+#### **2. ZÃ­skÃ¡nÃ­ informacÃ­ o typu**  
 
-- **`Type`**: Tøída reprezentující typ.  
+- **`Type`**: TÅ™Ã­da reprezentujÃ­cÃ­ typ.  
   ```csharp
-  // Získání typu
+  // ZÃ­skÃ¡nÃ­ typu
   Type typ = typeof(string); // Staticky
   Type typ = instance.GetType(); // Dynamicky z instance
   ```  
-- **Základní informace**:  
+- **ZÃ¡kladnÃ­ informace**:  
   ```csharp
-  Console.WriteLine($"Jméno: {typ.Name}"); // "String"
-  Console.WriteLine($"Je tøída: {typ.IsClass}"); // True
+  Console.WriteLine($"JmÃ©no: {typ.Name}"); // "String"
+  Console.WriteLine($"Je tÅ™Ã­da: {typ.IsClass}"); // True
   ```
 
 ---
 
-#### **3. Práce s èleny typu**  
+#### **3. PrÃ¡ce s Äleny typu**  
 
 - **Metody**:  
   ```csharp
@@ -49,9 +49,9 @@ Reflexe (Reflection) je mechanismus, kterı umoòuje **zkoumat a manipulovat s me
 
 ---
 
-#### **4. Dynamické vytváøení instancí**  
+#### **4. DynamickÃ© vytvÃ¡Å™enÃ­ instancÃ­**  
 
-- Pomocí **`Activator.CreateInstance`**:  
+- PomocÃ­ **`Activator.CreateInstance`**:  
   ```csharp
   object instance = Activator.CreateInstance(typeof(List<int>)); // new List<int>()
   ```  
@@ -62,9 +62,9 @@ Reflexe (Reflection) je mechanismus, kterı umoòuje **zkoumat a manipulovat s me
 
 ---
 
-#### **5. Volání metod dynamicky** 
+#### **5. VolÃ¡nÃ­ metod dynamicky** 
 
-- **Pomocí `MethodInfo.Invoke`**:  
+- **PomocÃ­ `MethodInfo.Invoke`**:  
   ```csharp
   MethodInfo metoda = typ.GetMethod("ToUpper");
   string vysledek = (string)metoda.Invoke("abc", null); // "ABC"
@@ -77,14 +77,14 @@ Reflexe (Reflection) je mechanismus, kterı umoòuje **zkoumat a manipulovat s me
 
 ---
 
-#### **6. Práce s assembly**  
+#### **6. PrÃ¡ce s assembly**  
 
-- **Naètení assembly**:  
+- **NaÄtenÃ­ assembly**:  
   ```csharp
   Assembly assembly = Assembly.LoadFrom("MojeKnihovna.dll");
   Type[] typy = assembly.GetTypes();
   ```  
-- **Získání vstupní assembly**:  
+- **ZÃ­skÃ¡nÃ­ vstupnÃ­ assembly**:  
   ```csharp
   Assembly assembly = Assembly.GetExecutingAssembly();
   ```
@@ -93,15 +93,15 @@ Reflexe (Reflection) je mechanismus, kterı umoòuje **zkoumat a manipulovat s me
 
 #### **7. Atributy a reflexe**  
 
-- **Získání vlastních atributù**:  
+- **ZÃ­skÃ¡nÃ­ vlastnÃ­ch atributÅ¯**:  
   ```csharp
-  [Author("Jan Novák")]
+  [Author("Jan NovÃ¡k")]
   class MojeTrida { }
 
   var atributy = typeof(MojeTrida).GetCustomAttributes(typeof(AuthorAttribute), false);
   AuthorAttribute autor = (AuthorAttribute)atributy[0];
   ```  
-- **Vytvoøení vlastního atributu**:  
+- **VytvoÅ™enÃ­ vlastnÃ­ho atributu**:  
   ```csharp
   public class AuthorAttribute : Attribute
   {
@@ -112,36 +112,36 @@ Reflexe (Reflection) je mechanismus, kterı umoòuje **zkoumat a manipulovat s me
 
 ---
 
-#### **8. Vıhody a nevıhody**  
+#### **8. VÃ½hody a nevÃ½hody**  
 
-- **Vıhody**:  
-  - Flexibilita (dynamické pluginy, serializace).  
-  - Monost analızy kódu za bìhu.  
-- **Nevıhody**:  
-  - **Vıkon**: Reflexe je pomalejší ne statickı kód.  
-  - **Bezpeènostní rizika**: Pøístup k privátním èlenùm.  
-
----
-
-#### **9. Doporuèené postupy**  
-
-- **Omezte reflexi**: Pouívejte ji jen tam, kde není moné statické øešení.  
-- **Cache vısledky**: Ukládejte `MethodInfo` nebo `Type` do promìnnıch pro opakované pouití.  
-- **Pouívejte `dynamic`**: Pro jednoduché dynamické volání metod (kde je to moné).  
+- **VÃ½hody**:  
+  - Flexibilita (dynamickÃ© pluginy, serializace).  
+  - MoÅ¾nost analÃ½zy kÃ³du za bÄ›hu.  
+- **NevÃ½hody**:  
+  - **VÃ½kon**: Reflexe je pomalejÅ¡Ã­ neÅ¾ statickÃ½ kÃ³d.  
+  - **BezpeÄnostnÃ­ rizika**: PÅ™Ã­stup k privÃ¡tnÃ­m ÄlenÅ¯m.  
 
 ---
 
-#### **10. Èasté chyby**  
+#### **9. DoporuÄenÃ© postupy**  
 
-- **`NullReferenceException`**: Nezkontrolování `null` u `GetMethod` nebo `GetProperty`.  
-- **Ignorování `BindingFlags`**: Napø. nezahrnutí `BindingFlags.NonPublic` pro privátní èleny.  
-- **Memory leaks**: Pøi práci s dynamicky naètenımi assembly (vyuívejte `AppDomain` opatrnì).  
+- **Omezte reflexi**: PouÅ¾Ã­vejte ji jen tam, kde nenÃ­ moÅ¾nÃ© statickÃ© Å™eÅ¡enÃ­.  
+- **Cache vÃ½sledky**: UklÃ¡dejte `MethodInfo` nebo `Type` do promÄ›nnÃ½ch pro opakovanÃ© pouÅ¾itÃ­.  
+- **PouÅ¾Ã­vejte `dynamic`**: Pro jednoduchÃ© dynamickÃ© volÃ¡nÃ­ metod (kde je to moÅ¾nÃ©).  
 
 ---
 
-#### **11. Pokroèilé techniky**  
+#### **10. ÄŒastÃ© chyby**  
 
-- **Emitování IL kódu**: Tvorba dynamickıch metod pomocí `System.Reflection.Emit`.  
+- **`NullReferenceException`**: NezkontrolovÃ¡nÃ­ `null` u `GetMethod` nebo `GetProperty`.  
+- **IgnorovÃ¡nÃ­ `BindingFlags`**: NapÅ™. nezahrnutÃ­ `BindingFlags.NonPublic` pro privÃ¡tnÃ­ Äleny.  
+- **Memory leaks**: PÅ™i prÃ¡ci s dynamicky naÄtenÃ½mi assembly (vyuÅ¾Ã­vejte `AppDomain` opatrnÄ›).  
+
+---
+
+#### **11. PokroÄilÃ© techniky**  
+
+- **EmitovÃ¡nÃ­ IL kÃ³du**: Tvorba dynamickÃ½ch metod pomocÃ­ `System.Reflection.Emit`.  
   ```csharp
   DynamicMethod metoda = new DynamicMethod("DynamickaMetoda", typeof(void), null);
   ILGenerator generator = metoda.GetILGenerator();

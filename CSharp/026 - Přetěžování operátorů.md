@@ -1,26 +1,26 @@
 
-### **1. Úvod do pøetìování operátorù**
+### **1. Ãšvod do pÅ™etÄ›Å¾ovÃ¡nÃ­ operÃ¡torÅ¯**
 
-Pøetìování operátorù umoòuje **definovat vlastní chování operátorù** (napø. `+`, `==`, `>`) pro uivatelské typy (tøídy, struktury).  
-**Úèel**: Zjednodušení syntaxe a zpøehlednìní kódu pro práci s objekty.
-
----
-
-### **2. Základní pravidla**
-
-- **Statické metody**: Pøetíené operátory musí bıt `static` a `public`.
-- **Typy operátorù**:
-  - Unární (napø. `++`, `-`, `!`).
-  - Binární (napø. `+`, `-`, `*`, `/`, `==`, `!=`).
-- **Nelze pøetíit**: 
-  - Operátory pøiøazení (`=`, `+=`, `&&`, `||`).
-  - Operátor `??`, `?.`, `?[]`, `new`, `is`, `as`.
+PÅ™etÄ›Å¾ovÃ¡nÃ­ operÃ¡torÅ¯ umoÅ¾Åˆuje **definovat vlastnÃ­ chovÃ¡nÃ­ operÃ¡torÅ¯** (napÅ™. `+`, `==`, `>`) pro uÅ¾ivatelskÃ© typy (tÅ™Ã­dy, struktury).  
+**ÃšÄel**: ZjednoduÅ¡enÃ­ syntaxe a zpÅ™ehlednÄ›nÃ­ kÃ³du pro prÃ¡ci s objekty.
 
 ---
 
-### **3. Syntaxe a pøíklady**
+### **2. ZÃ¡kladnÃ­ pravidla**
 
-#### **a) Binární operátor (`+`)**  
+- **StatickÃ© metody**: PÅ™etÃ­Å¾enÃ© operÃ¡tory musÃ­ bÃ½t `static` a `public`.
+- **Typy operÃ¡torÅ¯**:
+  - UnÃ¡rnÃ­ (napÅ™. `++`, `-`, `!`).
+  - BinÃ¡rnÃ­ (napÅ™. `+`, `-`, `*`, `/`, `==`, `!=`).
+- **Nelze pÅ™etÃ­Å¾it**: 
+  - OperÃ¡tory pÅ™iÅ™azenÃ­ (`=`, `+=`, `&&`, `||`).
+  - OperÃ¡tor `??`, `?.`, `?[]`, `new`, `is`, `as`.
+
+---
+
+### **3. Syntaxe a pÅ™Ã­klady**
+
+#### **a) BinÃ¡rnÃ­ operÃ¡tor (`+`)**  
 
 ```csharp
 public class Vektor 
@@ -34,13 +34,13 @@ public class Vektor
     }
 }
 
-// Pouití:
+// PouÅ¾itÃ­:
 Vektor v1 = new Vektor { X = 2, Y = 3 };
 Vektor v2 = new Vektor { X = 1, Y = 4 };
 Vektor soucet = v1 + v2; // X=3, Y=7
 ```
 
-#### **b) Porovnávací operátory (`==`, `!=`)**  
+#### **b) PorovnÃ¡vacÃ­ operÃ¡tory (`==`, `!=`)**  
 
 ```csharp
 public static bool operator ==(Vektor a, Vektor b) 
@@ -53,12 +53,12 @@ public static bool operator !=(Vektor a, Vektor b)
     return !(a == b);
 }
 
-// Nutno pøepsat Equals a GetHashCode!
+// Nutno pÅ™epsat Equals a GetHashCode!
 public override bool Equals(object obj) => obj is Vektor v && this == v;
 public override int GetHashCode() => HashCode.Combine(X, Y);
 ```
 
-#### **c) Unární operátor (`++`)**  
+#### **c) UnÃ¡rnÃ­ operÃ¡tor (`++`)**  
 
 ```csharp
 public static Vektor operator ++(Vektor v) 
@@ -66,55 +66,55 @@ public static Vektor operator ++(Vektor v)
     return new Vektor { X = v.X + 1, Y = v.Y + 1 };
 }
 
-// Pouití:
+// PouÅ¾itÃ­:
 Vektor v = new Vektor { X = 5, Y = 5 };
 v++; // X=6, Y=6
 ```
 
 ---
 
-### **4. Implicitní a explicitní pøevody**
+### **4. ImplicitnÃ­ a explicitnÃ­ pÅ™evody**
 
-#### **a) Implicitní pøevod**  
+#### **a) ImplicitnÃ­ pÅ™evod**  
 
-- Probìhne automaticky (bez ztráty dat).  
+- ProbÄ›hne automaticky (bez ztrÃ¡ty dat).  
 ```csharp
 public static implicit operator double(Vektor v) 
 {
-    return Math.Sqrt(v.X * v.X + v.Y * v.Y); // Délka vektoru
+    return Math.Sqrt(v.X * v.X + v.Y * v.Y); // DÃ©lka vektoru
 }
 
-// Pouití:
+// PouÅ¾itÃ­:
 double delka = new Vektor { X = 3, Y = 4 }; // 5.0
 ```
 
-#### **b) Explicitní pøevod**  
+#### **b) ExplicitnÃ­ pÅ™evod**  
 
-- Vyaduje explicitní pøetypování.  
+- VyÅ¾aduje explicitnÃ­ pÅ™etypovÃ¡nÃ­.  
 ```csharp
 public static explicit operator int(Vektor v) 
 {
     return v.X + v.Y;
 }
 
-// Pouití:
+// PouÅ¾itÃ­:
 int suma = (int)new Vektor { X = 2, Y = 3 }; // 5
 ```
 
 ---
 
-### **5. Dùleité tipy**
+### **5. DÅ¯leÅ¾itÃ© tipy**
 
-1. **Dvojice operátorù**: Pokud pøetìujete `==`, musíte pøetíit i `!=` (a naopak).
-2. **Konzistence s `Equals` a `GetHashCode`**: Zajistìte, aby `==` a `Equals` dávaly stejnı vısledek.
-3. **Pøehlednost**: Pouívejte pøetìování pouze tam, kde dává smysl (napø. matematické operace).
-4. **Vıkon**: Pøetìování mùe skrıvat nákladné operace – buïte transparentní.
+1. **Dvojice operÃ¡torÅ¯**: Pokud pÅ™etÄ›Å¾ujete `==`, musÃ­te pÅ™etÃ­Å¾it i `!=` (a naopak).
+2. **Konzistence s `Equals` a `GetHashCode`**: ZajistÄ›te, aby `==` a `Equals` dÃ¡valy stejnÃ½ vÃ½sledek.
+3. **PÅ™ehlednost**: PouÅ¾Ã­vejte pÅ™etÄ›Å¾ovÃ¡nÃ­ pouze tam, kde dÃ¡vÃ¡ smysl (napÅ™. matematickÃ© operace).
+4. **VÃ½kon**: PÅ™etÄ›Å¾ovÃ¡nÃ­ mÅ¯Å¾e skrÃ½vat nÃ¡kladnÃ© operace â€“ buÄte transparentnÃ­.
 
 ---
 
-### **6. Ukázka reálného pouití**
+### **6. UkÃ¡zka reÃ¡lnÃ©ho pouÅ¾itÃ­**
 
-#### **Komplexní èísla** 
+#### **KomplexnÃ­ ÄÃ­sla** 
 
 ```csharp
 public class KomplexniCislo 
@@ -134,7 +134,7 @@ public class KomplexniCislo
     public override string ToString() => $"{Real} + {Imag}i";
 }
 
-// Pouití:
+// PouÅ¾itÃ­:
 KomplexniCislo c1 = new KomplexniCislo { Real = 2, Imag = 3 };
 KomplexniCislo c2 = new KomplexniCislo { Real = 1, Imag = 4 };
 Console.WriteLine(c1 + c2); // "3 + 7i"
@@ -142,14 +142,14 @@ Console.WriteLine(c1 + c2); // "3 + 7i"
 
 ---
 
-### **7. Omezení**
+### **7. OmezenÃ­**
 
-- Nelze pøetíit operátor pøiøazení (`=`).
-- Nelze zmìnit prioritu nebo asociativitu operátorù.
-- Operátory `true` a `false` lze pøetíit, ale musí bıt v páru.
+- Nelze pÅ™etÃ­Å¾it operÃ¡tor pÅ™iÅ™azenÃ­ (`=`).
+- Nelze zmÄ›nit prioritu nebo asociativitu operÃ¡torÅ¯.
+- OperÃ¡tory `true` a `false` lze pÅ™etÃ­Å¾it, ale musÃ­ bÃ½t v pÃ¡ru.
 
 ---
 
-### **8. Doporuèené zdroje**
+### **8. DoporuÄenÃ© zdroje**
 
-- **Oficiální dokumentace**: [Operator Overloading](https://learn.microsoft.com/cs-cz/dotnet/csharp/language-reference/operators/operator-overloading)  
+- **OficiÃ¡lnÃ­ dokumentace**: [Operator Overloading](https://learn.microsoft.com/cs-cz/dotnet/csharp/language-reference/operators/operator-overloading)  

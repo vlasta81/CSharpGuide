@@ -1,31 +1,31 @@
 
-### **1. Co jsou atributy ètené kompilátorem?**
+### **1. Co jsou atributy ÄtenÃ© kompilÃ¡torem?**
 
-- **Atributy** poskytují **metadatovou informaci** o kódu, kterou kompilátor vyuívá pro:
-  - Kontrolu kódu (napø. upozornìní na zastaralé metody).
-  - Optimalizace (napø. vkládání metod).
-  - Generování kódu (napø. serializace nebo interoperabilita).
-- Na rozdíl od bìnıch atributù (ètenıch za bìhu) **ovlivòují pøímo proces kompilace**.
+- **Atributy** poskytujÃ­ **metadatovou informaci** o kÃ³du, kterou kompilÃ¡tor vyuÅ¾Ã­vÃ¡ pro:
+  - Kontrolu kÃ³du (napÅ™. upozornÄ›nÃ­ na zastaralÃ© metody).
+  - Optimalizace (napÅ™. vklÃ¡dÃ¡nÃ­ metod).
+  - GenerovÃ¡nÃ­ kÃ³du (napÅ™. serializace nebo interoperabilita).
+- Na rozdÃ­l od bÄ›Å¾nÃ½ch atributÅ¯ (ÄtenÃ½ch za bÄ›hu) **ovlivÅˆujÃ­ pÅ™Ã­mo proces kompilace**.
 
 ---
 
-### **2. Klíèové atributy a jejich pouití**
+### **2. KlÃ­ÄovÃ© atributy a jejich pouÅ¾itÃ­**
 
 #### **a) `[Obsolete]`**
 
-- **Úèel**: Oznaèuje zastaralı kód. Vyvolá **varování nebo chybu** pøi kompilaci.
+- **ÃšÄel**: OznaÄuje zastaralÃ½ kÃ³d. VyvolÃ¡ **varovÃ¡nÃ­ nebo chybu** pÅ™i kompilaci.
 - **Parametry**:
-  - `message`: Zpráva pro vıvojáøe.
-  - `isError`: Pokud `true`, kompilace sele.
+  - `message`: ZprÃ¡va pro vÃ½vojÃ¡Å™e.
+  - `isError`: Pokud `true`, kompilace selÅ¾e.
   ```csharp
-  [Obsolete("Pouij metodu NováMetoda()", isError: false)]
+  [Obsolete("PouÅ¾ij metodu NovÃ¡Metoda()", isError: false)]
   public void StaraMetoda() { }
   ```
 
 #### **b) `[Conditional]`**
 
-- **Úèel**: Podmínìná kompilace metod. Volání metody se **ignoruje**, pokud není definován zadanı symbol.
-- **Pøíklad**:
+- **ÃšÄel**: PodmÃ­nÄ›nÃ¡ kompilace metod. VolÃ¡nÃ­ metody se **ignoruje**, pokud nenÃ­ definovÃ¡n zadanÃ½ symbol.
+- **PÅ™Ã­klad**:
   ```csharp
   #define DEBUG
   
@@ -34,13 +34,13 @@
       Console.WriteLine(message);
   }
   
-  // Volání Log() se kompiluje pouze v DEBUG reimu.
+  // VolÃ¡nÃ­ Log() se kompiluje pouze v DEBUG reÅ¾imu.
   ```
 
 #### **c) `[CallerMemberName]`, `[CallerFilePath]`, `[CallerLineNumber]`**
 
-- **Úèel**: Automatické doplnìní informací o volajícím kódu (vyuito napø. v MVVM pro `INotifyPropertyChanged`).
-- **Pøíklad**:
+- **ÃšÄel**: AutomatickÃ© doplnÄ›nÃ­ informacÃ­ o volajÃ­cÃ­m kÃ³du (vyuÅ¾ito napÅ™. v MVVM pro `INotifyPropertyChanged`).
+- **PÅ™Ã­klad**:
   ```csharp
   public void NotifyPropertyChanged([CallerMemberName] string propertyName = null) {
       PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
@@ -49,7 +49,7 @@
 
 #### **d) `[DllImport]`**
 
-- **Úèel**: Pro **interoperabilitu** s nespravovanım kódem (napø. volání funkcí z DLL).
+- **ÃšÄel**: Pro **interoperabilitu** s nespravovanÃ½m kÃ³dem (napÅ™. volÃ¡nÃ­ funkcÃ­ z DLL).
   ```csharp
   [DllImport("user32.dll")]
   public static extern int MessageBox(IntPtr hWnd, string text, string caption, int type);
@@ -57,23 +57,23 @@
 
 #### **e) `[Nullable]` a `[NotNull]` (C# 8+)**
 
-- **Úèel**: Kontrola nulovatelnosti promìnnıch v kontextu **nullable reference types**.
+- **ÃšÄel**: Kontrola nulovatelnosti promÄ›nnÃ½ch v kontextu **nullable reference types**.
   ```csharp
   public void Process([NotNull] string input) {
-      // Kompilátor kontroluje, e input není null.
+      // KompilÃ¡tor kontroluje, Å¾e input nenÃ­ null.
   }
   ```
 
 #### **f) `[InternalsVisibleTo]`**
 
-- **Úèel**: Umoòuje **testovacím projektùm** pøístup k `internal` èlenùm.
+- **ÃšÄel**: UmoÅ¾Åˆuje **testovacÃ­m projektÅ¯m** pÅ™Ã­stup k `internal` ÄlenÅ¯m.
   ```csharp
   [assembly: InternalsVisibleTo("TestovaciProjekt")]
   ```
 
 #### **g) `[MethodImpl]`**
 
-- **Úèel**: Urèuje chování metody (napø. optimalizace).
+- **ÃšÄel**: UrÄuje chovÃ¡nÃ­ metody (napÅ™. optimalizace).
   ```csharp
   [MethodImpl(MethodImplOptions.AggressiveInlining)]
   public int Add(int a, int b) => a + b;
@@ -81,7 +81,7 @@
 
 #### **h) `[FieldOffset]` (pro `StructLayout`)**
 
-- **Úèel**: Definuje explicitní rozloení polí ve struktuøe (pro interoperabilitu).
+- **ÃšÄel**: Definuje explicitnÃ­ rozloÅ¾enÃ­ polÃ­ ve struktuÅ™e (pro interoperabilitu).
   ```csharp
   [StructLayout(LayoutKind.Explicit)]
   public struct Union {
@@ -92,38 +92,38 @@
 
 ---
 
-### **3. Jak kompilátor pracuje s atributy?**
+### **3. Jak kompilÃ¡tor pracuje s atributy?**
 
-1. **Analıza kódu**: Kompilátor hledá atributy bìhem lexikální a syntaktické analızy.
-2. **Validace**: Kontroluje správnost parametrù (napø. zda symbol v `[Conditional]` existuje).
-3. **Generování metadat**: Atributy se ukládají do assembly (pro runtime) nebo pøímo ovlivòují kód (napø. `[Conditional]`).
-4. **Optimalizace**: Napø. vkládání metod (`[MethodImpl]`) nebo odstranìní nepotøebnıch volání.
+1. **AnalÃ½za kÃ³du**: KompilÃ¡tor hledÃ¡ atributy bÄ›hem lexikÃ¡lnÃ­ a syntaktickÃ© analÃ½zy.
+2. **Validace**: Kontroluje sprÃ¡vnost parametrÅ¯ (napÅ™. zda symbol v `[Conditional]` existuje).
+3. **GenerovÃ¡nÃ­ metadat**: Atributy se uklÃ¡dajÃ­ do assembly (pro runtime) nebo pÅ™Ã­mo ovlivÅˆujÃ­ kÃ³d (napÅ™. `[Conditional]`).
+4. **Optimalizace**: NapÅ™. vklÃ¡dÃ¡nÃ­ metod (`[MethodImpl]`) nebo odstranÄ›nÃ­ nepotÅ™ebnÃ½ch volÃ¡nÃ­.
 
 ---
 
-### **4. Rozdíly oproti atributùm ètenım za bìhu**
+### **4. RozdÃ­ly oproti atributÅ¯m ÄtenÃ½m za bÄ›hu**
 
-| **Vlastnost**       | **Atributy ètené kompilátorem** | **Bìné atributy**          |
+| **Vlastnost**       | **Atributy ÄtenÃ© kompilÃ¡torem** | **BÄ›Å¾nÃ© atributy**          |
 |----------------------|----------------------------------|-----------------------------|
-| Úèel                 | Ovlivòují kompilaci             | Metadata pro runtime        |
-| Pøíklady             | `[Obsolete]`, `[Conditional]`   | `[Serializable]`, `[Authorize]` |
-| Zpracování           | Pøi kompilaci                   | Pøi bìhu aplikace (reflekce) |
+| ÃšÄel                 | OvlivÅˆujÃ­ kompilaci             | Metadata pro runtime        |
+| PÅ™Ã­klady             | `[Obsolete]`, `[Conditional]`   | `[Serializable]`, `[Authorize]` |
+| ZpracovÃ¡nÃ­           | PÅ™i kompilaci                   | PÅ™i bÄ›hu aplikace (reflekce) |
 
 ---
 
-### **5. Bìné scénáøe pouití**
+### **5. BÄ›Å¾nÃ© scÃ©nÃ¡Å™e pouÅ¾itÃ­**
 
-- **Deprekace kódu**: `[Obsolete]`.
-- **Ladìní**: `[Conditional("DEBUG")]`.
+- **Deprekace kÃ³du**: `[Obsolete]`.
+- **LadÄ›nÃ­**: `[Conditional("DEBUG")]`.
 - **MVVM pattern**: `[CallerMemberName]`.
 - **Optimalizace**: `[MethodImpl]`.
 - **Interoperabilita**: `[DllImport]`, `[StructLayout]`.
 
 ---
 
-### **6. Ukázky kódu**
+### **6. UkÃ¡zky kÃ³du**
 
-#### **Pouití `[CallerMemberName]` v MVVM**
+#### **PouÅ¾itÃ­ `[CallerMemberName]` v MVVM**
 
 ```csharp
 public class ViewModel : INotifyPropertyChanged {
@@ -138,13 +138,13 @@ public class ViewModel : INotifyPropertyChanged {
         get => _name;
         set {
             _name = value;
-            OnPropertyChanged(); // Automaticky doplní "Name"
+            OnPropertyChanged(); // Automaticky doplnÃ­ "Name"
         }
     }
 }
 ```
 
-#### **Podmínìná kompilace s `[Conditional]`**
+#### **PodmÃ­nÄ›nÃ¡ kompilace s `[Conditional]`**
 
 ```csharp
 public static class Logger {
@@ -154,22 +154,22 @@ public static class Logger {
     }
 }
 
-// Volání se kompiluje pouze, pokud je definován symbol LOGGING
-Logger.Log("Aplikace spuštìna");
+// VolÃ¡nÃ­ se kompiluje pouze, pokud je definovÃ¡n symbol LOGGING
+Logger.Log("Aplikace spuÅ¡tÄ›na");
 ```
 
 ---
 
-### **7. Tipy a varování**
+### **7. Tipy a varovÃ¡nÃ­**
 
-- **Kombinace atributù**: Nìkteré atributy lze kombinovat (napø. `[Obsolete]` s `[Conditional]`).
-- **Verze C#**: Atributy jako `[Nullable]` fungují a od C# 8.
-- **Chyby**: Nesprávné pouití mùe zpùsobit neèekané chování (napø. `[Conditional]` u ne-void metod).
-- **Optimalizace**: `[MethodImpl(MethodImplOptions.AggressiveInlining)]` mùe zvìtšit velikost kódu.
+- **Kombinace atributÅ¯**: NÄ›kterÃ© atributy lze kombinovat (napÅ™. `[Obsolete]` s `[Conditional]`).
+- **Verze C#**: Atributy jako `[Nullable]` fungujÃ­ aÅ¾ od C# 8.
+- **Chyby**: NesprÃ¡vnÃ© pouÅ¾itÃ­ mÅ¯Å¾e zpÅ¯sobit neÄekanÃ© chovÃ¡nÃ­ (napÅ™. `[Conditional]` u ne-void metod).
+- **Optimalizace**: `[MethodImpl(MethodImplOptions.AggressiveInlining)]` mÅ¯Å¾e zvÄ›tÅ¡it velikost kÃ³du.
 
 ---
 
-### **8. Doporuèené zdroje**
+### **8. DoporuÄenÃ© zdroje**
 
-- Oficiální dokumentace: [Microsoft Learn - Attributes](https://learn.microsoft.com/cs-cz/dotnet/csharp/advanced-topics/reflection-and-attributes/)
-- Kniha: *C# in Depth* (Jon Skeet) – kapitoly o metadatech a kompilaci.
+- OficiÃ¡lnÃ­ dokumentace: [Microsoft Learn - Attributes](https://learn.microsoft.com/cs-cz/dotnet/csharp/advanced-topics/reflection-and-attributes/)
+- Kniha: *C# in Depth* (Jon Skeet) â€“ kapitoly o metadatech a kompilaci.

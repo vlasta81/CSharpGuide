@@ -1,23 +1,23 @@
 
 ### Generika v jazyce C#  
 
-Generika umoòují vytváøet **univerzální tøídy, metody, rozhraní nebo delegáty** s **typovımi parametry**, které se specifikují a pøi pouití. Zvyšují bezpeènost, pøehlednost a znovupouitelnost kódu. Zde je pøehled klíèovıch konceptù:
+Generika umoÅ¾ÅˆujÃ­ vytvÃ¡Å™et **univerzÃ¡lnÃ­ tÅ™Ã­dy, metody, rozhranÃ­ nebo delegÃ¡ty** s **typovÃ½mi parametry**, kterÃ© se specifikujÃ­ aÅ¾ pÅ™i pouÅ¾itÃ­. ZvyÅ¡ujÃ­ bezpeÄnost, pÅ™ehlednost a znovupouÅ¾itelnost kÃ³du. Zde je pÅ™ehled klÃ­ÄovÃ½ch konceptÅ¯:
 
 ---
 
-#### **1. Základní koncepty**  
+#### **1. ZÃ¡kladnÃ­ koncepty**  
 
-- **Typovı parametr**: Zástupnı symbol (napø. `T`), kterı urèuje konkrétní typ a pøi instanciaci.  
-- **Vıhody**:  
-  - **Typová bezpeènost**: Zabrání chybám s nekompatibilními typy (napø. `List<int>` nepøijme `string`).  
-  - **Eliminace boxingu**: Práce s hodnotovımi typy bez pøevodu na `object`.  
-  - **Znovupouitelnost kódu**: Jedna generická tøída pro všechny typy.  
+- **TypovÃ½ parametr**: ZÃ¡stupnÃ½ symbol (napÅ™. `T`), kterÃ½ urÄuje konkrÃ©tnÃ­ typ aÅ¾ pÅ™i instanciaci.  
+- **VÃ½hody**:  
+  - **TypovÃ¡ bezpeÄnost**: ZabrÃ¡nÃ­ chybÃ¡m s nekompatibilnÃ­mi typy (napÅ™. `List<int>` nepÅ™ijme `string`).  
+  - **Eliminace boxingu**: PrÃ¡ce s hodnotovÃ½mi typy bez pÅ™evodu na `object`.  
+  - **ZnovupouÅ¾itelnost kÃ³du**: Jedna generickÃ¡ tÅ™Ã­da pro vÅ¡echny typy.  
 
 ---
 
-#### **2. Generická tøída**  
+#### **2. GenerickÃ¡ tÅ™Ã­da**  
 
-- Definice s typovım parametrem:  
+- Definice s typovÃ½m parametrem:  
   ```csharp
   public class Box<T>
   {
@@ -29,7 +29,7 @@ Generika umoòují vytváøet **univerzální tøídy, metody, rozhraní nebo delegáty**
       }
   }
   ```  
-- **Pouití**:  
+- **PouÅ¾itÃ­**:  
   ```csharp
   Box<int> boxInt = new Box<int>(42);
   Box<string> boxStr = new Box<string>("Ahoj");
@@ -37,32 +37,32 @@ Generika umoòují vytváøet **univerzální tøídy, metody, rozhraní nebo delegáty**
 
 ---
 
-#### **3. Generická metoda**  
+#### **3. GenerickÃ¡ metoda**  
 
-- Metoda s vlastním typovım parametrem:  
+- Metoda s vlastnÃ­m typovÃ½m parametrem:  
   ```csharp
   public static T Vetsi<T>(T a, T b) where T : IComparable<T>
   {
       return a.CompareTo(b) > 0 ? a : b;
   }
   ```  
-- **Volání**:  
+- **VolÃ¡nÃ­**:  
   ```csharp
-  int maximum = Vetsi(10, 20); // Typová inference (T = int)
+  int maximum = Vetsi(10, 20); // TypovÃ¡ inference (T = int)
   ```
 
 ---
 
-#### **4. Omezení typovıch parametrù (Constraints)**  
+#### **4. OmezenÃ­ typovÃ½ch parametrÅ¯ (Constraints)**  
 
-- Urèují, jaké typy lze pouít pro `T`:  
-  - **`where T : struct`**: `T` musí bıt hodnotovı typ.  
-  - **`where T : class`**: `T` musí bıt referenèní typ.  
-  - **`where T : new()`**: `T` musí mít bezparametrickı konstruktor.  
-  - **`where T : Interface`**: `T` musí implementovat dané rozhraní.  
-  - **`where T : BaseClass`**: `T` musí bıt potomek dané tøídy.  
+- UrÄujÃ­, jakÃ© typy lze pouÅ¾Ã­t pro `T`:  
+  - **`where T : struct`**: `T` musÃ­ bÃ½t hodnotovÃ½ typ.  
+  - **`where T : class`**: `T` musÃ­ bÃ½t referenÄnÃ­ typ.  
+  - **`where T : new()`**: `T` musÃ­ mÃ­t bezparametrickÃ½ konstruktor.  
+  - **`where T : Interface`**: `T` musÃ­ implementovat danÃ© rozhranÃ­.  
+  - **`where T : BaseClass`**: `T` musÃ­ bÃ½t potomek danÃ© tÅ™Ã­dy.  
 
-**Pøíklad**:  
+**PÅ™Ã­klad**:  
 ```csharp
 public class Uloziste<T> where T : IIdentifiable, new()
 {
@@ -75,9 +75,9 @@ public class Uloziste<T> where T : IIdentifiable, new()
 
 ---
 
-#### **5. Vıchozí hodnoty**  
+#### **5. VÃ½chozÃ­ hodnoty**  
 
-- Pro generické typy lze pouít `default(T)`:  
+- Pro generickÃ© typy lze pouÅ¾Ã­t `default(T)`:  
   ```csharp
   public void NastavVychozi()
   {
@@ -87,9 +87,9 @@ public class Uloziste<T> where T : IIdentifiable, new()
 
 ---
 
-#### **6. Generická rozhraní a delegáti**  
+#### **6. GenerickÃ¡ rozhranÃ­ a delegÃ¡ti**  
 
-- **Generické rozhraní**:  
+- **GenerickÃ© rozhranÃ­**:  
   ```csharp
   public interface IRepository<T>
   {
@@ -97,7 +97,7 @@ public class Uloziste<T> where T : IIdentifiable, new()
       T Nacti(int id);
   }
   ```  
-- **Generickı delegát**:  
+- **GenerickÃ½ delegÃ¡t**:  
   ```csharp
   public delegate T Operace<T>(T a, T b);
   Operace<int> scitani = (x, y) => x + y;
@@ -105,47 +105,47 @@ public class Uloziste<T> where T : IIdentifiable, new()
 
 ---
 
-#### **7. Kolekce a vestavìné generické tøídy**  
+#### **7. Kolekce a vestavÄ›nÃ© generickÃ© tÅ™Ã­dy**  
 
-- **`List<T>`**: Dynamické pole.  
-- **`Dictionary<TKey, TValue>`**: Slovník klíè-hodnota.  
-- **`Queue<T>`** a **`Stack<T>`**: Fronta a zásobník.  
-- **Porovnání s negenerickımi kolekcemi**:  
-  - `List<T>` vs `ArrayList`: Bezpeènost typù a vıkon.  
+- **`List<T>`**: DynamickÃ© pole.  
+- **`Dictionary<TKey, TValue>`**: SlovnÃ­k klÃ­Ä-hodnota.  
+- **`Queue<T>`** a **`Stack<T>`**: Fronta a zÃ¡sobnÃ­k.  
+- **PorovnÃ¡nÃ­ s negenerickÃ½mi kolekcemi**:  
+  - `List<T>` vs `ArrayList`: BezpeÄnost typÅ¯ a vÃ½kon.  
   - `Dictionary<TKey, TValue>` vs `Hashtable`: Eliminace boxingu.  
 
 ---
 
 #### **8. Kovariance a kontravariance**  
 
-- **Kovariance (`out T`)**: Umoòuje pouít podtyp (napø. `IEnumerable<Derived>` jako `IEnumerable<Base>`).  
-- **Kontravariance (`in T`)**: Umoòuje pouít nadtyp (napø. `Action<Base>` jako `Action<Derived>`).  
+- **Kovariance (`out T`)**: UmoÅ¾Åˆuje pouÅ¾Ã­t podtyp (napÅ™. `IEnumerable<Derived>` jako `IEnumerable<Base>`).  
+- **Kontravariance (`in T`)**: UmoÅ¾Åˆuje pouÅ¾Ã­t nadtyp (napÅ™. `Action<Base>` jako `Action<Derived>`).  
 
-**Pøíklad kovariance**:  
+**PÅ™Ã­klad kovariance**:  
 ```csharp
 IEnumerable<string> texts = new List<string>();
-IEnumerable<object> objects = texts; // Platné díky 'out T' v IEnumerable<T>
+IEnumerable<object> objects = texts; // PlatnÃ© dÃ­ky 'out T' v IEnumerable<T>
 ```
 
 ---
 
-#### **9. Èasté chyby**  
+#### **9. ÄŒastÃ© chyby**  
 
-- **Pouití nekompatibilních omezení**: Napø. `where T : struct` s `new()` u typù bez bezparametrického konstruktoru.  
-- **Pøíliš komplexní generika**: Zbyteèné komplikování kódu.  
-- **Ignorování typové bezpeènosti**: Pouití `object` místo generik.
-
----
-
-#### **10. Doporuèené postupy**  
-
-- Pouívejte popisné názvy typovıch parametrù (napø. `TKey`, `TEntity`).  
-- Preferujte generické kolekce pøed negenerickımi.  
-- Omezte pouití `object` v generickıch tøídách (ztráta vıhod generik).  
+- **PouÅ¾itÃ­ nekompatibilnÃ­ch omezenÃ­**: NapÅ™. `where T : struct` s `new()` u typÅ¯ bez bezparametrickÃ©ho konstruktoru.  
+- **PÅ™Ã­liÅ¡ komplexnÃ­ generika**: ZbyteÄnÃ© komplikovÃ¡nÃ­ kÃ³du.  
+- **IgnorovÃ¡nÃ­ typovÃ© bezpeÄnosti**: PouÅ¾itÃ­ `object` mÃ­sto generik.
 
 ---
 
-#### **11. Pokroèilé techniky**  
+#### **10. DoporuÄenÃ© postupy**  
+
+- PouÅ¾Ã­vejte popisnÃ© nÃ¡zvy typovÃ½ch parametrÅ¯ (napÅ™. `TKey`, `TEntity`).  
+- Preferujte generickÃ© kolekce pÅ™ed negenerickÃ½mi.  
+- Omezte pouÅ¾itÃ­ `object` v generickÃ½ch tÅ™Ã­dÃ¡ch (ztrÃ¡ta vÃ½hod generik).  
+
+---
+
+#### **11. PokroÄilÃ© techniky**  
 
 - **Reflexe s generiky**:  
   ```csharp
@@ -153,7 +153,7 @@ IEnumerable<object> objects = texts; // Platné díky 'out T' v IEnumerable<T>
   Type specificListType = genericListType.MakeGenericType(typeof(int));
   var list = Activator.CreateInstance(specificListType);
   ```  
-- **Generické factory metody**:  
+- **GenerickÃ© factory metody**:  
   ```csharp
   public static T VytvorInstanci<T>() where T : new() => new T();
   ```  

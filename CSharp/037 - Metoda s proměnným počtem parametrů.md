@@ -1,7 +1,7 @@
 
 ### **1. Definice**  
 
-Metody s promìnnım poètem parametrù umoòují **pøedat libovolnı poèet argumentù stejného typu** do jediného parametru. Vyuívají klíèové slovo `params`, které oznaèuje parametr jako pole promìnné délky.
+Metody s promÄ›nnÃ½m poÄtem parametrÅ¯ umoÅ¾ÅˆujÃ­ **pÅ™edat libovolnÃ½ poÄet argumentÅ¯ stejnÃ©ho typu** do jedinÃ©ho parametru. VyuÅ¾Ã­vajÃ­ klÃ­ÄovÃ© slovo `params`, kterÃ© oznaÄuje parametr jako pole promÄ›nnÃ© dÃ©lky.
 
 ---
 
@@ -18,56 +18,56 @@ public static int Soucet(params int[] cisla)
     return suma;
 }
 
-// Pouití:
+// PouÅ¾itÃ­:
 int vysledek1 = Soucet(1, 2, 3);    // 6
 int vysledek2 = Soucet(10, 20);      // 30
-int vysledek3 = Soucet();            // 0 (prázdné pole)
+int vysledek3 = Soucet();            // 0 (prÃ¡zdnÃ© pole)
 ```
 
 ---
 
-### **3. Klíèové vlastnosti** 
+### **3. KlÃ­ÄovÃ© vlastnosti** 
 
-1. **`params` musí bıt poslední parametr**: Metoda mùe mít i další parametry, ale `params` musí bıt na konci.  
+1. **`params` musÃ­ bÃ½t poslednÃ­ parametr**: Metoda mÅ¯Å¾e mÃ­t i dalÅ¡Ã­ parametry, ale `params` musÃ­ bÃ½t na konci.  
    ```csharp
    public static void Vypis(string zprava, params object[] hodnoty) { ... }
    ```  
-2. **Typ parametru**: Vdy pole (`T[]`).  
-3. **Volitelné argumenty**: Lze pøedat 0 a N hodnot.  
-4. **Kombinace s pevnımi parametry**:  
+2. **Typ parametru**: VÅ¾dy pole (`T[]`).  
+3. **VolitelnÃ© argumenty**: Lze pÅ™edat 0 aÅ¾ N hodnot.  
+4. **Kombinace s pevnÃ½mi parametry**:  
    ```csharp
    public static string SpojRetezce(string oddelovac, params string[] slova) 
    {
        return string.Join(oddelovac, slova);
    }
 
-   // Pouití:
-   string veta = SpojRetezce(" ", "Ahoj", "svìte!"); // "Ahoj svìte!"
+   // PouÅ¾itÃ­:
+   string veta = SpojRetezce(" ", "Ahoj", "svÄ›te!"); // "Ahoj svÄ›te!"
    ```
 
 ---
 
-### **4. Omezení**  
+### **4. OmezenÃ­**  
 
 - **Pouze jeden `params` parametr** na metodu.  
 - **Nelze kombinovat s `ref`/`out`**:  
   ```csharp
-  // Chyba: Nelze pouít params s ref/out
+  // Chyba: Nelze pouÅ¾Ã­t params s ref/out
   public static void Test(params ref int[] cisla) { ... }
   ```  
-- **Neplatí pro vícerozmìrná pole**: `params` funguje pouze pro 1D pole.  
+- **NeplatÃ­ pro vÃ­cerozmÄ›rnÃ¡ pole**: `params` funguje pouze pro 1D pole.  
 
 ---
 
-### **5. Bìné scénáøe pouití**  
+### **5. BÄ›Å¾nÃ© scÃ©nÃ¡Å™e pouÅ¾itÃ­**  
 
-- **Matematické operace**: Napø. sèítání N èísel.  
-- **Formátování textu**: Spojování øetìzcù s rùznımi hodnotami.  
-- **Logování**: Metody pøijímající promìnlivı poèet parametrù pro vıstup.  
+- **MatematickÃ© operace**: NapÅ™. sÄÃ­tÃ¡nÃ­ N ÄÃ­sel.  
+- **FormÃ¡tovÃ¡nÃ­ textu**: SpojovÃ¡nÃ­ Å™etÄ›zcÅ¯ s rÅ¯znÃ½mi hodnotami.  
+- **LogovÃ¡nÃ­**: Metody pÅ™ijÃ­majÃ­cÃ­ promÄ›nlivÃ½ poÄet parametrÅ¯ pro vÃ½stup.  
 
 ---
 
-### **6. Pøíklad s rùznımi typy**  
+### **6. PÅ™Ã­klad s rÅ¯znÃ½mi typy**  
 
 ```csharp
 public static void Loguj(string format, params object[] args) 
@@ -75,50 +75,50 @@ public static void Loguj(string format, params object[] args)
     Console.WriteLine(format, args);
 }
 
-// Pouití:
-Loguj("Uivatel {0} má {1} let.", "Anna", 25); // "Uivatel Anna má 25 let."
+// PouÅ¾itÃ­:
+Loguj("UÅ¾ivatel {0} mÃ¡ {1} let.", "Anna", 25); // "UÅ¾ivatel Anna mÃ¡ 25 let."
 ```
 
 ---
 
-### **7. Rozdíl mezi `params` a pøedáním pole**  
+### **7. RozdÃ­l mezi `params` a pÅ™edÃ¡nÃ­m pole**  
 
-- **`params`**: Umoòuje pøedat hodnoty jako samostatné argumenty.  
-- **Explicitní pole**: Pokud metoda nemá `params`, musíte pøedat pole.  
+- **`params`**: UmoÅ¾Åˆuje pÅ™edat hodnoty jako samostatnÃ© argumenty.  
+- **ExplicitnÃ­ pole**: Pokud metoda nemÃ¡ `params`, musÃ­te pÅ™edat pole.  
   ```csharp
   // Bez params:
   public static int SoucetPole(int[] cisla) { ... }
-  SoucetPole(new int[] { 1, 2, 3 }); // Nutné vytvoøit pole
+  SoucetPole(new int[] { 1, 2, 3 }); // NutnÃ© vytvoÅ™it pole
 
   // S params:
-  Soucet(1, 2, 3); // Pole se vytvoøí automaticky
+  Soucet(1, 2, 3); // Pole se vytvoÅ™Ã­ automaticky
   ```
 
 ---
 
-### **8. Doporuèené postupy**  
+### **8. DoporuÄenÃ© postupy**  
 
-1. **Pouívejte pro logicky související hodnoty**: Napø. seznam èísel, slov.  
-2. **Vyhnìte se naduívání**: Pokud je poèet parametrù pøedvídatelnı, pouijte pøetíení metod.  
-3. **Dokumentujte chování**: Uveïte, jak metoda zpracovává promìnnı poèet argumentù.  
+1. **PouÅ¾Ã­vejte pro logicky souvisejÃ­cÃ­ hodnoty**: NapÅ™. seznam ÄÃ­sel, slov.  
+2. **VyhnÄ›te se naduÅ¾Ã­vÃ¡nÃ­**: Pokud je poÄet parametrÅ¯ pÅ™edvÃ­datelnÃ½, pouÅ¾ijte pÅ™etÃ­Å¾enÃ­ metod.  
+3. **Dokumentujte chovÃ¡nÃ­**: UveÄte, jak metoda zpracovÃ¡vÃ¡ promÄ›nnÃ½ poÄet argumentÅ¯.  
 
 ---
 
-### **9. Bìné chyby**  
+### **9. BÄ›Å¾nÃ© chyby**  
 
-- **Umístìní `params` na špatném místì**:  
+- **UmÃ­stÄ›nÃ­ `params` na Å¡patnÃ©m mÃ­stÄ›**:  
   ```csharp
-  public static void Chyba(params int[] cisla, string text) { ... } // Chyba: params musí bıt poslední
+  public static void Chyba(params int[] cisla, string text) { ... } // Chyba: params musÃ­ bÃ½t poslednÃ­
   ```  
-- **Neošetøené prázdné pole**: Pokud není zajištìna validace, mùe metoda selhat.  
+- **NeoÅ¡etÅ™enÃ© prÃ¡zdnÃ© pole**: Pokud nenÃ­ zajiÅ¡tÄ›na validace, mÅ¯Å¾e metoda selhat.  
 
 ---
 
-### **10. Shrnutí**  
+### **10. ShrnutÃ­**  
 
 | **Vlastnost**       | **Popis**                                  |  
 |----------------------|--------------------------------------------|  
-| **Klíèové slovo**    | `params`                                   |  
-| **Typ parametru**    | Jednorozmìrné pole (`T[]`)                 |  
-| **Volání**           | Lze pøedat 0 a N hodnot nebo explicitní pole |  
-| **Omezení**          | Pouze jeden `params` parametr na metodu    |  
+| **KlÃ­ÄovÃ© slovo**    | `params`                                   |  
+| **Typ parametru**    | JednorozmÄ›rnÃ© pole (`T[]`)                 |  
+| **VolÃ¡nÃ­**           | Lze pÅ™edat 0 aÅ¾ N hodnot nebo explicitnÃ­ pole |  
+| **OmezenÃ­**          | Pouze jeden `params` parametr na metodu    |  

@@ -1,4 +1,4 @@
-﻿
+
 ### **`Intersect`**  
 
 Metoda `Intersect` slouží k **nalezení průniku dvou kolekcí** – vrátí prvky, které se **vyskytují v obou kolekcích zároveň**. Je ekvivalentem množinového průniku v matematice a používá se k identifikaci společných datových záznamů.

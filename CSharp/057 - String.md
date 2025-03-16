@@ -1,4 +1,4 @@
-﻿
+
 ### **Typ `string` v jazyce C#**
 
 Typ `string` (alias pro `System.String`) reprezentuje **neměnnou (immutable) sekvenci Unicode znaků**. Používá se pro práci s textem, formátování, manipulaci a ukládání řetězcových dat.

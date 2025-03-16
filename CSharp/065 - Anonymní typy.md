@@ -1,4 +1,4 @@
-﻿
+
 ### **Anonymní typy v jazyce C#**
 
 Anonymní typy umožňují vytvářet **dočasné objekty bez formální deklarace třídy**, například pro projekci dat v LINQ dotazech nebo pro rychlé seskupení hodnot. Jsou kompilátorem generované, **imutabilní** (vlastnosti nelze měnit) a jejich typ je odvozen automaticky.

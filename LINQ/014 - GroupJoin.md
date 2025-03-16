@@ -1,4 +1,4 @@
-﻿
+
 ### **`GroupJoin`**  
 
 Metoda `GroupJoin` slouží k **hierarchickému propojení dvou kolekcí** na základě společného klíče, podobně jako `LEFT OUTER JOIN` v SQL. Umožňuje seskupit prvky z druhé kolekce (např. objednávky) pod odpovídající prvek z první kolekce (např. zákazníky).

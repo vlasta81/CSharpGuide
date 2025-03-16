@@ -1,4 +1,4 @@
-﻿
+
 ### **`Select`**  
 
 `Select` je jeden z **nejpoužívanějších operátorů** v LINQ, který slouží k **transformaci (projekci) dat**. Umožňuje převést každý prvek v kolekci do nové podoby podle definovaného výrazu. Je ekvivalentní `SELECT` v SQL, ale s mnohem širšími možnostmi díky integraci do jazyka C#.

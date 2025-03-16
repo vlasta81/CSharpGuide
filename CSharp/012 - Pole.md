@@ -1,28 +1,28 @@
 
 ### **1. Definice pole**
 
-- **Statická kolekce** prvkù stejného typu s **pevnou velikostí**.
-- **Vıhody**: Rychlı pøístup k prvkùm (pomocí indexu), jednoduchá syntaxe.
-- **Nevıhody**: Nelze dynamicky mìnit velikost (alternativa: `List<T>`).
+- **StatickÃ¡ kolekce** prvkÅ¯ stejnÃ©ho typu s **pevnou velikostÃ­**.
+- **VÃ½hody**: RychlÃ½ pÅ™Ã­stup k prvkÅ¯m (pomocÃ­ indexu), jednoduchÃ¡ syntaxe.
+- **NevÃ½hody**: Nelze dynamicky mÄ›nit velikost (alternativa: `List<T>`).
 
 ---
 
 ### **2. Deklarace a inicializace**
 
-#### **a) Jednorozmìrné pole**
+#### **a) JednorozmÄ›rnÃ© pole**
 
 ```csharp
 // Deklarace
 int[] cisla;
 
-// Inicializace s velikostí
+// Inicializace s velikostÃ­
 cisla = new int[3]; // [0, 0, 0]
 
 // Inicializace s hodnotami
 int[] cisla = { 1, 2, 3 }; // Velikost 3
 ```
 
-#### **b) Vícerozmìrné pole (rectangular array)**
+#### **b) VÃ­cerozmÄ›rnÃ© pole (rectangular array)**
 
 ```csharp
 // 2D pole (matice)
@@ -35,9 +35,9 @@ int[,] matice = new int[2, 3] {
 int[,,] kostka = new int[2, 2, 2];
 ```
 
-#### **c) Zubaté pole (jagged array)**
+#### **c) ZubatÃ© pole (jagged array)**
 
-- Pole polí (kadı vnitøní pole mùe mít jinou délku).
+- Pole polÃ­ (kaÅ¾dÃ½ vnitÅ™nÃ­ pole mÅ¯Å¾e mÃ­t jinou dÃ©lku).
 ```csharp
 int[][] zubatePole = new int[3][];
 zubatePole[0] = new int[] { 1, 2 };
@@ -47,9 +47,9 @@ zubatePole[2] = new int[] { 4, 5, 6 };
 
 ---
 
-### **3. Pøístup k prvkùm**
+### **3. PÅ™Ã­stup k prvkÅ¯m**
 
-- Pomocí **indexu** (poèítáno od 0).
+- PomocÃ­ **indexu** (poÄÃ­tÃ¡no od 0).
 ```csharp
 int[] cisla = { 10, 20, 30 };
 Console.WriteLine(cisla[0]); // 10
@@ -58,33 +58,33 @@ Console.WriteLine(cisla[0]); // 10
 int[,] matice = new int[2, 2] { { 1, 2 }, { 3, 4 } };
 Console.WriteLine(matice[1, 0]); // 3
 
-// Zubaté pole
+// ZubatÃ© pole
 Console.WriteLine(zubatePole[0][1]); // 2
 ```
 
 ---
 
-### **4. Dùleité vlastnosti a metody**
+### **4. DÅ¯leÅ¾itÃ© vlastnosti a metody**
 
-- **`Length`**: Celkovı poèet prvkù v poli.
+- **`Length`**: CelkovÃ½ poÄet prvkÅ¯ v poli.
   ```csharp
   int[] cisla = { 1, 2, 3 };
   Console.WriteLine(cisla.Length); // 3
   ```
   
-- **`GetLength(dimenze)`**: Poèet prvkù v konkrétní dimenzi (pro vícerozmìrná pole).
+- **`GetLength(dimenze)`**: PoÄet prvkÅ¯ v konkrÃ©tnÃ­ dimenzi (pro vÃ­cerozmÄ›rnÃ¡ pole).
   ```csharp
   int[,] matice = new int[2, 3];
-  Console.WriteLine(matice.GetLength(0)); // 2 (øádky)
+  Console.WriteLine(matice.GetLength(0)); // 2 (Å™Ã¡dky)
   Console.WriteLine(matice.GetLength(1)); // 3 (sloupce)
   ```
 
-- **`Clone()`**: Vytvoøí **mìlkou kopii** pole (pro hodnotové typy – kopie dat, pro referenèní typy – kopie referencí).
+- **`Clone()`**: VytvoÅ™Ã­ **mÄ›lkou kopii** pole (pro hodnotovÃ© typy â€“ kopie dat, pro referenÄnÃ­ typy â€“ kopie referencÃ­).
   ```csharp
   int[] kopie = (int[])cisla.Clone();
   ```
 
-- **`Array.Copy()`**: Kopírování prvkù mezi poli.
+- **`Array.Copy()`**: KopÃ­rovÃ¡nÃ­ prvkÅ¯ mezi poli.
   ```csharp
   int[] zdroj = { 1, 2, 3 };
   int[] cil = new int[3];
@@ -93,9 +93,9 @@ Console.WriteLine(zubatePole[0][1]); // 2
 
 ---
 
-### **5. Bìné operace**
+### **5. BÄ›Å¾nÃ© operace**
 
-#### **a) Iterace pøes pole**
+#### **a) Iterace pÅ™es pole**
 
 ```csharp
 // For cyklus
@@ -117,22 +117,22 @@ for (int i = 0; i < matice.GetLength(0); i++) {
 }
 ```
 
-#### **b) Tøídìní a vyhledávání**
+#### **b) TÅ™Ã­dÄ›nÃ­ a vyhledÃ¡vÃ¡nÃ­**
 
-- **`Array.Sort()`**: Seøazení pole.
+- **`Array.Sort()`**: SeÅ™azenÃ­ pole.
   ```csharp
   int[] cisla = { 5, 3, 8 };
   Array.Sort(cisla); // [3, 5, 8]
   ```
   
-- **`Array.BinarySearch()`**: Vyhledání prvku v seøazeném poli.
+- **`Array.BinarySearch()`**: VyhledÃ¡nÃ­ prvku v seÅ™azenÃ©m poli.
   ```csharp
-  int index = Array.BinarySearch(cisla, 5); // Vrátí 1
+  int index = Array.BinarySearch(cisla, 5); // VrÃ¡tÃ­ 1
   ```
 
-#### **c) Zmìna velikosti**
+#### **c) ZmÄ›na velikosti**
 
-- Nelze pøímo – je tøeba vytvoøit nové pole.
+- Nelze pÅ™Ã­mo â€“ je tÅ™eba vytvoÅ™it novÃ© pole.
   ```csharp
   int[] starePole = { 1, 2, 3 };
   int[] novePole = new int[5];
@@ -141,34 +141,34 @@ for (int i = 0; i < matice.GetLength(0); i++) {
 
 ---
 
-### **6. Implicitnì typovaná pole (`var`)**
+### **6. ImplicitnÄ› typovanÃ¡ pole (`var`)**
 
 ```csharp
 var cisla = new[] { 1, 2, 3 }; // Typ int[]
-var slova = new[] { "Ahoj", "svìte" }; // Typ string[]
+var slova = new[] { "Ahoj", "svÄ›te" }; // Typ string[]
 ```
 
 ---
 
-### **7. Pole vs. jiné kolekce**
+### **7. Pole vs. jinÃ© kolekce**
 
-| **Kritérium**       | **Pole**               | **List<T>**            |  
+| **KritÃ©rium**       | **Pole**               | **List<T>**            |  
 |----------------------|------------------------|------------------------|  
-| **Velikost**         | Pevná                  | Dynamická              |  
-| **Vıkon**            | Rychlejší              | Pomalejší (dynamické operace) |  
-| **Metody**           | Základní               | Bohaté (Add, Remove)   |  
+| **Velikost**         | PevnÃ¡                  | DynamickÃ¡              |  
+| **VÃ½kon**            | RychlejÅ¡Ã­              | PomalejÅ¡Ã­ (dynamickÃ© operace) |  
+| **Metody**           | ZÃ¡kladnÃ­               | BohatÃ© (Add, Remove)   |  
 
 ---
 
-### **8. Èasté chyby**
+### **8. ÄŒastÃ© chyby**
 
 - **Index mimo rozsah**:
   ```csharp
   int[] cisla = { 1, 2 };
-  Console.WriteLine(cisla[2]); // Vyvolá IndexOutOfRangeException
+  Console.WriteLine(cisla[2]); // VyvolÃ¡ IndexOutOfRangeException
   ```
   
-- **Zámìna s referenèními typy**:
+- **ZÃ¡mÄ›na s referenÄnÃ­mi typy**:
   ```csharp
   class Uzivatel { public string Jmeno; }
   Uzivatel[] uzivatele = new Uzivatel[2];
@@ -177,9 +177,9 @@ var slova = new[] { "Ahoj", "svìte" }; // Typ string[]
 
 ---
 
-### **9. Ukázky kódu**
+### **9. UkÃ¡zky kÃ³du**
 
-#### **Práce se zubatım polem**
+#### **PrÃ¡ce se zubatÃ½m polem**
 
 ```csharp
 int[][] jagged = new int[3][];
@@ -193,13 +193,13 @@ foreach (int[] vnitrniPole in jagged) {
     }
     Console.WriteLine();
 }
-// Vıstup:
+// VÃ½stup:
 // 1 2
 // 3
 // 4 5 6
 ```
 
-#### **Kopírování pole s LINQ**
+#### **KopÃ­rovÃ¡nÃ­ pole s LINQ**
 
 ```csharp
 using System.Linq;
@@ -210,6 +210,6 @@ int[] kopie = zdroj.ToArray(); // LINQ metoda
 
 ---
 
-### **10. Doporuèené zdroje**
+### **10. DoporuÄenÃ© zdroje**
 
-- **Oficiální dokumentace**: [Arrays (C# Programming Guide)](https://learn.microsoft.com/cs-cz/dotnet/csharp/programming-guide/arrays/)
+- **OficiÃ¡lnÃ­ dokumentace**: [Arrays (C# Programming Guide)](https://learn.microsoft.com/cs-cz/dotnet/csharp/programming-guide/arrays/)

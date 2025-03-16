@@ -1,4 +1,4 @@
-﻿
+
 ### Číselné typy s plovoucí desetinou čárkou v jazyce C#
 
 C# podporuje tři typy pro reprezentaci desetinných čísel: `float`, `double` a `decimal`. Liší se **přesností, rozsahem a použitím**. Zatímco `float` a `double` jsou binární formáty (vhodné pro vědecké výpočty), `decimal` poskytuje přesné desetinné hodnoty (ideální pro finanční operace).

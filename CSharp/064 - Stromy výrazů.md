@@ -1,4 +1,4 @@
-﻿
+
 ### **Stromy výrazů (Expression Trees) v jazyce C#**
 
 Stromy výrazů reprezentují kód jako **hierarchickou datovou strukturu**, kterou lze analyzovat, upravovat nebo převádět do jiných formátů (např. SQL dotazů). Jsou klíčové pro dynamické generování kódu, optimalizaci dotazů a práci s LINQ poskytovateli (Entity Framework, LINQ to SQL).

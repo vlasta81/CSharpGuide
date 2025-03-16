@@ -1,44 +1,44 @@
 
-### Lambda vırazy v jazyce C#  
+### Lambda vÃ½razy v jazyce C#  
 
-Lambda vırazy jsou anonymní funkce, které umoòují definovat kód pøímo na místì jeho pouití. Jsou klíèové pro práci s **delegáty**, **LINQ**, **asynchronními operacemi** a funkcionálním programováním v C#. Zde je jejich pøehled:
+Lambda vÃ½razy jsou anonymnÃ­ funkce, kterÃ© umoÅ¾ÅˆujÃ­ definovat kÃ³d pÅ™Ã­mo na mÃ­stÄ› jeho pouÅ¾itÃ­. Jsou klÃ­ÄovÃ© pro prÃ¡ci s **delegÃ¡ty**, **LINQ**, **asynchronnÃ­mi operacemi** a funkcionÃ¡lnÃ­m programovÃ¡nÃ­m v C#. Zde je jejich pÅ™ehled:
 
 ---
 
-#### **1. Základní syntaxe**  
+#### **1. ZÃ¡kladnÃ­ syntaxe**  
 
-Lambda vırazy mají tvar:  
+Lambda vÃ½razy majÃ­ tvar:  
 ```csharp
-(parametry) => vıraz
+(parametry) => vÃ½raz
 ```  
-- **Parametry**: Pokud je jeden a bez typu, závorky `()` jsou nepovinné.  
-- `=>`: Lambda operátor (ète se „jde do“).  
-- **Vıraz**: Provádí operaci a vrací vısledek.  
+- **Parametry**: Pokud je jeden a bez typu, zÃ¡vorky `()` jsou nepovinnÃ©.  
+- `=>`: Lambda operÃ¡tor (Äte se â€jde doâ€œ).  
+- **VÃ½raz**: ProvÃ¡dÃ­ operaci a vracÃ­ vÃ½sledek.  
 
-**Pøíklady**:  
+**PÅ™Ã­klady**:  
 ```csharp
-// Bez parametrù
+// Bez parametrÅ¯
 Action vypisAhoj = () => Console.WriteLine("Ahoj");
 
-// S jedním parametrem
+// S jednÃ­m parametrem
 Func<int, int> druhaMocnina = x => x * x;
 
-// S více parametry
+// S vÃ­ce parametry
 Func<int, int, int> soucet = (a, b) => a + b;
 ```
 
 ---
 
-#### **2. Typy lambda vırazù**  
+#### **2. Typy lambda vÃ½razÅ¯**  
 
-- **Vırazové lambdy** (Expression Lambdas):  
-  Obsahují jeden vıraz (automaticky vrací vısledek).  
+- **VÃ½razovÃ© lambdy** (Expression Lambdas):  
+  ObsahujÃ­ jeden vÃ½raz (automaticky vracÃ­ vÃ½sledek).  
   ```csharp
   Func<int, bool> jeSude = x => x % 2 == 0;
   ```  
 
-- **Blokové lambdy** (Statement Lambdas):  
-  Obsahují blok kódu s `{}` a explicitním `return`.  
+- **BlokovÃ© lambdy** (Statement Lambdas):  
+  ObsahujÃ­ blok kÃ³du s `{}` a explicitnÃ­m `return`.  
   ```csharp
   Func<int, int> faktorial = n => 
   {
@@ -51,111 +51,111 @@ Func<int, int, int> soucet = (a, b) => a + b;
 
 ---
 
-#### **3. Pouití s delegáty a LINQ**  
+#### **3. PouÅ¾itÃ­ s delegÃ¡ty a LINQ**  
 
-Lambda vırazy se èasto kombinují s **delegáty** (`Func`, `Action`, `Predicate`) a **LINQ dotazy**.  
+Lambda vÃ½razy se Äasto kombinujÃ­ s **delegÃ¡ty** (`Func`, `Action`, `Predicate`) a **LINQ dotazy**.  
 
-**Pøíklad s LINQ**:  
+**PÅ™Ã­klad s LINQ**:  
 ```csharp
 List<int> cisla = new List<int> { 1, 2, 3, 4, 5 };
 var sudaCisla = cisla.Where(x => x % 2 == 0).ToList(); // [2, 4]
 ```
 
-**Pøíklad s delegátem**:  
+**PÅ™Ã­klad s delegÃ¡tem**:  
 ```csharp
 Action<string> log = zprava => Console.WriteLine($"[LOG] {zprava}");
-log("Aplikace spuštìna"); // Vıstup: [LOG] Aplikace spuštìna
+log("Aplikace spuÅ¡tÄ›na"); // VÃ½stup: [LOG] Aplikace spuÅ¡tÄ›na
 ```
 
 ---
 
-#### **4. Zachycování promìnnıch (Closures)**  
+#### **4. ZachycovÃ¡nÃ­ promÄ›nnÃ½ch (Closures)**  
 
-Lambda vırazy mohou zachytávat promìnné z okolního rozsahu (tzv. **closures**).  
+Lambda vÃ½razy mohou zachytÃ¡vat promÄ›nnÃ© z okolnÃ­ho rozsahu (tzv. **closures**).  
 ```csharp
 int koeficient = 10;
 Func<int, int> vynasob = x => x * koeficient;
-Console.WriteLine(vynasob(5)); // Vıstup: 50
+Console.WriteLine(vynasob(5)); // VÃ½stup: 50
 ```  
-- Pozor: Pokud se zachycená promìnná zmìní, lambda pouije její aktuální hodnotu.  
+- Pozor: Pokud se zachycenÃ¡ promÄ›nnÃ¡ zmÄ›nÃ­, lambda pouÅ¾ije jejÃ­ aktuÃ¡lnÃ­ hodnotu.  
 
-**Rizikovı pøíklad (loop variable capture)**:  
+**RizikovÃ½ pÅ™Ã­klad (loop variable capture)**:  
 ```csharp
 List<Action> akce = new List<Action>();
 for (int i = 0; i < 3; i++)
-    akce.Add(() => Console.WriteLine(i)); // Všechny vypíšou 3!
+    akce.Add(() => Console.WriteLine(i)); // VÅ¡echny vypÃ­Å¡ou 3!
 
 foreach (var a in akce)
     a();
 ```  
-**Øešení**: Pouijte lokální kopii promìnné v cyklu.  
+**Å˜eÅ¡enÃ­**: PouÅ¾ijte lokÃ¡lnÃ­ kopii promÄ›nnÃ© v cyklu.  
 
 ---
 
-#### **5. Typová inference**  
+#### **5. TypovÃ¡ inference**  
 
-Parametry lambda vırazù mohou odvodit typ z kontextu:  
+Parametry lambda vÃ½razÅ¯ mohou odvodit typ z kontextu:  
 ```csharp
 Func<double, double> odmocnina = x => Math.Sqrt(x);
 ```  
-- Pokud nelze typ odvodit, je nutné jej explicitnì uvést:  
+- Pokud nelze typ odvodit, je nutnÃ© jej explicitnÄ› uvÃ©st:  
   ```csharp
   Func<int, string> prevod = (int x) => x.ToString();
   ```
 
 ---
 
-#### **6. Asynchronní lambdy**  
+#### **6. AsynchronnÃ­ lambdy**  
 
-Lze definovat asynchronní operace pomocí `async` a `await`:  
+Lze definovat asynchronnÃ­ operace pomocÃ­ `async` a `await`:  
 ```csharp
 Func<Task> stahniData = async () => 
 {
     await Task.Delay(1000);
-    Console.WriteLine("Data staena");
+    Console.WriteLine("Data staÅ¾ena");
 };
 ```
 
 ---
 
-#### **7. Vıhody a omezení**  
+#### **7. VÃ½hody a omezenÃ­**  
 
-- **Vıhody**:  
-  - Struènı zápis (ménì kódu ne u pojmenovanıch metod).  
-  - Vhodné pro jednorázové operace (napø. filtry v LINQ).  
-- **Omezení**:  
-  - Nelze pouít `ref`, `out`, nebo `in` parametry.  
-  - Sloitìjší ladìní (anonymní funkce).  
+- **VÃ½hody**:  
+  - StruÄnÃ½ zÃ¡pis (mÃ©nÄ› kÃ³du neÅ¾ u pojmenovanÃ½ch metod).  
+  - VhodnÃ© pro jednorÃ¡zovÃ© operace (napÅ™. filtry v LINQ).  
+- **OmezenÃ­**:  
+  - Nelze pouÅ¾Ã­t `ref`, `out`, nebo `in` parametry.  
+  - SloÅ¾itÄ›jÅ¡Ã­ ladÄ›nÃ­ (anonymnÃ­ funkce).  
 
 ---
 
-#### **8. Uiteèné techniky**  
+#### **8. UÅ¾iteÄnÃ© techniky**  
 
-- **Discards**: Ignorování parametrù pomocí `_`.  
+- **Discards**: IgnorovÃ¡nÃ­ parametrÅ¯ pomocÃ­ `_`.  
   ```csharp
-  Action<string> logChyby = _ => Console.WriteLine("Došlo k chybì");
+  Action<string> logChyby = _ => Console.WriteLine("DoÅ¡lo k chybÄ›");
   ```  
-- **Pouití s eventy**:  
+- **PouÅ¾itÃ­ s eventy**:  
   ```csharp
   button.Click += (sender, e) => MessageBox.Show("Kliknuto!");
   ```
 
 ---
 
-#### **Èasté chyby**  
+#### **ÄŒastÃ© chyby**  
 
-- **Zmìna zachycenıch promìnnıch**: Neoèekávané chování v cyklech.  
-- **Memory leaks**: Zachycení dlouho ijících objektù (napø. v UI).  
-- **Pøekrıvání názvù parametrù**:  
+- **ZmÄ›na zachycenÃ½ch promÄ›nnÃ½ch**: NeoÄekÃ¡vanÃ© chovÃ¡nÃ­ v cyklech.  
+- **Memory leaks**: ZachycenÃ­ dlouho Å¾ijÃ­cÃ­ch objektÅ¯ (napÅ™. v UI).  
+- **PÅ™ekrÃ½vÃ¡nÃ­ nÃ¡zvÅ¯ parametrÅ¯**:  
   ```csharp
   int x = 10;
-  Func<int, int> test = x => x * 2; // Chyba: Konflikt názvù
+  Func<int, int> test = x => x * 2; // Chyba: Konflikt nÃ¡zvÅ¯
   ```
 
 ---
 
-#### **Doporuèení**  
+#### **DoporuÄenÃ­**  
 
-- Pouívejte smysluplné názvy parametrù (napø. `student => student.Jmeno`).  
-- Pro sloitìjší logiku preferujte pojmenované metody.  
-- Testujte chování s closures v cyklech.  
+- PouÅ¾Ã­vejte smysluplnÃ© nÃ¡zvy parametrÅ¯ (napÅ™. `student => student.Jmeno`).  
+- Pro sloÅ¾itÄ›jÅ¡Ã­ logiku preferujte pojmenovanÃ© metody.  
+- Testujte chovÃ¡nÃ­ s closures v cyklech.  

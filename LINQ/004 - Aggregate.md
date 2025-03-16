@@ -1,4 +1,4 @@
-﻿
+
 ### **`Aggregate`**  
 
 Metoda `Aggregate` slouží k **postupné aplikaci vlastní logiky na prvky kolekce** za účelem vytvoření jediného výsledku. Je univerzální náhradou za specializované metody jako `Sum()` nebo `Average()`, ale s plnou kontrolou nad procesem agregace.

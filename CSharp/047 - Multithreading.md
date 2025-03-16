@@ -1,79 +1,79 @@
 
 ### Multithreading v jazyce C#  
 
-Multithreading umoòuje **soubìné provádìní více operací** v rámci jednoho procesu, co zlepšuje vıkon a responzivost aplikací. C# nabízí rùzné nástroje pro práci s vlákny, od nízké úrovnì (`Thread`) po vysokou úrovìò (`Task`, `async/await`). Zde je pøehled klíèovıch konceptù:
+Multithreading umoÅ¾Åˆuje **soubÄ›Å¾nÃ© provÃ¡dÄ›nÃ­ vÃ­ce operacÃ­** v rÃ¡mci jednoho procesu, coÅ¾ zlepÅ¡uje vÃ½kon a responzivost aplikacÃ­. C# nabÃ­zÃ­ rÅ¯znÃ© nÃ¡stroje pro prÃ¡ci s vlÃ¡kny, od nÃ­zkÃ© ÃºrovnÄ› (`Thread`) po vysokou ÃºrovÄ›Åˆ (`Task`, `async/await`). Zde je pÅ™ehled klÃ­ÄovÃ½ch konceptÅ¯:
 
 ---
 
-#### **1. Základní pojmy**  
+#### **1. ZÃ¡kladnÃ­ pojmy**  
 
-- **Vlákno (Thread)**: Nejménì nároèná jednotka provádìní v rámci procesu.  
-- **Hlavní vlákno (Main Thread)**: Vstupní bod aplikace. Blokování hlavního vlákna (napø. ve UI) zpùsobí „zamrznutí“.  
-- **Kontextové pøepínání**: Pøepínání mezi vlákny øízené OS.  
+- **VlÃ¡kno (Thread)**: NejmÃ©nÄ› nÃ¡roÄnÃ¡ jednotka provÃ¡dÄ›nÃ­ v rÃ¡mci procesu.  
+- **HlavnÃ­ vlÃ¡kno (Main Thread)**: VstupnÃ­ bod aplikace. BlokovÃ¡nÃ­ hlavnÃ­ho vlÃ¡kna (napÅ™. ve UI) zpÅ¯sobÃ­ â€zamrznutÃ­â€œ.  
+- **KontextovÃ© pÅ™epÃ­nÃ¡nÃ­**: PÅ™epÃ­nÃ¡nÃ­ mezi vlÃ¡kny Å™Ã­zenÃ© OS.  
 
 ---
 
-#### **2. Tøída `Thread`**  
+#### **2. TÅ™Ã­da `Thread`**  
 
-- Ruèní správa vláken (nízká úroveò).  
-- **Pøíklad**:  
+- RuÄnÃ­ sprÃ¡va vlÃ¡ken (nÃ­zkÃ¡ ÃºroveÅˆ).  
+- **PÅ™Ã­klad**:  
   ```csharp
   Thread vlakno = new Thread(() => 
   {
-      Console.WriteLine("Vlákno spuštìno");
-      Thread.Sleep(1000); // Simulace práce
+      Console.WriteLine("VlÃ¡kno spuÅ¡tÄ›no");
+      Thread.Sleep(1000); // Simulace prÃ¡ce
   });
   vlakno.Start();
   ```  
 - **Parametry**:  
-  - `IsBackground`: Pokud `true`, vlákno nebrání ukonèení procesu.  
-  - `Priority`: Nastavení priority (`ThreadPriority.High`).  
+  - `IsBackground`: Pokud `true`, vlÃ¡kno nebrÃ¡nÃ­ ukonÄenÃ­ procesu.  
+  - `Priority`: NastavenÃ­ priority (`ThreadPriority.High`).  
 
 ---
 
 #### **3. Thread Pool**  
 
-- Fond pøedem vytvoøenıch vláken pro **efektivní správu zdrojù**.  
-- **Pouití**:  
+- Fond pÅ™edem vytvoÅ™enÃ½ch vlÃ¡ken pro **efektivnÃ­ sprÃ¡vu zdrojÅ¯**.  
+- **PouÅ¾itÃ­**:  
   ```csharp
   ThreadPool.QueueUserWorkItem((state) => 
   {
-      Console.WriteLine("Práce ve Thread Poolu");
+      Console.WriteLine("PrÃ¡ce ve Thread Poolu");
   });
   ```  
-- **Vhodné pro**: Krátkodobé úlohy (dlouhé úlohy mohou vyèerpat pool).  
+- **VhodnÃ© pro**: KrÃ¡tkodobÃ© Ãºlohy (dlouhÃ© Ãºlohy mohou vyÄerpat pool).  
 
 ---
 
 #### **4. Task Parallel Library (TPL)** 
 
-- Vysokoúrovòová abstrakce pro paralelní programování.  
-- **Tøída `Task`**:  
+- VysokoÃºrovÅˆovÃ¡ abstrakce pro paralelnÃ­ programovÃ¡nÃ­.  
+- **TÅ™Ã­da `Task`**:  
   ```csharp
   Task.Run(() => 
   {
-      Console.WriteLine("Task spuštìn");
-  }).Wait(); // Èekání na dokonèení
+      Console.WriteLine("Task spuÅ¡tÄ›n");
+  }).Wait(); // ÄŒekÃ¡nÃ­ na dokonÄenÃ­
   ```  
 - **Async/await**:  
   ```csharp
   async Task StahniDataAsync()
   {
-      await Task.Delay(1000); // Asynchronní èekání
-      Console.WriteLine("Data staena");
+      await Task.Delay(1000); // AsynchronnÃ­ ÄekÃ¡nÃ­
+      Console.WriteLine("Data staÅ¾ena");
   }
   ```  
 
 ---
 
-#### **5. Synchronizace vláken**  
+#### **5. Synchronizace vlÃ¡ken**  
 
-- **Lock (zámek)**:  
+- **Lock (zÃ¡mek)**:  
   ```csharp
   private object _lock = new object();
   lock (_lock)
   {
-      // Kritická sekce
+      // KritickÃ¡ sekce
   }
   ```  
 - **Monitor**:  
@@ -83,18 +83,18 @@ Multithreading umoòuje **soubìné provádìní více operací** v rámci jednoho proc
   finally { Monitor.Exit(_lock); }
   ```  
 - **Semaphore/Mutex**: Pro synchronizaci mezi procesy.  
-- **AutoResetEvent/ManualResetEvent**: Signalizace mezi vlákny.  
+- **AutoResetEvent/ManualResetEvent**: Signalizace mezi vlÃ¡kny.  
 
 ---
 
 #### **6. Concurrent Collections**  
 
-- Thread-safe kolekce pro paralelní pøístup:  
+- Thread-safe kolekce pro paralelnÃ­ pÅ™Ã­stup:  
   - `ConcurrentQueue<T>`  
   - `ConcurrentDictionary<TKey, TValue>`  
   - `BlockingCollection<T>` (pro producer-consumer vzor).  
 
-**Pøíklad producer-consumer**:  
+**PÅ™Ã­klad producer-consumer**:  
 ```csharp
 BlockingCollection<int> buffer = new BlockingCollection<int>();
 
@@ -118,7 +118,7 @@ Task.Run(() =>
 
 #### **7. Parallel LINQ (PLINQ)**  
 
-- Paralelní zpracování LINQ dotazù:  
+- ParalelnÃ­ zpracovÃ¡nÃ­ LINQ dotazÅ¯:  
   ```csharp
   var data = Enumerable.Range(1, 1000000);
   var vysledek = data.AsParallel()
@@ -128,10 +128,10 @@ Task.Run(() =>
 
 ---
 
-#### **8. Asynchronní vzory**  
+#### **8. AsynchronnÃ­ vzory**  
 
-- **CPU-bound operace**: `Task.Run` pro pøesun do vlákna z Thread Poolu.  
-- **I/O-bound operace**: `async/await` bez blokování vláken.  
+- **CPU-bound operace**: `Task.Run` pro pÅ™esun do vlÃ¡kna z Thread Poolu.  
+- **I/O-bound operace**: `async/await` bez blokovÃ¡nÃ­ vlÃ¡ken.  
 - **Cancelace**: `CancellationTokenSource`:  
   ```csharp
   var cts = new CancellationTokenSource();
@@ -139,34 +139,34 @@ Task.Run(() =>
   {
       while (!cts.Token.IsCancellationRequested)
       {
-          // Práce...
+          // PrÃ¡ce...
       }
   }, cts.Token);
 
-  cts.CancelAfter(5000); // Zrušení po 5 sekundách
+  cts.CancelAfter(5000); // ZruÅ¡enÃ­ po 5 sekundÃ¡ch
   ```  
 
 ---
 
-#### **9. Èasté chyby**  
+#### **9. ÄŒastÃ© chyby**  
 
-- **Race Conditions**: Soupeøení vláken o sdílené zdroje.  
-- **Deadlocky**: Vzájemné èekání na zámky (napø. `lock(A); lock(B)` vs. `lock(B); lock(A)`).  
-- **Async void**: Ztráta monosti zachytit vıjimky (pouívejte `async Task`).  
-
----
-
-#### **10. Doporuèené postupy**  
-
-- Preferujte **async/await** pøed ruèní správou vláken.  
-- Pro sdílená data pouívejte **thread-safe kolekce** nebo synchronizaci.  
-- Nepouívejte `Task.Wait()` nebo `Task.Result` v asynchronním kódu (hrozí deadlocky).  
-- Pro dlouhodobé úlohy nastavte `LongRunning` u `Task.Factory.StartNew`.  
+- **Race Conditions**: SoupeÅ™enÃ­ vlÃ¡ken o sdÃ­lenÃ© zdroje.  
+- **Deadlocky**: VzÃ¡jemnÃ© ÄekÃ¡nÃ­ na zÃ¡mky (napÅ™. `lock(A); lock(B)` vs. `lock(B); lock(A)`).  
+- **Async void**: ZtrÃ¡ta moÅ¾nosti zachytit vÃ½jimky (pouÅ¾Ã­vejte `async Task`).  
 
 ---
 
-#### **11. Pokroèilé techniky**  
+#### **10. DoporuÄenÃ© postupy**  
 
-- **Channels**: Komunikaèní kanály pro asynchronní proudy dat.  
-- **Interlocked**: Atomické operace (napø. `Interlocked.Increment`).  
-- **Memory Barriers**: Øešení problémù s pamìovou konzistencí.  
+- Preferujte **async/await** pÅ™ed ruÄnÃ­ sprÃ¡vou vlÃ¡ken.  
+- Pro sdÃ­lenÃ¡ data pouÅ¾Ã­vejte **thread-safe kolekce** nebo synchronizaci.  
+- NepouÅ¾Ã­vejte `Task.Wait()` nebo `Task.Result` v asynchronnÃ­m kÃ³du (hrozÃ­ deadlocky).  
+- Pro dlouhodobÃ© Ãºlohy nastavte `LongRunning` u `Task.Factory.StartNew`.  
+
+---
+
+#### **11. PokroÄilÃ© techniky**  
+
+- **Channels**: KomunikaÄnÃ­ kanÃ¡ly pro asynchronnÃ­ proudy dat.  
+- **Interlocked**: AtomickÃ© operace (napÅ™. `Interlocked.Increment`).  
+- **Memory Barriers**: Å˜eÅ¡enÃ­ problÃ©mÅ¯ s pamÄ›Å¥ovou konzistencÃ­.  

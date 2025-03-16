@@ -1,59 +1,59 @@
 
-### Asynchronní programování s `async` a `await` v jazyce C# 
+### AsynchronnÃ­ programovÃ¡nÃ­ s `async` a `await` v jazyce C# 
 
-Asynchronní programování umoòuje **neblokující provádìní operací** (napø. I/O, síové volání) a zlepšuje vıkon a responzivost aplikací. Klíèové koncepty `async` a `await` zjednodušují psaní asynchronního kódu. Zde je pøehled:
-
----
-
-#### **1. Základní koncepty**  
-
-- **`async`**: Modifikátor metody, kterı oznaèuje, e metoda obsahuje asynchronní operace.  
-- **`await`**: Operátor, kterı pozastaví provádìní metody, dokud se nedokonèí asynchronní operace (napø. `Task`).  
-- **Vıhody**:  
-  - Neblokuje hlavní vlákno (dùleité pro UI aplikace).  
-  - Efektivní vyuití vláken (napø. ve webovıch slubách).  
+AsynchronnÃ­ programovÃ¡nÃ­ umoÅ¾Åˆuje **neblokujÃ­cÃ­ provÃ¡dÄ›nÃ­ operacÃ­** (napÅ™. I/O, sÃ­Å¥ovÃ© volÃ¡nÃ­) a zlepÅ¡uje vÃ½kon a responzivost aplikacÃ­. KlÃ­ÄovÃ© koncepty `async` a `await` zjednoduÅ¡ujÃ­ psanÃ­ asynchronnÃ­ho kÃ³du. Zde je pÅ™ehled:
 
 ---
 
-#### **2. Základní syntaxe**  
+#### **1. ZÃ¡kladnÃ­ koncepty**  
+
+- **`async`**: ModifikÃ¡tor metody, kterÃ½ oznaÄuje, Å¾e metoda obsahuje asynchronnÃ­ operace.  
+- **`await`**: OperÃ¡tor, kterÃ½ pozastavÃ­ provÃ¡dÄ›nÃ­ metody, dokud se nedokonÄÃ­ asynchronnÃ­ operace (napÅ™. `Task`).  
+- **VÃ½hody**:  
+  - Neblokuje hlavnÃ­ vlÃ¡kno (dÅ¯leÅ¾itÃ© pro UI aplikace).  
+  - EfektivnÃ­ vyuÅ¾itÃ­ vlÃ¡ken (napÅ™. ve webovÃ½ch sluÅ¾bÃ¡ch).  
+
+---
+
+#### **2. ZÃ¡kladnÃ­ syntaxe**  
 
 ```csharp
 public async Task<int> SpoctiSoucetAsync(int a, int b)
 {
-    await Task.Delay(1000); // Simulace asynchronní operace (napø. HTTP poadavek)
+    await Task.Delay(1000); // Simulace asynchronnÃ­ operace (napÅ™. HTTP poÅ¾adavek)
     return a + b;
 }
 
-// Volání
+// VolÃ¡nÃ­
 int vysledek = await SpoctiSoucetAsync(5, 3);
 ```  
-- **Návratové typy**:  
-  - `Task`: Metoda bez návratové hodnoty.  
-  - `Task<T>`: Metoda vrací hodnotu typu `T`.  
-  - `void`: Pouze pro obsluhy událostí (napø. `button.Click += async (s, e) => { ... }`).  
+- **NÃ¡vratovÃ© typy**:  
+  - `Task`: Metoda bez nÃ¡vratovÃ© hodnoty.  
+  - `Task<T>`: Metoda vracÃ­ hodnotu typu `T`.  
+  - `void`: Pouze pro obsluhy udÃ¡lostÃ­ (napÅ™. `button.Click += async (s, e) => { ... }`).  
 
 ---
 
 #### **3. Jak to funguje?**  
 
-- Metoda oznaèená `async` je kompilátorem pøevedena na **stavovı automat**.  
-- Pøi `await` se vlákno uvolní a po dokonèení asynchronní operace se provádìní obnoví (nemusí na stejném vláknì!).  
-- **Pozor**: `await` neblokuje vlákno – umoòuje jeho opìtovné vyuití.  
+- Metoda oznaÄenÃ¡ `async` je kompilÃ¡torem pÅ™evedena na **stavovÃ½ automat**.  
+- PÅ™i `await` se vlÃ¡kno uvolnÃ­ a po dokonÄenÃ­ asynchronnÃ­ operace se provÃ¡dÄ›nÃ­ obnovÃ­ (nemusÃ­ na stejnÃ©m vlÃ¡knÄ›!).  
+- **Pozor**: `await` neblokuje vlÃ¡kno â€“ umoÅ¾Åˆuje jeho opÄ›tovnÃ© vyuÅ¾itÃ­.  
 
 ---
 
-#### **4. Klíèové tøídy a nástroje**  
+#### **4. KlÃ­ÄovÃ© tÅ™Ã­dy a nÃ¡stroje**  
 
-- **`Task` a `Task<T>`**: Reprezentují asynchronní operaci.  
-- **`ValueTask` a `ValueTask<T>`**: Optimalizace pro operace, které èasto synchronnì dokonèí.  
-- **`CancellationToken`**: Zrušení dlouhotrvající operace.  
-- **`ConfigureAwait(false)`**: Potlaèí obnovení v pùvodním kontextu (napø. pro knihovny).  
+- **`Task` a `Task<T>`**: ReprezentujÃ­ asynchronnÃ­ operaci.  
+- **`ValueTask` a `ValueTask<T>`**: Optimalizace pro operace, kterÃ© Äasto synchronnÄ› dokonÄÃ­.  
+- **`CancellationToken`**: ZruÅ¡enÃ­ dlouhotrvajÃ­cÃ­ operace.  
+- **`ConfigureAwait(false)`**: PotlaÄÃ­ obnovenÃ­ v pÅ¯vodnÃ­m kontextu (napÅ™. pro knihovny).  
 
 ---
 
-#### **5. Zpracování chyb**  
+#### **5. ZpracovÃ¡nÃ­ chyb**  
 
-- Vıjimky v asynchronních metodách se propagují do `Task.Exception` nebo pøi `await`.  
+- VÃ½jimky v asynchronnÃ­ch metodÃ¡ch se propagujÃ­ do `Task.Exception` nebo pÅ™i `await`.  
 ```csharp
 try
 {
@@ -64,10 +64,10 @@ catch (HttpRequestException ex)
     Console.WriteLine($"Chyba: {ex.Message}");
 }
 ```  
-- **Zrušení operace**:  
+- **ZruÅ¡enÃ­ operace**:  
 ```csharp
 var cts = new CancellationTokenSource();
-cts.CancelAfter(5000); // Zruší operaci po 5 sekundách
+cts.CancelAfter(5000); // ZruÅ¡Ã­ operaci po 5 sekundÃ¡ch
 
 try
 {
@@ -75,65 +75,65 @@ try
 }
 catch (TaskCanceledException)
 {
-    Console.WriteLine("Operace zrušena.");
+    Console.WriteLine("Operace zruÅ¡ena.");
 }
 ```
 
 ---
 
-#### **6. Doporuèené postupy**  
+#### **6. DoporuÄenÃ© postupy**  
 
-1. **Async all the way**: Vyhnìte se mísení synchronního a asynchronního kódu (napø. `Result` nebo `Wait()`).  
-2. **Pouívejte `ConfigureAwait(false)`** v knihovnách (zabraòuje deadlockùm v konzolovıch aplikacích).  
-3. **Preferujte `Task`/`Task<T>`** pøed `async void` (kromì obsluh událostí).  
-4. **Ošetøujte vıjimky** pomocí `try/catch` kolem `await`.  
+1. **Async all the way**: VyhnÄ›te se mÃ­senÃ­ synchronnÃ­ho a asynchronnÃ­ho kÃ³du (napÅ™. `Result` nebo `Wait()`).  
+2. **PouÅ¾Ã­vejte `ConfigureAwait(false)`** v knihovnÃ¡ch (zabraÅˆuje deadlockÅ¯m v konzolovÃ½ch aplikacÃ­ch).  
+3. **Preferujte `Task`/`Task<T>`** pÅ™ed `async void` (kromÄ› obsluh udÃ¡lostÃ­).  
+4. **OÅ¡etÅ™ujte vÃ½jimky** pomocÃ­ `try/catch` kolem `await`.  
 
 ---
 
-#### **7. Èasté chyby**  
+#### **7. ÄŒastÃ© chyby**  
 
-- **Deadlock**: Blokování asynchronního kódu (napø. `.Result` v UI vláknì).  
+- **Deadlock**: BlokovÃ¡nÃ­ asynchronnÃ­ho kÃ³du (napÅ™. `.Result` v UI vlÃ¡knÄ›).  
 ```csharp
-// ŠPATNÌ:
-var data = MetodaAsync().Result; // Blokuje vlákno!
+// Å PATNÄš:
+var data = MetodaAsync().Result; // Blokuje vlÃ¡kno!
 
-// SPRÁVNÌ:
+// SPRÃVNÄš:
 var data = await MetodaAsync();
 ```  
-- **Zapomenutí `await`**:  
+- **ZapomenutÃ­ `await`**:  
 ```csharp
 public async Task UlozDataAsync()
 {
     await Task.Delay(1000); // Bez await by se operace ignorovala!
 }
 ```  
-- **Nadbyteèné pouití `async`**: Pokud metoda neobsahuje `await`, není `async` potøeba.  
+- **NadbyteÄnÃ© pouÅ¾itÃ­ `async`**: Pokud metoda neobsahuje `await`, nenÃ­ `async` potÅ™eba.  
 
 ---
 
-#### **8. Pokroèilé techniky**  
+#### **8. PokroÄilÃ© techniky**  
 
-- **Paralelní spouštìní úloh**:  
+- **ParalelnÃ­ spouÅ¡tÄ›nÃ­ Ãºloh**:  
 ```csharp
 var task1 = StahniDataAsync();
 var task2 = NactiSouborAsync();
-await Task.WhenAll(task1, task2); // Èeká na všechny
+await Task.WhenAll(task1, task2); // ÄŒekÃ¡ na vÅ¡echny
 // nebo
-var vysledek = await Task.WhenAny(task1, task2); // Èeká na první dokonèenou
+var vysledek = await Task.WhenAny(task1, task2); // ÄŒekÃ¡ na prvnÃ­ dokonÄenou
 ```  
-- **Asynchronní streamy (C# 8+)**:  
+- **AsynchronnÃ­ streamy (C# 8+)**:  
 ```csharp
 await foreach (var polozka in ZiskejDataAsync())
 {
     Console.WriteLine(polozka);
 }
 ```  
-- **`IAsyncDisposable`**: Pro asynchronní èištìní zdrojù.  
+- **`IAsyncDisposable`**: Pro asynchronnÃ­ ÄiÅ¡tÄ›nÃ­ zdrojÅ¯.  
 
 ---
 
-#### **9. Kdy pouít asynchronní kód?**  
+#### **9. Kdy pouÅ¾Ã­t asynchronnÃ­ kÃ³d?**  
 
-- **I/O operace**: Ètení souborù, HTTP poadavky, databázové dotazy.  
-- **UI aplikace**: Zachování responzivity (napø. naèítání dat bez zamrznutí).  
-- **Serverové aplikace**: Zvıšení škálovatelnosti (efektivní vyuití vláken).  
+- **I/O operace**: ÄŒtenÃ­ souborÅ¯, HTTP poÅ¾adavky, databÃ¡zovÃ© dotazy.  
+- **UI aplikace**: ZachovÃ¡nÃ­ responzivity (napÅ™. naÄÃ­tÃ¡nÃ­ dat bez zamrznutÃ­).  
+- **ServerovÃ© aplikace**: ZvÃ½Å¡enÃ­ Å¡kÃ¡lovatelnosti (efektivnÃ­ vyuÅ¾itÃ­ vlÃ¡ken).  

@@ -1,4 +1,4 @@
-﻿
+
 ### **`Count`**  
 
 Metoda `Count` slouží k **zjištění počtu prvků v kolekci** nebo počtu prvků splňujících určitou podmínku. Je jednou ze základních agregací v LINQ a používá se pro analýzu datových sad.

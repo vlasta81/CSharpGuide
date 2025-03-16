@@ -1,75 +1,75 @@
 
 ### **1. Co jsou direktivy preprocesoru?**
 
-- **Instrukce pro kompilátor**, které se vyhodnocují **pøed kompilací** kódu.
-- **Úèel**:
-  - Podmínìná kompilace (vıbìr kódu dle kontextu).
-  - Generování varování/chyb.
-  - Správa kódovıch oblastí (napø. pro lepší èitelnost).
-  - Øízení chování kompilátoru (napø. potlaèení varování).
-- **Syntaxe**: Zaèínají znakem `#` a neukonèují se støedníkem.
+- **Instrukce pro kompilÃ¡tor**, kterÃ© se vyhodnocujÃ­ **pÅ™ed kompilacÃ­** kÃ³du.
+- **ÃšÄel**:
+  - PodmÃ­nÄ›nÃ¡ kompilace (vÃ½bÄ›r kÃ³du dle kontextu).
+  - GenerovÃ¡nÃ­ varovÃ¡nÃ­/chyb.
+  - SprÃ¡va kÃ³dovÃ½ch oblastÃ­ (napÅ™. pro lepÅ¡Ã­ Äitelnost).
+  - Å˜Ã­zenÃ­ chovÃ¡nÃ­ kompilÃ¡toru (napÅ™. potlaÄenÃ­ varovÃ¡nÃ­).
+- **Syntaxe**: ZaÄÃ­najÃ­ znakem `#` a neukonÄujÃ­ se stÅ™ednÃ­kem.
 
 ---
 
-### **2. Klíèové direktivy a jejich pouití**
+### **2. KlÃ­ÄovÃ© direktivy a jejich pouÅ¾itÃ­**
 
-#### **a) Podmínìná kompilace**
+#### **a) PodmÃ­nÄ›nÃ¡ kompilace**
 
-- **`#define` / `#undef`**: Definuje/ruší symbol pro podmínìnou kompilaci.
+- **`#define` / `#undef`**: Definuje/ruÅ¡Ã­ symbol pro podmÃ­nÄ›nou kompilaci.
   ```csharp
   #define DEBUG
   #undef RELEASE
   ```
   
-- **`#if`**, **`#elif`**, **`#else`**, **`#endif`**: Podmínìnì zahrne nebo vynechá kód.
+- **`#if`**, **`#elif`**, **`#else`**, **`#endif`**: PodmÃ­nÄ›nÄ› zahrne nebo vynechÃ¡ kÃ³d.
   ```csharp
   #if DEBUG
-      Console.WriteLine("Debug reim");
+      Console.WriteLine("Debug reÅ¾im");
   #elif RELEASE
-      Console.WriteLine("Produkèní reim");
+      Console.WriteLine("ProdukÄnÃ­ reÅ¾im");
   #else
-      Console.WriteLine("Neznámı reim");
+      Console.WriteLine("NeznÃ¡mÃ½ reÅ¾im");
   #endif
   ```
 
-#### **b) Generování zpráv**
+#### **b) GenerovÃ¡nÃ­ zprÃ¡v**
 
-- **`#warning`**: Vygeneruje varování pøi kompilaci.
+- **`#warning`**: Vygeneruje varovÃ¡nÃ­ pÅ™i kompilaci.
   ```csharp
-  #warning Tato metoda je experimentální!
+  #warning Tato metoda je experimentÃ¡lnÃ­!
   ```
   
-- **`#error`**: Vyvolá chybu kompilace.
+- **`#error`**: VyvolÃ¡ chybu kompilace.
   ```csharp
-  #error Neplatná konfigurace!
+  #error NeplatnÃ¡ konfigurace!
   ```
 
-#### **c) Organizace kódu**
+#### **c) Organizace kÃ³du**
 
-- **`#region` / `#endregion`**: Skupinuje kód do sbalitelnıch oblastí (napø. v IDE).
+- **`#region` / `#endregion`**: Skupinuje kÃ³d do sbalitelnÃ½ch oblastÃ­ (napÅ™. v IDE).
   ```csharp
   #region Inicializace
   public void Init() { /* ... */ }
   #endregion
   ```
 
-#### **d) Øízení kompilátoru**
+#### **d) Å˜Ã­zenÃ­ kompilÃ¡toru**
 
-- **`#pragma warning`**: Potlaèí nebo obnoví varování.
+- **`#pragma warning`**: PotlaÄÃ­ nebo obnovÃ­ varovÃ¡nÃ­.
   ```csharp
-  #pragma warning disable CS0168 // Potlaèí varování o nepouité promìnné
+  #pragma warning disable CS0168 // PotlaÄÃ­ varovÃ¡nÃ­ o nepouÅ¾itÃ© promÄ›nnÃ©
   string unused;
   #pragma warning restore CS0168
   ```
   
-- **`#line`**: Upraví èíslo øádku v chybovıch hláškách (uiteèné pro generované kódy).
+- **`#line`**: UpravÃ­ ÄÃ­slo Å™Ã¡dku v chybovÃ½ch hlÃ¡Å¡kÃ¡ch (uÅ¾iteÄnÃ© pro generovanÃ© kÃ³dy).
   ```csharp
   #line 200 "SpecialniSoubor.cs"
   ```
 
 #### **e) Nullable kontext (C# 8+)**
 
-- **`#nullable enable` / `#nullable disable`**: Zapne/vypne kontrolu nullable referenèních typù.
+- **`#nullable enable` / `#nullable disable`**: Zapne/vypne kontrolu nullable referenÄnÃ­ch typÅ¯.
   ```csharp
   #nullable enable
   string? text = null; // Povoleno
@@ -78,18 +78,18 @@
 
 ---
 
-### **3. Bìné scénáøe pouití**
+### **3. BÄ›Å¾nÃ© scÃ©nÃ¡Å™e pouÅ¾itÃ­**
 
-- **Podmínìnı kód pro rùzné prostøedí** (DEBUG vs. RELEASE).
-- **Doèasné potlaèení varování** u nehotového kódu.
-- **Více verzí kódu** (napø. podpora pro rùzné platformy).
-- **Zvıraznìní èástí kódu** pomocí regionù.
+- **PodmÃ­nÄ›nÃ½ kÃ³d pro rÅ¯znÃ© prostÅ™edÃ­** (DEBUG vs. RELEASE).
+- **DoÄasnÃ© potlaÄenÃ­ varovÃ¡nÃ­** u nehotovÃ©ho kÃ³du.
+- **VÃ­ce verzÃ­ kÃ³du** (napÅ™. podpora pro rÅ¯znÃ© platformy).
+- **ZvÃ½raznÄ›nÃ­ ÄÃ¡stÃ­ kÃ³du** pomocÃ­ regionÅ¯.
 
 ---
 
-### **4. Ukázky kódu**
+### **4. UkÃ¡zky kÃ³du**
 
-#### **Podmínìná kompilace pro ladìní**
+#### **PodmÃ­nÄ›nÃ¡ kompilace pro ladÄ›nÃ­**
 
 ```csharp
 #define LOGGING
@@ -99,7 +99,7 @@ using System;
 public class Program {
     public static void Main() {
         #if LOGGING
-            Log("Aplikace spuštìna");
+            Log("Aplikace spuÅ¡tÄ›na");
         #endif
     }
     
@@ -111,10 +111,10 @@ public class Program {
 }
 ```
 
-#### **Potlaèení varování**
+#### **PotlaÄenÃ­ varovÃ¡nÃ­**
 
 ```csharp
-#pragma warning disable CS0219 // Nepouitá promìnná
+#pragma warning disable CS0219 // NepouÅ¾itÃ¡ promÄ›nnÃ¡
 int test = 10;
 #pragma warning restore CS0219
 ```
@@ -131,15 +131,15 @@ public class Example {
 
 ---
 
-### **5. Omezení a varování**
+### **5. OmezenÃ­ a varovÃ¡nÃ­**
 
-- **ádné makra**: Na rozdíl od C/C++ nelze definovat makra s hodnotami.
-- **Lokální platnost symbolù**: Symboly definované pomocí `#define` platí **pouze v aktuálním souboru**.
-- **Kombinace s konstantami**: Pro sloitìjší podmínky pouijte `#if` s `const`.
+- **Å½Ã¡dnÃ© makra**: Na rozdÃ­l od C/C++ nelze definovat makra s hodnotami.
+- **LokÃ¡lnÃ­ platnost symbolÅ¯**: Symboly definovanÃ© pomocÃ­ `#define` platÃ­ **pouze v aktuÃ¡lnÃ­m souboru**.
+- **Kombinace s konstantami**: Pro sloÅ¾itÄ›jÅ¡Ã­ podmÃ­nky pouÅ¾ijte `#if` s `const`.
   ```csharp
   const int Version = 2;
   #if Version > 1
-      // Kód pro verzi 2+
+      // KÃ³d pro verzi 2+
   #endif
   ```
 
@@ -147,16 +147,16 @@ public class Example {
 
 ### **6. Tipy pro praxi**
 
-- **Debug vs. Release**: Vyuijte pøeddefinované symboly `DEBUG` a `TRACE`.
-- **IDE podpora**: Vizuální zvıraznìní regionù a podmínìného kódu v editoru.
-- **Alternativy k `#if`**: Pro podmínìné chování za bìhu pouijte `if` s konstantami.
+- **Debug vs. Release**: VyuÅ¾ijte pÅ™eddefinovanÃ© symboly `DEBUG` a `TRACE`.
+- **IDE podpora**: VizuÃ¡lnÃ­ zvÃ½raznÄ›nÃ­ regionÅ¯ a podmÃ­nÄ›nÃ©ho kÃ³du v editoru.
+- **Alternativy k `#if`**: Pro podmÃ­nÄ›nÃ© chovÃ¡nÃ­ za bÄ›hu pouÅ¾ijte `if` s konstantami.
 
 ---
 
-### **7. Rozdíly oproti jinım jazykùm**
+### **7. RozdÃ­ly oproti jinÃ½m jazykÅ¯m**
 
 | **Vlastnost**       | **C#**                            | **C/C++**                  |
 |----------------------|-----------------------------------|----------------------------|
-| Makra                | Nejsou podporována               | Podporována (`#define`)    |
-| Podmínìná kompilace  | Podpora `#if`, `#define`         | Podpora komplexních maker  |
-| `#pragma`            | Øízení varování a optimalizací   | Širší pouití (napø. `once`) |
+| Makra                | Nejsou podporovÃ¡na               | PodporovÃ¡na (`#define`)    |
+| PodmÃ­nÄ›nÃ¡ kompilace  | Podpora `#if`, `#define`         | Podpora komplexnÃ­ch maker  |
+| `#pragma`            | Å˜Ã­zenÃ­ varovÃ¡nÃ­ a optimalizacÃ­   | Å irÅ¡Ã­ pouÅ¾itÃ­ (napÅ™. `once`) |

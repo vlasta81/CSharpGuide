@@ -1,4 +1,4 @@
-﻿
+
 ### **`Last` a `LastOrDefault`**  
 
 Tyto metody slouží k **výběru posledního prvku kolekce** nebo posledního prvku splňujícího podmínku. Chovají se podobně jako `First` a `FirstOrDefault`, ale pracují s koncem sekvence.

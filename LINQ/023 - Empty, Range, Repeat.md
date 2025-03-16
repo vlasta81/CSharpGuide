@@ -1,4 +1,4 @@
-﻿
+
 ### **`Empty`, `Range` a `Repeat`**  
 
 Tyto statické metody třídy `Enumerable` slouží k **generování sekvencí** s předdefinovaným obsahem. Jsou užitečné pro inicializaci kolekcí, testování nebo simulaci dat.

@@ -1,48 +1,48 @@
 
-### Práce s èasem v jazyce C#  
+### PrÃ¡ce s Äasem v jazyce C#  
 
-Práce s datem a èasem je klíèová pro mnoho aplikací. C# nabízí nìkolik tøíd pro manipulaci s èasovımi údaji, vèetnì `DateTime`, `DateOnly`, `TimeOnly`, `TimeSpan` a `DateTimeOffset`. Zde je pøehled jejich pouití:
+PrÃ¡ce s datem a Äasem je klÃ­ÄovÃ¡ pro mnoho aplikacÃ­. C# nabÃ­zÃ­ nÄ›kolik tÅ™Ã­d pro manipulaci s ÄasovÃ½mi Ãºdaji, vÄetnÄ› `DateTime`, `DateOnly`, `TimeOnly`, `TimeSpan` a `DateTimeOffset`. Zde je pÅ™ehled jejich pouÅ¾itÃ­:
 
 ---
 
-#### **1. Tøída `DateTime`**  
+#### **1. TÅ™Ã­da `DateTime`**  
 
-- Reprezentuje datum a èas (napø. `12. 5. 2024 15:30:00`).  
+- Reprezentuje datum a Äas (napÅ™. `12. 5. 2024 15:30:00`).  
 - **Vlastnosti**:  
-  - `Now`: Aktuální systémovı èas.  
-  - `UtcNow`: Aktuální èas v UTC.  
-  - `Today`: Datum s èasem nastavenım na pùlnoc.  
+  - `Now`: AktuÃ¡lnÃ­ systÃ©movÃ½ Äas.  
+  - `UtcNow`: AktuÃ¡lnÃ­ Äas v UTC.  
+  - `Today`: Datum s Äasem nastavenÃ½m na pÅ¯lnoc.  
 - **Metody**:  
   ```csharp
   DateTime dnes = DateTime.Now;
   DateTime zitra = dnes.AddDays(1);
   DateTime vcera = dnes.AddDays(-1);
   ```  
-- **Formátování**:  
+- **FormÃ¡tovÃ¡nÃ­**:  
   ```csharp
   string formatovano = dnes.ToString("dd.MM.yyyy HH:mm:ss"); // "12.05.2024 15:30:00"
   ```
 
 ---
 
-#### **2. Tøída `DateOnly` a `TimeOnly` (.NET 6+)**  
+#### **2. TÅ™Ã­da `DateOnly` a `TimeOnly` (.NET 6+)**  
 
-- **`DateOnly`**: Pouze datum (bez èasu).  
+- **`DateOnly`**: Pouze datum (bez Äasu).  
   ```csharp
   DateOnly datum = DateOnly.FromDateTime(DateTime.Now); // 12.05.2024
   ```  
-- **`TimeOnly`**: Pouze èas (bez data).  
+- **`TimeOnly`**: Pouze Äas (bez data).  
   ```csharp
   TimeOnly cas = TimeOnly.FromDateTime(DateTime.Now); // 15:30:00
   ```  
-- **Vıhody**: Eliminuje problémy s èasovımi pásmy a zjednodušuje práci, kdy není èas potøeba.
+- **VÃ½hody**: Eliminuje problÃ©my s ÄasovÃ½mi pÃ¡smy a zjednoduÅ¡uje prÃ¡ci, kdyÅ¾ nenÃ­ Äas potÅ™eba.
 
 ---
 
-#### **3. Tøída `TimeSpan`**  
+#### **3. TÅ™Ã­da `TimeSpan`**  
 
-- Reprezentuje èasovı interval (napø. 2 hodiny 15 minut).  
-- **Vytvoøení**:  
+- Reprezentuje ÄasovÃ½ interval (napÅ™. 2 hodiny 15 minut).  
+- **VytvoÅ™enÃ­**:  
   ```csharp
   TimeSpan interval = new TimeSpan(2, 15, 0); // 02:15:00
   TimeSpan interval2 = TimeSpan.FromHours(3.5); // 03:30:00
@@ -50,20 +50,20 @@ Práce s datem a èasem je klíèová pro mnoho aplikací. C# nabízí nìkolik tøíd pro 
 - **Operace**:  
   ```csharp
   DateTime za3Hodiny = DateTime.Now.Add(TimeSpan.FromHours(3));
-  TimeSpan rozdil = DateTime.Now - DateTime.Today; // Doba od pùlnoci
+  TimeSpan rozdil = DateTime.Now - DateTime.Today; // Doba od pÅ¯lnoci
   ```  
-- **Formátování**:  
+- **FormÃ¡tovÃ¡nÃ­**:  
   ```csharp
   string casovyRozdil = interval.ToString(@"hh\:mm"); // "02:15"
   ```
 
 ---
 
-#### **4. Tøída `DateTimeOffset`**  
+#### **4. TÅ™Ã­da `DateTimeOffset`**  
 
-- Reprezentuje datum a èas s **offsetem èasového pásma** (napø. `2024-05-12T15:30:00+02:00`).  
-- **Vıhody**: Umoòuje pøesnou práci s èasovımi pásmy.  
-- **Pøíklad**:  
+- Reprezentuje datum a Äas s **offsetem ÄasovÃ©ho pÃ¡sma** (napÅ™. `2024-05-12T15:30:00+02:00`).  
+- **VÃ½hody**: UmoÅ¾Åˆuje pÅ™esnou prÃ¡ci s ÄasovÃ½mi pÃ¡smy.  
+- **PÅ™Ã­klad**:  
   ```csharp
   DateTimeOffset casSPasmem = DateTimeOffset.Now;
   DateTimeOffset utcCas = casSPasmem.ToUniversalTime();
@@ -71,47 +71,47 @@ Práce s datem a èasem je klíèová pro mnoho aplikací. C# nabízí nìkolik tøíd pro 
 
 ---
 
-#### **5. Parsování a konverze**  
+#### **5. ParsovÃ¡nÃ­ a konverze**  
 
-- **Parsování z øetìzce**:  
+- **ParsovÃ¡nÃ­ z Å™etÄ›zce**:  
   ```csharp
   DateTime datum = DateTime.Parse("2024-05-12");
-  bool uspech = DateTime.TryParse("12.5.2024", out DateTime result); // Bezpeènìjší varianta
+  bool uspech = DateTime.TryParse("12.5.2024", out DateTime result); // BezpeÄnÄ›jÅ¡Ã­ varianta
   ```  
-- **Vlastní formáty**:  
+- **VlastnÃ­ formÃ¡ty**:  
   ```csharp
   DateTime datum = DateTime.ParseExact("12/05/24", "dd/MM/yy", CultureInfo.InvariantCulture);
   ```
 
 ---
 
-#### **6. Èasová pásma a `TimeZoneInfo`**  
+#### **6. ÄŒasovÃ¡ pÃ¡sma a `TimeZoneInfo`**  
 
-- Konverze mezi pásmy:  
+- Konverze mezi pÃ¡smy:  
   ```csharp
   TimeZoneInfo prazskePasmo = TimeZoneInfo.FindSystemTimeZoneById("Central Europe Standard Time");
   DateTimeOffset casVPraze = TimeZoneInfo.ConvertTimeBySystemTimeZoneId(DateTimeOffset.UtcNow, "Central Europe Standard Time");
   ```  
-- **UTC vs. lokální èas**:  
+- **UTC vs. lokÃ¡lnÃ­ Äas**:  
   ```csharp
   DateTime utcCas = DateTime.UtcNow;
-  DateTime lokalniCas = utcCas.ToLocalTime(); // Podle systémového pásma
+  DateTime lokalniCas = utcCas.ToLocalTime(); // Podle systÃ©movÃ©ho pÃ¡sma
   ```
 
 ---
 
-#### **7. Bìné operace**  
+#### **7. BÄ›Å¾nÃ© operace**  
 
-- **Porovnávání**:  
+- **PorovnÃ¡vÃ¡nÃ­**:  
   ```csharp
   bool jeVetsi = DateTime.Now > DateTime.Today;
   ```  
-- **Extrakce èástí**:  
+- **Extrakce ÄÃ¡stÃ­**:  
   ```csharp
   int rok = DateTime.Now.Year;
   int minuta = DateTime.Now.Minute;
   ```  
-- **Vıpoèet vìku**:  
+- **VÃ½poÄet vÄ›ku**:  
   ```csharp
   DateTime narozeni = new DateTime(2000, 1, 1);
   int vek = DateTime.Now.Year - narozeni.Year;
@@ -120,37 +120,37 @@ Práce s datem a èasem je klíèová pro mnoho aplikací. C# nabízí nìkolik tøíd pro 
 
 ---
 
-#### **8. Doporuèené postupy**  
+#### **8. DoporuÄenÃ© postupy**  
 
-- Pro ukládání do databází pouívejte **UTC èas**.  
-- Pro reprezentaci pouze data/èasu preferujte `DateOnly`/`TimeOnly` (od .NET 6).  
-- Pro èasová pásma vdy pouívejte `DateTimeOffset` místo `DateTime`.  
-- Validujte vstupy pomocí `TryParse`, abyste pøedešli vıjimkám.
-
----
-
-#### **9. Èasté chyby**  
-
-- Ignorování èasovıch pásem (napø. u mezinárodních aplikací).  
-- Zámìna `DateTime.Now` a `DateTime.UtcNow`.  
-- Ukládání `DateTime` bez specifikace `Kind` (Local/Utc/Unspecified).  
+- Pro uklÃ¡dÃ¡nÃ­ do databÃ¡zÃ­ pouÅ¾Ã­vejte **UTC Äas**.  
+- Pro reprezentaci pouze data/Äasu preferujte `DateOnly`/`TimeOnly` (od .NET 6).  
+- Pro ÄasovÃ¡ pÃ¡sma vÅ¾dy pouÅ¾Ã­vejte `DateTimeOffset` mÃ­sto `DateTime`.  
+- Validujte vstupy pomocÃ­ `TryParse`, abyste pÅ™edeÅ¡li vÃ½jimkÃ¡m.
 
 ---
 
-#### **10. Pokroèilé techniky**  
+#### **9. ÄŒastÃ© chyby**  
 
-- **Periodické úlohy**:  
+- IgnorovÃ¡nÃ­ ÄasovÃ½ch pÃ¡sem (napÅ™. u mezinÃ¡rodnÃ­ch aplikacÃ­).  
+- ZÃ¡mÄ›na `DateTime.Now` a `DateTime.UtcNow`.  
+- UklÃ¡dÃ¡nÃ­ `DateTime` bez specifikace `Kind` (Local/Utc/Unspecified).  
+
+---
+
+#### **10. PokroÄilÃ© techniky**  
+
+- **PeriodickÃ© Ãºlohy**:  
   ```csharp
   using var timer = new PeriodicTimer(TimeSpan.FromMinutes(5));
   while (await timer.WaitForNextTickAsync())
   {
-      // Spustí se kadıch 5 minut
+      // SpustÃ­ se kaÅ¾dÃ½ch 5 minut
   }
   ```  
-- **Mìøení èasu**:  
+- **MÄ›Å™enÃ­ Äasu**:  
   ```csharp
   var stopky = System.Diagnostics.Stopwatch.StartNew();
-  // ... kód ...
+  // ... kÃ³d ...
   stopky.Stop();
-  Console.WriteLine($"Ubìhlo: {stopky.ElapsedMilliseconds} ms");
+  Console.WriteLine($"UbÄ›hlo: {stopky.ElapsedMilliseconds} ms");
   ```

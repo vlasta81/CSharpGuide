@@ -1,4 +1,4 @@
-﻿
+
 ### **`Union`**  
 Metoda `Union` slouží ke **kombinaci dvou kolekcí do jedné s odstraněním duplicit**. Je ekvivalentem množinového sjednocení a vrací všechny **unikátní prvky** z obou kolekcí. Je užitečná pro slučování datových sad bez opakujících se záznamů.
 

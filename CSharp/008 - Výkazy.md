@@ -1,39 +1,39 @@
 
-### **1. Definice vıkazu**
+### **1. Definice vÃ½kazu**
 
-- **Vıkaz** je instrukce, která provádí akci (napø. pøiøazení hodnoty, volání metody, øízení toku programu).  
-- Kadı vıkaz konèí støedníkem `;` (kromì blokù `{}`).
+- **VÃ½kaz** je instrukce, kterÃ¡ provÃ¡dÃ­ akci (napÅ™. pÅ™iÅ™azenÃ­ hodnoty, volÃ¡nÃ­ metody, Å™Ã­zenÃ­ toku programu).  
+- KaÅ¾dÃ½ vÃ½kaz konÄÃ­ stÅ™ednÃ­kem `;` (kromÄ› blokÅ¯ `{}`).
 
 ---
 
-### **2. Kategorie vıkazù**
+### **2. Kategorie vÃ½kazÅ¯**
 
-#### **a) Deklaraèní vıkazy**
+#### **a) DeklaraÄnÃ­ vÃ½kazy**
 
-- Deklarují promìnné, konstanty nebo funkce.  
+- DeklarujÃ­ promÄ›nnÃ©, konstanty nebo funkce.  
   ```csharp
   int x = 10;
   const double PI = 3.14;
   ```
 
-#### **b) Vırazové vıkazy**
+#### **b) VÃ½razovÃ© vÃ½kazy**
 
-- Vyhodnocení vırazu s vedlejším úèinkem (napø. pøiøazení, volání metody).  
+- VyhodnocenÃ­ vÃ½razu s vedlejÅ¡Ã­m ÃºÄinkem (napÅ™. pÅ™iÅ™azenÃ­, volÃ¡nÃ­ metody).  
   ```csharp
   x = 5 + 3;
   Console.WriteLine("Ahoj!");
   ```
 
-#### **c) Øízení toku programu**
+#### **c) Å˜Ã­zenÃ­ toku programu**
 
-##### **Podmínìné vıkazy**  
+##### **PodmÃ­nÄ›nÃ© vÃ½kazy**  
 
 - **`if`-`else`**:  
   ```csharp
   if (vek >= 18) {
-      Console.WriteLine("Dospìlı");
+      Console.WriteLine("DospÄ›lÃ½");
   } else {
-      Console.WriteLine("Nezletilı");
+      Console.WriteLine("NezletilÃ½");
   }
   ```
   
@@ -41,10 +41,10 @@
   ```csharp
   switch (den) {
       case DayOfWeek.Monday: 
-          Console.WriteLine("Pondìlí"); 
+          Console.WriteLine("PondÄ›lÃ­"); 
           break;
       default: 
-          Console.WriteLine("Jinı den"); 
+          Console.WriteLine("JinÃ½ den"); 
           break;
   }
   ```
@@ -68,51 +68,51 @@
 - **`while`**:  
   ```csharp
   while (podminka) {
-      // Kód
+      // KÃ³d
   }
   ```
   
 - **`do-while`**:  
   ```csharp
   do {
-      // Kód
+      // KÃ³d
   } while (podminka);
   ```
 
-##### **Skokové vıkazy**  
+##### **SkokovÃ© vÃ½kazy**  
 
-- **`break`**: Ukonèí cyklus nebo `switch`.  
-- **`continue`**: Pøeskoèí aktuální iteraci cyklu.  
-- **`return`**: Vrátí hodnotu z metody.  
-- **`goto`**: Pøeskoèí na oznaèenı vıkaz (pouívejte vıjimeènì!).  
+- **`break`**: UkonÄÃ­ cyklus nebo `switch`.  
+- **`continue`**: PÅ™eskoÄÃ­ aktuÃ¡lnÃ­ iteraci cyklu.  
+- **`return`**: VrÃ¡tÃ­ hodnotu z metody.  
+- **`goto`**: PÅ™eskoÄÃ­ na oznaÄenÃ½ vÃ½kaz (pouÅ¾Ã­vejte vÃ½jimeÄnÄ›!).  
   ```csharp
   goto Navesti;
   // ...
   Navesti: 
-      Console.WriteLine("Návìští");
+      Console.WriteLine("NÃ¡vÄ›Å¡tÃ­");
   ```
 
-#### **d) Vıjimkové vıkazy**
+#### **d) VÃ½jimkovÃ© vÃ½kazy**
 
 - **`try`-`catch`-`finally`**:  
   ```csharp
   try {
-      // Rizikovı kód
+      // RizikovÃ½ kÃ³d
   } catch (Exception ex) {
       Console.WriteLine(ex.Message);
   } finally {
-      // Úklidovı kód
+      // ÃšklidovÃ½ kÃ³d
   }
   ```
   
-- **`throw`**: Vyvolá vıjimku.  
+- **`throw`**: VyvolÃ¡ vÃ½jimku.  
   ```csharp
   throw new InvalidOperationException("Chyba!");
   ```
 
-#### **e) Blokové vıkazy**
+#### **e) BlokovÃ© vÃ½kazy**
 
-- Skupina vıkazù uzavøená v `{}`.  
+- Skupina vÃ½kazÅ¯ uzavÅ™enÃ¡ v `{}`.  
   ```csharp
   {
       int a = 5;
@@ -120,36 +120,36 @@
   }
   ```
 
-#### **f) Ostatní vıkazy**
+#### **f) OstatnÃ­ vÃ½kazy**
 
-- **`using`**: Automaticky uvolní prostøedky (pro `IDisposable`).  
+- **`using`**: Automaticky uvolnÃ­ prostÅ™edky (pro `IDisposable`).  
   ```csharp
   using (var reader = new StreamReader("soubor.txt")) {
-      // Práce se souborem
+      // PrÃ¡ce se souborem
   }
   ```
   
-- **`checked`/`unchecked`**: Kontrola pøeteèení aritmetickıch operací.  
+- **`checked`/`unchecked`**: Kontrola pÅ™eteÄenÃ­ aritmetickÃ½ch operacÃ­.  
   ```csharp
   checked {
-      int x = int.MaxValue + 1; // Vyvolá OverflowException
+      int x = int.MaxValue + 1; // VyvolÃ¡ OverflowException
   }
   ```
   
-- **`lock`**: Zajišuje synchronizaci vláken.  
+- **`lock`**: ZajiÅ¡Å¥uje synchronizaci vlÃ¡ken.  
   ```csharp
   lock (lockObject) {
-      // Kritická sekce
+      // KritickÃ¡ sekce
   }
   ```
 
 ---
 
-### **3. Speciální vıkazy**
+### **3. SpeciÃ¡lnÃ­ vÃ½kazy**
 
 #### **`yield`**  
 
-- Pouívá se v iterátorech pro postupné vracení hodnot.  
+- PouÅ¾Ã­vÃ¡ se v iterÃ¡torech pro postupnÃ© vracenÃ­ hodnot.  
   ```csharp
   public IEnumerable<int> GenerujCisla() {
       for (int i = 0; i < 5; i++) {
@@ -160,7 +160,7 @@
 
 #### **`await`**  
 
-- Asynchronní volání (v metodách oznaèenıch `async`).  
+- AsynchronnÃ­ volÃ¡nÃ­ (v metodÃ¡ch oznaÄenÃ½ch `async`).  
   ```csharp
   async Task NactiData() {
       var data = await HttpClient.GetStringAsync("url");
@@ -169,55 +169,55 @@
 
 ---
 
-### **4. Porovnání cyklù**
+### **4. PorovnÃ¡nÃ­ cyklÅ¯**
 
-| **Cyklus**   | **Vhodné pouití**                  | **Poznámka**                          |
+| **Cyklus**   | **VhodnÃ© pouÅ¾itÃ­**                  | **PoznÃ¡mka**                          |
 |--------------|-------------------------------------|----------------------------------------|
-| `for`        | Známı poèet iterací                 | Ideální pro indexované kolekce         |
-| `foreach`    | Práce s kolekcemi                   | Nevyaduje index                       |
-| `while`      | Neznámı poèet iterací (podmínka na zaèátku) | Mùe bıt nekoneènı                    |
-| `do-while`   | Neznámı poèet iterací (podmínka na konci) | Provede se minimálnì jednou           |
+| `for`        | ZnÃ¡mÃ½ poÄet iteracÃ­                 | IdeÃ¡lnÃ­ pro indexovanÃ© kolekce         |
+| `foreach`    | PrÃ¡ce s kolekcemi                   | NevyÅ¾aduje index                       |
+| `while`      | NeznÃ¡mÃ½ poÄet iteracÃ­ (podmÃ­nka na zaÄÃ¡tku) | MÅ¯Å¾e bÃ½t nekoneÄnÃ½                    |
+| `do-while`   | NeznÃ¡mÃ½ poÄet iteracÃ­ (podmÃ­nka na konci) | Provede se minimÃ¡lnÄ› jednou           |
 
 ---
 
-### **5. Bìné chyby a tipy**
+### **5. BÄ›Å¾nÃ© chyby a tipy**
 
-- **Zapomenutı `break` v `switch`**:  
+- **ZapomenutÃ½ `break` v `switch`**:  
   ```csharp
   case 1: 
       Console.WriteLine("1");
-      break; // Bez break zpùsobí chybu kompilace!
+      break; // Bez break zpÅ¯sobÃ­ chybu kompilace!
   ```
   
-- **Nekoneèné cykly**:  
+- **NekoneÄnÃ© cykly**:  
   ```csharp
   while (true) { 
-      // Chybí podmínka pro ukonèení
+      // ChybÃ­ podmÃ­nka pro ukonÄenÃ­
   }
   ```
   
-- **Pouití `goto`**: Lze pouít pro opuštìní vnoøenıch cyklù, ale obecnì se nedoporuèuje.  
-- **`using` pro ne-`IDisposable` typy**: Vyvolá chybu kompilace.
+- **PouÅ¾itÃ­ `goto`**: Lze pouÅ¾Ã­t pro opuÅ¡tÄ›nÃ­ vnoÅ™enÃ½ch cyklÅ¯, ale obecnÄ› se nedoporuÄuje.  
+- **`using` pro ne-`IDisposable` typy**: VyvolÃ¡ chybu kompilace.
 
 ---
 
-### **6. Ukázky kódu**
+### **6. UkÃ¡zky kÃ³du**
 
-#### **Komplexní pouití `try-catch`**
+#### **KomplexnÃ­ pouÅ¾itÃ­ `try-catch`**
 
 ```csharp
 try {
-    int x = int.Parse("neèíslo");
+    int x = int.Parse("neÄÃ­slo");
 } catch (FormatException) {
-    Console.WriteLine("Neplatnı formát!");
+    Console.WriteLine("NeplatnÃ½ formÃ¡t!");
 } catch (Exception ex) {
-    Console.WriteLine($"Obecná chyba: {ex.Message}");
+    Console.WriteLine($"ObecnÃ¡ chyba: {ex.Message}");
 } finally {
-    Console.WriteLine("Konec zpracování.");
+    Console.WriteLine("Konec zpracovÃ¡nÃ­.");
 }
 ```
 
-#### **Iterátor s `yield`**
+#### **IterÃ¡tor s `yield`**
 
 ```csharp
 public IEnumerable<string> Filtruj(IEnumerable<string> data) {
@@ -231,7 +231,7 @@ public IEnumerable<string> Filtruj(IEnumerable<string> data) {
 
 ---
 
-### **7. Doporuèené zdroje**
+### **7. DoporuÄenÃ© zdroje**
 
-- Oficiální dokumentace: [Statements in C#](https://learn.microsoft.com/cs-cz/dotnet/csharp/programming-guide/statements-expressions-operators/statements)
-- Kniha: *C# 10 in a Nutshell* (Albahari) – kapitola o øízení toku.
+- OficiÃ¡lnÃ­ dokumentace: [Statements in C#](https://learn.microsoft.com/cs-cz/dotnet/csharp/programming-guide/statements-expressions-operators/statements)
+- Kniha: *C# 10 in a Nutshell* (Albahari) â€“ kapitola o Å™Ã­zenÃ­ toku.

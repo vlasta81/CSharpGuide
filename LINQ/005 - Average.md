@@ -1,4 +1,4 @@
-﻿
+
 ### **`Average`**  
 
 Metoda `Average` slouží k **výpočtu průměrné hodnoty** z kolekce numerických dat (např. `int`, `double`, `decimal`). Je součástí standardních agregací LINQ a často se používá pro analýzu datových sad.

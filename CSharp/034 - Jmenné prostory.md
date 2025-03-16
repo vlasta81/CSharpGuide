@@ -1,8 +1,8 @@
 
-### **1. Definice jmennıch prostorù**  
+### **1. Definice jmennÃ½ch prostorÅ¯**  
 
-Jmenné prostory slouí k **logickému uspoøádání kódu** a **pøedcházení konfliktùm názvù**. Skupinují tøídy, struktury, rozhraní, enumy a další typy do logickıch celkù.  
-- **Pøíklad**:  
+JmennÃ© prostory slouÅ¾Ã­ k **logickÃ©mu uspoÅ™Ã¡dÃ¡nÃ­ kÃ³du** a **pÅ™edchÃ¡zenÃ­ konfliktÅ¯m nÃ¡zvÅ¯**. SkupinujÃ­ tÅ™Ã­dy, struktury, rozhranÃ­, enumy a dalÅ¡Ã­ typy do logickÃ½ch celkÅ¯.  
+- **PÅ™Ã­klad**:  
   ```csharp
   namespace MojeAplikace.Data {
       public class Uzivatel { ... }
@@ -11,40 +11,40 @@ Jmenné prostory slouí k **logickému uspoøádání kódu** a **pøedcházení konfliktù
 
 ---
 
-### **2. Klíèové vlastnosti**  
+### **2. KlÃ­ÄovÃ© vlastnosti**  
 
-- **Hierarchická struktura**: Lze vytváøet vnoøené jmenné prostory.  
-- **Unikátní identifikace**: Plnì kvalifikovanı název typu zahrnuje jmennı prostor (napø. `MojeAplikace.Data.Uzivatel`).  
-- **Oddìlení logickıch vrstev**: Napø. `MojeAplikace.Models`, `MojeAplikace.Services`.  
+- **HierarchickÃ¡ struktura**: Lze vytvÃ¡Å™et vnoÅ™enÃ© jmennÃ© prostory.  
+- **UnikÃ¡tnÃ­ identifikace**: PlnÄ› kvalifikovanÃ½ nÃ¡zev typu zahrnuje jmennÃ½ prostor (napÅ™. `MojeAplikace.Data.Uzivatel`).  
+- **OddÄ›lenÃ­ logickÃ½ch vrstev**: NapÅ™. `MojeAplikace.Models`, `MojeAplikace.Services`.  
 
 ---
 
-### **3. Pouití jmennıch prostorù**  
+### **3. PouÅ¾itÃ­ jmennÃ½ch prostorÅ¯**  
 
-#### **a) Deklarace jmenného prostoru**  
+#### **a) Deklarace jmennÃ©ho prostoru**  
 
 ```csharp
 namespace MojeAplikace.Komponenty {
-    public class Tlaèítko { ... }
+    public class TlaÄÃ­tko { ... }
 }
 ```
 
-#### **b) Import pomocí `using`**  
+#### **b) Import pomocÃ­ `using`**  
 
-- Zjednodušuje pøístup k typùm bez nutnosti uvádìt plnı název.  
+- ZjednoduÅ¡uje pÅ™Ã­stup k typÅ¯m bez nutnosti uvÃ¡dÄ›t plnÃ½ nÃ¡zev.  
 ```csharp
 using MojeAplikace.Komponenty;
 
-Tlaèítko btn = new Tlaèítko(); // Místo MojeAplikace.Komponenty.Tlaèítko
+TlaÄÃ­tko btn = new TlaÄÃ­tko(); // MÃ­sto MojeAplikace.Komponenty.TlaÄÃ­tko
 ```
 
-#### **c) Vnoøené jmenné prostory**  
+#### **c) VnoÅ™enÃ© jmennÃ© prostory**  
 
-- **Syntaxe 1** (pomocí teèek):  
+- **Syntaxe 1** (pomocÃ­ teÄek):  
   ```csharp
   namespace MojeAplikace.Data.Modely { ... }
   ```  
-- **Syntaxe 2** (vnoøené bloky):  
+- **Syntaxe 2** (vnoÅ™enÃ© bloky):  
   ```csharp
   namespace MojeAplikace {
       namespace Data {
@@ -55,16 +55,16 @@ Tlaèítko btn = new Tlaèítko(); // Místo MojeAplikace.Komponenty.Tlaèítko
 
 ---
 
-### **4. Globální jmennı prostor**  
+### **4. GlobÃ¡lnÃ­ jmennÃ½ prostor**  
 
-- Typy bez explicitního jmenného prostoru patøí do **globálního jmenného prostoru**.  
-- Lze k nim pøistupovat bez prefixu, ale riskují konflikty názvù.  
+- Typy bez explicitnÃ­ho jmennÃ©ho prostoru patÅ™Ã­ do **globÃ¡lnÃ­ho jmennÃ©ho prostoru**.  
+- Lze k nim pÅ™istupovat bez prefixu, ale riskujÃ­ konflikty nÃ¡zvÅ¯.  
 
 ---
 
-### **5. Aliasy pro jmenné prostory**  
+### **5. Aliasy pro jmennÃ© prostory**  
 
-- Øeší konflikty názvù mezi stejnì pojmenovanımi typy z rùznıch prostorù.  
+- Å˜eÅ¡Ã­ konflikty nÃ¡zvÅ¯ mezi stejnÄ› pojmenovanÃ½mi typy z rÅ¯znÃ½ch prostorÅ¯.  
 ```csharp
 using UI = MojeAplikace.UserInterface;
 using DB = MojeAplikace.Database;
@@ -75,48 +75,48 @@ DB.Uzivatel u2 = new DB.Uzivatel();
 
 ---
 
-### **6. Vıchozí jmenné prostory v .NET** 
+### **6. VÃ½chozÃ­ jmennÃ© prostory v .NET** 
 
-- **System**: Základní typy (napø. `Console`, `String`).  
-- **System.Collections.Generic**: Generické kolekce (napø. `List<T>`).  
-- **System.IO**: Práce se soubory (napø. `File`, `Directory`).  
+- **System**: ZÃ¡kladnÃ­ typy (napÅ™. `Console`, `String`).  
+- **System.Collections.Generic**: GenerickÃ© kolekce (napÅ™. `List<T>`).  
+- **System.IO**: PrÃ¡ce se soubory (napÅ™. `File`, `Directory`).  
 
 ---
 
-### **7. Doporuèené postupy**  
+### **7. DoporuÄenÃ© postupy**  
 
-1. **Organizujte kód podle funkcionality**:  
-   - `MojeAplikace.Models` (datové tøídy),  
+1. **Organizujte kÃ³d podle funkcionality**:  
+   - `MojeAplikace.Models` (datovÃ© tÅ™Ã­dy),  
    - `MojeAplikace.Services` (business logika).  
-2. **Pouívejte konvence pojmenování**:  
-   - Zaènìte názvem spoleènosti/projektu (napø. `Company.Product.Modul`).  
-3. **Vyhnìte se pøíliš hlubokému vnoøování**:  
-   - `MojeAplikace.Data.Modely` je lepší ne `MojeAplikace.Data.Internal.Modely.Core`.  
-4. **Neukládejte všechny tøídy do globálního prostoru**: Zvyšuje riziko konfliktù.  
+2. **PouÅ¾Ã­vejte konvence pojmenovÃ¡nÃ­**:  
+   - ZaÄnÄ›te nÃ¡zvem spoleÄnosti/projektu (napÅ™. `Company.Product.Modul`).  
+3. **VyhnÄ›te se pÅ™Ã­liÅ¡ hlubokÃ©mu vnoÅ™ovÃ¡nÃ­**:  
+   - `MojeAplikace.Data.Modely` je lepÅ¡Ã­ neÅ¾ `MojeAplikace.Data.Internal.Modely.Core`.  
+4. **NeuklÃ¡dejte vÅ¡echny tÅ™Ã­dy do globÃ¡lnÃ­ho prostoru**: ZvyÅ¡uje riziko konfliktÅ¯.  
 
 ---
 
-### **8. Bìné chyby**  
+### **8. BÄ›Å¾nÃ© chyby**  
 
-- **Zapomenutı `using`**:  
+- **ZapomenutÃ½ `using`**:  
   ```csharp
-  // Chyba: "Uzivatel" není nalezen, pokud není importován
+  // Chyba: "Uzivatel" nenÃ­ nalezen, pokud nenÃ­ importovÃ¡n
   Uzivatel u = new Uzivatel(); 
   ```  
-- **Konflikty názvù**:  
+- **Konflikty nÃ¡zvÅ¯**:  
   ```csharp
   using MojeAplikace.ModulA;
   using MojeAplikace.ModulB;
 
-  // Chyba: "Trida" existuje v obou jmennıch prostorech
+  // Chyba: "Trida" existuje v obou jmennÃ½ch prostorech
   Trida t = new Trida(); 
   ```
 
 ---
 
-### **9. Ukázka kódu**  
+### **9. UkÃ¡zka kÃ³du**  
 
-#### **Projektová struktura**  
+#### **ProjektovÃ¡ struktura**  
 
 ```csharp
 // Soubor: Models/Uzivatel.cs
@@ -134,21 +134,21 @@ namespace MojeAplikace.Services {
 }
 ```
 
-#### **Øešení konfliktù aliasy**  
+#### **Å˜eÅ¡enÃ­ konfliktÅ¯ aliasy**  
 
 ```csharp
 using SystemConsole = System.Console;
 using MyConsole = MojeAplikace.Tools.Console;
 
-SystemConsole.WriteLine("Systemová konzole");
-MyConsole.Log("Vlastní konzole");
+SystemConsole.WriteLine("SystemovÃ¡ konzole");
+MyConsole.Log("VlastnÃ­ konzole");
 ```
 
 ---
 
-### **10. Shrnutí**  
+### **10. ShrnutÃ­**  
 
-- **Jmenné prostory** organizují kód a chrání pøed konflikty názvù.  
-- **`using` direktivy** zjednodušují práci s typy.  
-- **Aliasy** øeší konflikty mezi stejnì pojmenovanımi typy.  
-- Dodrujte logickou strukturu pro èistı a udrovatelnı kód.  
+- **JmennÃ© prostory** organizujÃ­ kÃ³d a chrÃ¡nÃ­ pÅ™ed konflikty nÃ¡zvÅ¯.  
+- **`using` direktivy** zjednoduÅ¡ujÃ­ prÃ¡ci s typy.  
+- **Aliasy** Å™eÅ¡Ã­ konflikty mezi stejnÄ› pojmenovanÃ½mi typy.  
+- DodrÅ¾ujte logickou strukturu pro ÄistÃ½ a udrÅ¾ovatelnÃ½ kÃ³d.  

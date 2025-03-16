@@ -1,4 +1,4 @@
-﻿
+
 ### **`Take` a `TakeWhile`**  
 
 Tyto metody slouží k **výběru podmnožiny prvků** z kolekce na základě **počtu** nebo **podmínky**. Jsou užitečné pro práci s omezenými datovými sadami, jako je stránkování nebo dynamický výběr.

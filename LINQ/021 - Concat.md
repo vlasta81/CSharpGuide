@@ -1,4 +1,4 @@
-﻿
+
 ### **`Concat`**  
 
 Metoda `Concat` slouží ke **kombinaci dvou sekvencí** do jedné, přičemž zachovává **všechny prvky v původním pořadí**. Na rozdíl od `Union` neodstraňuje duplicity a pouze připojuje druhou kolekci za první. Je užitečná pro spojování dat z různých zdrojů bez potřeby filtrace.

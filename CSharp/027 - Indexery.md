@@ -1,20 +1,20 @@
 
 ### **1. Definice indexeru**  
 
-Indexer umoòuje **pøistupovat k objektu jako k poli** pomocí indexu. Je to speciální vlastnost, která umoòuje tøídì nebo struktuøe chovat se jako pole (napø. kolekce, seznamy, vlastní datové struktury).  
+Indexer umoÅ¾Åˆuje **pÅ™istupovat k objektu jako k poli** pomocÃ­ indexu. Je to speciÃ¡lnÃ­ vlastnost, kterÃ¡ umoÅ¾Åˆuje tÅ™Ã­dÄ› nebo struktuÅ™e chovat se jako pole (napÅ™. kolekce, seznamy, vlastnÃ­ datovÃ© struktury).  
 
-**Klíèové slovo**: `this`.  
+**KlÃ­ÄovÃ© slovo**: `this`.  
 
 ---
 
-### **2. Základní syntaxe**  
+### **2. ZÃ¡kladnÃ­ syntaxe**  
 
 ```csharp
 public class MojSeznam 
 {
-    private string[] _data = new string[10]; // Privátní pole
+    private string[] _data = new string[10]; // PrivÃ¡tnÃ­ pole
 
-    // Indexer s celoèíselnım indexem
+    // Indexer s celoÄÃ­selnÃ½m indexem
     public string this[int index] 
     {
         get => _data[index];
@@ -22,26 +22,26 @@ public class MojSeznam
     }
 }
 
-// Pouití:
+// PouÅ¾itÃ­:
 MojSeznam seznam = new MojSeznam();
-seznam[0] = "Ahoj"; // Zápis pøes indexer
-Console.WriteLine(seznam[0]); // Ètení: "Ahoj"
+seznam[0] = "Ahoj"; // ZÃ¡pis pÅ™es indexer
+Console.WriteLine(seznam[0]); // ÄŒtenÃ­: "Ahoj"
 ```
 
 ---
 
 ### **3. Vlastnosti indexeru**  
 
-- **Parametry**: Mùe mít jeden nebo více parametrù (i rùznıch typù).  
-- **Pøístupové metody**: `get` a `set` (podobnì jako u vlastností).  
-- **Typ indexu**: Lze pouít libovolnı typ (napø. `int`, `string`, `enum`).  
-- **Pøetìování**: Tøída mùe mít více indexerù s rùznımi parametry.  
+- **Parametry**: MÅ¯Å¾e mÃ­t jeden nebo vÃ­ce parametrÅ¯ (i rÅ¯znÃ½ch typÅ¯).  
+- **PÅ™Ã­stupovÃ© metody**: `get` a `set` (podobnÄ› jako u vlastnostÃ­).  
+- **Typ indexu**: Lze pouÅ¾Ã­t libovolnÃ½ typ (napÅ™. `int`, `string`, `enum`).  
+- **PÅ™etÄ›Å¾ovÃ¡nÃ­**: TÅ™Ã­da mÅ¯Å¾e mÃ­t vÃ­ce indexerÅ¯ s rÅ¯znÃ½mi parametry.  
 
 ---
 
-### **4. Pøíklady pouití**  
+### **4. PÅ™Ã­klady pouÅ¾itÃ­**  
 
-#### **a) Indexer s více parametry**  
+#### **a) Indexer s vÃ­ce parametry**  
 
 ```csharp
 public class Matice 
@@ -56,13 +56,13 @@ public class Matice
     }
 }
 
-// Pouití:
+// PouÅ¾itÃ­:
 Matice matice = new Matice();
 matice[0, 0] = 5;
 Console.WriteLine(matice[0, 0]); // 5
 ```
 
-#### **b) Indexer s øetìzcovım klíèem**  
+#### **b) Indexer s Å™etÄ›zcovÃ½m klÃ­Äem**  
 
 ```csharp
 public class Slovnik 
@@ -76,10 +76,10 @@ public class Slovnik
     }
 }
 
-// Pouití:
+// PouÅ¾itÃ­:
 Slovnik slovnik = new Slovnik();
-slovnik["jméno"] = "Anna";
-Console.WriteLine(slovnik["jméno"]); // "Anna"
+slovnik["jmÃ©no"] = "Anna";
+Console.WriteLine(slovnik["jmÃ©no"]); // "Anna"
 ```
 
 ---
@@ -111,35 +111,35 @@ public class BezpecnySeznam
 
 ---
 
-### **6. Porovnání s poli a vlastnostmi**  
+### **6. PorovnÃ¡nÃ­ s poli a vlastnostmi**  
 
-| **Kritérium**       | **Indexer**                  | **Pole**                   | **Vlastnost**              |  
+| **KritÃ©rium**       | **Indexer**                  | **Pole**                   | **Vlastnost**              |  
 |----------------------|------------------------------|----------------------------|----------------------------|  
-| **Parametry**        | Ano (jeden nebo více)        | Ano (jen pole)             | Ne                         |  
-| **Pouití**          | Pro kolekce a struktury      | Statická data              | Pøístup k jednotlivım hodnotám |  
-| **Flexibilita**      | Validace, logika v get/set   | Pøímı pøístup              | Validace, logika           |  
+| **Parametry**        | Ano (jeden nebo vÃ­ce)        | Ano (jen pole)             | Ne                         |  
+| **PouÅ¾itÃ­**          | Pro kolekce a struktury      | StatickÃ¡ data              | PÅ™Ã­stup k jednotlivÃ½m hodnotÃ¡m |  
+| **Flexibilita**      | Validace, logika v get/set   | PÅ™Ã­mÃ½ pÅ™Ã­stup              | Validace, logika           |  
 
 ---
 
-### **7. Bìné chyby a tipy**  
+### **7. BÄ›Å¾nÃ© chyby a tipy**  
 
-- **Nevalidované indexy**: Vdy kontrolujte platnost indexu v `get`/`set`.  
-- **Pøetìování indexerù**:  
+- **NevalidovanÃ© indexy**: VÅ¾dy kontrolujte platnost indexu v `get`/`set`.  
+- **PÅ™etÄ›Å¾ovÃ¡nÃ­ indexerÅ¯**:  
   ```csharp
   public class Data 
   {
       public string this[int index] { ... }
-      public string this[string key] { ... } // Pøetíení s jinım typem
+      public string this[string key] { ... } // PÅ™etÃ­Å¾enÃ­ s jinÃ½m typem
   }
   ```
-- **Pouití s rozhraními**: Indexery lze definovat v rozhraních.  
-- **Statické indexery**: Nejsou podporovány.  
+- **PouÅ¾itÃ­ s rozhranÃ­mi**: Indexery lze definovat v rozhranÃ­ch.  
+- **StatickÃ© indexery**: Nejsou podporovÃ¡ny.  
 
 ---
 
-### **8. Ukázka reálného pouití**  
+### **8. UkÃ¡zka reÃ¡lnÃ©ho pouÅ¾itÃ­**  
 
-#### **Vlastní kolekce s indexerem**  
+#### **VlastnÃ­ kolekce s indexerem**  
 
 ```csharp
 public class MojeKolekce<T> 
@@ -155,7 +155,7 @@ public class MojeKolekce<T>
     public int Pocet => _prvky.Length;
 }
 
-// Pouití:
+// PouÅ¾itÃ­:
 MojeKolekce<int> cisla = new MojeKolekce<int>();
 cisla[0] = 42;
 Console.WriteLine(cisla[0]); // 42
@@ -163,6 +163,6 @@ Console.WriteLine(cisla[0]); // 42
 
 ---
 
-### **9. Doporuèené zdroje**  
+### **9. DoporuÄenÃ© zdroje**  
 
-- **Oficiální dokumentace**: [Indexers (C#)](https://learn.microsoft.com/cs-cz/dotnet/csharp/programming-guide/indexers/)  
+- **OficiÃ¡lnÃ­ dokumentace**: [Indexers (C#)](https://learn.microsoft.com/cs-cz/dotnet/csharp/programming-guide/indexers/)  

@@ -1,59 +1,59 @@
 
-### Regulární vırazy v jazyce C#
+### RegulÃ¡rnÃ­ vÃ½razy v jazyce C#
 
-Regulární vırazy (regex) slouí k **vyhledávání, analıze a manipulaci s textem** na základì specifickıch vzorù. V C# jsou implementovány prostøednictvím knihovny `System.Text.RegularExpressions`.
+RegulÃ¡rnÃ­ vÃ½razy (regex) slouÅ¾Ã­ k **vyhledÃ¡vÃ¡nÃ­, analÃ½ze a manipulaci s textem** na zÃ¡kladÄ› specifickÃ½ch vzorÅ¯. V C# jsou implementovÃ¡ny prostÅ™ednictvÃ­m knihovny `System.Text.RegularExpressions`.
 
 ---
 
-#### 1. **Základní tøídy a struktury**
+#### 1. **ZÃ¡kladnÃ­ tÅ™Ã­dy a struktury**
 
-- **`Regex`**: Tøída pro definici a práci s regulárním vırazem.
-  - Mùe bıt pouita jako instance (pro opakované pouití) nebo pøes statické metody (pro jednorázové operace).
-  - Pøíklad: `Regex regex = new Regex(@"\d+");`
-- **`Match`**: Reprezentuje vısledek jednoho porovnání vzoru s textem.
+- **`Regex`**: TÅ™Ã­da pro definici a prÃ¡ci s regulÃ¡rnÃ­m vÃ½razem.
+  - MÅ¯Å¾e bÃ½t pouÅ¾ita jako instance (pro opakovanÃ© pouÅ¾itÃ­) nebo pÅ™es statickÃ© metody (pro jednorÃ¡zovÃ© operace).
+  - PÅ™Ã­klad: `Regex regex = new Regex(@"\d+");`
+- **`Match`**: Reprezentuje vÃ½sledek jednoho porovnÃ¡nÃ­ vzoru s textem.
   - Vlastnosti: `Value`, `Index`, `Length`, `Groups`.
-- **`MatchCollection`**: Kolekce všech nalezenıch shod (`Match` objektù).
+- **`MatchCollection`**: Kolekce vÅ¡ech nalezenÃ½ch shod (`Match` objektÅ¯).
 
 ---
 
-#### 2. **Základní metody**
+#### 2. **ZÃ¡kladnÃ­ metody**
 
-- **`IsMatch`**: Kontrola, zda text odpovídá vzoru.
+- **`IsMatch`**: Kontrola, zda text odpovÃ­dÃ¡ vzoru.
   ```csharp
   bool isValid = Regex.IsMatch("123", @"^\d+$"); // true
   ```
-- **`Match`**: Vrátí první nalezenou shodu.
+- **`Match`**: VrÃ¡tÃ­ prvnÃ­ nalezenou shodu.
   ```csharp
   Match match = Regex.Match("A1B2C3", @"\d");
   Console.WriteLine(match.Value); // "1"
   ```
-- **`Matches`**: Vrátí všechny shody jako `MatchCollection`.
+- **`Matches`**: VrÃ¡tÃ­ vÅ¡echny shody jako `MatchCollection`.
   ```csharp
   foreach (Match m in Regex.Matches("A1B2C3", @"\d"))
     Console.WriteLine(m.Value); // 1, 2, 3
   ```
-- **`Replace`**: Nahradí shody novım textem.
+- **`Replace`**: NahradÃ­ shody novÃ½m textem.
   ```csharp
   string result = Regex.Replace("Hello 123", @"\d", "X"); // "Hello XXX"
   ```
-- **`Split`**: Rozdìlí text podle shod.
+- **`Split`**: RozdÄ›lÃ­ text podle shod.
   ```csharp
   string[] parts = Regex.Split("a1b2c3", @"\d"); // ["a", "b", "c"]
   ```
 
 ---
 
-#### 3. **Syntaxe regulárních vırazù**
+#### 3. **Syntaxe regulÃ¡rnÃ­ch vÃ½razÅ¯**
 
-- **Speciální znaky** (escapování pomocí `\` v C# pomocí `@"..."` nebo `\\`):
-  - `\d` – èíslice, `\w` – alfanumerickı znak, `\s` – bílı znak.
-  - `.` – libovolnı znak, `^` – zaèátek øetìzce, `$` – konec øetìzce.
-- **Kvantifikátory**:
-  - `*` (0 a více), `+` (1 a více), `?` (0 nebo 1), `{n}` (pøesnì `n` opakování).
+- **SpeciÃ¡lnÃ­ znaky** (escapovÃ¡nÃ­ pomocÃ­ `\` v C# pomocÃ­ `@"..."` nebo `\\`):
+  - `\d` â€“ ÄÃ­slice, `\w` â€“ alfanumerickÃ½ znak, `\s` â€“ bÃ­lÃ½ znak.
+  - `.` â€“ libovolnÃ½ znak, `^` â€“ zaÄÃ¡tek Å™etÄ›zce, `$` â€“ konec Å™etÄ›zce.
+- **KvantifikÃ¡tory**:
+  - `*` (0 a vÃ­ce), `+` (1 a vÃ­ce), `?` (0 nebo 1), `{n}` (pÅ™esnÄ› `n` opakovÃ¡nÃ­).
 - **Skupiny a alternativy**:
-  - `(skupina)` – zachycení skupiny, `(?:skupina)` – nezachycující skupina.
-  - `a|b` – alternativa (a nebo b).
-- **Pojmenované skupiny**:
+  - `(skupina)` â€“ zachycenÃ­ skupiny, `(?:skupina)` â€“ nezachycujÃ­cÃ­ skupina.
+  - `a|b` â€“ alternativa (a nebo b).
+- **PojmenovanÃ© skupiny**:
   ```csharp
   Match m = Regex.Match("ID: 123", @"ID: (?<id>\d+)");
   Console.WriteLine(m.Groups["id"].Value); // "123"
@@ -61,32 +61,32 @@ Regulární vırazy (regex) slouí k **vyhledávání, analıze a manipulaci s textem**
 
 ---
 
-#### 4. **Monosti (RegexOptions)**
+#### 4. **MoÅ¾nosti (RegexOptions)**
 
-- Lze kombinovat pomocí operátoru `|`:
-  - `IgnoreCase` – ignoruje velikost písmen.
-  - `Multiline` – `^` a `$` platí pro zaèátek/konec kadého øádku.
-  - `Compiled` – zkompiluje regex pro vyšší vıkon (nároènìjší na pamì).
-  - `ExplicitCapture` – ignoruje nezpojmenované skupiny.
+- Lze kombinovat pomocÃ­ operÃ¡toru `|`:
+  - `IgnoreCase` â€“ ignoruje velikost pÃ­smen.
+  - `Multiline` â€“ `^` a `$` platÃ­ pro zaÄÃ¡tek/konec kaÅ¾dÃ©ho Å™Ã¡dku.
+  - `Compiled` â€“ zkompiluje regex pro vyÅ¡Å¡Ã­ vÃ½kon (nÃ¡roÄnÄ›jÅ¡Ã­ na pamÄ›Å¥).
+  - `ExplicitCapture` â€“ ignoruje nezpojmenovanÃ© skupiny.
   ```csharp
   Regex regex = new Regex(@"aBc", RegexOptions.IgnoreCase);
   ```
 
 ---
 
-#### 5. **Pøíklady pouití**
+#### 5. **PÅ™Ã­klady pouÅ¾itÃ­**
 
-- **Validace e-mailu** (zjednodušená):
+- **Validace e-mailu** (zjednoduÅ¡enÃ¡):
   ```csharp
   bool isValidEmail = Regex.IsMatch("test@example.com", 
       @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$");
   ```
-- **Extrakce èísel z textu**:
+- **Extrakce ÄÃ­sel z textu**:
   ```csharp
-  foreach (Match m in Regex.Matches("Cena: 200 Kè", @"\d+"))
+  foreach (Match m in Regex.Matches("Cena: 200 KÄ", @"\d+"))
       Console.WriteLine(m.Value); // "200"
   ```
-- **Formátování dat**:
+- **FormÃ¡tovÃ¡nÃ­ dat**:
   ```csharp
   string formatted = Regex.Replace("20231231", 
       @"(\d{4})(\d{2})(\d{2})", "$1-$2-$3"); // "2023-12-31"
@@ -94,28 +94,28 @@ Regulární vırazy (regex) slouí k **vyhledávání, analıze a manipulaci s textem**
 
 ---
 
-#### 6. **Tipy a nejlepší praktiky**
+#### 6. **Tipy a nejlepÅ¡Ã­ praktiky**
 
-- **Kompilace regulárních vırazù**: Pouívejte `RegexOptions.Compiled` pro èasté pouití.
-- **Timeout**: Pro dlouhé operace nastavte `Regex.MatchTimeout`, aby nedocházelo k zablokování.
-- **Èitelnost**: Komentujte sloité vzory pomocí `(?x)`:
+- **Kompilace regulÃ¡rnÃ­ch vÃ½razÅ¯**: PouÅ¾Ã­vejte `RegexOptions.Compiled` pro ÄastÃ© pouÅ¾itÃ­.
+- **Timeout**: Pro dlouhÃ© operace nastavte `Regex.MatchTimeout`, aby nedochÃ¡zelo k zablokovÃ¡nÃ­.
+- **ÄŒitelnost**: Komentujte sloÅ¾itÃ© vzory pomocÃ­ `(?x)`:
   ```csharp
-  Regex regex = new Regex(@"(?x)^\d{3}  # Poèáteèní tøi èíslice
-                              -\d{2}    # Pomlèka a dvì èíslice
+  Regex regex = new Regex(@"(?x)^\d{3}  # PoÄÃ¡teÄnÃ­ tÅ™i ÄÃ­slice
+                              -\d{2}    # PomlÄka a dvÄ› ÄÃ­slice
                               -\d{4}$"); # Konec
   ```
 
 ---
 
-#### 7. **Èasté chyby**
+#### 7. **ÄŒastÃ© chyby**
 
-- **Greedy vs. Lazy kvantifikátory**: 
+- **Greedy vs. Lazy kvantifikÃ¡tory**: 
   - `.*` (greedy) vs. `.*?` (lazy).
-- **Nesprávné escapování**: V C# pouívejte **verbatim øetìzce** (`@"..."`), abyste sníili poèet `\`.
-  - Špatnì: `"\\d+"`, správnì: `@"\d+"`.
+- **NesprÃ¡vnÃ© escapovÃ¡nÃ­**: V C# pouÅ¾Ã­vejte **verbatim Å™etÄ›zce** (`@"..."`), abyste snÃ­Å¾ili poÄet `\`.
+  - Å patnÄ›: `"\\d+"`, sprÃ¡vnÄ›: `@"\d+"`.
 
 ---
 
-### Závìr
+### ZÃ¡vÄ›r
 
-Regulární vırazy v C# jsou mocnım nástrojem pro práci s textem. Klíèové je pochopení syntaxe regex, správné pouití tøíd `Regex`, `Match` a optimalizace pomocí `RegexOptions`. Pro sloité vzory vdy testujte nástroji jako [Regex101](https://regex101.com/).
+RegulÃ¡rnÃ­ vÃ½razy v C# jsou mocnÃ½m nÃ¡strojem pro prÃ¡ci s textem. KlÃ­ÄovÃ© je pochopenÃ­ syntaxe regex, sprÃ¡vnÃ© pouÅ¾itÃ­ tÅ™Ã­d `Regex`, `Match` a optimalizace pomocÃ­ `RegexOptions`. Pro sloÅ¾itÃ© vzory vÅ¾dy testujte nÃ¡stroji jako [Regex101](https://regex101.com/).

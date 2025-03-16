@@ -1,4 +1,4 @@
-﻿
+
 ### **`SequenceEqual`**  
 
 Metoda `SequenceEqual` slouží k **porovnání dvou sekvencí** a zjištění, zda jsou **identické v pořadí a hodnotách prvků**. Je užitečná pro ověření shody kolekcí, například po transformaci dat nebo při testování.

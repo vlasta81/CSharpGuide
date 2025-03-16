@@ -1,57 +1,57 @@
 
-### **1. Definice promìnnıch**  
+### **1. Definice promÄ›nnÃ½ch**  
 
-Promìnná je **pojmenovaná oblast pamìti** urèená k ukládání dat. Kadá promìnná má:  
-- **Typ** (napø. `int`, `string`, `bool`).  
-- **Název** (identifikátor).  
-- **Hodnotu** (data, která uchovává).  
+PromÄ›nnÃ¡ je **pojmenovanÃ¡ oblast pamÄ›ti** urÄenÃ¡ k uklÃ¡dÃ¡nÃ­ dat. KaÅ¾dÃ¡ promÄ›nnÃ¡ mÃ¡:  
+- **Typ** (napÅ™. `int`, `string`, `bool`).  
+- **NÃ¡zev** (identifikÃ¡tor).  
+- **Hodnotu** (data, kterÃ¡ uchovÃ¡vÃ¡).  
 
 ---
 
 ### **2. Deklarace a inicializace**  
 
-#### **a) Explicitní typ**  
+#### **a) ExplicitnÃ­ typ**  
 
 ```csharp
-int age = 25; // Deklarace s inicializací
-string name;   // Deklarace bez inicializace (lze a pozdìji pøiøadit hodnotu)
+int age = 25; // Deklarace s inicializacÃ­
+string name;   // Deklarace bez inicializace (lze aÅ¾ pozdÄ›ji pÅ™iÅ™adit hodnotu)
 name = "Alice";
 ```
 
-#### **b) Implicitní typ (`var`)**  
+#### **b) ImplicitnÃ­ typ (`var`)**  
 
-Typ je odvozen od pøiøazené hodnoty (musí bıt inicializována pøi deklaraci).  
+Typ je odvozen od pÅ™iÅ™azenÃ© hodnoty (musÃ­ bÃ½t inicializovÃ¡na pÅ™i deklaraci).  
 ```csharp
-var isValid = true; // Kompilátor urèí typ jako `bool`
+var isValid = true; // KompilÃ¡tor urÄÃ­ typ jako `bool`
 var numbers = new List<int>(); // Typ `List<int>`
 ```
 
 #### **c) Konstanty (`const`)**  
 
-Nemìnné hodnoty známé pøi kompilaci.  
+NemÄ›nnÃ© hodnoty znÃ¡mÃ© pÅ™i kompilaci.  
 ```csharp
 const double PI = 3.1415;
 ```
 
 ---
 
-### **3. Typy promìnnıch**  
+### **3. Typy promÄ›nnÃ½ch**  
 
-#### **a) Hodnotové typy (Value Types)**  
+#### **a) HodnotovÃ© typy (Value Types)**  
 
-- Ukládají **data pøímo v pamìti** (na zásobníku).  
-- Patøí sem:  
-  - Primitivní typy: `int`, `double`, `bool`, `char`, `struct`.  
-  - Vıèty (`enum`).  
+- UklÃ¡dajÃ­ **data pÅ™Ã­mo v pamÄ›ti** (na zÃ¡sobnÃ­ku).  
+- PatÅ™Ã­ sem:  
+  - PrimitivnÃ­ typy: `int`, `double`, `bool`, `char`, `struct`.  
+  - VÃ½Äty (`enum`).  
 ```csharp
 int number = 10;
 DateTime date = DateTime.Now; // Struktura (value type)
 ```
 
-#### **b) Referenèní typy (Reference Types)**  
+#### **b) ReferenÄnÃ­ typy (Reference Types)**  
 
-- Ukládají **odkaz na data** (na haldì).  
-- Patøí sem: `class`, `string`, `array`, `delegate`, `interface`.  
+- UklÃ¡dajÃ­ **odkaz na data** (na haldÄ›).  
+- PatÅ™Ã­ sem: `class`, `string`, `array`, `delegate`, `interface`.  
 ```csharp
 string text = "Hello";
 List<int> list = new List<int>();
@@ -59,7 +59,7 @@ List<int> list = new List<int>();
 
 #### **c) Nullable typy**  
 
-- Umoòují hodnotovım typùm pøiøadit `null` pomocí `?`.  
+- UmoÅ¾ÅˆujÃ­ hodnotovÃ½m typÅ¯m pÅ™iÅ™adit `null` pomocÃ­ `?`.  
 ```csharp
 int? nullableNumber = null;
 DateTime? date = null;
@@ -69,21 +69,21 @@ DateTime? date = null;
 
 ### **4. Rozsah platnosti (Scope)** 
 
-- **Blokovı scope**: Promìnné deklarované v `{}` (cykly, podmínky).  
-- **Metodickı scope**: Platné v celé metodì.  
-- **Tøídní scope (pole)**: Platné v celé tøídì (instance nebo statické).  
+- **BlokovÃ½ scope**: PromÄ›nnÃ© deklarovanÃ© v `{}` (cykly, podmÃ­nky).  
+- **MetodickÃ½ scope**: PlatnÃ© v celÃ© metodÄ›.  
+- **TÅ™Ã­dnÃ­ scope (pole)**: PlatnÃ© v celÃ© tÅ™Ã­dÄ› (instance nebo statickÃ©).  
 
 ```csharp
 public class Example 
 {
-    private int _classField; // Tøídní promìnná (pole)
+    private int _classField; // TÅ™Ã­dnÃ­ promÄ›nnÃ¡ (pole)
 
     public void Method() 
     {
-        int localVar = 5; // Metodická promìnná
+        int localVar = 5; // MetodickÃ¡ promÄ›nnÃ¡
         if (true) 
         {
-            int blockVar = 10; // Bloková promìnná
+            int blockVar = 10; // BlokovÃ¡ promÄ›nnÃ¡
         }
     }
 }
@@ -91,10 +91,10 @@ public class Example
 
 ---
 
-### **5. Vıchozí hodnoty**  
+### **5. VÃ½chozÃ­ hodnoty**  
 
-- **Hodnotové typy**: Inicializovány na vıchozí hodnotu (napø. `0` pro `int`, `false` pro `bool`).  
-- **Referenèní typy**: Inicializovány na `null`.  
+- **HodnotovÃ© typy**: InicializovÃ¡ny na vÃ½chozÃ­ hodnotu (napÅ™. `0` pro `int`, `false` pro `bool`).  
+- **ReferenÄnÃ­ typy**: InicializovÃ¡ny na `null`.  
 
 ```csharp
 int defaultInt;         // 0
@@ -104,22 +104,22 @@ string defaultString;   // null
 
 ---
 
-### **6. ivotnost promìnnıch**  
+### **6. Å½ivotnost promÄ›nnÃ½ch**  
 
-- **Hodnotové typy**: Znièeny pøi opuštìní scope.  
-- **Referenèní typy**: Uvolnìny garbage collectorem (GC), kdy nejsou odkazy.  
+- **HodnotovÃ© typy**: ZniÄeny pÅ™i opuÅ¡tÄ›nÃ­ scope.  
+- **ReferenÄnÃ­ typy**: UvolnÄ›ny garbage collectorem (GC), kdyÅ¾ nejsou odkazy.  
 
 ---
 
-### **7. Klíèové modifikátory**  
+### **7. KlÃ­ÄovÃ© modifikÃ¡tory**  
 
-- **`readonly`**: Promìnnou lze nastavit pouze v deklaraci nebo konstruktoru (pro tøídní pole).  
-- **`static`**: Promìnná patøí tøídì, ne instanci.  
+- **`readonly`**: PromÄ›nnou lze nastavit pouze v deklaraci nebo konstruktoru (pro tÅ™Ã­dnÃ­ pole).  
+- **`static`**: PromÄ›nnÃ¡ patÅ™Ã­ tÅ™Ã­dÄ›, ne instanci.  
 ```csharp
 public class Car 
 {
-    public static int Count = 0; // Statická promìnná
-    public readonly string Model; // Readonly promìnná
+    public static int Count = 0; // StatickÃ¡ promÄ›nnÃ¡
+    public readonly string Model; // Readonly promÄ›nnÃ¡
 
     public Car(string model) 
     {
@@ -131,47 +131,47 @@ public class Car
 
 ---
 
-### **8. Bìné chyby**  
+### **8. BÄ›Å¾nÃ© chyby**  
 
-- **Pouití neinicializované promìnné**:  
+- **PouÅ¾itÃ­ neinicializovanÃ© promÄ›nnÃ©**:  
 ```csharp
 int x;
 Console.WriteLine(x); // Chyba kompilace!
 ```  
-- **Zámìna hodnotovıch a referenèních typù**:  
+- **ZÃ¡mÄ›na hodnotovÃ½ch a referenÄnÃ­ch typÅ¯**:  
 ```csharp
 Point p1 = new Point(1, 2);
 Point p2 = p1; // Kopie hodnoty (struct)
-p2.X = 5;      // p1.X zùstává 1
+p2.X = 5;      // p1.X zÅ¯stÃ¡vÃ¡ 1
 
-// U referenèních typù by zmìna ovlivnila obì promìnné!
+// U referenÄnÃ­ch typÅ¯ by zmÄ›na ovlivnila obÄ› promÄ›nnÃ©!
 ```  
 
 ---
 
-### **9. Doporuèené postupy**  
+### **9. DoporuÄenÃ© postupy**  
 
-1. **Popisné názvy**: `totalPrice` místo `tp`.  
-2. **Inicializace promìnnıch**: Pøi deklaraci, pokud mono.  
-3. **Minimalizujte scope**: Deklarujte promìnné co nejblíe místu pouití.  
-4. **Pouívejte `var` pro zjednodušení**: Kdy je typ zøejmı.  
+1. **PopisnÃ© nÃ¡zvy**: `totalPrice` mÃ­sto `tp`.  
+2. **Inicializace promÄ›nnÃ½ch**: PÅ™i deklaraci, pokud moÅ¾no.  
+3. **Minimalizujte scope**: Deklarujte promÄ›nnÃ© co nejblÃ­Å¾e mÃ­stu pouÅ¾itÃ­.  
+4. **PouÅ¾Ã­vejte `var` pro zjednoduÅ¡enÃ­**: KdyÅ¾ je typ zÅ™ejmÃ½.  
 
 ---
 
-### **10. Pøíklady**  
+### **10. PÅ™Ã­klady**  
 
-#### **Hodnotové vs. referenèní typy**  
+#### **HodnotovÃ© vs. referenÄnÃ­ typy**  
 
 ```csharp
-// Hodnotovı typ (struct)
+// HodnotovÃ½ typ (struct)
 int a = 5;
 int b = a; // Kopie hodnoty
-b = 10;    // a zùstává 5
+b = 10;    // a zÅ¯stÃ¡vÃ¡ 5
 
-// Referenèní typ (class)
+// ReferenÄnÃ­ typ (class)
 StringBuilder sb1 = new StringBuilder();
 StringBuilder sb2 = sb1; // Kopie reference
-sb2.Append("Ahoj");       // sb1 i sb2 odkazují na stejnı objekt
+sb2.Append("Ahoj");       // sb1 i sb2 odkazujÃ­ na stejnÃ½ objekt
 ```
 
 #### **Nullable typy** 
@@ -184,9 +184,9 @@ if (cislo.HasValue)
 
 ---
 
-### **11. Shrnutí** 
+### **11. ShrnutÃ­** 
 
-- **Promìnné** slouí k ukládání dat s urèenım typem.  
-- **Hodnotové typy** pøímo obsahují data, **referenèní typy** obsahují odkazy.  
-- **`var`** zjednodušuje deklaraci, kdy je typ zøejmı.  
-- **Scope a ivotnost** urèují dostupnost a existenci promìnné.  
+- **PromÄ›nnÃ©** slouÅ¾Ã­ k uklÃ¡dÃ¡nÃ­ dat s urÄenÃ½m typem.  
+- **HodnotovÃ© typy** pÅ™Ã­mo obsahujÃ­ data, **referenÄnÃ­ typy** obsahujÃ­ odkazy.  
+- **`var`** zjednoduÅ¡uje deklaraci, kdyÅ¾ je typ zÅ™ejmÃ½.  
+- **Scope a Å¾ivotnost** urÄujÃ­ dostupnost a existenci promÄ›nnÃ©.  

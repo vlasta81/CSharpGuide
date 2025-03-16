@@ -1,4 +1,4 @@
-﻿
+
 ### **`OfType`**  
 
 Metoda `OfType` slouží k **filtrování prvků kolekce na základě jejich typu**. Je užitečná pro práci s heterogenními kolekcemi (např. `ArrayList`, `object[]`) nebo při extrakci prvků implementujících konkrétní rozhraní. Na rozdíl od `Cast` bezpečně ignoruje prvky nekompatibilní s cílovým typem.

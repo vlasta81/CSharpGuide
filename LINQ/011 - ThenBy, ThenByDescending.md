@@ -1,4 +1,4 @@
-﻿
+
 ### **`ThenBy` a `ThenByDescending`**  
 
 Metody `ThenBy` a `ThenByDescending` slouží k **sekundárnímu řazení** prvků kolekce po primárním řazení pomocí `OrderBy` nebo `OrderByDescending`. Umožňují definovat **víceúrovňové řazení** (např. nejprve podle města, poté podle příjmení).

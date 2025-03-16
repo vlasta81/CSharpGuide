@@ -1,4 +1,4 @@
-﻿
+
 ### **`Contains`** 
 
 `Contains` je metoda rozšíření v LINQ, která **kontroluje, zda kolekce obsahuje konkrétní prvek**. Je užitečná pro rychlou kontrolu existence hodnoty bez nutnosti explicitního cyklu.

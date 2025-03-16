@@ -1,4 +1,4 @@
-﻿
+
 ### **`Distinct`**  
 
 Metoda `Distinct` slouží k **odstranění duplicitních prvků** z kolekce. Vrací sekvenci obsahující pouze **unikátní prvky** podle definovaného kritéria porovnání. Je užitečná pro čištění dat, agregace nebo práci s unikátními hodnotami.

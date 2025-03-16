@@ -1,24 +1,24 @@
 
-### **1. Úvod do XML dokumentaèních komentáøù**
+### **1. Ãšvod do XML dokumentaÄnÃ­ch komentÃ¡Å™Å¯**
 
-- **Syntaxe**: Zaèínají `///` a pouívají XML znaèky k popisu kódu.
-- **Úèel**:
-  - Generování API dokumentace (napø. pomocí nástrojù jako *Sandcastle* nebo *DocFX*).
-  - Zobrazení nápovìdy v IDE (IntelliSense ve Visual Studiu).
-  - Zlepšení èitelnosti a údrby kódu.
-- **Vıstup**: Kompilátor generuje soubor `.xml` s dokumentací (lze povolit v nastavení projektu).
+- **Syntaxe**: ZaÄÃ­najÃ­ `///` a pouÅ¾Ã­vajÃ­ XML znaÄky k popisu kÃ³du.
+- **ÃšÄel**:
+  - GenerovÃ¡nÃ­ API dokumentace (napÅ™. pomocÃ­ nÃ¡strojÅ¯ jako *Sandcastle* nebo *DocFX*).
+  - ZobrazenÃ­ nÃ¡povÄ›dy v IDE (IntelliSense ve Visual Studiu).
+  - ZlepÅ¡enÃ­ Äitelnosti a ÃºdrÅ¾by kÃ³du.
+- **VÃ½stup**: KompilÃ¡tor generuje soubor `.xml` s dokumentacÃ­ (lze povolit v nastavenÃ­ projektu).
 
 ---
 
-### **2. Základní znaèky**
+### **2. ZÃ¡kladnÃ­ znaÄky**
 
 #### **`<summary>`**
 
-- **Popis**: Krátkı popis èlena (tøída, metoda, vlastnost).
-- **Pøíklad**:
+- **Popis**: KrÃ¡tkÃ½ popis Älena (tÅ™Ã­da, metoda, vlastnost).
+- **PÅ™Ã­klad**:
   ```csharp
   /// <summary>
-  /// Tøída reprezentující uivatele aplikace.
+  /// TÅ™Ã­da reprezentujÃ­cÃ­ uÅ¾ivatele aplikace.
   /// </summary>
   public class Uzivatel { }
   ```
@@ -26,43 +26,43 @@
 #### **`<param>`**
 
 - **Popis**: Dokumentace parametru metody/konstruktoru.
-- **Atribut**: `name` (název parametru).
-- **Pøíklad**:
+- **Atribut**: `name` (nÃ¡zev parametru).
+- **PÅ™Ã­klad**:
   ```csharp
-  /// <param name="jmeno">Celé jméno uivatele.</param>
+  /// <param name="jmeno">CelÃ© jmÃ©no uÅ¾ivatele.</param>
   public void NastavJmeno(string jmeno) { }
   ```
 
 #### **`<returns>`**
 
-- **Popis**: Vysvìtluje návratovou hodnotu metody.
-- **Pøíklad**:
+- **Popis**: VysvÄ›tluje nÃ¡vratovou hodnotu metody.
+- **PÅ™Ã­klad**:
   ```csharp
-  /// <returns>Vìk uivatele v letech.</returns>
+  /// <returns>VÄ›k uÅ¾ivatele v letech.</returns>
   public int ZiskejVek() => 25;
   ```
 
 #### **`<remarks>`**
 
-- **Popis**: Rozšíøené informace o èlenu (doplòuje `<summary>`).
-- **Pøíklad**:
+- **Popis**: RozÅ¡Ã­Å™enÃ© informace o Älenu (doplÅˆuje `<summary>`).
+- **PÅ™Ã­klad**:
   ```csharp
   /// <remarks>
-  /// Tato metoda mùe vyvolat vıjimku pøi neplatném vstupu.
+  /// Tato metoda mÅ¯Å¾e vyvolat vÃ½jimku pÅ™i neplatnÃ©m vstupu.
   /// </remarks>
   ```
 
 ---
 
-### **3. Pokroèilé znaèky**
+### **3. PokroÄilÃ© znaÄky**
 
 #### **`<exception>`**
 
-- **Popis**: Dokumentuje vıjimky, které metoda mùe vyvolat.
-- **Atribut**: `cref` (odkaz na typ vıjimky).
-- **Pøíklad**:
+- **Popis**: Dokumentuje vÃ½jimky, kterÃ© metoda mÅ¯Å¾e vyvolat.
+- **Atribut**: `cref` (odkaz na typ vÃ½jimky).
+- **PÅ™Ã­klad**:
   ```csharp
-  /// <exception cref="ArgumentNullException">Pokud je jmeno prázdné.</exception>
+  /// <exception cref="ArgumentNullException">Pokud je jmeno prÃ¡zdnÃ©.</exception>
   public void Validuj(string jmeno) {
       if (string.IsNullOrEmpty(jmeno)) throw new ArgumentNullException();
   }
@@ -70,8 +70,8 @@
 
 #### **`<example>`**
 
-- **Popis**: Ukázka pouití kódu (èasto s `<code>`).
-- **Pøíklad**:
+- **Popis**: UkÃ¡zka pouÅ¾itÃ­ kÃ³du (Äasto s `<code>`).
+- **PÅ™Ã­klad**:
   ```csharp
   /// <example>
   /// <code>
@@ -83,27 +83,27 @@
 
 #### **`<see>` a `<seealso>`**
 
-- **Popis**: Odkazy na jiné èleny nebo typy.
-- **Pøíklad**:
+- **Popis**: Odkazy na jinÃ© Äleny nebo typy.
+- **PÅ™Ã­klad**:
   ```csharp
-  /// <see cref="Uzivatel"/> // Odkaz na tøídu
+  /// <see cref="Uzivatel"/> // Odkaz na tÅ™Ã­du
   /// <seealso cref="NastavJmeno"/>
   ```
 
 #### **`<value>`**
 
-- **Popis**: Popisuje vıznam vlastnosti (property).
-- **Pøíklad**:
+- **Popis**: Popisuje vÃ½znam vlastnosti (property).
+- **PÅ™Ã­klad**:
   ```csharp
-  /// <value>Jméno uivatele ve formátu "Pøíjmení, Jméno".</value>
+  /// <value>JmÃ©no uÅ¾ivatele ve formÃ¡tu "PÅ™Ã­jmenÃ­, JmÃ©no".</value>
   public string CeleJmeno { get; set; }
   ```
 
 #### **`<typeparam>`**
 
-- **Popis**: Dokumentuje generickı typ parametru.
-- **Atribut**: `name` (název parametru).
-- **Pøíklad**:
+- **Popis**: Dokumentuje generickÃ½ typ parametru.
+- **Atribut**: `name` (nÃ¡zev parametru).
+- **PÅ™Ã­klad**:
   ```csharp
   /// <typeparam name="T">Typ prvku v kolekci.</typeparam>
   public class Kolekce<T> { }
@@ -111,18 +111,18 @@
 
 ---
 
-### **4. Formátování a další znaèky**
+### **4. FormÃ¡tovÃ¡nÃ­ a dalÅ¡Ã­ znaÄky**
 
 #### **`<c>`**
 
-- **Popis**: Zvırazní kód v textu (inline).
+- **Popis**: ZvÃ½raznÃ­ kÃ³d v textu (inline).
   ```csharp
   /// <c>int x = 5;</c>
   ```
 
 #### **`<code>`**
 
-- **Popis**: Blok kódu (v kombinaci s `<example>`).
+- **Popis**: Blok kÃ³du (v kombinaci s `<example>`).
   ```csharp
   /// <code>
   /// if (cond) { ... }
@@ -131,17 +131,17 @@
 
 #### **`<para>`**
 
-- **Popis**: Vloí odstavec (napø. uvnitø `<remarks>`).
+- **Popis**: VloÅ¾Ã­ odstavec (napÅ™. uvnitÅ™ `<remarks>`).
   ```csharp
   /// <remarks>
-  /// <para>První odstavec.</para>
-  /// <para>Druhı odstavec.</para>
+  /// <para>PrvnÃ­ odstavec.</para>
+  /// <para>DruhÃ½ odstavec.</para>
   /// </remarks>
   ```
 
 #### **`<inheritdoc/>`**
 
-- **Popis**: Dìdí dokumentaci z nadøazeného èlenu (ušetøí duplikaci).
+- **Popis**: DÄ›dÃ­ dokumentaci z nadÅ™azenÃ©ho Älenu (uÅ¡etÅ™Ã­ duplikaci).
   ```csharp
   /// <inheritdoc />
   public override void Metoda() { }
@@ -149,47 +149,47 @@
 
 ---
 
-### **5. Generování dokumentace**
+### **5. GenerovÃ¡nÃ­ dokumentace**
 
-1. **Povolení v projektu** (`.csproj`):
+1. **PovolenÃ­ v projektu** (`.csproj`):
    ```xml
    <PropertyGroup>
      <GenerateDocumentationFile>true</GenerateDocumentationFile>
    </PropertyGroup>
    ```
-2. **Nástroje pro generování**:
-   - **DocFX**: Vytváøí webovou dokumentaci.
+2. **NÃ¡stroje pro generovÃ¡nÃ­**:
+   - **DocFX**: VytvÃ¡Å™Ã­ webovou dokumentaci.
    - **Sandcastle**: Generuje CHM nebo HTML.
-   - **VS IntelliSense**: Zobrazuje popisky pøímo v editoru.
+   - **VS IntelliSense**: Zobrazuje popisky pÅ™Ã­mo v editoru.
 
 ---
 
-### **6. Doporuèené postupy**
+### **6. DoporuÄenÃ© postupy**
 
-- **Dokumentujte veøejné API**: Tøídy, metody, vlastnosti.
-- **Popisujte vıjimky**: Umoòuje vıvojáøùm pøedcházet chybám.
-- **Pouívejte `<example>`**: Usnadòuje pochopení pouití.
-- **Vyhnìte se duplikacím**: Vyuívejte `<inheritdoc/>`.
+- **Dokumentujte veÅ™ejnÃ© API**: TÅ™Ã­dy, metody, vlastnosti.
+- **Popisujte vÃ½jimky**: UmoÅ¾Åˆuje vÃ½vojÃ¡Å™Å¯m pÅ™edchÃ¡zet chybÃ¡m.
+- **PouÅ¾Ã­vejte `<example>`**: UsnadÅˆuje pochopenÃ­ pouÅ¾itÃ­.
+- **VyhnÄ›te se duplikacÃ­m**: VyuÅ¾Ã­vejte `<inheritdoc/>`.
 
 ---
 
-### **7. Ukázka komplexního pouití**
+### **7. UkÃ¡zka komplexnÃ­ho pouÅ¾itÃ­**
 
 ```csharp
 /// <summary>
-/// Tøída pro správu matematickıch operací.
+/// TÅ™Ã­da pro sprÃ¡vu matematickÃ½ch operacÃ­.
 /// </summary>
 public class Matematika {
     /// <summary>
-    /// Seète dvì èísla.
+    /// SeÄte dvÄ› ÄÃ­sla.
     /// </summary>
-    /// <param name="a">První èíslo.</param>
-    /// <param name="b">Druhé èíslo.</param>
-    /// <returns>Souèet èísel.</returns>
-    /// <exception cref="OverflowException">Pokud vısledek pøekroèí rozsah.</exception>
+    /// <param name="a">PrvnÃ­ ÄÃ­slo.</param>
+    /// <param name="b">DruhÃ© ÄÃ­slo.</param>
+    /// <returns>SouÄet ÄÃ­sel.</returns>
+    /// <exception cref="OverflowException">Pokud vÃ½sledek pÅ™ekroÄÃ­ rozsah.</exception>
     /// <example>
     /// <code>
-    /// var result = Matematika.Secti(5, 3); // Vrátí 8
+    /// var result = Matematika.Secti(5, 3); // VrÃ¡tÃ­ 8
     /// </code>
     /// </example>
     public static int Secti(int a, int b) => checked(a + b);
@@ -198,8 +198,8 @@ public class Matematika {
 
 ---
 
-### **8. Vıhody XML dokumentace**
+### **8. VÃ½hody XML dokumentace**
 
-- **Profesionální vzhled API**: Automaticky generovaná dokumentace.
-- **Lepší tımová spolupráce**: Jasnı popis funkcionality.
-- **Integrace s nástroji**: Podpora pro CI/CD a verze dokumentace.
+- **ProfesionÃ¡lnÃ­ vzhled API**: Automaticky generovanÃ¡ dokumentace.
+- **LepÅ¡Ã­ tÃ½movÃ¡ spoluprÃ¡ce**: JasnÃ½ popis funkcionality.
+- **Integrace s nÃ¡stroji**: Podpora pro CI/CD a verze dokumentace.

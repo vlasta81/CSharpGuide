@@ -1,4 +1,4 @@
-﻿
+
 ### **`GroupBy` a `ToLookup`**  
 
 Tyto metody slouží k **seskupování prvků kolekce podle klíče**. Umožňují organizovat data do logických skupin, podobně jako `GROUP BY` v SQL, ale s větší flexibilitou díky integraci do jazyka C#.

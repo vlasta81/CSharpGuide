@@ -1,57 +1,57 @@
 
-### **1. Definice getterù a setterù**  
+### **1. Definice getterÅ¯ a setterÅ¯**  
 
-Getters (`get`) a setters (`set`) jsou **pøístupové metody vlastností**, které umoòují:  
-- **Ètení hodnoty** (`get`).  
-- **Zápis hodnoty** (`set`).  
-Slouí k zapouzdøení dat a kontrole pøístupu k privátním polím tøíd.
+Getters (`get`) a setters (`set`) jsou **pÅ™Ã­stupovÃ© metody vlastnostÃ­**, kterÃ© umoÅ¾ÅˆujÃ­:  
+- **ÄŒtenÃ­ hodnoty** (`get`).  
+- **ZÃ¡pis hodnoty** (`set`).  
+SlouÅ¾Ã­ k zapouzdÅ™enÃ­ dat a kontrole pÅ™Ã­stupu k privÃ¡tnÃ­m polÃ­m tÅ™Ã­d.
 
 ---
 
-### **2. Základní syntaxe**  
+### **2. ZÃ¡kladnÃ­ syntaxe**  
 
 ```csharp
 public class Osoba 
 {
-    private string _jmeno; // Privátní pole (backing field)
+    private string _jmeno; // PrivÃ¡tnÃ­ pole (backing field)
 
     // Vlastnost s getterem a setterem
     public string Jmeno 
     {
         get { return _jmeno; } // Getter
-        set { _jmeno = value; } // Setter (value = nová hodnota)
+        set { _jmeno = value; } // Setter (value = novÃ¡ hodnota)
     }
 }
 ```
 
 ---
 
-### **3. Typy pøístupovıch metod**  
+### **3. Typy pÅ™Ã­stupovÃ½ch metod**  
 
-#### **a) Automatické vlastnosti (auto-implemented)**  
+#### **a) AutomatickÃ© vlastnosti (auto-implemented)**  
 
-- Kompilátor generuje backing field.  
+- KompilÃ¡tor generuje backing field.  
 ```csharp
-public int Vek { get; set; } // Implicitní get a set
+public int Vek { get; set; } // ImplicitnÃ­ get a set
 ```
 
 #### **b) Read-only vlastnost**  
 
-- Pouze getter (hodnota se nastavuje v konstruktoru nebo inicializátoru).  
+- Pouze getter (hodnota se nastavuje v konstruktoru nebo inicializÃ¡toru).  
 ```csharp
 public string ID { get; } = Guid.NewGuid().ToString();
 ```
 
 #### **c) Private setter**  
 
-- Zápis monı pouze uvnitø tøídy.  
+- ZÃ¡pis moÅ¾nÃ½ pouze uvnitÅ™ tÅ™Ã­dy.  
 ```csharp
 public string Email { get; private set; }
 ```
 
 #### **d) Init-only setter (C# 9+)**  
 
-- Hodnotu lze nastavit **pouze pøi inicializaci objektu**.  
+- Hodnotu lze nastavit **pouze pÅ™i inicializaci objektu**.  
 ```csharp
 public string Jmeno { get; init; }
 ```
@@ -68,7 +68,7 @@ public int Vek
     set 
     {
         if (value < 0 || value > 150)
-            throw new ArgumentException("Neplatnı vìk");
+            throw new ArgumentException("NeplatnÃ½ vÄ›k");
         _vek = value;
     }
 }
@@ -76,9 +76,9 @@ public int Vek
 
 ---
 
-### **5. Expression-bodied èleny (C# 7+)**  
+### **5. Expression-bodied Äleny (C# 7+)**  
 
-- Zjednodušená syntaxe pro jednoduché gettery/settery.  
+- ZjednoduÅ¡enÃ¡ syntaxe pro jednoduchÃ© gettery/settery.  
 ```csharp
 public string CeleJmeno => $"{Jmeno} {Prijmeni}"; // Get-only
 private string _heslo;
@@ -87,45 +87,45 @@ public string Heslo { get => _heslo; set => _heslo = value ?? ""; }
 
 ---
 
-### **6. Kdy pouít gettery/settery vs. metody**  
+### **6. Kdy pouÅ¾Ã­t gettery/settery vs. metody**  
 
-| **Kritérium**       | **Vlastnosti (get/set)**        | **Metody**                |  
+| **KritÃ©rium**       | **Vlastnosti (get/set)**        | **Metody**                |  
 |----------------------|---------------------------------|---------------------------|  
-| **Úèel**             | Pøístup k datùm                 | Provádìní operací         |  
-| **Èitelnost**        | `obj.Hodnota = 5`               | `obj.NastavHodnotu(5)`    |  
-| **Sloitost**        | Jednoduchá logika               | Sloitá logika            |  
+| **ÃšÄel**             | PÅ™Ã­stup k datÅ¯m                 | ProvÃ¡dÄ›nÃ­ operacÃ­         |  
+| **ÄŒitelnost**        | `obj.Hodnota = 5`               | `obj.NastavHodnotu(5)`    |  
+| **SloÅ¾itost**        | JednoduchÃ¡ logika               | SloÅ¾itÃ¡ logika            |  
 
 ---
 
-### **7. Bìné chyby**  
+### **7. BÄ›Å¾nÃ© chyby**  
 
-- **Nekoneèná rekurze**:  
+- **NekoneÄnÃ¡ rekurze**:  
 ```csharp
 public string Jmeno 
 {
-    get => Jmeno; // Chyba: getter volá sám sebe!
+    get => Jmeno; // Chyba: getter volÃ¡ sÃ¡m sebe!
     set => Jmeno = value; 
 }
 ```
 
-- **Zapomenutá validace**:  
+- **ZapomenutÃ¡ validace**:  
 ```csharp
-public decimal Zustatek { get; set; } // Riziko záporné hodnoty!
+public decimal Zustatek { get; set; } // Riziko zÃ¡pornÃ© hodnoty!
 ```
 
 ---
 
-### **8. Doporuèené postupy**  
+### **8. DoporuÄenÃ© postupy**  
 
-1. **Zapouzdøujte data**: Vdy pouívejte vlastnosti místo veøejnıch polí.  
-2. **Minimalizujte veøejné settery**: Chraòte integritu dat.  
-3. **Pouívejte `init` pro nemìnné objekty** (napø. DTO, konfigurace).  
-4. **Vyhnìte se sloité logice ve vlastnostech**: Pro sloité operace pouijte metody.  
+1. **ZapouzdÅ™ujte data**: VÅ¾dy pouÅ¾Ã­vejte vlastnosti mÃ­sto veÅ™ejnÃ½ch polÃ­.  
+2. **Minimalizujte veÅ™ejnÃ© settery**: ChraÅˆte integritu dat.  
+3. **PouÅ¾Ã­vejte `init` pro nemÄ›nnÃ© objekty** (napÅ™. DTO, konfigurace).  
+4. **VyhnÄ›te se sloÅ¾itÃ© logice ve vlastnostech**: Pro sloÅ¾itÃ© operace pouÅ¾ijte metody.  
 
 ---
 
-### **9. Ukázky kódu**  
-#### **Vlastnost s podmínìnım pøístupem**  
+### **9. UkÃ¡zky kÃ³du**  
+#### **Vlastnost s podmÃ­nÄ›nÃ½m pÅ™Ã­stupem**  
 
 ```csharp
 public class Ucet 
@@ -150,7 +150,7 @@ public class Cache
     {
         get 
         {
-            _data ??= new List<string>(); // Inicializace pøi prvním pøístupu
+            _data ??= new List<string>(); // Inicializace pÅ™i prvnÃ­m pÅ™Ã­stupu
             return _data;
         }
     }
@@ -159,6 +159,6 @@ public class Cache
 
 ---
 
-### **10. Doporuèené zdroje** 
+### **10. DoporuÄenÃ© zdroje** 
 
-- **Oficiální dokumentace**: [Properties (C#)](https://learn.microsoft.com/cs-cz/dotnet/csharp/programming-guide/classes-and-structs/properties)  
+- **OficiÃ¡lnÃ­ dokumentace**: [Properties (C#)](https://learn.microsoft.com/cs-cz/dotnet/csharp/programming-guide/classes-and-structs/properties)  

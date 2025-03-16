@@ -1,61 +1,61 @@
 
-### **1. Definice vlastností**
+### **1. Definice vlastnostÃ­**
 
-Vlastnosti (properties) jsou **èleny tøíd**, které umoòují kontrolovanı pøístup k datùm. Kombinují funkènost metod s jednoduchou syntaxí polí. Slouí k:
-- **Zapouzdøení**: Ochrana privátních polí pøed neplatnımi hodnotami.
-- **Validaci**: Kontrola vstupù pøi ètení/zápisu.
-- **Vıpoètùm**: Dynamické generování hodnot na základì jinıch dat.
+Vlastnosti (properties) jsou **Äleny tÅ™Ã­d**, kterÃ© umoÅ¾ÅˆujÃ­ kontrolovanÃ½ pÅ™Ã­stup k datÅ¯m. KombinujÃ­ funkÄnost metod s jednoduchou syntaxÃ­ polÃ­. SlouÅ¾Ã­ k:
+- **ZapouzdÅ™enÃ­**: Ochrana privÃ¡tnÃ­ch polÃ­ pÅ™ed neplatnÃ½mi hodnotami.
+- **Validaci**: Kontrola vstupÅ¯ pÅ™i ÄtenÃ­/zÃ¡pisu.
+- **VÃ½poÄtÅ¯m**: DynamickÃ© generovÃ¡nÃ­ hodnot na zÃ¡kladÄ› jinÃ½ch dat.
 
 ---
 
-### **2. Základní syntaxe**
+### **2. ZÃ¡kladnÃ­ syntaxe**
 
-#### **a) Plná syntaxe (s backing field)**
+#### **a) PlnÃ¡ syntaxe (s backing field)**
 
 ```csharp
 public class Osoba 
 {
-    private string _jmeno; // Privátní pole (backing field)
+    private string _jmeno; // PrivÃ¡tnÃ­ pole (backing field)
 
     public string Jmeno 
     {
-        get { return _jmeno; } // Ètení hodnoty
-        set { _jmeno = value ?? "Neznámı"; } // Zápis s validací
+        get { return _jmeno; } // ÄŒtenÃ­ hodnoty
+        set { _jmeno = value ?? "NeznÃ¡mÃ½"; } // ZÃ¡pis s validacÃ­
     }
 }
 ```
 
-#### **b) Automatické vlastnosti (auto-implemented)**
+#### **b) AutomatickÃ© vlastnosti (auto-implemented)**
 
 ```csharp
 public class Ucet 
 {
-    public decimal Zustatek { get; set; } // Backing field generuje kompilátor
+    public decimal Zustatek { get; set; } // Backing field generuje kompilÃ¡tor
 }
 ```
 
 ---
 
-### **3. Typy vlastností**
+### **3. Typy vlastnostÃ­**
 
 #### **a) Read-only vlastnost**  
 
-- Lze èíst, ale nelze mìnit (má pouze `get`).  
+- Lze ÄÃ­st, ale nelze mÄ›nit (mÃ¡ pouze `get`).  
 ```csharp
 public string ID { get; } = Guid.NewGuid().ToString();
 ```
 
 #### **b) Write-only vlastnost**  
 
-- Lze mìnit, ale nelze èíst (má pouze `set`). Vzácné.  
+- Lze mÄ›nit, ale nelze ÄÃ­st (mÃ¡ pouze `set`). VzÃ¡cnÃ©.  
 ```csharp
 private string _heslo;
 public string Heslo { set => _heslo = value; }
 ```
 
-#### **c) Vypoèítaná vlastnost**  
+#### **c) VypoÄÃ­tanÃ¡ vlastnost**  
 
-- Hodnota se dynamicky poèítá.  
+- Hodnota se dynamicky poÄÃ­tÃ¡.  
 ```csharp
 public DateTime DatumNarozeni { get; set; }
 public int Vek => DateTime.Now.Year - DatumNarozeni.Year; // Pouze get
@@ -63,17 +63,17 @@ public int Vek => DateTime.Now.Year - DatumNarozeni.Year; // Pouze get
 
 #### **d) Init-only vlastnost (C# 9+)**  
 
-- Lze nastavit **pouze pøi inicializaci objektu**.  
+- Lze nastavit **pouze pÅ™i inicializaci objektu**.  
 ```csharp
 public string Jmeno { get; init; }
-// Pouití:
+// PouÅ¾itÃ­:
 Osoba osoba = new Osoba { Jmeno = "Anna" }; // OK
 // osoba.Jmeno = "Karel"; // Chyba!
 ```
 
 #### **e) Indexery**  
 
-- Umoòují pøístup k objektu jako k poli.  
+- UmoÅ¾ÅˆujÃ­ pÅ™Ã­stup k objektu jako k poli.  
 ```csharp
 public class Seznam 
 {
@@ -84,21 +84,21 @@ public class Seznam
         set => _data[index] = value;
     }
 }
-// Pouití:
+// PouÅ¾itÃ­:
 Seznam s = new Seznam();
 s[0] = "Ahoj";
 ```
 
 ---
 
-### **4. Modifikátory pøístupu**
+### **4. ModifikÃ¡tory pÅ™Ã­stupu**
 
-- **Vlastní pøístup pro `get`/`set`**:  
+- **VlastnÃ­ pÅ™Ã­stup pro `get`/`set`**:  
 ```csharp
 public string Email 
 {
     get; 
-    private set; // Zmìnitelnı pouze uvnitø tøídy
+    private set; // ZmÄ›nitelnÃ½ pouze uvnitÅ™ tÅ™Ã­dy
 }
 ```
 
@@ -122,7 +122,7 @@ public class BankovniUcet
         set 
         {
             if (value < 0) 
-                throw new ArgumentException("Zùstatek nemùe bıt zápornı.");
+                throw new ArgumentException("ZÅ¯statek nemÅ¯Å¾e bÃ½t zÃ¡pornÃ½.");
             _zustatek = value;
         }
     }
@@ -131,55 +131,55 @@ public class BankovniUcet
 
 ---
 
-### **6. Statické vlastnosti**
+### **6. StatickÃ© vlastnosti**
 
-- Patøí tøídì, ne instanci.  
+- PatÅ™Ã­ tÅ™Ã­dÄ›, ne instanci.  
 ```csharp
 public class Nastaveni 
 {
     public static int MaxPokusu { get; set; } = 3;
 }
-// Pouití:
+// PouÅ¾itÃ­:
 Nastaveni.MaxPokusu = 5;
 ```
 
 ---
 
-### **7. Porovnání s poli**
+### **7. PorovnÃ¡nÃ­ s poli**
 
 | **Vlastnost**       | **Vlastnost**                  | **Pole**                   |  
 |----------------------|--------------------------------|----------------------------|  
 | **Validace**         | Ano (v setteru)                | Ne                          |  
-| **Vıpoèty**         | Ano (vypoèítané vlastnosti)    | Ne                          |  
-| **Zapouzdøení**     | Ano                            | Ne (veøejná pole jsou riziková) |  
+| **VÃ½poÄty**         | Ano (vypoÄÃ­tanÃ© vlastnosti)    | Ne                          |  
+| **ZapouzdÅ™enÃ­**     | Ano                            | Ne (veÅ™ejnÃ¡ pole jsou rizikovÃ¡) |  
 
 ---
 
-### **8. Bìné chyby**
+### **8. BÄ›Å¾nÃ© chyby**
 
-- **Zámìna s poli**: Vlastnosti by mìly bıt preferovány pro veøejnı pøístup k datùm.  
-- **Nekoneèná rekurze**:  
+- **ZÃ¡mÄ›na s poli**: Vlastnosti by mÄ›ly bÃ½t preferovÃ¡ny pro veÅ™ejnÃ½ pÅ™Ã­stup k datÅ¯m.  
+- **NekoneÄnÃ¡ rekurze**:  
 ```csharp
 public string Jmeno 
 {
-    get => Jmeno; // Chyba: getter volá sám sebe
+    get => Jmeno; // Chyba: getter volÃ¡ sÃ¡m sebe
 }
 ```
 
-- **Pøíliš sloitá logika ve vlastnostech**: Vlastnosti by mìly bıt jednoduché (pro sloitou logiku pouijte metody).
+- **PÅ™Ã­liÅ¡ sloÅ¾itÃ¡ logika ve vlastnostech**: Vlastnosti by mÄ›ly bÃ½t jednoduchÃ© (pro sloÅ¾itou logiku pouÅ¾ijte metody).
 
 ---
 
-### **9. Doporuèené postupy**
+### **9. DoporuÄenÃ© postupy**
 
-1. **Automatické vlastnosti**: Pro jednoduché pøípady bez logiky.  
-2. **Minimalizujte veøejné settery**: Chraòte integritu dat.  
-3. **Pouívejte `init` pro nemìnné objekty** (napø. DTO).  
-4. **Vyhnìte se veøejnım polím**: Vdy pouijte vlastnosti.  
+1. **AutomatickÃ© vlastnosti**: Pro jednoduchÃ© pÅ™Ã­pady bez logiky.  
+2. **Minimalizujte veÅ™ejnÃ© settery**: ChraÅˆte integritu dat.  
+3. **PouÅ¾Ã­vejte `init` pro nemÄ›nnÃ© objekty** (napÅ™. DTO).  
+4. **VyhnÄ›te se veÅ™ejnÃ½m polÃ­m**: VÅ¾dy pouÅ¾ijte vlastnosti.  
 
 ---
 
-### **10. Ukázky kódu**
+### **10. UkÃ¡zky kÃ³du**
 
 #### **Vlastnost s lazy loading**
 
@@ -191,14 +191,14 @@ public class DataManager
     {
         get 
         {
-            _data ??= new List<string>(); // Inicializace pøi prvním pøístupu
+            _data ??= new List<string>(); // Inicializace pÅ™i prvnÃ­m pÅ™Ã­stupu
             return _data;
         }
     }
 }
 ```
 
-#### **Vlastnost s podmínìnım pøístupem**
+#### **Vlastnost s podmÃ­nÄ›nÃ½m pÅ™Ã­stupem**
 
 ```csharp
 public class Uzivatel 
@@ -215,6 +215,6 @@ public class Uzivatel
 
 ---
 
-### **11. Doporuèené zdroje**
+### **11. DoporuÄenÃ© zdroje**
 
-- **Oficiální dokumentace**: [Properties (C#)](https://learn.microsoft.com/cs-cz/dotnet/csharp/programming-guide/classes-and-structs/properties)  
+- **OficiÃ¡lnÃ­ dokumentace**: [Properties (C#)](https://learn.microsoft.com/cs-cz/dotnet/csharp/programming-guide/classes-and-structs/properties)  

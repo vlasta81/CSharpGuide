@@ -1,4 +1,4 @@
-﻿
+
 ### **`Where`**  
 
 Metoda `Where` slouží k **filtrování prvků v kolekci** na základě zadané podmínky. Je jedním z nejpoužívanějších operátorů LINQ a funguje podobně jako klauzule `WHERE` v SQL, ale s plnou integrací do syntaxe C#.

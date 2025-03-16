@@ -1,23 +1,23 @@
 
-### Práce s tøídou `Task` v jazyce C#  
+### PrÃ¡ce s tÅ™Ã­dou `Task` v jazyce C#  
 
-Tøída `Task` je klíèovou souèástí **Task Parallel Library (TPL)** a slouí k reprezentaci asynchronní nebo paralelní operace. Umoòuje efektivní správu vláken, zpracování vısledkù a ošetøení chyb. Zde je pøehled klíèovıch konceptù:
+TÅ™Ã­da `Task` je klÃ­Äovou souÄÃ¡stÃ­ **Task Parallel Library (TPL)** a slouÅ¾Ã­ k reprezentaci asynchronnÃ­ nebo paralelnÃ­ operace. UmoÅ¾Åˆuje efektivnÃ­ sprÃ¡vu vlÃ¡ken, zpracovÃ¡nÃ­ vÃ½sledkÅ¯ a oÅ¡etÅ™enÃ­ chyb. Zde je pÅ™ehled klÃ­ÄovÃ½ch konceptÅ¯:
 
 ---
 
 #### **1. Co je `Task`?**  
 
-- Reprezentuje **jednu asynchronní operaci**, která mùe (ale nemusí) vrátit vısledek (`Task<TResult>`).  
-- **Vıhody**:  
-  - Zjednodušuje asynchronní a paralelní programování.  
-  - Automaticky vyuívá **Thread Pool** pro efektivní správu vláken.  
-  - Podporuje øetìzení operací (continuations) a zpracování vıjimek.  
+- Reprezentuje **jednu asynchronnÃ­ operaci**, kterÃ¡ mÅ¯Å¾e (ale nemusÃ­) vrÃ¡tit vÃ½sledek (`Task<TResult>`).  
+- **VÃ½hody**:  
+  - ZjednoduÅ¡uje asynchronnÃ­ a paralelnÃ­ programovÃ¡nÃ­.  
+  - Automaticky vyuÅ¾Ã­vÃ¡ **Thread Pool** pro efektivnÃ­ sprÃ¡vu vlÃ¡ken.  
+  - Podporuje Å™etÄ›zenÃ­ operacÃ­ (continuations) a zpracovÃ¡nÃ­ vÃ½jimek.  
 
 ---
 
-#### **2. Vytvoøení a spuštìní `Task`**  
+#### **2. VytvoÅ™enÃ­ a spuÅ¡tÄ›nÃ­ `Task`**  
 
-- **Implicitní spuštìní pomocí `Task.Run`** (pro CPU-bound operace):  
+- **ImplicitnÃ­ spuÅ¡tÄ›nÃ­ pomocÃ­ `Task.Run`** (pro CPU-bound operace):  
   ```csharp
   Task<int> task = Task.Run(() => 
   {
@@ -25,51 +25,51 @@ Tøída `Task` je klíèovou souèástí **Task Parallel Library (TPL)** a slouí k rep
       return 42;
   });
   ```  
-- **Explicitní vytvoøení a spuštìní**:  
+- **ExplicitnÃ­ vytvoÅ™enÃ­ a spuÅ¡tÄ›nÃ­**:  
   ```csharp
-  var task = new Task(() => Console.WriteLine("Spuštìno"));
+  var task = new Task(() => Console.WriteLine("SpuÅ¡tÄ›no"));
   task.Start();
   ```  
-- **Pomocí `Task.Factory.StartNew`** (pokroèilejší konfigurace):  
+- **PomocÃ­ `Task.Factory.StartNew`** (pokroÄilejÅ¡Ã­ konfigurace):  
   ```csharp
   Task task = Task.Factory.StartNew(() => { /* ... */ }, TaskCreationOptions.LongRunning);
   ```  
 
 ---
 
-#### **3. Èekání na dokonèení `Task`**  
+#### **3. ÄŒekÃ¡nÃ­ na dokonÄenÃ­ `Task`**  
 
-- **`await`**: Asynchronní èekání (neblokuje vlákno):  
+- **`await`**: AsynchronnÃ­ ÄekÃ¡nÃ­ (neblokuje vlÃ¡kno):  
   ```csharp
   int vysledek = await task;
   ```  
-- **Blokující èekání** (pouze ve specifickıch scénáøích!):  
+- **BlokujÃ­cÃ­ ÄekÃ¡nÃ­** (pouze ve specifickÃ½ch scÃ©nÃ¡Å™Ã­ch!):  
   ```csharp
-  task.Wait(); // Èeká na dokonèení
-  int result = task.Result; // Získá vısledek (riziko deadlocku!)
+  task.Wait(); // ÄŒekÃ¡ na dokonÄenÃ­
+  int result = task.Result; // ZÃ­skÃ¡ vÃ½sledek (riziko deadlocku!)
   ```  
 
 ---
 
 #### **4. Stavy `Task`**  
 
-- **`Status`**: Urèuje stav úlohy (napø. `Created`, `Running`, `RanToCompletion`, `Faulted`, `Canceled`).  
+- **`Status`**: UrÄuje stav Ãºlohy (napÅ™. `Created`, `Running`, `RanToCompletion`, `Faulted`, `Canceled`).  
 - **Kontrola stavu**:  
   ```csharp
   if (task.Status == TaskStatus.RanToCompletion)
-      Console.WriteLine("Úloha dokonèena.");
+      Console.WriteLine("Ãšloha dokonÄena.");
   ```  
 
 ---
 
-#### **5. Zpracování vısledku**  
+#### **5. ZpracovÃ¡nÃ­ vÃ½sledku**  
 
 - **Pro `Task<T>`**:  
   ```csharp
   Task<string> task = Task.Run(() => "Hello");
   string text = await task; // "Hello"
   ```  
-- **Pro `Task` bez vısledku**:  
+- **Pro `Task` bez vÃ½sledku**:  
   ```csharp
   Task task = Task.Run(() => Console.WriteLine("Hotovo"));
   await task;
@@ -77,28 +77,28 @@ Tøída `Task` je klíèovou souèástí **Task Parallel Library (TPL)** a slouí k rep
 
 ---
 
-#### **6. Zrušení `Task`**  
+#### **6. ZruÅ¡enÃ­ `Task`**  
 
-- Pouití `CancellationTokenSource` a `CancellationToken`:  
+- PouÅ¾itÃ­ `CancellationTokenSource` a `CancellationToken`:  
   ```csharp
   var cts = new CancellationTokenSource();
   Task task = Task.Run(() => 
   {
       while (true)
       {
-          cts.Token.ThrowIfCancellationRequested(); // Kontrola zrušení
-          // Práce...
+          cts.Token.ThrowIfCancellationRequested(); // Kontrola zruÅ¡enÃ­
+          // PrÃ¡ce...
       }
   }, cts.Token);
 
-  cts.CancelAfter(5000); // Zruší úlohu po 5 sekundách
+  cts.CancelAfter(5000); // ZruÅ¡Ã­ Ãºlohu po 5 sekundÃ¡ch
   ```  
 
 ---
 
-#### **7. Zpracování vıjimek**  
+#### **7. ZpracovÃ¡nÃ­ vÃ½jimek**  
 
-- Vıjimky jsou zabaleny do `AggregateException`:  
+- VÃ½jimky jsou zabaleny do `AggregateException`:  
   ```csharp
   try
   {
@@ -110,27 +110,27 @@ Tøída `Task` je klíèovou souèástí **Task Parallel Library (TPL)** a slouí k rep
           Console.WriteLine(e.Message);
   }
   ```  
-- **Pro jednu úlohu**: Vıjimka se propaguje pøímo (není zabalena).  
+- **Pro jednu Ãºlohu**: VÃ½jimka se propaguje pÅ™Ã­mo (nenÃ­ zabalena).  
 
 ---
 
-#### **8. Pokroèilé techniky**  
+#### **8. PokroÄilÃ© techniky**  
 
-- **Kombinace více úloh**:  
+- **Kombinace vÃ­ce Ãºloh**:  
   ```csharp
   Task<int> task1 = Task.Run(() => 10);
   Task<int> task2 = Task.Run(() => 20);
   int[] results = await Task.WhenAll(task1, task2); // [10, 20]
   ```  
   ```csharp
-  Task<int> finishedTask = await Task.WhenAny(task1, task2); // Èeká na první dokonèenou
+  Task<int> finishedTask = await Task.WhenAny(task1, task2); // ÄŒekÃ¡ na prvnÃ­ dokonÄenou
   ```  
-- **Continuations (øetìzení)**:  
+- **Continuations (Å™etÄ›zenÃ­)**:  
   ```csharp
   Task<int> parentTask = Task.Run(() => 5);
   Task continuation = parentTask.ContinueWith(prev => 
   {
-      Console.WriteLine($"Pøedchozí vısledek: {prev.Result}");
+      Console.WriteLine($"PÅ™edchozÃ­ vÃ½sledek: {prev.Result}");
   }, TaskContinuationOptions.OnlyOnRanToCompletion);
   ```  
 
@@ -138,42 +138,42 @@ Tøída `Task` je klíèovou souèástí **Task Parallel Library (TPL)** a slouí k rep
 
 #### **9. `Task` vs `ValueTask`**  
 
-- **`ValueTask`**: Optimalizace pro pøípady, kdy je vısledek èasto dostupnı synchronnì (napø. caching).  
+- **`ValueTask`**: Optimalizace pro pÅ™Ã­pady, kdy je vÃ½sledek Äasto dostupnÃ½ synchronnÄ› (napÅ™. caching).  
   ```csharp
   public ValueTask<int> GetDataAsync()
   {
       if (_cachedData != null)
-          return new ValueTask<int>(_cachedData); // Synchronní vısledek
-      return new ValueTask<int>(LoadDataAsync()); // Asynchronní operace
+          return new ValueTask<int>(_cachedData); // SynchronnÃ­ vÃ½sledek
+      return new ValueTask<int>(LoadDataAsync()); // AsynchronnÃ­ operace
   }
   ```  
 
 ---
 
-#### **10. Doporuèené postupy**  
+#### **10. DoporuÄenÃ© postupy**  
 
-- Preferujte **`async`/`await`** pøed blokujícími metodami (jako `.Result` nebo `.Wait()`).  
-- Pro dlouhodobé úlohy nastavte `TaskCreationOptions.LongRunning`.  
-- Vdy ošetøujte **vıjimky** a **zrušení**.  
-- Pro knihovny pouívejte `ConfigureAwait(false)` k pøedejití deadlockù:  
+- Preferujte **`async`/`await`** pÅ™ed blokujÃ­cÃ­mi metodami (jako `.Result` nebo `.Wait()`).  
+- Pro dlouhodobÃ© Ãºlohy nastavte `TaskCreationOptions.LongRunning`.  
+- VÅ¾dy oÅ¡etÅ™ujte **vÃ½jimky** a **zruÅ¡enÃ­**.  
+- Pro knihovny pouÅ¾Ã­vejte `ConfigureAwait(false)` k pÅ™edejitÃ­ deadlockÅ¯:  
   ```csharp
   await task.ConfigureAwait(false);
   ```  
 
 ---
 
-#### **11. Èasté chyby**  
+#### **11. ÄŒastÃ© chyby**  
 
-- **Deadlock**: Blokování hlavního vlákna pomocí `.Result` v UI aplikacích.  
-- **Zapomenutí `await`**:  
+- **Deadlock**: BlokovÃ¡nÃ­ hlavnÃ­ho vlÃ¡kna pomocÃ­ `.Result` v UI aplikacÃ­ch.  
+- **ZapomenutÃ­ `await`**:  
   ```csharp
-  Task.Run(() => Console.WriteLine("Ahoj")); // Úloha se spustí, ale nikdo na ni neèeká!
+  Task.Run(() => Console.WriteLine("Ahoj")); // Ãšloha se spustÃ­, ale nikdo na ni neÄekÃ¡!
   ```  
-- **Nadbyteèné vytváøení úloh**: Pro triviální operace pouívejte `Task.CompletedTask`.  
+- **NadbyteÄnÃ© vytvÃ¡Å™enÃ­ Ãºloh**: Pro triviÃ¡lnÃ­ operace pouÅ¾Ã­vejte `Task.CompletedTask`.  
 
 ---
 
-#### **12. Ukázka reálného pouití**  
+#### **12. UkÃ¡zka reÃ¡lnÃ©ho pouÅ¾itÃ­**  
 
 ```csharp
 public async Task<string> StahniWebovouStrankuAsync(string url)
@@ -184,6 +184,6 @@ public async Task<string> StahniWebovouStrankuAsync(string url)
     }
 }
 
-// Volání
+// VolÃ¡nÃ­
 string obsah = await StahniWebovouStrankuAsync("https://example.com");
 ```

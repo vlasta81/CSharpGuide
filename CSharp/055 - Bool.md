@@ -1,4 +1,4 @@
-﻿
+
 ### **Typ `bool` v jazyce C#**
 
 Typ `bool` (alias pro `System.Boolean`) reprezentuje **logickou hodnotu** `true` (pravda) nebo `false` (nepravda). Používá se pro **kontrolu toku programu** (podmínky, cykly) a rozhodovací logiku.

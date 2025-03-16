@@ -1,46 +1,46 @@
 
-### Delegáti v jazyce C# 
+### DelegÃ¡ti v jazyce C# 
 
-Delegáti jsou **typem bezpeèné ukazatele na metody**, které umoòují pøedávat metody jako parametry, ukládat je do promìnnıch nebo vytváøet události. Jsou základem pro **event-driven programování** a **LINQ**. Zde je jejich pøehled:
+DelegÃ¡ti jsou **typem bezpeÄnÃ© ukazatele na metody**, kterÃ© umoÅ¾ÅˆujÃ­ pÅ™edÃ¡vat metody jako parametry, uklÃ¡dat je do promÄ›nnÃ½ch nebo vytvÃ¡Å™et udÃ¡losti. Jsou zÃ¡kladem pro **event-driven programovÃ¡nÃ­** a **LINQ**. Zde je jejich pÅ™ehled:
 
 ---
 
-#### **1. Definice a základní pouití**  
+#### **1. Definice a zÃ¡kladnÃ­ pouÅ¾itÃ­**  
 
-- Delegát je **referenèní typ**, kterı definuje signaturu metody (návratovı typ a parametry).  
-- Deklaruje se pomocí klíèového slova `delegate`.  
-- **Pøíklad**:  
+- DelegÃ¡t je **referenÄnÃ­ typ**, kterÃ½ definuje signaturu metody (nÃ¡vratovÃ½ typ a parametry).  
+- Deklaruje se pomocÃ­ klÃ­ÄovÃ©ho slova `delegate`.  
+- **PÅ™Ã­klad**:  
   ```csharp
-  // Definice delegátu
+  // Definice delegÃ¡tu
   public delegate void MojeAkce(string zprava);
 
-  // Metoda, která odpovídá signatuøe delegátu
+  // Metoda, kterÃ¡ odpovÃ­dÃ¡ signatuÅ™e delegÃ¡tu
   public void VypisZpravu(string text)
   {
       Console.WriteLine(text);
   }
 
-  // Vytvoøení instance delegátu
+  // VytvoÅ™enÃ­ instance delegÃ¡tu
   MojeAkce delegat = VypisZpravu;
-  delegat("Ahoj!"); // Volání metody pøes delegát
+  delegat("Ahoj!"); // VolÃ¡nÃ­ metody pÅ™es delegÃ¡t
   ```
 
 ---
 
-#### **2. Vestavìné delegáty**  
+#### **2. VestavÄ›nÃ© delegÃ¡ty**  
 
-C# poskytuje obecné delegáty, které není nutné deklarovat:  
-- **`Action`**: Metoda bez návratové hodnoty (`void`).  
+C# poskytuje obecnÃ© delegÃ¡ty, kterÃ© nenÃ­ nutnÃ© deklarovat:  
+- **`Action`**: Metoda bez nÃ¡vratovÃ© hodnoty (`void`).  
   ```csharp
   Action<string> vypis = text => Console.WriteLine(text);
   vypis("Hello World");
   ```  
-- **`Func`**: Metoda s návratovou hodnotou (poslední parametr je návratovı typ).  
+- **`Func`**: Metoda s nÃ¡vratovou hodnotou (poslednÃ­ parametr je nÃ¡vratovÃ½ typ).  
   ```csharp
   Func<int, int, int> scitani = (a, b) => a + b;
   int vysledek = scitani(5, 3); // 8
   ```  
-- **`Predicate<T>`**: Metoda vracející `bool` (obvykle pro podmínky).  
+- **`Predicate<T>`**: Metoda vracejÃ­cÃ­ `bool` (obvykle pro podmÃ­nky).  
   ```csharp
   Predicate<int> jeKladne = x => x > 0;
   bool test = jeKladne(-5); // false
@@ -48,25 +48,25 @@ C# poskytuje obecné delegáty, které není nutné deklarovat:
 
 ---
 
-#### **3. Multicast delegáti**  
+#### **3. Multicast delegÃ¡ti**  
 
-- Delegáti mohou odkazovat na **více metod najednou** (operátory `+=` a `-=`).  
-- **Pøíklad**:  
+- DelegÃ¡ti mohou odkazovat na **vÃ­ce metod najednou** (operÃ¡tory `+=` a `-=`).  
+- **PÅ™Ã­klad**:  
   ```csharp
   Action operace = () => Console.Write("A");
   operace += () => Console.Write("B");
-  operace(); // Vıstup: AB
+  operace(); // VÃ½stup: AB
   ```  
-- **Upozornìní**: Pokud delegát vrací hodnotu, vrátí se vısledek **poslední metody** v øetìzci.
+- **UpozornÄ›nÃ­**: Pokud delegÃ¡t vracÃ­ hodnotu, vrÃ¡tÃ­ se vÃ½sledek **poslednÃ­ metody** v Å™etÄ›zci.
 
 ---
 
-#### **4. Delegáti a události (Events)** 
+#### **4. DelegÃ¡ti a udÃ¡losti (Events)** 
 
-- Události jsou zaloeny na delegátech a umoòují **asynchronní notifikace** (napø. reakce na kliknutí tlaèítka).  
-- **Pøíklad**:  
+- UdÃ¡losti jsou zaloÅ¾eny na delegÃ¡tech a umoÅ¾ÅˆujÃ­ **asynchronnÃ­ notifikace** (napÅ™. reakce na kliknutÃ­ tlaÄÃ­tka).  
+- **PÅ™Ã­klad**:  
   ```csharp
-  public class Tlaèítko
+  public class TlaÄÃ­tko
   {
       public event EventHandler Kliknuti;
 
@@ -76,69 +76,69 @@ C# poskytuje obecné delegáty, které není nutné deklarovat:
       }
   }
 
-  Tlaèítko btn = new Tlaèítko();
+  TlaÄÃ­tko btn = new TlaÄÃ­tko();
   btn.Kliknuti += (sender, e) => Console.WriteLine("Kliknuto!");
-  btn.Stisk(); // Vıstup: Kliknuto!
+  btn.Stisk(); // VÃ½stup: Kliknuto!
   ```
 
 ---
 
-#### **5. Asynchronní delegáti**  
+#### **5. AsynchronnÃ­ delegÃ¡ti**  
 
-- Delegáti mohou volat **asynchronní metody** pomocí `async` a `await`.  
-- **Pøíklad**:  
+- DelegÃ¡ti mohou volat **asynchronnÃ­ metody** pomocÃ­ `async` a `await`.  
+- **PÅ™Ã­klad**:  
   ```csharp
   Func<Task> stahniData = async () => 
   {
       await Task.Delay(1000);
-      Console.WriteLine("Data staena");
+      Console.WriteLine("Data staÅ¾ena");
   };
   await stahniData();
   ```
 
 ---
 
-#### **6. Delegát vs. Rozhraní**  
+#### **6. DelegÃ¡t vs. RozhranÃ­**  
 
-- **Delegáti** jsou vhodné pro **jednoduché operace** (napø. callbacky).  
-- **Rozhraní** jsou lepší pro sloitìjší scénáøe s více metodami.  
+- **DelegÃ¡ti** jsou vhodnÃ© pro **jednoduchÃ© operace** (napÅ™. callbacky).  
+- **RozhranÃ­** jsou lepÅ¡Ã­ pro sloÅ¾itÄ›jÅ¡Ã­ scÃ©nÃ¡Å™e s vÃ­ce metodami.  
 
 ---
 
-#### **Èasté chyby**  
+#### **ÄŒastÃ© chyby**  
 
-- **`NullReferenceException`**: Pokus o volání neinicializovaného delegátu.  
+- **`NullReferenceException`**: Pokus o volÃ¡nÃ­ neinicializovanÃ©ho delegÃ¡tu.  
   ```csharp
   Action akce = null;
-  akce(); // Vyvolá vıjimku
+  akce(); // VyvolÃ¡ vÃ½jimku
   ```  
-- **Nesprávná signatura**: Pøidání metody s odlišnımi parametry/návratovım typem.  
-- **Memory leaks**: Neodhlášení od událostí (zachycení objektù v pamìti).
+- **NesprÃ¡vnÃ¡ signatura**: PÅ™idÃ¡nÃ­ metody s odliÅ¡nÃ½mi parametry/nÃ¡vratovÃ½m typem.  
+- **Memory leaks**: NeodhlÃ¡Å¡enÃ­ od udÃ¡lostÃ­ (zachycenÃ­ objektÅ¯ v pamÄ›ti).
 
 ---
 
-#### **Doporuèení**  
+#### **DoporuÄenÃ­**  
 
-- Pro události pouívejte **`EventHandler`** nebo **`EventHandler<TEventArgs>`**.  
-- Pøed voláním delegátu vdy zkontrolujte `null`:  
+- Pro udÃ¡losti pouÅ¾Ã­vejte **`EventHandler`** nebo **`EventHandler<TEventArgs>`**.  
+- PÅ™ed volÃ¡nÃ­m delegÃ¡tu vÅ¾dy zkontrolujte `null`:  
   ```csharp
   MojeAkce delegat = ...;
   delegat?.Invoke("text");
   ```  
-- Pro sloitìjší scénáøe pouijte **lambda vırazy** nebo **anonymní metody**.  
+- Pro sloÅ¾itÄ›jÅ¡Ã­ scÃ©nÃ¡Å™e pouÅ¾ijte **lambda vÃ½razy** nebo **anonymnÃ­ metody**.  
 
 ---
 
-#### **Uiteèné techniky**  
+#### **UÅ¾iteÄnÃ© techniky**  
 
-- **Anonymní metody**:  
+- **AnonymnÃ­ metody**:  
   ```csharp
-  Action vypis = delegate() { Console.WriteLine("Anonymní metoda"); };
+  Action vypis = delegate() { Console.WriteLine("AnonymnÃ­ metoda"); };
   ```  
-- **Kombinace delegátù**:  
+- **Kombinace delegÃ¡tÅ¯**:  
   ```csharp
   Action a = () => Console.Write("A");
   Action b = () => Console.Write("B");
   Action kombinace = a + b;
-  kombinace(); // Vıstup: AB
+  kombinace(); // VÃ½stup: AB
   ```  

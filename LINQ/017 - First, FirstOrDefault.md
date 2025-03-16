@@ -1,4 +1,4 @@
-﻿
+
 ### **`First` a `FirstOrDefault`**  
 
 Tyto metody slouží k **výběru prvního prvku kolekce** nebo prvního prvku splňujícího podmínku. Liší se v chování, když žádný prvek neexistuje nebo podmínka není splněna.

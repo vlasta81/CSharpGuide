@@ -1,4 +1,4 @@
-﻿
+
 ### **`OrderBy`, `OrderByDescending`** 
 
 Metody `OrderBy` a `OrderByDescending` slouží k **řazení prvků kolekce** podle zadaného klíče. Jsou klíčové pro organizaci dat a pracují s různými datovými typy, včetně vlastních objektů.  

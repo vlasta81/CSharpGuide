@@ -1,36 +1,36 @@
 
-### Práce se soubory a adresáøi v jazyce C#  
+### PrÃ¡ce se soubory a adresÃ¡Å™i v jazyce C#  
 
-Práce se soubory a adresáøi je klíèová pro ukládání a správu dat. C# poskytuje tøídy v namespace `System.IO` pro operace s file systemem. Zde je pøehled klíèovıch konceptù:
-
----
-
-#### **1. Základní tøídy**  
-
-- **`File`**: Statická tøída pro práci se soubory (ètení, zápis, kopírování).  
-- **`Directory`**: Statická tøída pro práci s adresáøi (vytváøení, mazání).  
-- **`FileInfo`** a **`DirectoryInfo`**: Instance tøíd pro práci s konkrétními soubory/adresáøi (vhodné pro opakované operace).  
-- **`Path`**: Pomocná tøída pro manipulaci s cestami (napø. `Combine`, `GetExtension`).
+PrÃ¡ce se soubory a adresÃ¡Å™i je klÃ­ÄovÃ¡ pro uklÃ¡dÃ¡nÃ­ a sprÃ¡vu dat. C# poskytuje tÅ™Ã­dy v namespace `System.IO` pro operace s file systemem. Zde je pÅ™ehled klÃ­ÄovÃ½ch konceptÅ¯:
 
 ---
 
-#### **2. Základní operace se soubory**  
+#### **1. ZÃ¡kladnÃ­ tÅ™Ã­dy**  
 
-- **Vytvoøení souboru**:  
+- **`File`**: StatickÃ¡ tÅ™Ã­da pro prÃ¡ci se soubory (ÄtenÃ­, zÃ¡pis, kopÃ­rovÃ¡nÃ­).  
+- **`Directory`**: StatickÃ¡ tÅ™Ã­da pro prÃ¡ci s adresÃ¡Å™i (vytvÃ¡Å™enÃ­, mazÃ¡nÃ­).  
+- **`FileInfo`** a **`DirectoryInfo`**: Instance tÅ™Ã­d pro prÃ¡ci s konkrÃ©tnÃ­mi soubory/adresÃ¡Å™i (vhodnÃ© pro opakovanÃ© operace).  
+- **`Path`**: PomocnÃ¡ tÅ™Ã­da pro manipulaci s cestami (napÅ™. `Combine`, `GetExtension`).
+
+---
+
+#### **2. ZÃ¡kladnÃ­ operace se soubory**  
+
+- **VytvoÅ™enÃ­ souboru**:  
   ```csharp
-  File.WriteAllText("test.txt", "Obsah souboru"); // Vytvoøí a zapíše text
-  File.Create("novy.txt").Close(); // Prázdnı soubor
+  File.WriteAllText("test.txt", "Obsah souboru"); // VytvoÅ™Ã­ a zapÃ­Å¡e text
+  File.Create("novy.txt").Close(); // PrÃ¡zdnÃ½ soubor
   ```  
-- **Ètení souboru**:  
+- **ÄŒtenÃ­ souboru**:  
   ```csharp
   string obsah = File.ReadAllText("test.txt");
   string[] radky = File.ReadAllLines("data.csv");
   ```  
-- **Pøidání obsahu**:  
+- **PÅ™idÃ¡nÃ­ obsahu**:  
   ```csharp
-  File.AppendAllText("log.txt", $"{DateTime.Now}: Nová událost\n");
+  File.AppendAllText("log.txt", $"{DateTime.Now}: NovÃ¡ udÃ¡lost\n");
   ```  
-- **Smazání souboru**:  
+- **SmazÃ¡nÃ­ souboru**:  
   ```csharp
   File.Delete("stary.txt");
   ```  
@@ -41,21 +41,21 @@ Práce se soubory a adresáøi je klíèová pro ukládání a správu dat. C# poskytuje t
 
 ---
 
-#### **3. Základní operace s adresáøi**  
+#### **3. ZÃ¡kladnÃ­ operace s adresÃ¡Å™i**  
 
-- **Vytvoøení adresáøe**:  
+- **VytvoÅ™enÃ­ adresÃ¡Å™e**:  
   ```csharp
   Directory.CreateDirectory(@"C:\MujAdresar");
   ```  
-- **Smazání adresáøe**:  
+- **SmazÃ¡nÃ­ adresÃ¡Å™e**:  
   ```csharp
-  Directory.Delete(@"C:\StaryAdresar", recursive: true); // Smae i obsah
+  Directory.Delete(@"C:\StaryAdresar", recursive: true); // SmaÅ¾e i obsah
   ```  
 - **Kontrola existence**:  
   ```csharp
   if (Directory.Exists(@"C:\Temp")) { /* ... */ }
   ```  
-- **Vıpis souborù a adresáøù**:  
+- **VÃ½pis souborÅ¯ a adresÃ¡Å™Å¯**:  
   ```csharp
   string[] soubory = Directory.GetFiles(@"C:\Data", "*.txt");
   string[] adresare = Directory.GetDirectories(@"C:\");
@@ -63,37 +63,37 @@ Práce se soubory a adresáøi je klíèová pro ukládání a správu dat. C# poskytuje t
 
 ---
 
-#### **4. Pokroèilé operace**  
+#### **4. PokroÄilÃ© operace**  
 
-- **Kopírování a pøesun souboru**:  
+- **KopÃ­rovÃ¡nÃ­ a pÅ™esun souboru**:  
   ```csharp
   File.Copy("zdroj.txt", "cil.txt", overwrite: true);
-  File.Move("stary.txt", "novy.txt"); // Pøesun nebo pøejmenování
+  File.Move("stary.txt", "novy.txt"); // PÅ™esun nebo pÅ™ejmenovÃ¡nÃ­
   ```  
-- **Práce s cestami**:  
+- **PrÃ¡ce s cestami**:  
   ```csharp
-  string cesta = Path.Combine(@"C:\Data", "soubor.txt"); // Sestavení cesty
+  string cesta = Path.Combine(@"C:\Data", "soubor.txt"); // SestavenÃ­ cesty
   string pripona = Path.GetExtension("obrazek.jpg"); // "jpg"
   ```  
-- **Práva a atributy (pomocí `FileInfo`/`DirectoryInfo`)**:  
+- **PrÃ¡va a atributy (pomocÃ­ `FileInfo`/`DirectoryInfo`)**:  
   ```csharp
   FileInfo fi = new FileInfo("data.txt");
-  Console.WriteLine(fi.CreationTime); // Datum vytvoøení
+  Console.WriteLine(fi.CreationTime); // Datum vytvoÅ™enÃ­
   Console.WriteLine(fi.Length); // Velikost v bajtech
   ```  
 
 ---
 
-#### **5. Práce se streamy (pro velká data)**  
+#### **5. PrÃ¡ce se streamy (pro velkÃ¡ data)**  
 
-- **Zápis pomocí `StreamWriter`**:  
+- **ZÃ¡pis pomocÃ­ `StreamWriter`**:  
   ```csharp
   using (StreamWriter writer = new StreamWriter("log.txt", append: true))
   {
-      await writer.WriteLineAsync("Další záznam");
+      await writer.WriteLineAsync("DalÅ¡Ã­ zÃ¡znam");
   }
   ```  
-- **Ètení pomocí `StreamReader`**:  
+- **ÄŒtenÃ­ pomocÃ­ `StreamReader`**:  
   ```csharp
   using (StreamReader reader = new StreamReader("data.txt"))
   {
@@ -107,10 +107,10 @@ Práce se soubory a adresáøi je klíèová pro ukládání a správu dat. C# poskytuje t
 
 ---
 
-#### **6. Ošetøení vıjimek**  
+#### **6. OÅ¡etÅ™enÃ­ vÃ½jimek**  
 
-- Bìné chyby: `FileNotFoundException`, `UnauthorizedAccessException`, `IOException`.  
-- **Ukázka**:  
+- BÄ›Å¾nÃ© chyby: `FileNotFoundException`, `UnauthorizedAccessException`, `IOException`.  
+- **UkÃ¡zka**:  
   ```csharp
   try
   {
@@ -128,33 +128,33 @@ Práce se soubory a adresáøi je klíèová pro ukládání a správu dat. C# poskytuje t
 
 ---
 
-#### **7. Doporuèené postupy**  
+#### **7. DoporuÄenÃ© postupy**  
 
-- Pro práci s cestami vdy pouívejte `Path.Combine` (ne ruèní spojování).  
-- Pro èištìní zdrojù (soubory, streamy) vyuívejte `using` bloky.  
-- Pro velké soubory preferujte **streamy** (ne `ReadAllText`).  
-- Kontrolujte uivatelská oprávnìní a existenci souborù pøed operacemi.  
+- Pro prÃ¡ci s cestami vÅ¾dy pouÅ¾Ã­vejte `Path.Combine` (ne ruÄnÃ­ spojovÃ¡nÃ­).  
+- Pro ÄiÅ¡tÄ›nÃ­ zdrojÅ¯ (soubory, streamy) vyuÅ¾Ã­vejte `using` bloky.  
+- Pro velkÃ© soubory preferujte **streamy** (ne `ReadAllText`).  
+- Kontrolujte uÅ¾ivatelskÃ¡ oprÃ¡vnÄ›nÃ­ a existenci souborÅ¯ pÅ™ed operacemi.  
 
 ---
 
-#### **8. Èasté chyby** 
+#### **8. ÄŒastÃ© chyby** 
 
-- **Zamèenı soubor**: Pokus o zápis do souboru otevøeného jinım procesem.  
-- **Relativní cesty**: Nezapomeòte na pracovní adresáø aplikace (`Environment.CurrentDirectory`).  
+- **ZamÄenÃ½ soubor**: Pokus o zÃ¡pis do souboru otevÅ™enÃ©ho jinÃ½m procesem.  
+- **RelativnÃ­ cesty**: NezapomeÅˆte na pracovnÃ­ adresÃ¡Å™ aplikace (`Environment.CurrentDirectory`).  
 - **Case sensitivity**: Na Linuxu/macOS jsou cesty case-sensitive.  
 
 ---
 
-#### **9. Pokroèilé techniky**  
+#### **9. PokroÄilÃ© techniky**  
 
-- **Monitorování zmìn souborù**:  
+- **MonitorovÃ¡nÃ­ zmÄ›n souborÅ¯**:  
   ```csharp
   FileSystemWatcher watcher = new FileSystemWatcher(@"C:\Data");
-  watcher.Created += (sender, e) => Console.WriteLine($"Vytvoøen: {e.Name}");
+  watcher.Created += (sender, e) => Console.WriteLine($"VytvoÅ™en: {e.Name}");
   watcher.EnableRaisingEvents = true;
   ```  
-- **Práce s doèasnımi soubory**:  
+- **PrÃ¡ce s doÄasnÃ½mi soubory**:  
   ```csharp
   string tempSoubor = Path.GetTempFileName();
-  File.WriteAllText(tempSoubor, "Doèasná data");
+  File.WriteAllText(tempSoubor, "DoÄasnÃ¡ data");
   ```  

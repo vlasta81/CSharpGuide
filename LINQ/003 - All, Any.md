@@ -1,4 +1,4 @@
-﻿
+
 ### **`All` a `Any`**  
 `All` a `Any` jsou **metody rozšíření** v LINQ sloužící k **kontrolě podmínek** nad prvky kolekce. Jsou užitečné pro validaci dat, filtraci nebo logické operace.
 

@@ -1,4 +1,4 @@
-﻿
+
 ### **StringBuilder v jazyce C#**
 
 **StringBuilder** (třída `System.Text.StringBuilder`) je optimalizovaný nástroj pro **efektivní manipulaci s řetězci** v situacích, kdy je potřeba provádět časté změny (přidávání, mazání, úpravy). Narozdíl od klasického `string` je **mutable** (lze měnit bez vytváření nových instancí), což šetří paměť a zvyšuje výkon.

@@ -1,4 +1,4 @@
-﻿
+
 ### **`Except`**  
 
 Metoda `Except` slouží k **nalezení rozdílu dvou kolekcí** – vrátí prvky z první kolekce, které se **nevyskytují ve druhé kolekci**. Je ekvivalentem množinového rozdílu v matematice a je užitečná pro porovnávání datových sad.

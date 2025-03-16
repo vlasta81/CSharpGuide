@@ -1,11 +1,11 @@
 
-### **1. Modifikátor `ref`**  
+### **1. ModifikÃ¡tor `ref`**  
 
 #### **Definice**  
 
-- Umoòuje pøedat **parametr odkazem** (místo hodnotou).  
-- Zmìny parametru uvnitø metody ovlivní **pùvodní promìnnou**.  
-- Promìnná **musí bıt inicializována** pøed pøedáním do metody.  
+- UmoÅ¾Åˆuje pÅ™edat **parametr odkazem** (mÃ­sto hodnotou).  
+- ZmÄ›ny parametru uvnitÅ™ metody ovlivnÃ­ **pÅ¯vodnÃ­ promÄ›nnou**.  
+- PromÄ›nnÃ¡ **musÃ­ bÃ½t inicializovÃ¡na** pÅ™ed pÅ™edÃ¡nÃ­m do metody.  
 
 #### **Syntaxe**  
 
@@ -15,25 +15,25 @@ public void Zvyseni(ref int cislo)
     cislo++;
 }
 
-// Pouití:
+// PouÅ¾itÃ­:
 int x = 5;
 Zvyseni(ref x);
 Console.WriteLine(x); // 6
 ```
 
-#### **Pouití**  
+#### **PouÅ¾itÃ­**  
 
-- Kdy potøebujete **modifikovat pùvodní promìnnou** uvnitø metody.  
-- Pro optimalizaci (zamezení kopírování velkıch struktur).  
+- KdyÅ¾ potÅ™ebujete **modifikovat pÅ¯vodnÃ­ promÄ›nnou** uvnitÅ™ metody.  
+- Pro optimalizaci (zamezenÃ­ kopÃ­rovÃ¡nÃ­ velkÃ½ch struktur).  
 
 ---
 
-### **2. Modifikátor `out`**  
+### **2. ModifikÃ¡tor `out`**  
 
 #### **Definice**  
 
-- Podobnı `ref`, ale promìnná **nemusí bıt inicializována** pøed pøedáním.  
-- Metoda **musí parametru pøiøadit hodnotu** pøed návratem.  
+- PodobnÃ½ `ref`, ale promÄ›nnÃ¡ **nemusÃ­ bÃ½t inicializovÃ¡na** pÅ™ed pÅ™edÃ¡nÃ­m.  
+- Metoda **musÃ­ parametru pÅ™iÅ™adit hodnotu** pÅ™ed nÃ¡vratem.  
 
 #### **Syntaxe**  
 
@@ -44,36 +44,36 @@ public bool TryParseInt(string text, out int vysledek)
     {
         return true;
     }
-    vysledek = 0; // Nutné pøiøadit, i kdy neúspìch
+    vysledek = 0; // NutnÃ© pÅ™iÅ™adit, i kdyÅ¾ neÃºspÄ›ch
     return false;
 }
 
-// Pouití:
+// PouÅ¾itÃ­:
 int cislo;
 bool uspech = TryParseInt("123", out cislo);
 ```
 
-#### **Pouití**  
+#### **PouÅ¾itÃ­**  
 
-- Pro metody, které vracejí **více vıstupù** (napø. `TryParse`).  
-- Kdy potøebujete **vytvoøit promìnnou uvnitø metody**.  
+- Pro metody, kterÃ© vracejÃ­ **vÃ­ce vÃ½stupÅ¯** (napÅ™. `TryParse`).  
+- KdyÅ¾ potÅ™ebujete **vytvoÅ™it promÄ›nnou uvnitÅ™ metody**.  
 
 ---
 
-### **3. Rozdíly mezi `ref` a `out`**  
+### **3. RozdÃ­ly mezi `ref` a `out`**  
 
-| **Kritérium**       | **`ref`**                     | **`out`**                     |  
+| **KritÃ©rium**       | **`ref`**                     | **`out`**                     |  
 |----------------------|-------------------------------|-------------------------------|  
-| **Inicializace**     | Povinná pøed voláním          | Není nutná                    |  
-| **Pøiøazení v metodì** | Není vyadováno             | Povinné                       |  
-| **Vyuití**          | Modifikace existující promìnné | Vytvoøení nové promìnné      |  
+| **Inicializace**     | PovinnÃ¡ pÅ™ed volÃ¡nÃ­m          | NenÃ­ nutnÃ¡                    |  
+| **PÅ™iÅ™azenÃ­ v metodÄ›** | NenÃ­ vyÅ¾adovÃ¡no             | PovinnÃ©                       |  
+| **VyuÅ¾itÃ­**          | Modifikace existujÃ­cÃ­ promÄ›nnÃ© | VytvoÅ™enÃ­ novÃ© promÄ›nnÃ©      |  
 
 ---
 
-### **4. Modifikátor `in` (C# 7.2+)**  
+### **4. ModifikÃ¡tor `in` (C# 7.2+)**  
 
-- Pøedává parametr **odkazem, ale pouze pro ètení**.  
-- Zabraòuje nechtìnım zmìnám a zlepšuje vıkon u velkıch struktur.  
+- PÅ™edÃ¡vÃ¡ parametr **odkazem, ale pouze pro ÄtenÃ­**.  
+- ZabraÅˆuje nechtÄ›nÃ½m zmÄ›nÃ¡m a zlepÅ¡uje vÃ½kon u velkÃ½ch struktur.  
 ```csharp
 public void VypisVelikost(in VelkaStruktura data) 
 {
@@ -83,9 +83,9 @@ public void VypisVelikost(in VelkaStruktura data)
 
 ---
 
-### **5. Bìné scénáøe**  
+### **5. BÄ›Å¾nÃ© scÃ©nÃ¡Å™e**  
 
-#### **a) Prohození hodnot (`ref`)**  
+#### **a) ProhozenÃ­ hodnot (`ref`)**  
 
 ```csharp
 public static void Prohod(ref int a, ref int b) 
@@ -99,7 +99,7 @@ int x = 1, y = 2;
 Prohod(ref x, ref y); // x=2, y=1
 ```
 
-#### **b) Návrat více hodnot (`out`)**  
+#### **b) NÃ¡vrat vÃ­ce hodnot (`out`)**  
 
 ```csharp
 public static void Rozdel(string text, out string prvniCast, out string druhaCast) 
@@ -108,37 +108,37 @@ public static void Rozdel(string text, out string prvniCast, out string druhaCas
     druhaCast = text.Substring(text.Length / 2);
 }
 
-Rozdel("Ahoj svìt", out string prvni, out string druha);
+Rozdel("Ahoj svÄ›t", out string prvni, out string druha);
 Console.WriteLine(prvni); // "Ahoj"
-Console.WriteLine(druha); // " svìt"
+Console.WriteLine(druha); // " svÄ›t"
 ```
 
 ---
 
-### **6. Èasté chyby**  
+### **6. ÄŒastÃ© chyby**  
 
-- **Zapomenutá inicializace pro `ref`**:  
+- **ZapomenutÃ¡ inicializace pro `ref`**:  
   ```csharp
   int x;
-  Zvyseni(ref x); // Chyba: x není inicializováno!
+  Zvyseni(ref x); // Chyba: x nenÃ­ inicializovÃ¡no!
   ```  
-- **Ne pøiøazení `out` parametru**:  
+- **Ne pÅ™iÅ™azenÃ­ `out` parametru**:  
   ```csharp
-  public void Test(out int cislo) { } // Chyba: cislo není pøiøazeno!
+  public void Test(out int cislo) { } // Chyba: cislo nenÃ­ pÅ™iÅ™azeno!
   ```  
 
 ---
 
-### **7. Doporuèené postupy**  
+### **7. DoporuÄenÃ© postupy**  
 
-1. **`ref`/`out` pouívejte opatrnì**: Mohou ztíit èitelnost kódu.  
-2. **Preferujte návratové hodnoty**: Pokud mono, vracejte data pomocí `return`.  
-3. **`out` pro metody s vedlejším úèinkem**: Napø. `TryParse`.  
+1. **`ref`/`out` pouÅ¾Ã­vejte opatrnÄ›**: Mohou ztÃ­Å¾it Äitelnost kÃ³du.  
+2. **Preferujte nÃ¡vratovÃ© hodnoty**: Pokud moÅ¾no, vracejte data pomocÃ­ `return`.  
+3. **`out` pro metody s vedlejÅ¡Ã­m ÃºÄinkem**: NapÅ™. `TryParse`.  
 
 ---
 
-### **8. Shrnutí**  
+### **8. ShrnutÃ­**  
 
-- **`ref`**: Pøedává promìnnou odkazem (musí bıt inicializována).  
-- **`out`**: Pøedává promìnnou odkazem (inicializace a uvnitø metody).  
-- **`in`**: Pøedává promìnnou pro ètení (optimalizace vıkonu).  
+- **`ref`**: PÅ™edÃ¡vÃ¡ promÄ›nnou odkazem (musÃ­ bÃ½t inicializovÃ¡na).  
+- **`out`**: PÅ™edÃ¡vÃ¡ promÄ›nnou odkazem (inicializace aÅ¾ uvnitÅ™ metody).  
+- **`in`**: PÅ™edÃ¡vÃ¡ promÄ›nnou pro ÄtenÃ­ (optimalizace vÃ½konu).  

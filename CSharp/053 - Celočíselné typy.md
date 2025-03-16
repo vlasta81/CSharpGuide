@@ -1,4 +1,4 @@
-﻿
+
 ### Celočíselné typy v jazyce C#
 
 C# nabízí řadu **celočíselných datových typů** s různou velikostí, rozsahem a vlastnostmi (se znaménkem/bez znaménka). Ty se používají podle požadavků na paměť, rozsah hodnot a účelu.

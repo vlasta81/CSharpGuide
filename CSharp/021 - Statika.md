@@ -1,16 +1,16 @@
 
 ### **1. Definice statiky**  
 
-Statické prvky patøí **typu samotnému**, nikoli jeho instancím. Jsou inicializovány jednou a sdíleny napøíè všemi instancemi.  
-**Klíèové slovo**: `static`.
+StatickÃ© prvky patÅ™Ã­ **typu samotnÃ©mu**, nikoli jeho instancÃ­m. Jsou inicializovÃ¡ny jednou a sdÃ­leny napÅ™Ã­Ä vÅ¡emi instancemi.  
+**KlÃ­ÄovÃ© slovo**: `static`.
 
 ---
 
-### **2. Typy statickıch prvkù**  
+### **2. Typy statickÃ½ch prvkÅ¯**  
 
-#### **a) Statické pole (static field)**  
+#### **a) StatickÃ© pole (static field)**  
 
-- Sdílená hodnota pro všechny instance.  
+- SdÃ­lenÃ¡ hodnota pro vÅ¡echny instance.  
 ```csharp
 public class Pocitadlo 
 {
@@ -22,15 +22,15 @@ public class Pocitadlo
     }
 }
 
-// Pouití:
+// PouÅ¾itÃ­:
 new Pocitadlo();
 new Pocitadlo();
 Console.WriteLine(Pocitadlo.PocetInstanci); // 2
 ```
 
-#### **b) Statická metoda (static method)**  
+#### **b) StatickÃ¡ metoda (static method)**  
 
-- Volána pøes název tøídy, nemá pøístup k instanèním èlenùm.  
+- VolÃ¡na pÅ™es nÃ¡zev tÅ™Ã­dy, nemÃ¡ pÅ™Ã­stup k instanÄnÃ­m ÄlenÅ¯m.  
 ```csharp
 public class Matematika 
 {
@@ -40,13 +40,13 @@ public class Matematika
     }
 }
 
-// Pouití:
+// PouÅ¾itÃ­:
 double vysledek = Matematika.Umocni(2, 3); // 8
 ```
 
-#### **c) Statickı konstruktor (static constructor)**  
+#### **c) StatickÃ½ konstruktor (static constructor)**  
 
-- Spustí se **jednou pøi prvním pouití tøídy**. Inicializuje statická pole.  
+- SpustÃ­ se **jednou pÅ™i prvnÃ­m pouÅ¾itÃ­ tÅ™Ã­dy**. Inicializuje statickÃ¡ pole.  
 ```csharp
 public class Konfigurace 
 {
@@ -59,9 +59,9 @@ public class Konfigurace
 }
 ```
 
-#### **d) Statická vlastnost (static property)**  
+#### **d) StatickÃ¡ vlastnost (static property)**  
 
-- Sdílená vlastnost s gettery/settery.  
+- SdÃ­lenÃ¡ vlastnost s gettery/settery.  
 ```csharp
 public class Nastaveni 
 {
@@ -74,13 +74,13 @@ public class Nastaveni
     }
 }
 
-// Pouití:
+// PouÅ¾itÃ­:
 Nastaveni.MaxPokusu = 5;
 ```
 
-#### **e) Statická tøída (static class)**  
+#### **e) StatickÃ¡ tÅ™Ã­da (static class)**  
 
-- Nelze vytvoøit instanci, obsahuje **pouze statické èleny**.  
+- Nelze vytvoÅ™it instanci, obsahuje **pouze statickÃ© Äleny**.  
 ```csharp
 public static class Validator 
 {
@@ -90,25 +90,25 @@ public static class Validator
     }
 }
 
-// Pouití:
+// PouÅ¾itÃ­:
 bool jePlatny = Validator.JePlatnyEmail("test@example.com");
 ```
 
 ---
 
-### **3. Klíèové vlastnosti**  
+### **3. KlÃ­ÄovÃ© vlastnosti**  
 
-- **Inicializace**: Statické prvky existují od prvního pouití tøídy a do konce programu.  
-- **Pøístup**: Statické metody/vlastnosti nelze volat z instance (pouze pøes název tøídy).  
-- **Dìdiènost**: Statické èleny se nedìdí, ale jsou pøístupné pøes název základní tøídy.  
+- **Inicializace**: StatickÃ© prvky existujÃ­ od prvnÃ­ho pouÅ¾itÃ­ tÅ™Ã­dy aÅ¾ do konce programu.  
+- **PÅ™Ã­stup**: StatickÃ© metody/vlastnosti nelze volat z instance (pouze pÅ™es nÃ¡zev tÅ™Ã­dy).  
+- **DÄ›diÄnost**: StatickÃ© Äleny se nedÄ›dÃ­, ale jsou pÅ™Ã­stupnÃ© pÅ™es nÃ¡zev zÃ¡kladnÃ­ tÅ™Ã­dy.  
 
 ---
 
-### **4. Bìné pouití**  
+### **4. BÄ›Å¾nÃ© pouÅ¾itÃ­**  
 
-- **Utility tøídy** (napø. `Math`, `Console`).  
-- **Sdílené prostøedky** (napø. konfigurace, cache, logger).  
-- **Singleton pattern** (zajištìní jediné instance):  
+- **Utility tÅ™Ã­dy** (napÅ™. `Math`, `Console`).  
+- **SdÃ­lenÃ© prostÅ™edky** (napÅ™. konfigurace, cache, logger).  
+- **Singleton pattern** (zajiÅ¡tÄ›nÃ­ jedinÃ© instance):  
 ```csharp
 public class Singleton 
 {
@@ -124,29 +124,29 @@ public class Singleton
 
 ### **5. Statika vs. instance**  
 
-| **Kritérium**       | **Statické prvky**         | **Instanèní prvky**        |  
+| **KritÃ©rium**       | **StatickÃ© prvky**         | **InstanÄnÃ­ prvky**        |  
 |----------------------|----------------------------|----------------------------|  
-| **Pøíslušnost**      | Tøída                      | Instance                   |  
-| **Pamì**            | Sdílená mezi všemi instancemi | Kadá instance má vlastní |  
-| **Volání**           | `Trida.Metoda()`           | `instance.Metoda()`        |  
+| **PÅ™Ã­sluÅ¡nost**      | TÅ™Ã­da                      | Instance                   |  
+| **PamÄ›Å¥**            | SdÃ­lenÃ¡ mezi vÅ¡emi instancemi | KaÅ¾dÃ¡ instance mÃ¡ vlastnÃ­ |  
+| **VolÃ¡nÃ­**           | `Trida.Metoda()`           | `instance.Metoda()`        |  
 
 ---
 
-### **6. Èasté chyby a tipy**  
+### **6. ÄŒastÃ© chyby a tipy**  
 
-- **Thread-safety**: Statické prvky mohou zpùsobit problémy ve vícevláknovém prostøedí.  
-- **Zneuití statiky**: Nepouívejte pro stavové objekty (napø. HTTP kontext).  
-- **Statické using direktivy** (C# 6+):  
+- **Thread-safety**: StatickÃ© prvky mohou zpÅ¯sobit problÃ©my ve vÃ­cevlÃ¡knovÃ©m prostÅ™edÃ­.  
+- **ZneuÅ¾itÃ­ statiky**: NepouÅ¾Ã­vejte pro stavovÃ© objekty (napÅ™. HTTP kontext).  
+- **StatickÃ© using direktivy** (C# 6+):  
 ```csharp
-using static System.Math; // Import statickıch metod
+using static System.Math; // Import statickÃ½ch metod
 double hodnota = Sqrt(16); // 4
 ```
 
 ---
 
-### **7. Ukázky kódu**  
+### **7. UkÃ¡zky kÃ³du**  
 
-#### **Statická tovární metoda**  
+#### **StatickÃ¡ tovÃ¡rnÃ­ metoda**  
 
 ```csharp
 public class Produkt 
@@ -164,11 +164,11 @@ public class Produkt
     }
 }
 
-// Pouití:
+// PouÅ¾itÃ­:
 Produkt p = Produkt.VytvorProdukt("Kniha");
 ```
 
-#### **Statická tøída s rozšíøením (extension methods)**  
+#### **StatickÃ¡ tÅ™Ã­da s rozÅ¡Ã­Å™enÃ­m (extension methods)**  
 
 ```csharp
 public static class StringExtensions 
@@ -181,12 +181,12 @@ public static class StringExtensions
     }
 }
 
-// Pouití:
+// PouÅ¾itÃ­:
 string obraceny = "Ahoj".Obrat(); // "johA"
 ```
 
 ---
 
-### **8. Doporuèené zdroje**  
+### **8. DoporuÄenÃ© zdroje**  
 
-- **Oficiální dokumentace**: [Static Classes and Members](https://learn.microsoft.com/cs-cz/dotnet/csharp/programming-guide/classes-and-structs/static-classes-and-static-class-members)  
+- **OficiÃ¡lnÃ­ dokumentace**: [Static Classes and Members](https://learn.microsoft.com/cs-cz/dotnet/csharp/programming-guide/classes-and-structs/static-classes-and-static-class-members)  

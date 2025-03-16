@@ -1,20 +1,20 @@
 
-### **1. Typy porovnávání**
+### **1. Typy porovnÃ¡vÃ¡nÃ­**
 
 #### **a) Reference Equality**  
 
-- Kontroluje, zda **dvì promìnné odkazují na stejnı objekt v pamìti**.  
-- Pouívá operátor `==` (pro reference typy) nebo metodu `object.ReferenceEquals()`.  
+- Kontroluje, zda **dvÄ› promÄ›nnÃ© odkazujÃ­ na stejnÃ½ objekt v pamÄ›ti**.  
+- PouÅ¾Ã­vÃ¡ operÃ¡tor `==` (pro reference typy) nebo metodu `object.ReferenceEquals()`.  
 ```csharp
 object a = new object();
 object b = a;
-Console.WriteLine(a == b); // True (stejná reference)
+Console.WriteLine(a == b); // True (stejnÃ¡ reference)
 ```
 
 #### **b) Value Equality**  
 
-- Kontroluje, zda **objekty mají stejná data** (i kdy jsou rùzné instance).  
-- Vyaduje implementaci logiky (napø. pøepsání `Equals`).  
+- Kontroluje, zda **objekty majÃ­ stejnÃ¡ data** (i kdyÅ¾ jsou rÅ¯znÃ© instance).  
+- VyÅ¾aduje implementaci logiky (napÅ™. pÅ™epsÃ¡nÃ­ `Equals`).  
 ```csharp
 public class Person 
 {
@@ -28,27 +28,27 @@ public class Person
 
 Person p1 = new Person { Name = "Anna" };
 Person p2 = new Person { Name = "Anna" };
-Console.WriteLine(p1.Equals(p2)); // True (pokud je Equals pøepsáno)
+Console.WriteLine(p1.Equals(p2)); // True (pokud je Equals pÅ™epsÃ¡no)
 ```
 
 ---
 
-### **2. Metody pro porovnávání**
+### **2. Metody pro porovnÃ¡vÃ¡nÃ­**
 
 #### **a) `object.Equals()`**  
 
-- Vıchozí chování:  
-  - Pro **reference typy** porovnává reference.  
-  - Pro **value typy** (struct) porovnává hodnoty všech polí.  
-- Lze pøepsat pro vlastní logiku.  
+- VÃ½chozÃ­ chovÃ¡nÃ­:  
+  - Pro **reference typy** porovnÃ¡vÃ¡ reference.  
+  - Pro **value typy** (struct) porovnÃ¡vÃ¡ hodnoty vÅ¡ech polÃ­.  
+- Lze pÅ™epsat pro vlastnÃ­ logiku.  
 
 #### **b) `object.ReferenceEquals()`**  
 
-- Vdy porovnává **reference** (ignoruje pøepsané `Equals`).  
+- VÅ¾dy porovnÃ¡vÃ¡ **reference** (ignoruje pÅ™epsanÃ© `Equals`).  
 
 #### **c) `IEquatable<T>`**  
 
-- Efektivní porovnávání bez boxingu (doporuèeno pro value typy).  
+- EfektivnÃ­ porovnÃ¡vÃ¡nÃ­ bez boxingu (doporuÄeno pro value typy).  
 ```csharp
 public class Person : IEquatable<Person> 
 {
@@ -58,20 +58,20 @@ public class Person : IEquatable<Person>
 
 ---
 
-### **3. Dùleité koncepty**
+### **3. DÅ¯leÅ¾itÃ© koncepty**
 
-#### **a) Pøepsání `Equals` a `GetHashCode()`**  
+#### **a) PÅ™epsÃ¡nÃ­ `Equals` a `GetHashCode()`**  
 
-- **Pravidlo**: Pokud pøepíšete `Equals`, vdy pøepište `GetHashCode()`.  
-- **HashCode** musí bıt stejnı pro objekty, které jsou si rovny.  
+- **Pravidlo**: Pokud pÅ™epÃ­Å¡ete `Equals`, vÅ¾dy pÅ™epiÅ¡te `GetHashCode()`.  
+- **HashCode** musÃ­ bÃ½t stejnÃ½ pro objekty, kterÃ© jsou si rovny.  
 ```csharp
 public override int GetHashCode() => Name?.GetHashCode() ?? 0;
 ```
 
-#### **b) Operátory `==` a `!=`**  
+#### **b) OperÃ¡tory `==` a `!=`**  
 
-- Pro reference typy vıchozí `==` porovnává reference.  
-- Lze pøetíit pro value equality:  
+- Pro reference typy vÃ½chozÃ­ `==` porovnÃ¡vÃ¡ reference.  
+- Lze pÅ™etÃ­Å¾it pro value equality:  
 ```csharp
 public static bool operator ==(Person a, Person b) => a?.Name == b?.Name;
 public static bool operator !=(Person a, Person b) => !(a == b);
@@ -79,16 +79,16 @@ public static bool operator !=(Person a, Person b) => !(a == b);
 
 #### **c) `IComparable<T>` a `IComparer<T>`**  
 
-- **`IComparable<T>`**: Definuje pøirozené poøadí objektù (pro øazení).  
-- **`IComparer<T>`**: Externí logika porovnávání (napø. pro rùzné druhy øazení).  
+- **`IComparable<T>`**: Definuje pÅ™irozenÃ© poÅ™adÃ­ objektÅ¯ (pro Å™azenÃ­).  
+- **`IComparer<T>`**: ExternÃ­ logika porovnÃ¡vÃ¡nÃ­ (napÅ™. pro rÅ¯znÃ© druhy Å™azenÃ­).  
 
 ---
 
-### **4. Porovnávání kolekcí**
+### **4. PorovnÃ¡vÃ¡nÃ­ kolekcÃ­**
 
 #### **a) `EqualityComparer<T>.Default`**  
 
-- Automaticky pouívá `IEquatable<T>` nebo `Equals`/`GetHashCode`.  
+- Automaticky pouÅ¾Ã­vÃ¡ `IEquatable<T>` nebo `Equals`/`GetHashCode`.  
 ```csharp
 var comparer = EqualityComparer<Person>.Default;
 Console.WriteLine(comparer.Equals(p1, p2)); // True
@@ -96,7 +96,7 @@ Console.WriteLine(comparer.Equals(p1, p2)); // True
 
 #### **b) LINQ `SequenceEqual`**  
 
-- Porovnává prvky kolekcí v poøadí.  
+- PorovnÃ¡vÃ¡ prvky kolekcÃ­ v poÅ™adÃ­.  
 ```csharp
 int[] a = { 1, 2, 3 };
 int[] b = { 1, 2, 3 };
@@ -105,28 +105,28 @@ Console.WriteLine(a.SequenceEqual(b)); // True
 
 ---
 
-### **5. Záznamy (Records) – C# 9+**  
+### **5. ZÃ¡znamy (Records) â€“ C# 9+**  
 
-- **Automatická value-based rovnost**:  
+- **AutomatickÃ¡ value-based rovnost**:  
 ```csharp
 public record Person(string Name, int Age);
 
 Person p1 = new Person("Anna", 30);
 Person p2 = new Person("Anna", 30);
-Console.WriteLine(p1 == p2); // True (porovnává hodnoty)
+Console.WriteLine(p1 == p2); // True (porovnÃ¡vÃ¡ hodnoty)
 ```
 
 ---
 
-### **6. Bìné chyby a tipy**
+### **6. BÄ›Å¾nÃ© chyby a tipy**
 
-- **Nekonzistentní `Equals` a `GetHashCode`**: Mùe zpùsobit chyby v hashovacích kolekcích (napø. `Dictionary`).  
-- **Ignorování `IEquatable<T>`**: Zpùsobuje boxing u value typù.  
-- **Porovnávání null hodnot**: Vdy ovìøujte `null` pøed pøístupem k vlastnostem.  
+- **NekonzistentnÃ­ `Equals` a `GetHashCode`**: MÅ¯Å¾e zpÅ¯sobit chyby v hashovacÃ­ch kolekcÃ­ch (napÅ™. `Dictionary`).  
+- **IgnorovÃ¡nÃ­ `IEquatable<T>`**: ZpÅ¯sobuje boxing u value typÅ¯.  
+- **PorovnÃ¡vÃ¡nÃ­ null hodnot**: VÅ¾dy ovÄ›Å™ujte `null` pÅ™ed pÅ™Ã­stupem k vlastnostem.  
 
 ---
 
-### **7. Ukázka kódu**
+### **7. UkÃ¡zka kÃ³du**
 
 ```csharp
 public class Person : IEquatable<Person>
@@ -148,7 +148,7 @@ public class Person : IEquatable<Person>
     public static bool operator !=(Person a, Person b) => !(a == b);
 }
 
-// Pouití:
+// PouÅ¾itÃ­:
 Person p1 = new Person { Name = "Anna", Age = 30 };
 Person p2 = new Person { Name = "Anna", Age = 30 };
 Console.WriteLine(p1 == p2); // True
@@ -156,8 +156,8 @@ Console.WriteLine(p1 == p2); // True
 
 ---
 
-### **8. Doporuèené zdroje**
+### **8. DoporuÄenÃ© zdroje**
 
-- **Oficiální dokumentace**:  
+- **OficiÃ¡lnÃ­ dokumentace**:  
   - [Object Equality](https://learn.microsoft.com/cs-cz/dotnet/csharp/programming-guide/statements-expressions-operators/equality-comparisons)  
   - [IEquatable<T>](https://learn.microsoft.com/cs-cz/dotnet/api/system.iequatable-1)  

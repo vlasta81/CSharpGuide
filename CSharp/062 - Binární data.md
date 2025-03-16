@@ -1,4 +1,4 @@
-﻿
+
 ### **Práce s binárními daty a soubory v jazyce C#**
 
 Práce s binárními daty (soubory) v C# umožňuje čtení, zápis a manipulaci s netextovými daty (např. obrázky, PDF, binární formáty). Základní operace jsou založeny na třídách z namespace `System.IO`.

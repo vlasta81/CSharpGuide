@@ -4,10 +4,11 @@ Souhrnné informace o jazyce C#.
 
 - [Referenční dokumentace jazyka C#](https://learn.microsoft.com/cs-cz/dotnet/csharp/language-reference/)
 - [Language-Integrated Query (LINQ)](https://learn.microsoft.com/cs-cz/dotnet/csharp/linq/)
+- [Entity Framework Core](https://learn.microsoft.com/cs-cz/ef/core/)
 
 ## Obsah
 
-### CSharp
+### C#
 
 001. [**Hodnotové typy**](CSharp/001%20-%20Hodnotové%20typy.md)
 002. [**Referenční typy**](CSharp/002%20-%20Referenční%20typy.md)
@@ -108,7 +109,79 @@ Souhrnné informace o jazyce C#.
 029. [**Skip, SkipWhile**](LINQ/029%20-%20Skip,%20SkipWhile.md)
 030. [**Take, TakeWhile**](LINQ/030%20-%20Take,%20TakeWhile.md)
 
+## Entity Framework Core
 
+001. [**Entity Framework Core**](EntityFrameworkCore/001%20-%20EFCore.md)
+002. [**Instalace**](EntityFrameworkCore/002%20-%20Instalace.md)
+003. [**Konfigurace a inicializace**](EntityFrameworkCore/003%20-%20Konfigurace%20a%20inicializace.md)
+004. [**Connection string**](EntityFrameworkCore/004%20-%20Connection%20string.md)
+005. [**DbContext**](EntityFrameworkCore/005%20-%20DbContext.md)
+006. [**Model**](EntityFrameworkCore/006%20-%20Model.md)
+007. [**Entity**](EntityFrameworkCore/007%20-%20Entity.md)
+008. [**Vlastnosti entit**](EntityFrameworkCore/008%20-%20Vlastnosti%20entit.md)
+009. [**Klíče**](EntityFrameworkCore/009%20-%20Klíče.md)
+010. [**Vygenerované hodnoty**](EntityFrameworkCore/010%20-%20Vygenerované%20hodnoty.md)
+011. [**Stínové a indexerové vlastnosti**](EntityFrameworkCore/011%20-%20Stínové%20a%20indexerové%20vlastnosti.md)
+012. [**Vztahy**](EntityFrameworkCore/012%20-%20Vztahy.md)
+013. [**Indexy**](EntityFrameworkCore/013%20-%20Indexy.md)
+014. [**Dědičnost**](EntityFrameworkCore/014%20-%20Dědičnost.md)
+015. [**Sekvence**](EntityFrameworkCore/015%20-%20Sekvence.md)
+016. [**Podkladová pole**](EntityFrameworkCore/016%20-%20Podkladová%20pole.md)
+017. [**Převody hodnot**](EntityFrameworkCore/017%20-%20Převody%20hodnot.md)
+018. [**Porovnávače hodnot**](EntityFrameworkCore/018%20-%20Porovnávače%20hodnot.md)
+019. [**Předvyplnění dat**](EntityFrameworkCore/019%20-%20Předvyplnění%20dat.md)
+020. [**Konstruktory typů entit**](EntityFrameworkCore/020%20-%20Konstruktory%20typů%20entit.md)
+021. [**Rozšířené mapování tabulek**](EntityFrameworkCore/021%20-%20Rozšířené%20mapování%20tabulek.md)
+022. [**Vlastněné typy entit**](EntityFrameworkCore/022%20-%20Vlastněné%20typy%20entit.md)
+023. [**Typy entit bez klíčů**](EntityFrameworkCore/023%20-%20Typy%20entit%20bez%20klíčů.md)
+024. [**Prostorová data**](EntityFrameworkCore/024%20-%20Prostorová%20data.md)
+025. [**Migrace**](EntityFrameworkCore/025%20-%20Migrace.md)
+026. [**Dotazování na data**](EntityFrameworkCore/026%20-%20Dotazování%20na%20data.md)
+027. [**Ukládání dat**](EntityFrameworkCore/027%20-%20Ukládání%20dat.md)
+028. [**Sledování změn**](EntityFrameworkCore/028%20-%20Sledování%20změn.md)
+029. [**Protokolování, události a diagnostika**](EntityFrameworkCore/029%20-%20Protokolování,%20události%20a%20diagnostika.md)
+030. [**Stránkování**](EntityFrameworkCore/030%20-%20Stránkování.md)
+031. [**Načítání souvisejících dat**](EntityFrameworkCore/031%20-%20Načítání%20souvisejících%20dat.md)
+032. [**Rozdělené dotazy**](EntityFrameworkCore/032%20-%20Rozdělené%20dotazy.md)
+033. [**Komplexní operátory dotazů**](EntityFrameworkCore/033%20-%20Komplexní%20operátory%20dotazů.md)
+034. [**Porovnání s hodnotami null v dotazech**](EntityFrameworkCore/034%20-%20Porovnání%20s%20hodnotami%20null%20v%20dotazech.md)
+035. [**Víceklientská architektura**](EntityFrameworkCore/035%20-%20Víceklientská%20architektura.md)
+
+## ASP.NET Core MVC
+
+001. [**Přehled**](AspNetCoreMvc/001%20-%20Přehled.md)
+002. [**Controller**](AspNetCoreMvc/002%20-%20Controller.md)
+003. [**Model**](AspNetCoreMvc/003%20-%20Model.md)
+004. [**View**](AspNetCoreMvc/004%20-%20View.md)
+005. [**Partial view**](AspNetCoreMvc/005%20-%20Partial%20view.md)
+006. [**Router**](AspNetCoreMvc/006%20-%20Router.md)
+007. [**Správa relací a stavu**](AspNetCoreMvc/007%20-%20Správa%20relací%20a%20stavu.md)
+008. [**Layout**](AspNetCoreMvc/008%20-%20Layout.md)
+009. [**Syntaxe Razor**](AspNetCoreMvc/009%20-%20Syntaxe%20Razor.md)
+010. [**Integrované pomocné rutiny značek**](AspNetCoreMvc/010%20-%20Integrované%20pomocné%20rutiny%20značek.md)
+011. [**Statické soubory**](AspNetCoreMvc/011%20-%20Statické%20soubory.md)
+012. [**Metody kontroleru a zobrazení**](AspNetCoreMvc/012%20-%20Metody%20kontroleru%20a%20zobrazení.md)
+013. [**Přidání ověření do aplikace**](AspNetCoreMvc/013%20-%20Přidání%20ověření%20do%20aplikace.md)
+014. [**Práce s databází**](AspNetCoreMvc/014%20-%20Práce%20s%20databází.md)
+015. [**Antiforgery**](AspNetCoreMvc/015%20-%20Antiforgery.md)
+016. [**Zabezpečení**](AspNetCoreMvc/016%20-%20Zabezpečení.md)
+017. [**Middleware**](AspNetCoreMvc/017%20-%20Middleware.md)
+
+## Razor Pages
+
+001. [**Přehled**](RazorPages/001%20-%20Přehled.md)
+002. [**Model**](RazorPages/002%20-%20Model.md)
+003. [**Page**](RazorPages/003%20-%20Page.md)
+004. [**Integrované pomocné rutiny značek**](RazorPages/004%20-%20Integrované%20pomocné%20rutiny%20značek.md)
+005. [**Statické soubory**](RazorPages/005%20-%20Statické%20soubory.md)
+006. [**Práce s databází**](RazorPages/006%20-%20Práce%20s%20databází.md)
+007. [**Přidání ověření do aplikace**](RazorPages/007%20-%20Přidání%20ověření%20do%20aplikace.md)
+008. [**Zabezpečení**](RazorPages/008%20-%20Zabezpečení.md)
+009. [**Antiforgery**](RazorPages/009%20-%20Antiforgery.md)
+010. [**Layout**](RazorPages/010%20-%20Layout.md)
+011. [**Správa relací a stavu**](RazorPages/011%20-%20Správa%20relací%20a%20stavu.md)
+012. [**Router**](RazorPages/012%20-%20Router.md)
+013. [**Middleware**](RazorPages/013%20-%20Middleware.md)
 
 
 

@@ -166,6 +166,7 @@ Souhrnné informace o jazyce C#.
 015. [**Antiforgery**](AspNetCoreMvc/015%20-%20Antiforgery.md)
 016. [**Zabezpečení**](AspNetCoreMvc/016%20-%20Zabezpečení.md)
 017. [**Middleware**](AspNetCoreMvc/017%20-%20Middleware.md)
+018. [**Výjimky a chyby**](AspNetCoreMvc/018%20-%20Výjimky%20a%20chyby.md)
 
 ## Razor Pages
 
@@ -182,8 +183,58 @@ Souhrnné informace o jazyce C#.
 011. [**Správa relací a stavu**](RazorPages/011%20-%20Správa%20relací%20a%20stavu.md)
 012. [**Router**](RazorPages/012%20-%20Router.md)
 013. [**Middleware**](RazorPages/013%20-%20Middleware.md)
+014. [**Výjimky a chyby**](RazorPages/014%20-%20Výjimky%20a%20chyby.md)
 
+## Blazor
 
+001. [**Přehled**](Blazor/001%20-%20Přehled.md)
+002. [**Modely hostování**](Blazor/002%20-%20Modely%20hostování.md)
+003. [**Konfigurace**](Blazor/003%20-%20Konfigurace.md)
+004. [**Statické soubory**](Blazor/004%20-%20Statické%20soubory.md)
+005. [**Interoperabilita JavaScriptu**](Blazor/005%20-%20Interoperabilita%20JavaScriptu.md)
+006. [**Globalizace a lokalizace**](Blazor/Komponenty/006%20-%20Globalizace%20a%20lokalizace.md)
+007. [**Formuláře**](Blazor/Komponenty/007%20-%20Formuláře.md)
+008. [**Nahrání souborů**](Blazor/Komponenty/008%20-%20Nahrání%20souborů.md)
+009. [**Stahování souborů**](Blazor/Komponenty/009%20-%20Stahování%20souborů.md)
+010. [**Volání webového rozhraní API**](Blazor/Komponenty/010%20-%20Volání%20webového%20rozhraní%20API.md)
+011. [**Zobrazení obrázků a dokumentů**](Blazor/Komponenty/011%20-%20Zobrazení%20obrázků%20a%20dokumentů.md)
+012. [**Správa stavu**](Blazor/Komponenty/012%20-%20Správa%20stavu.md)
+013. [**Opožděné načtení sestavení**](Blazor/Komponenty/013%20-%20Opožděné%20načtení%20sestavení.md)
+014. [**Nativní závislosti ASP.NET Core Blazor WebAssembly**](Blazor/Komponenty/014%20-%20Nativní%20závislosti%20ASP.NET%20Core%20Blazor%20WebAssembly.md)
+015. [**Osvědčené postupy pro výkon**](Blazor/Komponenty/015%20-%20Osvědčené%20postupy%20pro%20výkon.md)
+016. [**Progresivní webová aplikace**](Blazor/Komponenty/016%20-%20Progresivní%20webová%20aplikace.md)
+017. [**ASP.NET Core Blazor s Entity Framework Core**](Blazor/Komponenty/017%20-%20ASP.NET%20Core%20Blazor%20s%20Entity%20Framework%20Core.md)
+
+**Komponenty**
+
+001.  [**Přehled**](Blazor/Komponenty/001%20-%20Přehled.md)
+002.  [**Režimy vykreslování**](Blazor/Komponenty/002%20-%20Režimy%20vykreslování.md)
+003.  [**Prerender components**](Blazor/Komponenty/003%20-%20Prerender%20components.md)
+004.  [**HttpContext**](Blazor/Komponenty/004%20-%20HttpContext.md)
+005.  [**Podpora obecného typu**](Blazor/Komponenty/005%20-%20Podpora%20obecného%20typu.md)
+006.  [**Kontext synchronizace**](Blazor/Komponenty/006%20-%20Kontext%20synchronizace.md)
+007.  [**Zachování relací**](Blazor/Komponenty/007%20-%20Zachování%20relací.md)
+008.  [**Přepisování parametrů**](Blazor/Komponenty/008%20-%20Přepisování%20parametrů.md)
+009.  [**Splatting atributů a doplňkové parametry**](Blazor/Komponenty/009%20-%20Splatting%20atributů%20a%20doplňkové%20parametry.md)
+010.  [**Rozložení (layout)**](Blazor/Komponenty/010%20-%20Rozložení%20(layout).md)
+011.  [**Oddíly**](Blazor/Komponenty/011%20-%20Oddíly.md)
+012.  [**Řízení obsahu v aplikacích**](Blazor/Komponenty/012%20-%20Řízení%20obsahu%20v%20aplikacích.md)
+013.  [**Kaskádové hodnoty a parametry**](Blazor/Komponenty/013%20-%20Kaskádové%20hodnoty%20a%20parametry.md)
+014.  [**Zpracování událostí**](Blazor/Komponenty/014%20-%20Zpracování%20událostí.md)
+015.  [**Datová vazba**](Blazor/Komponenty/015%20-%20Datová%20vazba.md)
+016.  [**Životní cyklus komponent**](Blazor/Komponenty/016%20-%20Životní%20cyklus%20komponent.md)
+017.  [**Virtualizace komponent**](Blazor/Komponenty/017%20-%20Virtualizace%20komponent.md)
+018.  [**Vykreslování komponent**](Blazor/Komponenty/018%20-%20Vykreslování%20komponent.md)
+019.  [**Komponenty bez vizuálního vzhledu**](Blazor/Komponenty/019%20-%20Komponenty%20bez%20vizuálního%20vzhledu.md)
+020.  [**Izolace šablon stylů CSS**](Blazor/Komponenty/020%20-%20Izolace%20šablon%20stylů%20CSS.md)
+021.  [**Dynamicky vykreslené komponenty**](Blazor/Komponenty/021%20-%20Dynamicky%20vykreslené%20komponenty.md)
+022.  [**Komponenta `QuickGrid`**](Blazor/Komponenty/022%20-%20Komponenta%20QuickGrid.md)
+023.  [**Integrace s MVC nebo Razor Pages**](Blazor/Komponenty/023%20-%20Integrace%20s%20MVC%20nebo%20Razor%20Pages.md)
+024.  [**Využívání komponent ASP.NET Core Razor z Razor knihovny tříd**](Blazor/Komponenty/024%20-%20Využívání%20komponent%20ASP.NET%20Core%20Razor%20z%20Razor%20knihovny%20tříd.md)
+025.  [**Knihovny tříd se statickým SSR**](Blazor/Komponenty/025%20-%20Knihovny%20tříd%20se%20statickým%20SSR.md)
+026.  [**JavaScriptové aplikace a architektury SPA**](Blazor/Komponenty/026%20-%20JavaScriptové%20aplikace%20a%20architektury%20SPA.md)
+027.  [**Komponenty mimo ASP. NET Core**](Blazor/Komponenty/027%20-%20Komponenty%20mimo%20ASP.%20NET%20Core.md)
+028.  [**Integrované komponenty ASP.NET Core Razor**](Blazor/Komponenty/028%20-%20Integrované%20komponenty%20ASP.NET%20Core%20Razor.md)
 
 
 

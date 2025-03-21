@@ -5,6 +5,9 @@ Souhrnné informace o jazyce C#.
 - [Referenční dokumentace jazyka C#](https://learn.microsoft.com/cs-cz/dotnet/csharp/language-reference/)
 - [Language-Integrated Query (LINQ)](https://learn.microsoft.com/cs-cz/dotnet/csharp/linq/)
 - [Entity Framework Core](https://learn.microsoft.com/cs-cz/ef/core/)
+- [ASP.NET Core Razor Pages](https://learn.microsoft.com/cs-cz/aspnet/core/razor-pages/)
+- [ASP.NET Core MVC](https://learn.microsoft.com/cs-cz/aspnet/core/mvc/)
+- [ASP.NET Core Blazor](https://learn.microsoft.com/cs-cz/aspnet/core/blazor/)
 
 ## Obsah
 

@@ -8,6 +8,7 @@ Souhrnné informace o jazyce C#.
 - [ASP.NET Core Razor Pages](https://learn.microsoft.com/cs-cz/aspnet/core/razor-pages/)
 - [ASP.NET Core MVC](https://learn.microsoft.com/cs-cz/aspnet/core/mvc/)
 - [ASP.NET Core Blazor](https://learn.microsoft.com/cs-cz/aspnet/core/blazor/)
+- [ASP.NET Core Identity](https://learn.microsoft.com/cs-cz/aspnet/core/security/authentication/identity/)
 
 ## Obsah
 
@@ -238,6 +239,20 @@ Souhrnné informace o jazyce C#.
 026.  [**JavaScriptové aplikace a architektury SPA**](Blazor/Komponenty/026%20-%20JavaScriptové%20aplikace%20a%20architektury%20SPA.md)
 027.  [**Komponenty mimo ASP. NET Core**](Blazor/Komponenty/027%20-%20Komponenty%20mimo%20ASP.%20NET%20Core.md)
 028.  [**Integrované komponenty ASP.NET Core Razor**](Blazor/Komponenty/028%20-%20Integrované%20komponenty%20ASP.NET%20Core%20Razor.md)
+
+## ASP.NET Core Identity
+
+001.  [**Přehled**](Blazor/Komponenty/001%20-%20Přehled.md)
+002.  [**Použití Identity v API a SPA**](Blazor/Komponenty/002%20-%20Použití%20Identity%20v%20API%20a%20SPA.md)
+003.  [**Vygenerování Identity**](Blazor/Komponenty/003%20-%20Vygenerování%20Identity.md)
+004.  [**Přidání vlastních uživatelských dat do Identity**](Blazor/Komponenty/004%20-%20Přidání%20vlastních%20uživatelských%20dat%20do%20Identity.md)
+005.  [**Přizpůsobení modelu Identity**](Blazor/Komponenty/005%20-%20Přizpůsobení%20modelu%20Identity.md)
+006.  [**Konfigurace systému Identity**](Blazor/Komponenty/006%20-%20Konfigurace%20systému%20Identity.md)
+007.  [**Vlastní poskytovatelé úložiště**](Blazor/Komponenty/007%20-%20Vlastní%20poskytovatelé%20úložiště.md)
+008.  [**Potvrzení účtu a obnovení hesla**](Blazor/Komponenty/008%20-%20Potvrzení%20účtu%20a%20obnovení%20hesla.md)
+009.  [**Zapnutí generování kódu QR v systému Identity**](Blazor/Komponenty/009%20-%20Zapnutí%20generování%20kódu%20QR%20v%20systému%20Identity.md)
+010.  [**Externí zprostředkovatelé ověřování**](Blazor/Komponenty/010%20-%20Externí%20zprostředkovatelé%20ověřování.md)
+ 
 
 
 

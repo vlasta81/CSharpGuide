@@ -196,18 +196,18 @@ Souhrnné informace o jazyce C#.
 003. [**Konfigurace**](Blazor/003%20-%20Konfigurace.md)
 004. [**Statické soubory**](Blazor/004%20-%20Statické%20soubory.md)
 005. [**Interoperabilita JavaScriptu**](Blazor/005%20-%20Interoperabilita%20JavaScriptu.md)
-006. [**Globalizace a lokalizace**](Blazor/Komponenty/006%20-%20Globalizace%20a%20lokalizace.md)
-007. [**Formuláře**](Blazor/Komponenty/007%20-%20Formuláře.md)
-008. [**Nahrání souborů**](Blazor/Komponenty/008%20-%20Nahrání%20souborů.md)
-009. [**Stahování souborů**](Blazor/Komponenty/009%20-%20Stahování%20souborů.md)
-010. [**Volání webového rozhraní API**](Blazor/Komponenty/010%20-%20Volání%20webového%20rozhraní%20API.md)
-011. [**Zobrazení obrázků a dokumentů**](Blazor/Komponenty/011%20-%20Zobrazení%20obrázků%20a%20dokumentů.md)
-012. [**Správa stavu**](Blazor/Komponenty/012%20-%20Správa%20stavu.md)
-013. [**Opožděné načtení sestavení**](Blazor/Komponenty/013%20-%20Opožděné%20načtení%20sestavení.md)
-014. [**Nativní závislosti ASP.NET Core Blazor WebAssembly**](Blazor/Komponenty/014%20-%20Nativní%20závislosti%20ASP.NET%20Core%20Blazor%20WebAssembly.md)
-015. [**Osvědčené postupy pro výkon**](Blazor/Komponenty/015%20-%20Osvědčené%20postupy%20pro%20výkon.md)
-016. [**Progresivní webová aplikace**](Blazor/Komponenty/016%20-%20Progresivní%20webová%20aplikace.md)
-017. [**ASP.NET Core Blazor s Entity Framework Core**](Blazor/Komponenty/017%20-%20ASP.NET%20Core%20Blazor%20s%20Entity%20Framework%20Core.md)
+006. [**Globalizace a lokalizace**](Blazor/006%20-%20Globalizace%20a%20lokalizace.md)
+007. [**Formuláře**](Blazor/007%20-%20Formuláře.md)
+008. [**Nahrání souborů**](Blazor/008%20-%20Nahrání%20souborů.md)
+009. [**Stahování souborů**](Blazor/009%20-%20Stahování%20souborů.md)
+010. [**Volání webového rozhraní API**](Blazor/010%20-%20Volání%20webového%20rozhraní%20API.md)
+011. [**Zobrazení obrázků a dokumentů**](Blazor/011%20-%20Zobrazení%20obrázků%20a%20dokumentů.md)
+012. [**Správa stavu**](Blazor/012%20-%20Správa%20stavu.md)
+013. [**Opožděné načtení sestavení**](Blazor/013%20-%20Opožděné%20načtení%20sestavení.md)
+014. [**Nativní závislosti ASP.NET Core Blazor WebAssembly**](Blazor/014%20-%20Nativní%20závislosti%20ASP.NET%20Core%20Blazor%20WebAssembly.md)
+015. [**Osvědčené postupy pro výkon**](Blazor/015%20-%20Osvědčené%20postupy%20pro%20výkon.md)
+016. [**Progresivní webová aplikace**](Blazor/016%20-%20Progresivní%20webová%20aplikace.md)
+017. [**ASP.NET Core Blazor s Entity Framework Core**](Blazor/017%20-%20ASP.NET%20Core%20Blazor%20s%20Entity%20Framework%20Core.md)
 
 **Komponenty**
 
@@ -242,16 +242,16 @@ Souhrnné informace o jazyce C#.
 
 ## ASP.NET Core Identity
 
-001.  [**Přehled**](Blazor/Komponenty/001%20-%20Přehled.md)
-002.  [**Použití Identity v API a SPA**](Blazor/Komponenty/002%20-%20Použití%20Identity%20v%20API%20a%20SPA.md)
-003.  [**Vygenerování Identity**](Blazor/Komponenty/003%20-%20Vygenerování%20Identity.md)
-004.  [**Přidání vlastních uživatelských dat do Identity**](Blazor/Komponenty/004%20-%20Přidání%20vlastních%20uživatelských%20dat%20do%20Identity.md)
-005.  [**Přizpůsobení modelu Identity**](Blazor/Komponenty/005%20-%20Přizpůsobení%20modelu%20Identity.md)
-006.  [**Konfigurace systému Identity**](Blazor/Komponenty/006%20-%20Konfigurace%20systému%20Identity.md)
-007.  [**Vlastní poskytovatelé úložiště**](Blazor/Komponenty/007%20-%20Vlastní%20poskytovatelé%20úložiště.md)
-008.  [**Potvrzení účtu a obnovení hesla**](Blazor/Komponenty/008%20-%20Potvrzení%20účtu%20a%20obnovení%20hesla.md)
-009.  [**Zapnutí generování kódu QR v systému Identity**](Blazor/Komponenty/009%20-%20Zapnutí%20generování%20kódu%20QR%20v%20systému%20Identity.md)
-010.  [**Externí zprostředkovatelé ověřování**](Blazor/Komponenty/010%20-%20Externí%20zprostředkovatelé%20ověřování.md)
+001.  [**Přehled**](AspNetCoreIdentity/001%20-%20Přehled.md)
+002.  [**Použití Identity v API a SPA**](AspNetCoreIdentity/002%20-%20Použití%20Identity%20v%20API%20a%20SPA.md)
+003.  [**Vygenerování Identity**](AspNetCoreIdentity/003%20-%20Vygenerování%20Identity.md)
+004.  [**Přidání vlastních uživatelských dat do Identity**](AspNetCoreIdentity/004%20-%20Přidání%20vlastních%20uživatelských%20dat%20do%20Identity.md)
+005.  [**Přizpůsobení modelu Identity**](AspNetCoreIdentity/005%20-%20Přizpůsobení%20modelu%20Identity.md)
+006.  [**Konfigurace systému Identity**](AspNetCoreIdentity/006%20-%20Konfigurace%20systému%20Identity.md)
+007.  [**Vlastní poskytovatelé úložiště**](AspNetCoreIdentity/007%20-%20Vlastní%20poskytovatelé%20úložiště.md)
+008.  [**Potvrzení účtu a obnovení hesla**](AspNetCoreIdentity/008%20-%20Potvrzení%20účtu%20a%20obnovení%20hesla.md)
+009.  [**Zapnutí generování kódu QR v systému Identity**](AspNetCoreIdentity/009%20-%20Zapnutí%20generování%20kódu%20QR%20v%20systému%20Identity.md)
+010.  [**Externí zprostředkovatelé ověřování**](AspNetCoreIdentity/010%20-%20Externí%20zprostředkovatelé%20ověřování.md)
  
 
 
